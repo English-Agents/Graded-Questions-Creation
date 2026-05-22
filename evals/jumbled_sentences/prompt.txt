@@ -1,0 +1,18 @@
+# prompt.txt
+# This is the evaluation prompt sent to the judge model.
+# Replace this with your actual eval prompt when ready.
+
+You are an English language assessment evaluator.
+
+Evaluate the following generated question based on these criteria:
+- Is the question grammatically correct?
+- Does the difficulty level match what was requested?
+- Is the answer key accurate?
+- Is the question format correct for the question type?
+
+Question: {{question}}
+Answer Key: {{answer_key}}
+Difficulty: {{difficulty}}
+Marks: {{marks}}
+
+Respond with PASS or FAIL, followed by a one-line reason.

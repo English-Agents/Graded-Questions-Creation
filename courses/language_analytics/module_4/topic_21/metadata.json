@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Report and Summary Writing",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  8,
+                       "question_types":  [
+                                              "Report / Work report"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 4: Writing Skills for Study and Work",
+    "course":  "Language Analytics"
+}

@@ -1,0 +1,17 @@
+description: "Eval — Fill in the Blanks"
+
+providers:
+  - id: anthropic:messages:claude-haiku-4-5-20251001
+    config:
+      temperature: 0
+
+prompts:
+  - file://prompt.txt
+
+defaultTest:
+  options:
+    provider: anthropic:messages:claude-haiku-4-5-20251001
+
+tests:
+  - file://eval_tests.yaml
+  - file://testing_tests.yaml

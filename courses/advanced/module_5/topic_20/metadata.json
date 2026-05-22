@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Punctuation",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  2,
+                       "question_types":  [
+                                              "Error correction",
+                                              "Fill in the blanks"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Advanced",
+    "module":  "Module 5: Expressing Conditions and Complex Ideas"
+}

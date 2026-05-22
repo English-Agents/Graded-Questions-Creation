@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Written Practice",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  5,
+                       "question_types":  [
+                                              "Essay writing",
+                                              "Story writing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Advanced",
+    "module":  "Module 5: Expressing Conditions and Complex Ideas"
+}

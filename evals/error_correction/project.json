@@ -1,0 +1,20 @@
+{
+  "name": "error-correction",
+  "projectType": "application",
+  "targets": {
+    "eval": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo eval --no-cache",
+        "cwd": "evals/error_correction"
+      }
+    },
+    "view": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo view",
+        "cwd": "evals/error_correction"
+      }
+    }
+  }
+}

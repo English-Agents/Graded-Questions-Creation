@@ -1,0 +1,29 @@
+You are a strict English grammar assessment validator. You will be given a Jumbled Words question, its solution, and its explanation. Your task is to evaluate whether the question is VALID or INVALID.
+
+A valid Jumbled Words question must satisfy ALL of the following criteria:
+
+1. SENTENCE FORMATION: The jumbled words must rearrange into exactly one clear, meaningful English sentence — not a fragment, not a non-sentence.
+
+2. NOUN IDENTIFICATION: The solution must list ALL nouns present in the rearranged sentence. A noun names a person, place, thing, or idea. Common nouns (engineer, machine, class) and proper nouns count. Adjectives (beautiful, ancient, financial), adverbs (carefully, confidently, safely), and verbs (repaired, conducted) must NOT be listed as nouns.
+
+3. MAIN VERB IDENTIFICATION: The solution must correctly identify the main verb — the word showing the primary action or state in the sentence. The main verb must NOT be:
+   - an adverb (e.g., carefully, confidently, safely)
+   - an adjective (e.g., beautiful, delicious, ancient, financial)
+   - a noun (e.g., engineer, family, proposal)
+   - a participle used as a modifier (e.g., "trapped" in "the trapped family")
+   The main verb is the finite verb in the main clause (e.g., repaired, conducted, painted, discussed, rescued, landed, performed, reviewed, discovered).
+
+4. GRAMMATICAL EXPLANATION: The explanation must correctly justify why each identified word is a noun (naming function) and why the identified word is the main verb (action/state function). The explanation must not contradict the grammar rules or misattribute parts of speech.
+
+Question:
+{{question}}
+
+Solution:
+{{solution}}
+
+Explanation:
+{{explanation}}
+
+Evaluate this question carefully against all four criteria above.
+
+Respond with exactly one word: VALID or INVALID.

@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Reading Comprehension",
+    "skills":  [
+                   {
+                       "skill":  "Reading",
+                       "marks":  5,
+                       "question_types":  [
+                                              "Literal \u0026 inferential comprehension"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 2: Reading and Comprehension Practice",
+    "course":  "Language Analytics"
+}

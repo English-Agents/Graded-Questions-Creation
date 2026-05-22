@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Mastering the Art of Discussion",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  5,
+                       "question_types":  [
+                                              "Essay writing",
+                                              "Story writing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Applied Communicative English",
+    "module":  "Module 2: Collaborative Communication For Group Discussions (Part 2)"
+}

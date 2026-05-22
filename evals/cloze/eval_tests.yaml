@@ -1,0 +1,154 @@
+# eval_tests.yaml — Cloze
+# 5 positive reference questions (Q1-Q5). Q6-Q10 reserved.
+
+- description: "Cloze L4 Hard CO1 — consultant sales data scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      After the consultant's detailed (i)_________________ (analysis / analyze) of the sales data,
+      the management team (ii)_________________ (revision / revised) the outdated pricing policy,
+      issued a formal (iii)_________________ (instruct / instruction) to the regional offices,
+      and (iv)_________________ (implementation / implemented) stricter reporting rules for all future audits.
+    solution: |
+      (i) analysis
+      (ii) revised
+      (iii) instruction
+      (iv) implemented
+    explanation: |
+      (i) analysis is a noun because it follows the adjective "detailed" and refers to a process.
+      (ii) revised is the main verb because it shows the action performed by "the management team."
+      (iii) instruction is a noun because it follows the adjective "formal" and is the object of "issued."
+      (iv) implemented is a main verb because it shows another action performed by "the management team."
+  assert:
+    - type: llm-rubric
+      value: >
+        The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form.
+        Solution must correctly identify noun vs verb. Explanation must justify each answer using
+        grammatical reasoning such as "follows the adjective" or "shows the action performed by."
+
+- description: "Cloze L4 Medium CO1 — hospital patient-record scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Medium"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      Before the hospital introduced the new patient-record system, the medical director requested
+      a complete (i)_________________ (evaluation / evaluate) of the existing process, the IT team
+      (ii)_________________ (installation / installed) the updated software, the nurses received a
+      clear (iii)_________________ (explain / explanation) of the changes, and the administrator
+      (iv)_________________ (approval / approved) the final rollout schedule.
+    solution: |
+      (i) evaluation
+      (ii) installed
+      (iii) explanation
+      (iv) approved
+    explanation: |
+      (i) evaluation is a noun because it follows the adjective "complete" and names a process.
+      (ii) installed is the main verb because it shows the action performed by "the IT team."
+      (iii) explanation is a noun because it follows the adjective "clear" and is the object of "received."
+      (iv) approved is the main verb because it shows the action performed by "the administrator."
+  assert:
+    - type: llm-rubric
+      value: >
+        The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form.
+        Solution must correctly identify noun vs verb. Explanation must justify each answer using
+        grammatical reasoning such as "follows the adjective" or "shows the action performed by."
+
+- description: "Cloze L4 Hard CO1 — city council traffic patterns scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      After the city council's careful (i)_________________ (assessment / assess) of traffic patterns,
+      the planning department (ii)_________________ (reconstruction / redesigned) the main intersection,
+      published an official (iii)_________________ (announce / announcement) for local residents,
+      and (iv)_________________ (coordination / coordinated) the construction schedule with nearby businesses.
+    solution: |
+      (i) assessment
+      (ii) redesigned
+      (iii) announcement
+      (iv) coordinated
+    explanation: |
+      (i) assessment is a noun because it follows the adjective "careful" and refers to a study or judgment.
+      (ii) redesigned is the main verb because it shows what "the planning department" did.
+      (iii) announcement is a noun because it follows the adjective "official" and is the object of "published."
+      (iv) coordinated is the main verb because it shows another action performed by "the planning department."
+  assert:
+    - type: llm-rubric
+      value: >
+        The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form.
+        Solution must correctly identify noun vs verb. Explanation must justify each answer using
+        grammatical reasoning such as "follows the adjective" or "shows the action performed by."
+
+- description: "Cloze L4 Hard CO1 — auditor accounts scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      Following the auditor's independent (i)_________________ (inspection / inspect) of the company's accounts,
+      the finance officer (ii)_________________ (correction / corrected) several reporting errors,
+      prepared a detailed (iii)_________________ (summarize / summary) for the board,
+      and (iv)_________________ (submission / submitted) the revised statements before the deadline.
+    solution: |
+      (i) inspection
+      (ii) corrected
+      (iii) summary
+      (iv) submitted
+    explanation: |
+      (i) inspection is a noun because it follows the adjective "independent" and names an activity.
+      (ii) corrected is the main verb because it shows the action performed by "the finance officer."
+      (iii) summary is a noun because it follows the adjective "detailed" and is the object of "prepared."
+      (iv) submitted is the main verb because it shows another action performed by "the finance officer."
+  assert:
+    - type: llm-rubric
+      value: >
+        The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form.
+        Solution must correctly identify noun vs verb. Explanation must justify each answer using
+        grammatical reasoning such as "follows the adjective" or "shows the action performed by."
+
+- description: "Cloze L4 Medium CO1 — university curriculum review scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Medium"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      During the university's curriculum review, the academic committee completed a thorough
+      (i)_________________ (comparison / compare) of similar courses, the department
+      (ii)_________________ (modified / modification) the syllabus, issued a formal
+      (iii)_________________ (recommend / recommendation) to the faculty board,
+      and (iv)_________________ (introduced / introduction) the revised course structure in the next semester.
+    solution: |
+      (i) comparison
+      (ii) modified
+      (iii) recommendation
+      (iv) introduced
+    explanation: |
+      (i) comparison is a noun because it follows the adjective "thorough" and names an act of examining similarities.
+      (ii) modified is the main verb because it shows the action performed by "the department."
+      (iii) recommendation is a noun because it follows the adjective "formal" and is the object of "issued."
+      (iv) introduced is the main verb because it shows another action performed by "the department."
+  assert:
+    - type: llm-rubric
+      value: >
+        The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form.
+        Solution must correctly identify noun vs verb. Explanation must justify each answer using
+        grammatical reasoning such as "follows the adjective" or "shows the action performed by."

@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Real Time Session 4",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Short functional writing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Advanced",
+    "module":  "Module 5: Expressing Conditions and Complex Ideas"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "short-functional-writing",
+  "projectType": "application",
+  "targets": {
+    "eval": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo eval --no-cache",
+        "cwd": "evals/short_functional_writing"
+      }
+    },
+    "view": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo view",
+        "cwd": "evals/short_functional_writing"
+      }
+    }
+  }
+}

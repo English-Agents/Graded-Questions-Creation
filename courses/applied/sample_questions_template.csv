@@ -1,0 +1,31 @@
+# English Applied — Sample Questions Template
+# Upload via: POST /api/content/samples  (with topic_id and file)
+#
+# Column order:
+#   skill, marks, question_type, difficulty, text, answer_key,
+#   option_a, option_b, option_c, option_d, bloom_level
+
+# ── Grammar & Vocabulary — 2 marks — Error correction ────────────────────────
+Grammar & Vocabulary,2,Error correction,easy,"She don't understand the instructions.","She doesn't understand the instructions.",,,,,2
+Grammar & Vocabulary,2,Error correction,medium,"The sentence lack clarity and should be revised.","The sentence lacks clarity and should be revised.",,,,,2
+Grammar & Vocabulary,2,Error correction,hard,"Neither the manager nor the employees was informed about the changes.","Neither the manager nor the employees were informed about the changes.",,,,,3
+
+# ── Grammar & Vocabulary — 2 marks — Sentence arrangement ───────────────────
+Grammar & Vocabulary,2,Sentence arrangement,medium,"Rearrange: the / clearly / instructions / please / explain","Please explain the instructions clearly.",,,,,2
+Grammar & Vocabulary,2,Sentence arrangement,hard,"Rearrange: complex / breaking / the / by / task / into / simpler / steps","By breaking the complex task into simpler steps.",,,,,3
+
+# ── Grammar & Vocabulary — 3 marks — Sentence Conversion ─────────────────────
+Grammar & Vocabulary,3,Sentence Conversion,medium,"Convert to passive: The manager approved the project proposal.","The project proposal was approved by the manager.",,,,,3
+Grammar & Vocabulary,3,Sentence Conversion,medium,"Convert to reported speech: She said, 'I will submit the report tomorrow.'","She said that she would submit the report the next day.",,,,,3
+Grammar & Vocabulary,3,Sentence Conversion,hard,"Convert to conditional: She studied hard. She passed the exam.","If she had studied hard, she would have passed the exam.",,,,,4
+
+# ── Writing — 3 marks — Short functional writing ─────────────────────────────
+Writing,3,Short functional writing,easy,"Write a short prompt asking an AI assistant to summarise a paragraph.","Model: Please summarise the following paragraph in 2–3 sentences, focusing on the main idea: [paragraph text]",,,,,3
+Writing,3,Short functional writing,medium,"Design a clear prompt to ask an AI tool to correct grammatical errors in a given paragraph.","Model: Review the following paragraph and correct all grammatical errors. List each correction and explain why the change was made: [paragraph text]",,,,,3
+
+# ── Writing — 5 marks — Essay writing ────────────────────────────────────────
+Writing,5,Essay writing,medium,"Write a short essay (150–200 words) discussing the role of language in professional success.","Model: Language is a powerful tool in any professional setting. The ability to express ideas clearly, listen actively, and write precisely can determine how others perceive us at work. Professionals who communicate well are more likely to earn the trust of their colleagues and advance in their careers. In meetings, precise language prevents misunderstandings. In written communication, clarity saves time and reduces errors. Moreover, the ability to adapt language to different audiences — whether speaking to a technical team or a senior executive — shows professional maturity. As workplaces become more diverse and global, strong language skills enable collaboration across cultures and backgrounds. In conclusion, investing in language skills is one of the best investments a professional can make for long-term career success.",,,,,4
+Writing,5,Story writing,hard,"Write a short story (150–200 words) about a professional who uses effective communication to resolve a conflict at work.","Model: Rahul, a project manager at a software firm, noticed tension building between two team members — Priya and Arjun — over task ownership. Instead of ignoring the issue, he scheduled a brief one-on-one with each of them, listening carefully to their perspectives. He discovered that the conflict arose from unclear role definitions, not personal differences. Rahul then held a team meeting where he calmly clarified responsibilities and encouraged open dialogue. Both Priya and Arjun appreciated being heard. Within a week, the team's productivity improved, and the project was back on track. Rahul's success lay not in his technical skills, but in his ability to communicate clearly, listen empathetically, and mediate effectively. The episode reminded the team that communication is the foundation of collaboration.",,,,,5
+
+# ── Writing — 7 marks — Process writing ─────────────────────────────────────
+Writing,7,Process writing / sequencing,medium,"Describe the step-by-step process of writing a professional email in a workplace setting.","Model: Writing a professional email involves several important steps. First, identify the purpose of your email clearly before you begin. Second, use an appropriate greeting such as 'Dear Mr/Ms [Surname]' or 'Dear Team'. Third, write a concise subject line that reflects the content. Fourth, begin with a brief introduction stating your purpose. Fifth, present your main content in short, clear paragraphs — one idea per paragraph. Sixth, close with a polite call to action or summary statement. Finally, end with a professional sign-off such as 'Regards' or 'Sincerely', followed by your full name and designation. Proofread the email before sending to check for errors in grammar, spelling, and tone.",,,,,3

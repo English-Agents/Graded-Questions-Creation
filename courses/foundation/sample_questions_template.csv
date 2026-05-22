@@ -1,0 +1,41 @@
+# English Foundation — Sample Questions Template
+# Upload this file via: POST /api/content/samples  (with topic_id and file)
+#
+# Column order:
+#   skill, marks, question_type, difficulty, text, answer_key,
+#   option_a, option_b, option_c, option_d, bloom_level
+#
+# skill         : Grammar & Vocabulary  |  Writing
+# marks         : 2 or 3
+# question_type : Fill in the blanks | Error correction | Sentence Conversion |
+#                 Sentence arrangement | Jumbled Sentences | Cloze | Short functional writing
+# difficulty    : easy | medium | hard
+# bloom_level   : 1=Remember 2=Understand 3=Apply 4=Analyse 5=Evaluate 6=Create
+
+# ── Grammar & Vocabulary — 2 marks — Fill in the blanks ──────────────────────
+Grammar & Vocabulary,2,Fill in the blanks,easy,"She ___ (go) to school every day.",goes,,,,, 1
+Grammar & Vocabulary,2,Fill in the blanks,easy,"They ___ (be) happy when they heard the news.",were,,,,,1
+Grammar & Vocabulary,2,Fill in the blanks,medium,"By the time we arrived, the meeting ___ (already / start).",had already started,,,,,2
+Grammar & Vocabulary,2,Fill in the blanks,medium,"He ___ (not / finish) his homework yet.",has not finished,,,,,2
+Grammar & Vocabulary,2,Fill in the blanks,hard,"If she ___ (study) harder, she would have passed the exam.",had studied,,,,,3
+
+# ── Grammar & Vocabulary — 2 marks — Error correction ────────────────────────
+Grammar & Vocabulary,2,Error correction,easy,"He go to the market every morning.","He goes to the market every morning.",,,,,1
+Grammar & Vocabulary,2,Error correction,easy,"She don't like coffee.","She doesn't like coffee.",,,,,1
+Grammar & Vocabulary,2,Error correction,medium,"The team are working hard on the project.","The team is working hard on the project.",,,,,2
+Grammar & Vocabulary,2,Error correction,medium,"He has went to the store.","He has gone to the store.",,,,,2
+Grammar & Vocabulary,2,Error correction,hard,"Neither the students nor the teacher were present.","Neither the students nor the teacher was present.",,,,,3
+
+# ── Grammar & Vocabulary — 2 marks — Sentence Conversion ─────────────────────
+Grammar & Vocabulary,2,Sentence Conversion,medium,"Convert to plural: The child is playing in the park.","The children are playing in the park.",,,,,2
+Grammar & Vocabulary,2,Sentence Conversion,medium,"Convert to negative: She writes letters every week.","She does not write letters every week.",,,,,2
+Grammar & Vocabulary,2,Sentence Conversion,hard,"Convert to past perfect: She finishes the report before the deadline.","She had finished the report before the deadline.",,,,,3
+
+# ── Grammar & Vocabulary — 3 marks — Sentence arrangement ───────────────────
+Grammar & Vocabulary,3,Sentence arrangement,medium,"Rearrange: evening / usually / he / reads / in / the / newspaper","He usually reads the newspaper in the evening.",,,,,2
+Grammar & Vocabulary,3,Sentence arrangement,hard,"Rearrange: by / had / they / time / arrived / the / already / we / left","By the time we arrived, they had already left.",,,,,3
+
+# ── Writing — 3 marks — Short functional writing ─────────────────────────────
+Writing,3,Short functional writing,easy,"Write a short note to your friend inviting them to your birthday party.","Model: Dear [Name], I am happy to invite you to my birthday party on [date] at [time] at [place]. Please come and celebrate with me. Looking forward to seeing you. Regards, [Name]",,,,,3
+Writing,3,Short functional writing,medium,"Write a short message to your teacher requesting an extension for your assignment.","Model: Dear Sir/Madam, I am writing to request a two-day extension for the assignment due on [date]. I have been unwell and was unable to complete it on time. I will submit it by [new date]. Thank you for your understanding. Regards, [Student Name]",,,,,3
+Writing,3,Short functional writing,hard,"Write a short notice for your college notice board announcing a study group session.","Model: NOTICE — Study Group Session — All students of [Class] are invited to join a study group session on [topic] on [date] at [time] in [room]. Attendance is encouraged. For queries, contact [Name]. — [Date]",,,,,4

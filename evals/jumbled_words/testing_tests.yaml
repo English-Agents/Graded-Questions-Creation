@@ -1,0 +1,201 @@
+# NEGATIVE QUESTIONS — Flawed Jumbled Words questions (should be marked INVALID)
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K2 – Understand
+    difficulty: Easy
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      engineer / the / machine / repaired / the
+    solution: |
+      The engineer repaired the machine.
+
+      Noun: repaired
+      Main Verb: engineer
+    explanation: "'Repaired' is a naming word, so it is a noun. 'Engineer' shows the action performed in the sentence, so it is the main verb."
+    error_type: Swapped Noun and Main Verb
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K2 – Understand
+    difficulty: Easy
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      chef / prepared / delicious / the / meal / a
+    solution: |
+      The chef prepared a delicious meal.
+
+      Noun: chef, meal
+      Main Verb: delicious
+    explanation: "'Chef' and 'meal' are nouns. 'Delicious' describes the action in the sentence, so it is the main verb."
+    error_type: Incorrect Identification of Adjective as Verb
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K2 – Understand
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      during / scientist / experiment / conducted / the / an / class
+    solution: |
+      The scientist conducted an experiment during class.
+
+      Noun: scientist, experiment
+      Main Verb: conducted
+    explanation: "'Scientist' and 'experiment' are naming words, so they are nouns. 'Conducted' shows the main action performed in the sentence."
+    error_type: Partial Noun Identification
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K3 – Apply
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      painted / artist / beautiful / landscape / the / a
+    solution: |
+      The artist painted a beautiful landscape.
+
+      Noun: artist, landscape
+      Main Verb: beautifully
+    explanation: "'Artist' and 'landscape' are nouns. 'Beautifully' is the main verb because it describes the manner of painting."
+    error_type: Misclassification of Adverb as Verb
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K3 – Apply
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      committee / proposal / discussed / the / members / carefully / the
+    solution: |
+      The committee members discussed the proposal carefully.
+
+      Noun: discussed, carefully
+      Main Verb: members
+    explanation: "'Discussed' and 'carefully' are naming words. 'Members' shows the primary action and acts as the main verb in the sentence."
+    error_type: Multiple Incorrect Classifications
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K3 – Apply
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      rescued / firefighters / family / the / trapped / the
+    solution: |
+      The firefighters rescued the trapped family.
+
+      Noun: firefighters, family
+      Main Verb: trapped
+    explanation: "'Firefighters' and 'family' are nouns because they name people. 'Trapped' is the main verb because it is the most important word in the sentence."
+    error_type: Incorrect Main Verb Identification
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K2 – Understand
+    difficulty: Easy
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      pilot / aircraft / the / landed / safely / the
+    solution: |
+      The safely aircraft pilot the landed.
+
+      Noun: pilot, aircraft
+      Main Verb: landed
+    explanation: "'Pilot' and 'aircraft' are nouns because they name a person and a thing. 'Landed' expresses the action in the sentence, so it is the main verb."
+    error_type: Incorrect Sentence Formation
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K3 – Apply
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      musicians / performed / stage / on / the / confidently
+    solution: |
+      The musicians performed confidently on stage.
+
+      Noun: musicians, stage, confidently
+      Main Verb: performed
+    explanation: "'Musicians,' 'stage,' and 'confidently' are nouns because they name people, a place, and an action. 'Performed' shows the main action in the sentence."
+    error_type: Misclassification of Adverb as Noun
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K3 – Apply
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      manager / reviewed / financial / the / reports / carefully
+    solution: |
+      The manager reviewed financial reports carefully.
+
+      Noun: manager, reports
+      Main Verb: financial
+    explanation: "'Manager' and 'reports' are naming words, so they function as nouns. 'Financial' is an adjective that acts as the main verb because it describes what the manager did."
+    error_type: Incorrect Identification of Adjective as Verb
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Jumbled Words
+    bloom_level: K2 – Understand
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Rearrange the jumbled words to form a meaningful sentence. Then identify the noun and the main verb in the sentence:
+
+      archaeologists / ancient / discovered / temple / an / underground
+    solution: |
+      Archaeologists discovered an ancient underground temple.
+
+      Noun: archaeologists, temple
+      Main Verb: discovered
+    explanation: "'Archaeologists' is a noun because it names people. 'Temple' is a noun because it names an object. 'Ancient' and 'underground' are the main verbs because they show what the archaeologists did to the temple."
+    error_type: Incorrect Grammatical Explanation
+  assert:
+    - type: llm-rubric
+      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."

@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Resume and Cover-Letter Writing Practice",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  8,
+                       "question_types":  [
+                                              "Report / Work report"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 5: Communication and Career Readiness",
+    "course":  "Language Analytics"
+}

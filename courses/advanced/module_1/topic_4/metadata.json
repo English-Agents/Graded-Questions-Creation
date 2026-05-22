@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Tenses Ability",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Sentence Conversion",
+                                              "Error correction"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 1: Talking About the Future",
+    "course":  "Communicative English Advanced"
+}

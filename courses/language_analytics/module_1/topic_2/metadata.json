@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Real Time Session 1: Highlighting Key Points",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Short functional writing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 1: Vocabulary and Word Practice",
+    "course":  "Language Analytics"
+}

@@ -1,0 +1,211 @@
+# NEGATIVE QUESTIONS — Intentionally flawed Sentence Correction / MCQ questions
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Evaluate whether a sentence-correction MCQ has one clear grammatically correct option."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The principal's careful observe of classroom behaviour helped improve the teaching plan.
+
+      i) The principal's careful observation of classroom behaviour helped improve the teaching plan.
+      ii) The principal's careful observing of classroom behaviour helped improve the teaching plan.
+      iii) The principal's careful study of classroom behaviour helped improve the teaching plan.
+      iv) The principal's careful review of classroom behaviour helped improve the teaching plan.
+    flawed_solution: "Possible correct options: i), iii), and iv)"
+    explanation: "Flawed because options i, iii, and iv are all grammatically correct — observation, study, and review are all valid nouns after 'careful.' There is no single correct answer."
+    error_type: More than one correct answer
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Evaluate whether a sentence-correction MCQ has one clear grammatically correct option."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The teacher's careful explain of the poem helped the students understand the theme.
+
+      i) The teacher's careful explanation of the poem helped the students understand the theme.
+      ii) The teacher's careful interpretation of the poem helped the students understand the theme.
+      iii) The teacher's careful discussion of the poem helped the students understand the theme.
+      iv) The teacher's careful analysis of the poem helped the students understand the theme.
+    flawed_solution: "Possible correct options: i), ii), iii), and iv)"
+    explanation: "Flawed because all four options are grammatically correct — explanation, interpretation, discussion, and analysis are all valid nouns after 'careful.' There is no single correct answer."
+    error_type: More than one correct answer
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify whether the correction in an MCQ tests noun and main verb usage accurately."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The mechanic inspection the engine before replacing the damaged part.
+
+      i) The mechanic inspecting the engine before replacing the damaged part.
+      ii) The mechanic inspection the engine before replacing the damaged part.
+      iii) The mechanic inspect the engine before replacing the damaged part.
+      iv) The mechanic inspects engine before replacing the damaged part.
+    flawed_solution: "No correct option"
+    explanation: "Flawed because none of the four options provides a correct finite main verb (inspected). Option iv also has an article error ('inspects engine'). The question has no valid correct answer."
+    error_type: No correct answer
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Analyze whether the answer key correctly identifies the noun or main verb form required."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The auditor prepared a detailed summarize of the expense records.
+
+      i) The auditor prepared a detailed summary of the expense records.
+      ii) The auditor prepared a detailed summarized of the expense records.
+      iii) The auditor prepared a detailed summarizes of the expense records.
+      iv) The auditor prepared a detailed summarize of the expense records.
+    flawed_solution: "Flawed key: ii) The auditor prepared a detailed summarized of the expense records."
+    explanation: "The answer key is wrong — option ii uses the verb form 'summarized' which cannot follow 'a detailed.' The correct answer is option i (summary), but the key incorrectly marks ii."
+    error_type: Incorrect answer key
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Distinguish noun/main verb errors from unrelated grammatical errors."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The guide gave a clear direction to the tourists before the trek began.
+
+      i) The guide gave a clear direction to the tourists before the trek began.
+      ii) The guide gave clear directions to the tourists before the trek began.
+      iii) The guide gave a clearly direction to the tourists before the trek began.
+      iv) The guide gave a clear directed to the tourists before the trek began.
+    flawed_solution: "ii) — but the error is not about noun vs main verb."
+    explanation: "Flawed because the correction from 'direction' to 'directions' tests countable noun number, not noun-vs-main-verb usage. The question does not target the intended skill."
+    error_type: Error not related to noun vs main verb
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Evaluate whether a sentence-correction MCQ has a fixed and unambiguous answer."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The manager's final reviewing of the proposal helped the team revise the plan.
+
+      i) The manager's final review of the proposal helped the team revise the plan.
+      ii) The manager's final reviewing of the proposal helped the team revise the plan.
+      iii) The manager's final assessment of the proposal helped the team revise the plan.
+      iv) The manager's final evaluation of the proposal helped the team revise the plan.
+    flawed_solution: "Possible correct options: i), iii), and iv)"
+    explanation: "Flawed because options i, iii, and iv are all grammatically correct — review, assessment, and evaluation are all valid nouns after 'final.' The correct answer is not unique."
+    error_type: Ambiguous correction
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify whether the correct option is natural, precise, and suitable for exam use."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The coach motivation the players before the final match.
+
+      i) The coach motivated the players before the final match.
+      ii) The coach gave the players motivation before the final match.
+      iii) The coach provided motivational before the final match.
+      iv) The coach motivating the players before the final match.
+    flawed_solution: "Possible correct options: i) and ii)"
+    explanation: "Flawed because both option i and option ii are grammatically correct — option i directly corrects the verb, while option ii restructures the sentence acceptably. Two options can be marked correct."
+    error_type: Distractors are also grammatically correct
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Analyze whether options preserve the original meaning while correcting noun or main verb errors."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The scientist's detailed observe of the insects revealed unusual behaviour.
+
+      i) The scientist's detailed observation of the insects revealed unusual behaviour.
+      ii) The scientist's detailed photograph of the insects revealed unusual behaviour.
+      iii) The scientist's detailed recording of the insects revealed unusual behaviour.
+      iv) The scientist's detailed collection of the insects revealed unusual behaviour.
+    flawed_solution: "Possible correct options: i), ii), iii), and iv)"
+    explanation: "Flawed because all four options are grammatically correct. However, options ii, iii, and iv change the meaning of the sentence. Options should fix the error without altering meaning."
+    error_type: Options change the meaning of the sentence
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Evaluate whether the correct option is free from additional grammatical errors."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The supervisor approval the leave request after reading the employee's explanation.
+
+      i) The supervisor approved leave request after reading the employee's explanation.
+      ii) The supervisor approval the leave request after reading the employee's explanation.
+      iii) The supervisor approving the leave request after reading the employee's explanation.
+      iv) The supervisor approve the leave request after reading the employee's explanation.
+    flawed_solution: "No correct option"
+    explanation: "Flawed because option i uses 'approved' correctly but omits the article 'the' before 'leave request,' introducing a new grammar error. No option is fully correct."
+    error_type: Correct option has an additional grammar error
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify whether the given sentence actually contains an error related to noun or main verb usage."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The nurse gave a clear explanation of the medicine schedule to the patient.
+
+      i) The nurse gave a clear explanation of the medicine schedule to the patient.
+      ii) The nurse gave a clear explain of the medicine schedule to the patient.
+      iii) The nurse gave a clear explained of the medicine schedule to the patient.
+      iv) The nurse gave a clear explains of the medicine schedule to the patient.
+    flawed_solution: "Incorrect sentence is already correct."
+    explanation: "Flawed because the sentence labelled as incorrect is already grammatically correct — 'explanation' is the right noun form. The question cannot be valid as an MCQ error-correction item."
+    error_type: Incorrect sentence is already correct
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."

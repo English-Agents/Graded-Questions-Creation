@@ -1,0 +1,16 @@
+description: "Eval — Sentence Conversion"
+
+providers:
+  - id: openai:gpt-4o
+    config:
+      temperature: 0
+
+prompts:
+  - file://prompt.txt
+
+# Drop your test cases in these two files:
+#   eval_tests.yaml   — quality checks (does the question meet the standard?)
+#   testing_tests.yaml — pipeline checks (does generation produce correct output?)
+tests:
+  - file://eval_tests.yaml
+  - file://testing_tests.yaml

@@ -1,0 +1,24 @@
+You are an expert English language assessment validator specialising in {{question_type}} questions.
+
+Bloom's Level: {{bloom_level}}
+Difficulty: {{difficulty}}
+Course Outcome: {{course_outcome}}
+
+QUESTION TO VALIDATE:
+{{question}}
+
+PROPOSED SOLUTION:
+{{solution}}{{flawed_solution}}
+
+Validate this {{question_type}} question by checking ALL of the following:
+1. Blank count: Does the question have exactly 2 numbered blanks?
+2. Base word validity: Can each base word in brackets be transformed into a suitable noun or main verb form that fits the sentence?
+3. Unique base words: Are different base words used for each blank (no repetition)?
+4. Answer correctness: Does each answer correctly apply the noun or verb form required by the sentence context?
+5. Word form distinction: Does one blank clearly require a noun and the other a main verb?
+6. Answer key accuracy: Is the proposed answer key correct — does it match what the sentence grammatically requires?
+7. Sentence structure: Is the word order in each blank position grammatically correct and answerable as written?
+
+Provide your validation result:
+- List any specific flaws found (or state "No flaws detected" if the question is valid).
+- End with an overall verdict: VALID or INVALID, and the primary reason.

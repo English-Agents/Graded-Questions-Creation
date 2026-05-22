@@ -1,0 +1,35 @@
+# Secrets — never commit these
+.env
+credentials/client_secret.json
+credentials/token.json
+credentials/sheets_config.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+backend/venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.nx/
+
+# Generated / runtime data
+data/
+feedback/
+syllabi/
+*.xlsx
+*.log
+install_log.txt
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini

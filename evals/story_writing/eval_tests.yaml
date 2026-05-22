@@ -1,0 +1,18 @@
+# eval_tests.yaml
+# Quality evaluation tests — drop your cases here.
+# Each test checks whether a generated question meets the expected standard.
+#
+# Format:
+# - description: what this test checks
+#   vars:
+#     question: the generated question text
+#     answer_key: the expected answer
+#     difficulty: easy | medium | hard
+#     marks: 2
+#   assert:
+#     - type: llm-rubric
+#       value: >
+#         The question is grammatically correct, matches the difficulty level,
+#         and the blank is clearly indicated with ___.
+
+# ADD YOUR EVAL TEST CASES BELOW:

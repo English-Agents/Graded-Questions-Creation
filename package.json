@@ -1,0 +1,16 @@
+{
+  "name": "ga-assessment-evals",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "eval:all": "nx run-many --target=eval --all",
+    "eval:cloze": "nx run cloze:eval",
+    "eval:fib": "nx run fill-in-the-blanks:eval",
+    "eval:ec": "nx run error-correction:eval"
+  },
+  "devDependencies": {
+    "nx": "22.7.2",
+    "promptfoo": "^0.121.3"
+  },
+  "nx": {}
+}

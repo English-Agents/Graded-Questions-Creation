@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: gauser
+      POSTGRES_PASSWORD: gapassword
+      POSTGRES_DB: gadb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gauser -d gadb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  chromadb:
+    image: chromadb/chroma:latest
+    environment:
+      CHROMA_SERVER_AUTH_CREDENTIALS_PROVIDER: ""
+      ANONYMIZED_TELEMETRY: "false"
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/v1/heartbeat || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  chroma_data:

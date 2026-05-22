@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Oral Presentations and Elevator Pitches",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  5,
+                       "question_types":  [
+                                              "Essay writing",
+                                              "Short functional writing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 5: Communication and Career Readiness",
+    "course":  "Language Analytics"
+}

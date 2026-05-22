@@ -1,0 +1,140 @@
+# testing_tests.yaml — Fill in the Blanks
+# 5 negative / intentionally flawed questions (Q1-Q5). Q6-Q10 reserved.
+# Format: 2 blanks, base word given in brackets — student forms correct noun or main verb.
+
+- description: "FIB negative — incorrect answer key: noun and verb forms reversed (library audit)"
+  vars:
+    bloom_level: "L3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify whether a sentence clearly requires a noun or a main verb form of the given base word."
+    question_type: "Fill in the Blanks"
+    error_type: "Incorrect answer key"
+    question: |
+      Instruction: Fill in each blank with the correct form of the base word given in brackets.
+
+      During the library audit, the librarian made a detailed (i)_________________ (classify)
+      of old manuscripts, and the assistant (ii)_________________ (arrange) the reference books by subject.
+    flawed_solution: |
+      (i) classified
+      (ii) arrangement
+    correct_solution: |
+      (i) classification
+      (ii) arranged
+    explanation_of_flaw: |
+      The given answer key is wrong. Blank (i) needs the noun "classification" after "detailed."
+      Blank (ii) needs the main verb "arranged" because "the assistant" performs the action.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must reject this question. The answer key is reversed — blank (i) requires the
+        noun "classification" (not the verb "classified"), and blank (ii) requires the main verb
+        "arranged" (not the noun "arrangement").
+
+- description: "FIB negative — invalid base word: 'health' cannot form a suitable answer (medical camp)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Analyze whether the base words given in brackets can form suitable noun or main verb answers."
+    question_type: "Fill in the Blanks"
+    error_type: "Only one blank is valid"
+    question: |
+      Instruction: Fill in each blank with the correct form of the base word given in brackets.
+
+      Before the medical camp opened, the coordinator gave a clear (i)_________________ (health)
+      of the registration process, and the nurses (ii)_________________ (assist) patients at the entrance.
+    flawed_solution: |
+      (i) No valid answer
+      (ii) assisted
+    correct_solution: "Blank (i) must be rewritten with a suitable base word such as (explain) → explanation."
+    explanation_of_flaw: |
+      Blank (i) is flawed because the base word "health" does not form a suitable noun or main verb
+      that fits "gave a clear ___ of the registration process." A base word such as "explain" would
+      be better, leading to "explanation." Blank (ii) is valid because "assisted" works as the main verb.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag blank (i) as invalid. The base word "health" cannot be transformed into
+        a noun or verb that fits the sentence context. Only blank (ii) is valid — the question must be
+        rewritten with a suitable base word for blank (i).
+
+- description: "FIB negative — repeated base word and ambiguity: same word used for both blanks (travel agency)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Evaluate whether a fill-in-the-blanks item has one fixed and unambiguous answer."
+    question_type: "Fill in the Blanks"
+    error_type: "Ambiguous base word and repeated base word"
+    question: |
+      Instruction: Fill in each blank with the correct form of the base word given in brackets.
+
+      After the travel agency reviewed the complaint, the manager wrote a formal (i)_________________ (reply)
+      to the customer and later (ii)_________________ (reply) during the phone call.
+    flawed_solution: |
+      Possible answers:
+      (i) reply / response
+      (ii) replied
+    correct_solution: "Question must be rewritten — each blank must use a different base word, and blank (i) must clearly require a noun form."
+    explanation_of_flaw: |
+      Blank (i) is flawed because "reply" can already function as a noun, making the transformation
+      trivial. Also, the same base word "reply" is repeated for both blanks, which violates the
+      requirement that each blank should test a different base word transformation.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag this question as flawed. The base word "reply" is repeated for both
+        blanks, and blank (i) is ambiguous because "reply" already functions as a noun without
+        transformation. Each blank must use a distinct base word requiring clear noun or verb derivation.
+
+- description: "FIB negative — wrong base word: 'loud' cannot form a main verb (school debate)"
+  vars:
+    bloom_level: "L3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify whether both blanks have valid and relevant base words."
+    question_type: "Fill in the Blanks"
+    error_type: "Wrong base word given in brackets"
+    question: |
+      Instruction: Fill in each blank with the correct form of the base word given in brackets.
+
+      During the school debate, the judge gave a brief (i)_________________ (evaluate) of each
+      speaker's argument, and the audience (ii)_________________ (loud) after the final round.
+    flawed_solution: |
+      (i) evaluation
+      (ii) No valid answer
+    correct_solution: "Blank (ii) must be rewritten with a suitable base word such as (applaud) → applauded."
+    explanation_of_flaw: |
+      Blank (i) is valid because "evaluation" functions as a noun after "brief." Blank (ii) is flawed
+      because "loud" is not a suitable base word for a noun or main verb in this context. The sentence
+      needs a main verb such as "applauded," but that cannot be formed from "loud."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag blank (ii) as invalid. The base word "loud" cannot be transformed into
+        a grammatically correct main verb for the sentence. The question must be rewritten with a
+        suitable base word for blank (ii) such as "applaud."
+
+- description: "FIB negative — sentence-structure error: object placed before verb blank (architect site)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Analyze whether the sentence structure clearly supports the required word form."
+    question_type: "Fill in the Blanks"
+    error_type: "Sentence-structure error"
+    question: |
+      Instruction: Fill in each blank with the correct form of the base word given in brackets.
+
+      The architect completed a careful (i)_________________ (inspect) of the site, and the building
+      plan before construction began (ii)_________________ (modify).
+    flawed_solution: |
+      (i) inspection
+      (ii) No fixed correction
+    correct_solution: "Blank (ii) requires the sentence to be rewritten as: 'and modified the building plan before construction began.'"
+    explanation_of_flaw: |
+      Blank (i) is valid because "inspection" functions as a noun. Blank (ii) is flawed because the
+      word order is incorrect — the object "the building plan" appears before the verb blank, making
+      the sentence unanswerable as written.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag blank (ii) as having a word-order error. The object "the building plan"
+        is placed before the verb position, making the sentence structurally incorrect and unanswerable
+        as written. The sentence must be rewritten with the verb before the object.

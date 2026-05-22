@@ -1,0 +1,20 @@
+{
+  "name": "jumbled-words",
+  "projectType": "application",
+  "targets": {
+    "eval": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo eval --no-cache",
+        "cwd": "evals/jumbled_words"
+      }
+    },
+    "view": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo view",
+        "cwd": "evals/jumbled_words"
+      }
+    }
+  }
+}

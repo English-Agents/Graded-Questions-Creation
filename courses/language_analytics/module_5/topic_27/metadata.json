@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Non-Verbal Cues and Body-Language Practice",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Short functional writing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 5: Communication and Career Readiness",
+    "course":  "Language Analytics"
+}

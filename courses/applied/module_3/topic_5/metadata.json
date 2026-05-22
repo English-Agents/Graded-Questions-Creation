@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Designing Clear Prompts",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Short functional writing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Applied Communicative English",
+    "module":  "Module 3: Strategic Questioning and Response Techniques"
+}

@@ -1,0 +1,42 @@
+# English Language Analytics — Sample Questions Template
+# Upload via: POST /api/content/samples  (with topic_id and file)
+#
+# Column order:
+#   skill, marks, question_type, difficulty, text, answer_key,
+#   option_a, option_b, option_c, option_d, bloom_level
+#
+# This course uses all 3 skills: Grammar & Vocabulary, Reading, Writing
+
+# ── Grammar & Vocabulary — 2 marks — Fill in the blanks ──────────────────────
+Grammar & Vocabulary,2,Fill in the blanks,easy,"Choose the word most similar in meaning to 'Eloquent': The speaker gave an ___ speech.",eloquent,articulate,clumsy,timid,confused,1
+Grammar & Vocabulary,2,Fill in the blanks,medium,"The manager asked the team to ___ (avoid) unnecessary jargon in their reports.",avoid,,,,,2
+Grammar & Vocabulary,2,Fill in the blanks,hard,"Select the correct idiomatic phrase: He ___ the bullet and told his manager the truth.","bit the bullet",,,,,3
+
+# ── Grammar & Vocabulary — 2 marks — Cloze ───────────────────────────────────
+Grammar & Vocabulary,2,Cloze,medium,"Fill in the blank with the correct word: Communication is the ___ of any successful team. Without it, even the most talented group will ___.",backbone; fail,,,,,2
+Grammar & Vocabulary,2,Cloze,hard,"Complete the sentence: The report ___ that the new strategy would ___ company profits by 20% over the next quarter.","projected; increase",,,,,3
+
+# ── Grammar & Vocabulary — 2 marks — Error correction ────────────────────────
+Grammar & Vocabulary,2,Error correction,easy,"He speaked to the manager about the delay.","He spoke to the manager about the delay.",,,,,1
+Grammar & Vocabulary,2,Error correction,medium,"The data clearly shows that productivity have increased.","The data clearly shows that productivity has increased.",,,,,2
+Grammar & Vocabulary,2,Error correction,hard,"Neither the survey results nor the interview data were able to provide a definitive answer.","Neither the survey results nor the interview data was able to provide a definitive answer.",,,,,3
+
+# ── Grammar & Vocabulary — 3 marks — Jumbled Sentences ──────────────────────
+Grammar & Vocabulary,3,Jumbled Sentences,medium,"Rearrange the words: accurate / the / provides / comprehension / reading / information","Reading comprehension provides accurate information.",,,,,2
+Grammar & Vocabulary,3,Jumbled Sentences,hard,"Rearrange: significantly / have / communication / in / improved / workplaces / digital / tools","Digital communication tools have significantly improved in workplaces.",,,,,3
+
+# ── Reading — 5 marks — Literal & inferential comprehension ─────────────────
+Reading,5,Literal & inferential comprehension,medium,"Read the passage and answer: 'Digital literacy has become as fundamental as reading and writing in the 21st century. Employees who cannot navigate digital tools risk being left behind in an increasingly connected workplace.' Q: What does the author imply about digital literacy?","The author implies that digital literacy is now an essential skill for professional survival and that its absence can disadvantage employees in modern workplaces.",,,,,3
+Reading,5,Literal & inferential comprehension,hard,"Read the passage: 'Analytical thinking allows professionals to break down complex problems into manageable components, identify root causes, and develop evidence-based solutions.' Q: What is the main benefit of analytical thinking according to the passage?","The main benefit is that analytical thinking helps professionals solve complex problems systematically by identifying root causes and creating evidence-based solutions.",,,,,4
+
+# ── Writing — 3 marks — Short functional writing ─────────────────────────────
+Writing,3,Short functional writing,medium,"Write a short professional summary (3–4 sentences) highlighting your key communication skills for a job application.","Model: I am a confident communicator with strong verbal and written skills developed through academic and professional experience. I am adept at presenting complex information clearly to both technical and non-technical audiences. My ability to listen actively and respond thoughtfully enables me to work effectively in team environments. I am committed to continuous improvement in my communication and language abilities.",,,,,3
+
+# ── Writing — 5 marks — Essay writing ────────────────────────────────────────
+Writing,5,Essay writing,medium,"Write a short essay (150 words) on how analytical language skills contribute to career growth.","Model: Analytical language skills — the ability to read critically, interpret data, and communicate findings clearly — are increasingly valued across all industries. Professionals who can analyse information, identify trends, and express insights concisely stand out in competitive environments. In technical fields, the ability to translate complex data into clear language bridges the gap between specialists and stakeholders. In management, analytical writing supports evidence-based decision-making and builds credibility. Moreover, structured thinking enhances both verbal presentations and written reports. As organisations rely more on data-driven strategies, employees with strong language analytics skills are better positioned for leadership roles. In essence, combining language proficiency with analytical ability is a powerful differentiator that accelerates professional growth and opens doors to higher responsibility.",,,,,4
+
+# ── Writing — 8 marks — Email writing ────────────────────────────────────────
+Writing,8,Email writing,medium,"Write a professional email to your department head requesting approval to attend an external training programme on data communication.","Model: Subject: Request for Approval — Data Communication Training Programme\n\nDear [Name],\n\nI am writing to request your approval for me to attend the Data Communication Training Programme scheduled for [date] at [venue/online]. The programme covers data visualisation, analytical writing, and presentation techniques — all directly relevant to my current role.\n\nAttending this training will help me enhance the quality of reports and presentations I prepare for our team. The registration fee is [amount], and I am happy to share the learning outcomes with the team upon my return.\n\nKindly let me know if you require any further details. I would appreciate your approval at your earliest convenience.\n\nThank you for your consideration.\n\nWarm regards,\n[Your Name]\n[Designation] | [Department]",,,,,4
+
+# ── Writing — 8 marks — Report / Work report ─────────────────────────────────
+Writing,8,Report / Work report,hard,"Write a brief work report (200 words) summarising the outcome of a team workshop on workplace communication skills.","Model: WORK REPORT — Workshop on Workplace Communication Skills\n\nDate: [Date] | Prepared by: [Name] | Submitted to: [Manager Name]\n\nObjective:\nThe workshop aimed to improve team communication skills, focusing on clarity in verbal and written exchanges.\n\nSummary of Activities:\nThe half-day session included presentations on active listening, professional email writing, and report structuring. Participants engaged in group discussions and practised drafting concise workplace messages.\n\nKey Outcomes:\n— 90% of participants rated the session as 'highly useful'.\n— The team identified three areas for improvement: email tone, report formatting, and meeting etiquette.\n— An action plan was created to implement the suggestions over the next quarter.\n\nRecommendations:\nIt is recommended that similar workshops be conducted twice annually. A follow-up assessment in three months will measure improvement.\n\nConclusion:\nThe workshop was a productive step towards building a more communicative and collaborative team environment.\n\n[Signature] | [Date]",,,,,5

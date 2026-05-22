@@ -1,0 +1,21 @@
+﻿{
+    "topic_name":  "Adjectives: Identification, Application and Degree",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  2,
+                       "question_types":  [
+                                              "Fill in the blanks",
+                                              "Error correction",
+                                              "Sentence Conversion"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Foundation",
+    "module":  "Module 2: Developing Description and Expression"
+}

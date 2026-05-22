@@ -1,0 +1,20 @@
+{
+  "name": "fill-in-the-blanks",
+  "projectType": "application",
+  "targets": {
+    "eval": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo eval --no-cache",
+        "cwd": "evals/fill_in_the_blanks"
+      }
+    },
+    "view": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo view",
+        "cwd": "evals/fill_in_the_blanks"
+      }
+    }
+  }
+}

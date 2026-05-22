@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Paragraph and Essay Writing",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  5,
+                       "question_types":  [
+                                              "Essay writing",
+                                              "Sequencing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 4: Writing Skills for Study and Work",
+    "course":  "Language Analytics"
+}

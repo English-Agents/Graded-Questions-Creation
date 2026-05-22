@@ -1,0 +1,21 @@
+﻿{
+    "topic_name":  "Conjunctions",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Fill in the blanks",
+                                              "Sentence arrangement",
+                                              "Sentence Conversion"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Foundation",
+    "module":  "Module 4: Linking Ideas and Expressing Feelings"
+}

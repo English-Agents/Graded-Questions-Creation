@@ -1,0 +1,34 @@
+# English Advanced — Sample Questions Template
+# Upload via: POST /api/content/samples  (with topic_id and file)
+#
+# Column order:
+#   skill, marks, question_type, difficulty, text, answer_key,
+#   option_a, option_b, option_c, option_d, bloom_level
+
+# ── Grammar & Vocabulary — 2 marks — Fill in the blanks ──────────────────────
+Grammar & Vocabulary,2,Fill in the blanks,easy,"She ___ (work) in this company since 2020.",has been working,,,,,2
+Grammar & Vocabulary,2,Fill in the blanks,easy,"By next year, he ___ (complete) his degree.",will have completed,,,,,2
+Grammar & Vocabulary,2,Fill in the blanks,medium,"They ___ (not / submit) the report by the deadline.",had not submitted,,,,,2
+Grammar & Vocabulary,2,Fill in the blanks,medium,"She ___ (read) the book when the phone rang.",was reading,,,,,2
+Grammar & Vocabulary,2,Fill in the blanks,hard,"By the time the guests arrive, the host ___ (prepare) the meal.",will have prepared,,,,,3
+
+# ── Grammar & Vocabulary — 2 marks — Error correction ────────────────────────
+Grammar & Vocabulary,2,Error correction,easy,"She have been working here for five years.","She has been working here for five years.",,,,,2
+Grammar & Vocabulary,2,Error correction,medium,"He will has finished the project by Friday.","He will have finished the project by Friday.",,,,,2
+Grammar & Vocabulary,2,Error correction,hard,"They had been completed the task before the meeting started.","They had completed the task before the meeting started.",,,,,3
+
+# ── Grammar & Vocabulary — 3 marks — Sentence Conversion ─────────────────────
+Grammar & Vocabulary,3,Sentence Conversion,medium,"Convert to Future Perfect: She finishes the report before the deadline.","She will have finished the report before the deadline.",,,,,3
+Grammar & Vocabulary,3,Sentence Conversion,medium,"Convert to Past Perfect Continuous: He works on the project for three hours.","He had been working on the project for three hours.",,,,,3
+Grammar & Vocabulary,3,Sentence Conversion,hard,"Convert from active to passive: The team completed the project last week.","The project was completed by the team last week.",,,,,3
+
+# ── Grammar & Vocabulary — 3 marks — Sentence arrangement ───────────────────
+Grammar & Vocabulary,3,Sentence arrangement,medium,"Rearrange: completed / the / team / project / by / had / Friday","The team had completed the project by Friday.",,,,,3
+Grammar & Vocabulary,3,Sentence arrangement,hard,"Rearrange: been / for / working / she / three / has / years / here","She has been working here for three years.",,,,,3
+
+# ── Writing — 3 marks — Short functional writing ─────────────────────────────
+Writing,3,Short functional writing,medium,"Write a short functional message requesting a meeting with your manager.","Model: Dear [Manager Name], I would like to request a brief meeting at your convenience to discuss the progress of the [project name]. Please let me know a suitable time. Thank you. Regards, [Name]",,,,,3
+Writing,3,Short functional writing,hard,"Write a short notice informing employees about a change in office timings.","Model: NOTICE — Change in Office Timings — Please note that effective from [date], office hours will change to [new timings]. All employees are requested to follow the new schedule. For queries, contact HR. — Management, [Date]",,,,,4
+
+# ── Writing — 5 marks — Essay writing ────────────────────────────────────────
+Writing,5,Essay writing,medium,"Write a short essay (150 words) on the importance of effective communication in the workplace.","Model: Effective communication is the backbone of any successful organisation. It ensures that information is shared clearly and efficiently between team members, managers, and clients. When communication is clear, misunderstandings are avoided and productivity increases. In professional settings, both verbal and written communication skills are essential. Listening carefully, speaking confidently, and writing clearly are key competencies that every employee must develop. Poor communication, on the other hand, leads to confusion, delays, and conflict. By investing in communication skills training, organisations can build stronger teams and achieve their goals more efficiently. In conclusion, effective communication is not just a soft skill — it is a professional necessity.",,,,,4

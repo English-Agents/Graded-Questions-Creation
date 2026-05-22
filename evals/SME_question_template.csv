@@ -1,0 +1,22 @@
+INSTRUCTIONS FOR SME,,,,,,,,
+"Fill in one row per question. Question Type must match exactly one of the 19 types listed below.",,,,,,,,
+"Question Types: Fill in the blanks | Error correction | Sentence arrangement | Jumbled Sentences | Sentence Conversion | Cloze Test | Reading Comprehension (higher-order) | Reading Comprehension (literal and inferential) | Reading Comprehension (choice-based) | Short functional writing | Sequencing | Story writing | Essay writing | Process writing / sequencing | Email writing | Notice writing | Report / Work report | Story writing (long) | Paragraph writing (choice-based)",,,,,,,,
+"Blooms Level: L1=Remember | L2=Understand | L3=Apply | L4=Analyse | L5=Evaluate | L6=Create",,,,,,,,
+"Difficulty: Easy | Medium | Hard | Medium to Hard",,,,,,,,
+"For NEGATIVE questions — fill Error Type column with the flaw: Wrong answer key | Ambiguous options | No valid answer | Unclear prompt | Grammar error in question | Word order error",,,,,,,,
+,,,,,,,,
+POSITIVE QUESTIONS,,,,,,,,
+Question no.,Blooms Level,Difficulty Level,Course Outcomes,Question Type,Questions,Solution,Explanation,Error Type
+1,L2,Easy,"CO1: Identify correct verb forms in future tense sentences.",Fill in the blanks,"Choose the correct verb form to complete the sentence.
+
+The team ____ (will start / started) the practice session tomorrow, and the coach ____ (will give / will gives) further instructions.","will start, will give","After 'will' the verb always stays in its base form. Therefore 'will start' and 'will give' are correct, not past or singular forms.",
+2,L4,Medium,"CO4: Construct a formal written response appropriate to a professional context.",Essay writing,"Write a paragraph of 150 words on the given topic using the future tense.
+
+Topic: What skills will you learn in the next year, and how will they help you?","In the next year, I plan to learn coding, data analysis, and digital marketing skills. I am going to take online courses and attend workshops to improve my knowledge. I will also practise problem-solving and critical thinking regularly. These skills are going to help me in my studies and future career by making me more efficient and adaptable. Using coding, I will develop projects and apps, while data analysis will help me understand trends and make better decisions. Digital marketing skills will allow me to promote ideas and work effectively in professional settings. I also aim to improve soft skills such as communication, teamwork, and time management. Overall, by gaining these skills, I will become more confident, capable, and prepared for future challenges.","The paragraph correctly discusses future learning plans and explains how each skill will help in studies and career. It uses appropriate future forms like 'will learn' and 'am going to take' and clearly links skills with benefits, fulfilling both the topic and tense requirement.",
+,,,,,,,,
+NEGATIVE QUESTIONS,,,,,,,,
+Question no.,Blooms Level,Difficulty Level,Course Outcomes,Question Type,Questions,Flawed Solution,Explanation of Flaw,Error Type
+1,L2,Easy,"CO1: Identify correct verb forms in future tense sentences.",Fill in the blanks,"Choose the correct verb form to complete the sentence.
+
+The team ____ (will start / started) the practice session tomorrow, and the coach ____ (will give / will gives) further instructions.","started, will gives","The flawed key selects the past tense 'started' instead of 'will start', and 'will gives' which adds an incorrect -s after 'will'. Both answers violate the rule that 'will' must be followed by a base verb.",Wrong answer key
+2,L4,Medium,"CO4: Construct a formal written response appropriate to a professional context.",Essay writing,"Write something about your future plans.","Write about what you want to do later.","The prompt is too vague. It does not specify word count, tense requirement, or topic. A student cannot produce a targeted response. The model answer is also a restatement of the question, not a sample answer.",Unclear prompt

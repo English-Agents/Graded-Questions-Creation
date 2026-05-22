@@ -1,0 +1,20 @@
+{
+  "name": "story-writing",
+  "projectType": "application",
+  "targets": {
+    "eval": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo eval --no-cache",
+        "cwd": "evals/story_writing"
+      }
+    },
+    "view": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo view",
+        "cwd": "evals/story_writing"
+      }
+    }
+  }
+}

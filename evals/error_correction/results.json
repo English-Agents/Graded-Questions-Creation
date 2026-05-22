@@ -1,0 +1,1202 @@
+{
+  "evalId": "eval-XrS-2026-05-19T12:35:32",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-05-19T12:35:32.903Z",
+    "prompts": [
+      {
+        "raw": "You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+        "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+        "id": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "provider": "anthropic:messages:claude-haiku-4-5-20251001",
+        "metrics": {
+          "score": 8,
+          "testPassCount": 8,
+          "testFailCount": 2,
+          "testErrorCount": 0,
+          "assertPassCount": 8,
+          "assertFailCount": 2,
+          "totalLatencyMs": 53473,
+          "tokenUsage": {
+            "prompt": 3328,
+            "completion": 4780,
+            "cached": 0,
+            "total": 8108,
+            "numRequests": 10,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 8974,
+              "prompt": 7414,
+              "completion": 1560,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "cost": 0.027228000000000002
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0.002834,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 938,
+            "prompt": 776,
+            "completion": 162,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output provides a comprehensive validation analysis that confirms the error correction question meets all rubric requirements: it contains exactly 2 errors (one noun 'approval' used where a verb is required, one verb 'reviewed' used where a noun is required), identifies both incorrect words with correct replacements ('approved' and 'review'), provides the full corrected sentence, and justifies each correction with grammatical reasoning (e.g., 'possessive + noun phrase' requires a noun form, 'main verb of the independent clause' requires past tense verb). The analysis explicitly validates each criterion against the rubric.",
+              "tokensUsed": {
+                "total": 938,
+                "prompt": 776,
+                "completion": 162,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation of Error Correction Question\\n\\n## Analysis Against Criteria:\\n\\n**1. Error count: ✓ PASS**\\n- The sentence contains exactly 2 errors as implied by the instruction\\n- Both errors are correctly identified in the proposed solution\\n\\n**2. Error type: ✓ PASS**\\n- \\\"reviewed\\\" → \\\"review\\\": Incorrect noun form (gerund/participle used instead of noun)\\n- \\\"approval\\\" → \\\"approved\\\": Incorrect verb form (noun used instead of past tense verb)\\n- Both are noun/verb form errors as required by CO1\\n\\n**3. Answer uniqueness: ✓ PASS**\\n- \\\"review\\\" is the only correct noun form in this context (possessive + noun phrase)\\n- \\\"approved\\\" is the only correct verb form (past tense required for the main verb of the independent clause)\\n- No ambiguity in either correction\\n\\n**4. Naturalness: ✓ PASS**\\n- Corrected sentence: \\\"After the manager's detailed review of the quarterly report, the finance team approved the revised budget.\\\"\\n- This is grammatically natural, idiomatic English with proper subject-verb agreement and appropriate word forms\\n\\n**5. No-error check: ✓ PASS**\\n- Original sentence is genuinely flawed:\\n  - \\\"reviewed\\\" is a past participle incorrectly used as a noun\\n  - \\\"approval\\\" is a noun incorrectly used where a verb is required\\n- The sentence is not already correct\\n\\n**6. Instruction match: ✓ PASS**\\n- The instruction accurately describes the task: identify incorrect words and replace with correct forms\\n- The instruction aligns with CO1 (noun and main verb errors)\\n- The proposed solution directly addresses what the instruction asks\\n\\n## Specific Flaws Found:\\n**No flaws detected**\\n\\n## Overall Verdict:\\n**VALID**\\n\\n**Primary Reason:** The question contains exactly two clear noun/verb form errors with unambiguous corrections, aligns perfectly with the stated course outcome (CO1), produces a natural and grammatically correct sentence when corrected, and the instruction accurately describes the task. This is a well-constructed medium-difficulty error correction question appropriate for L3 assessment.\\n</Output>\\n<Rubric>\\nThe Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \\\"follows the adjective\\\" or \\\"needs a main verb.\\\"\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "53ac5402-3a26-4fce-b3c0-180e1fd690ae",
+        "latencyMs": 5480,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L3\nDifficulty: Medium\nCourse Outcome: CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nAfter the manager's detailed reviewed of the quarterly report, the finance team approval the revised budget.\n\nPROPOSED SOLUTION:\nIncorrect words: reviewed, approval\nCorrect words: review, approved\n\nCorrect sentence: After the manager's detailed review of the quarterly report, the finance team approved the revised budget.\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation of Error Correction Question\n\n## Analysis Against Criteria:\n\n**1. Error count: ✓ PASS**\n- The sentence contains exactly 2 errors as implied by the instruction\n- Both errors are correctly identified in the proposed solution\n\n**2. Error type: ✓ PASS**\n- \"reviewed\" → \"review\": Incorrect noun form (gerund/participle used instead of noun)\n- \"approval\" → \"approved\": Incorrect verb form (noun used instead of past tense verb)\n- Both are noun/verb form errors as required by CO1\n\n**3. Answer uniqueness: ✓ PASS**\n- \"review\" is the only correct noun form in this context (possessive + noun phrase)\n- \"approved\" is the only correct verb form (past tense required for the main verb of the independent clause)\n- No ambiguity in either correction\n\n**4. Naturalness: ✓ PASS**\n- Corrected sentence: \"After the manager's detailed review of the quarterly report, the finance team approved the revised budget.\"\n- This is grammatically natural, idiomatic English with proper subject-verb agreement and appropriate word forms\n\n**5. No-error check: ✓ PASS**\n- Original sentence is genuinely flawed:\n  - \"reviewed\" is a past participle incorrectly used as a noun\n  - \"approval\" is a noun incorrectly used where a verb is required\n- The sentence is not already correct\n\n**6. Instruction match: ✓ PASS**\n- The instruction accurately describes the task: identify incorrect words and replace with correct forms\n- The instruction aligns with CO1 (noun and main verb errors)\n- The proposed solution directly addresses what the instruction asks\n\n## Specific Flaws Found:\n**No flaws detected**\n\n## Overall Verdict:\n**VALID**\n\n**Primary Reason:** The question contains exactly two clear noun/verb form errors with unambiguous corrections, aligns perfectly with the stated course outcome (CO1), produces a natural and grammatically correct sentence when corrected, and the instruction accurately describes the task. This is a well-constructed medium-difficulty error correction question appropriate for L3 assessment.",
+          "tokenUsage": {
+            "total": 842,
+            "prompt": 344,
+            "completion": 498
+          },
+          "finishReason": "stop",
+          "cost": 0.002834
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "EC L3 Medium CO1 — manager quarterly report scenario",
+          "vars": {
+            "bloom_level": "L3",
+            "difficulty": "Medium",
+            "course_outcome": "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.",
+            "question_type": "Error Correction",
+            "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nAfter the manager's detailed reviewed of the quarterly report, the finance team approval the revised budget.\n",
+            "solution": "Incorrect words: reviewed, approval\nCorrect words: review, approved\n\nCorrect sentence: After the manager's detailed review of the quarterly report, the finance team approved the revised budget.\n",
+            "explanation": "Review is required because it follows the adjective \"detailed\" and functions as a noun.\nApproved is required because \"the finance team\" needs a main verb to show the action.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "bloom_level": "L3",
+          "difficulty": "Medium",
+          "course_outcome": "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.",
+          "question_type": "Error Correction",
+          "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nAfter the manager's detailed reviewed of the quarterly report, the finance team approval the revised budget.\n",
+          "solution": "Incorrect words: reviewed, approval\nCorrect words: review, approved\n\nCorrect sentence: After the manager's detailed review of the quarterly report, the finance team approved the revised budget.\n",
+          "explanation": "Review is required because it follows the adjective \"detailed\" and functions as a noun.\nApproved is required because \"the finance team\" needs a main verb to show the action.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0025250000000000003,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 895,
+            "prompt": 715,
+            "completion": 180,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output provides a comprehensive validation analysis that confirms all required elements are present: (1) exactly two errors are identified, (2) one is a noun used where a verb is required ('observation' → 'observed'), and (3) one is a verb used where a noun is required ('summarize' → 'summary'). The solution identifies both incorrect words, provides correct replacements, and rewrites the full corrected sentence ('The research assistant observed the participants carefully and prepared a detailed summary of the findings.'). The explanation justifies corrections using grammatical reasoning (e.g., 'subject-verb agreement fails', 'context requires a noun after the article'). All rubric requirements are satisfied.",
+              "tokensUsed": {
+                "total": 895,
+                "prompt": 715,
+                "completion": 180,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation of Error Correction Question\\n\\n## Analysis Against Criteria:\\n\\n**1. Error count: ✓ PASS**\\nThe sentence contains exactly 2 errors as implied by the instruction. Both are correctly identified.\\n\\n**2. Error type: ✓ PASS**\\nBoth errors are noun/verb form errors within the scope of CO1:\\n- \\\"observation\\\" (noun) → \\\"observed\\\" (past tense verb) - verb form error\\n- \\\"summarize\\\" (verb/infinitive) → \\\"summary\\\" (noun) - noun form error\\n\\n**3. Answer uniqueness: ✓ PASS**\\nEach correction is unambiguous and represents the only appropriate form:\\n- \\\"observed\\\" is the only correct past tense form needed here\\n- \\\"summary\\\" is the only correct noun form that fits the context (\\\"a detailed summary\\\")\\n\\n**4. Naturalness: ✓ PASS**\\nThe corrected sentence reads naturally and idiomatically: \\\"The research assistant observed the participants carefully and prepared a detailed summary of the findings.\\\"\\n\\n**5. No-error check: ✓ PASS**\\nThe original sentence is genuinely flawed:\\n- \\\"observation\\\" cannot function as a verb in this context (subject-verb agreement fails: \\\"assistant observation\\\" is ungrammatical)\\n- \\\"summarize\\\" is an infinitive/base verb form; the context requires a noun after the article \\\"a detailed\\\"\\n\\n**6. Instruction match: ✓ PASS**\\nThe instruction accurately describes the task and aligns with the errors present and the proposed solution.\\n\\n---\\n\\n## Validation Result:\\n\\n**No flaws detected.**\\n\\n**Overall Verdict: VALID**\\n\\n**Primary reason:** The question effectively assesses L3 learners' ability to identify and correct noun and verb form errors in context. The errors are authentic, the corrections are unambiguous, and the corrected sentence is grammatically natural. The question appropriately addresses CO1 outcomes.\\n</Output>\\n<Rubric>\\nThe Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \\\"follows the adjective\\\" or \\\"needs a main verb.\\\"\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "1f4fad26-a256-4521-9671-63e100fc8196",
+        "latencyMs": 4801,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L3\nDifficulty: Medium\nCourse Outcome: CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nThe research assistant observation the participants carefully and prepared a detailed summarize of the findings.\n\nPROPOSED SOLUTION:\nIncorrect words: observation, summarize\nCorrect words: observed, summary\n\nCorrect sentence: The research assistant observed the participants carefully and prepared a detailed summary of the findings.\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation of Error Correction Question\n\n## Analysis Against Criteria:\n\n**1. Error count: ✓ PASS**\nThe sentence contains exactly 2 errors as implied by the instruction. Both are correctly identified.\n\n**2. Error type: ✓ PASS**\nBoth errors are noun/verb form errors within the scope of CO1:\n- \"observation\" (noun) → \"observed\" (past tense verb) - verb form error\n- \"summarize\" (verb/infinitive) → \"summary\" (noun) - noun form error\n\n**3. Answer uniqueness: ✓ PASS**\nEach correction is unambiguous and represents the only appropriate form:\n- \"observed\" is the only correct past tense form needed here\n- \"summary\" is the only correct noun form that fits the context (\"a detailed summary\")\n\n**4. Naturalness: ✓ PASS**\nThe corrected sentence reads naturally and idiomatically: \"The research assistant observed the participants carefully and prepared a detailed summary of the findings.\"\n\n**5. No-error check: ✓ PASS**\nThe original sentence is genuinely flawed:\n- \"observation\" cannot function as a verb in this context (subject-verb agreement fails: \"assistant observation\" is ungrammatical)\n- \"summarize\" is an infinitive/base verb form; the context requires a noun after the article \"a detailed\"\n\n**6. Instruction match: ✓ PASS**\nThe instruction accurately describes the task and aligns with the errors present and the proposed solution.\n\n---\n\n## Validation Result:\n\n**No flaws detected.**\n\n**Overall Verdict: VALID**\n\n**Primary reason:** The question effectively assesses L3 learners' ability to identify and correct noun and verb form errors in context. The errors are authentic, the corrections are unambiguous, and the corrected sentence is grammatically natural. The question appropriately addresses CO1 outcomes.",
+          "tokenUsage": {
+            "total": 777,
+            "prompt": 340,
+            "completion": 437
+          },
+          "finishReason": "stop",
+          "cost": 0.0025250000000000003
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "EC L3 Medium CO1 — research assistant observation scenario",
+          "vars": {
+            "bloom_level": "L3",
+            "difficulty": "Medium",
+            "course_outcome": "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.",
+            "question_type": "Error Correction",
+            "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nThe research assistant observation the participants carefully and prepared a detailed summarize of the findings.\n",
+            "solution": "Incorrect words: observation, summarize\nCorrect words: observed, summary\n\nCorrect sentence: The research assistant observed the participants carefully and prepared a detailed summary of the findings.\n",
+            "explanation": "Observed is required because the subject \"The research assistant\" needs a main verb.\nSummary is required because it follows the adjective \"detailed\" and functions as a noun.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "bloom_level": "L3",
+          "difficulty": "Medium",
+          "course_outcome": "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.",
+          "question_type": "Error Correction",
+          "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nThe research assistant observation the participants carefully and prepared a detailed summarize of the findings.\n",
+          "solution": "Incorrect words: observation, summarize\nCorrect words: observed, summary\n\nCorrect sentence: The research assistant observed the participants carefully and prepared a detailed summary of the findings.\n",
+          "explanation": "Observed is required because the subject \"The research assistant\" needs a main verb.\nSummary is required because it follows the adjective \"detailed\" and functions as a noun.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0024460000000000003,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 911,
+            "prompt": 698,
+            "completion": 213,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output provides a comprehensive validation analysis that confirms the error correction question meets all specified criteria. It explicitly verifies: (1) exactly 2 errors are present, (2) one error involves a noun needed where a verb was used ('inspect' → 'inspection'), and one involves a verb needed where a noun was used ('submission' → 'submitted'), (3) both corrections are identified with their replacements, (4) the full corrected sentence is provided ('Following the auditor's careful inspection of the financial records, the company submitted a corrected statement to the board'), and (5) grammatical reasoning is provided for each correction (e.g., 'After possessive \"auditor's,\" a noun is required' and 'The sentence structure requires a past tense verb after subject \"company\"'). All rubric requirements are satisfied.",
+              "tokensUsed": {
+                "total": 911,
+                "prompt": 698,
+                "completion": 213,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation of Error Correction Question\\n\\n## Analysis Against Criteria:\\n\\n### 1. Error Count ✓\\nThe sentence contains **2 errors**, matching the stated requirement.\\n\\n### 2. Error Type ✓\\nBoth errors are noun/verb form errors:\\n- **\\\"inspect\\\"** (noun form needed) → **\\\"inspection\\\"** (correct noun form)\\n- **\\\"submission\\\"** (noun form used incorrectly) → **\\\"submitted\\\"** (correct verb form needed)\\n\\nThese are precisely the noun/verb form distinctions required by CO1.\\n\\n### 3. Answer Uniqueness ✓\\nEach correction is unambiguous:\\n- After possessive \\\"auditor's,\\\" a noun is required → \\\"inspection\\\" is the only logical choice\\n- The sentence structure requires a past tense verb after subject \\\"company\\\" → \\\"submitted\\\" is the only correct form\\n\\n### 4. Naturalness ✓\\nThe corrected sentence reads naturally and idiomatically: \\\"Following the auditor's careful inspection of the financial records, the company submitted a corrected statement to the board.\\\"\\n\\n### 5. No-Error Check ✓\\nThe original sentence is genuinely flawed:\\n- \\\"auditor's careful inspect\\\" is ungrammatical (noun required after possessive)\\n- \\\"company submission\\\" lacks a verb (requires past tense verb form)\\n\\n### 6. Instruction Match ✓\\nThe instruction accurately describes the task and the proposed solution correctly identifies and fixes both errors.\\n\\n---\\n\\n## Validation Result:\\n\\n**No flaws detected.**\\n\\n**Overall Verdict: VALID**\\n\\n**Primary Reason:** This is a well-constructed error correction question that precisely targets noun/verb form distinctions at the L4 difficulty level. The errors are authentic, the corrections are unambiguous, and the corrected sentence is grammatically natural. The question effectively assesses CO1 outcomes.\\n</Output>\\n<Rubric>\\nThe Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \\\"follows the adjective\\\" or \\\"needs a main verb.\\\"\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "18595772-d207-42e6-93eb-58b6765a75c5",
+        "latencyMs": 4387,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nFollowing the auditor's careful inspect of the financial records, the company submission a corrected statement to the board.\n\nPROPOSED SOLUTION:\nIncorrect words: inspect, submission\nCorrect words: inspection, submitted\n\nCorrect sentence: Following the auditor's careful inspection of the financial records, the company submitted a corrected statement to the board.\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation of Error Correction Question\n\n## Analysis Against Criteria:\n\n### 1. Error Count ✓\nThe sentence contains **2 errors**, matching the stated requirement.\n\n### 2. Error Type ✓\nBoth errors are noun/verb form errors:\n- **\"inspect\"** (noun form needed) → **\"inspection\"** (correct noun form)\n- **\"submission\"** (noun form used incorrectly) → **\"submitted\"** (correct verb form needed)\n\nThese are precisely the noun/verb form distinctions required by CO1.\n\n### 3. Answer Uniqueness ✓\nEach correction is unambiguous:\n- After possessive \"auditor's,\" a noun is required → \"inspection\" is the only logical choice\n- The sentence structure requires a past tense verb after subject \"company\" → \"submitted\" is the only correct form\n\n### 4. Naturalness ✓\nThe corrected sentence reads naturally and idiomatically: \"Following the auditor's careful inspection of the financial records, the company submitted a corrected statement to the board.\"\n\n### 5. No-Error Check ✓\nThe original sentence is genuinely flawed:\n- \"auditor's careful inspect\" is ungrammatical (noun required after possessive)\n- \"company submission\" lacks a verb (requires past tense verb form)\n\n### 6. Instruction Match ✓\nThe instruction accurately describes the task and the proposed solution correctly identifies and fixes both errors.\n\n---\n\n## Validation Result:\n\n**No flaws detected.**\n\n**Overall Verdict: VALID**\n\n**Primary Reason:** This is a well-constructed error correction question that precisely targets noun/verb form distinctions at the L4 difficulty level. The errors are authentic, the corrections are unambiguous, and the corrected sentence is grammatically natural. The question effectively assesses CO1 outcomes.",
+          "tokenUsage": {
+            "total": 766,
+            "prompt": 346,
+            "completion": 420
+          },
+          "finishReason": "stop",
+          "cost": 0.0024460000000000003
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "EC L4 Hard CO1 — auditor financial records scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.",
+            "question_type": "Error Correction",
+            "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nFollowing the auditor's careful inspect of the financial records, the company submission a corrected statement to the board.\n",
+            "solution": "Incorrect words: inspect, submission\nCorrect words: inspection, submitted\n\nCorrect sentence: Following the auditor's careful inspection of the financial records, the company submitted a corrected statement to the board.\n",
+            "explanation": "Inspection is required because it follows the adjective \"careful\" and acts as a noun.\nSubmitted is required because \"the company\" needs a main verb to show the action.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.",
+          "question_type": "Error Correction",
+          "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nFollowing the auditor's careful inspect of the financial records, the company submission a corrected statement to the board.\n",
+          "solution": "Incorrect words: inspect, submission\nCorrect words: inspection, submitted\n\nCorrect sentence: Following the auditor's careful inspection of the financial records, the company submitted a corrected statement to the board.\n",
+          "explanation": "Inspection is required because it follows the adjective \"careful\" and acts as a noun.\nSubmitted is required because \"the company\" needs a main verb to show the action.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.002842,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 981,
+            "prompt": 780,
+            "completion": 201,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output provides a comprehensive validation analysis that confirms the Error Correction question meets all rubric requirements: (1) exactly 2 errors are identified, (2) one is a noun used where a verb is required ('recommendation' → 'recommended'), and (3) one is a verb used where a noun is required ('warn' → 'warning'), (4) both incorrect words are identified with correct replacements provided, (5) the full corrected sentence is rewritten ('The committee recommended several safety changes and issued a formal warning to the factory owners.'), and (6) grammatical justifications are provided ('past participle functioning as main verb in compound predicate' and 'gerund/noun form following the preposition'). The analysis demonstrates that the question effectively assesses the required competency.",
+              "tokensUsed": {
+                "total": 981,
+                "prompt": 780,
+                "completion": 201,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation of Error Correction Question\\n\\n## Analysis Against Criteria:\\n\\n**1. Error count: ✓ PASS**\\n- The sentence contains exactly 2 errors as implied by the instruction\\n- Both errors are correctly identified\\n\\n**2. Error type: ✓ PASS**\\n- \\\"recommendation\\\" (noun) → \\\"recommended\\\" (verb): Noun/verb form error\\n- \\\"warn\\\" (noun/base verb) → \\\"warning\\\" (gerund/noun form): Noun/verb form error\\n- Both errors involve distinguishing between noun and verb forms, directly aligned with CO1\\n\\n**3. Answer uniqueness: ✓ PASS**\\n- \\\"recommendation\\\" must be \\\"recommended\\\" (past participle functioning as main verb in compound predicate)\\n- \\\"warn\\\" must be \\\"warning\\\" (gerund/noun form following the preposition \\\"to\\\")\\n- Each correction is unambiguous and singular\\n\\n**4. Naturalness: ✓ PASS**\\n- Corrected sentence: \\\"The committee recommended several safety changes and issued a formal warning to the factory owners.\\\"\\n- Grammatically natural, idiomatic, and semantically coherent\\n\\n**5. No-error check: ✓ PASS**\\n- Original sentence is genuinely flawed:\\n  - \\\"recommendation\\\" is a noun but functions as a main verb (subject-verb agreement fails: \\\"committee recommendation\\\" ≠ \\\"committee recommended\\\")\\n  - \\\"warn\\\" is incomplete; requires gerund form \\\"warning\\\" after preposition \\\"to\\\"\\n- The sentence is NOT already correct\\n\\n**6. Instruction match: ✓ PASS**\\n- Instruction accurately describes the task: identify incorrect words and replace with correct forms\\n- Instruction aligns with the noun/verb form distinction required by CO1\\n\\n---\\n\\n## Specific Flaws Found:\\n**No flaws detected**\\n\\n---\\n\\n## Overall Verdict:\\n**VALID**\\n\\n**Primary reason:** The question effectively assesses L4 (Analyze) level competency in distinguishing noun and verb forms. It contains exactly 2 clear, unambiguous errors of the specified type, with a natural, grammatically correct solution. The instruction accurately matches the task, and the original sentence is genuinely flawed.\\n</Output>\\n<Rubric>\\nThe Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \\\"follows the adjective\\\" or \\\"needs a main verb.\\\"\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "d4158323-2c37-4b91-9260-1906d8619429",
+        "latencyMs": 6016,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nThe committee recommendation several safety changes and issued a formal warn to the factory owners.\n\nPROPOSED SOLUTION:\nIncorrect words: recommendation, warn\nCorrect words: recommended, warning\n\nCorrect sentence: The committee recommended several safety changes and issued a formal warning to the factory owners.\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation of Error Correction Question\n\n## Analysis Against Criteria:\n\n**1. Error count: ✓ PASS**\n- The sentence contains exactly 2 errors as implied by the instruction\n- Both errors are correctly identified\n\n**2. Error type: ✓ PASS**\n- \"recommendation\" (noun) → \"recommended\" (verb): Noun/verb form error\n- \"warn\" (noun/base verb) → \"warning\" (gerund/noun form): Noun/verb form error\n- Both errors involve distinguishing between noun and verb forms, directly aligned with CO1\n\n**3. Answer uniqueness: ✓ PASS**\n- \"recommendation\" must be \"recommended\" (past participle functioning as main verb in compound predicate)\n- \"warn\" must be \"warning\" (gerund/noun form following the preposition \"to\")\n- Each correction is unambiguous and singular\n\n**4. Naturalness: ✓ PASS**\n- Corrected sentence: \"The committee recommended several safety changes and issued a formal warning to the factory owners.\"\n- Grammatically natural, idiomatic, and semantically coherent\n\n**5. No-error check: ✓ PASS**\n- Original sentence is genuinely flawed:\n  - \"recommendation\" is a noun but functions as a main verb (subject-verb agreement fails: \"committee recommendation\" ≠ \"committee recommended\")\n  - \"warn\" is incomplete; requires gerund form \"warning\" after preposition \"to\"\n- The sentence is NOT already correct\n\n**6. Instruction match: ✓ PASS**\n- Instruction accurately describes the task: identify incorrect words and replace with correct forms\n- Instruction aligns with the noun/verb form distinction required by CO1\n\n---\n\n## Specific Flaws Found:\n**No flaws detected**\n\n---\n\n## Overall Verdict:\n**VALID**\n\n**Primary reason:** The question effectively assesses L4 (Analyze) level competency in distinguishing noun and verb forms. It contains exactly 2 clear, unambiguous errors of the specified type, with a natural, grammatically correct solution. The instruction accurately matches the task, and the original sentence is genuinely flawed.",
+          "tokenUsage": {
+            "total": 834,
+            "prompt": 332,
+            "completion": 502
+          },
+          "finishReason": "stop",
+          "cost": 0.002842
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "EC L4 Hard CO1 — committee safety changes scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.",
+            "question_type": "Error Correction",
+            "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nThe committee recommendation several safety changes and issued a formal warn to the factory owners.\n",
+            "solution": "Incorrect words: recommendation, warn\nCorrect words: recommended, warning\n\nCorrect sentence: The committee recommended several safety changes and issued a formal warning to the factory owners.\n",
+            "explanation": "Recommended is required because \"The committee\" needs a main verb.\nWarning is required because it follows the adjective \"formal\" and is the object of the verb \"issued.\"\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.",
+          "question_type": "Error Correction",
+          "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nThe committee recommendation several safety changes and issued a formal warn to the factory owners.\n",
+          "solution": "Incorrect words: recommendation, warn\nCorrect words: recommended, warning\n\nCorrect sentence: The committee recommended several safety changes and issued a formal warning to the factory owners.\n",
+          "explanation": "Recommended is required because \"The committee\" needs a main verb.\nWarning is required because it follows the adjective \"formal\" and is the object of the verb \"issued.\"\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0027400000000000002,
+        "error": "The output provides a validation analysis rather than an actual Error Correction question with solution. The rubric requires the output to contain an Error Correction question with exactly two incorrect words (one noun where a verb is needed, one verb where a noun is needed), identify both errors, provide corrections, rewrite the full sentence, and justify each correction with grammatical reasoning. This output is a meta-analysis of whether a question meets criteria, not the question and solution itself. It does not demonstrate the actual error correction task being performed.",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "The output provides a validation analysis rather than an actual Error Correction question with solution. The rubric requires the output to contain an Error Correction question with exactly two incorrect words (one noun where a verb is needed, one verb where a noun is needed), identify both errors, provide corrections, rewrite the full sentence, and justify each correction with grammatical reasoning. This output is a meta-analysis of whether a question meets criteria, not the question and solution itself. It does not demonstrate the actual error correction task being performed.",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 898,
+            "prompt": 758,
+            "completion": 140,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+              },
+              "pass": false,
+              "score": 0,
+              "reason": "The output provides a validation analysis rather than an actual Error Correction question with solution. The rubric requires the output to contain an Error Correction question with exactly two incorrect words (one noun where a verb is needed, one verb where a noun is needed), identify both errors, provide corrections, rewrite the full sentence, and justify each correction with grammatical reasoning. This output is a meta-analysis of whether a question meets criteria, not the question and solution itself. It does not demonstrate the actual error correction task being performed.",
+              "tokensUsed": {
+                "total": 898,
+                "prompt": 758,
+                "completion": 140,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation of Error Correction Question\\n\\n## Analysis Against Criteria:\\n\\n**1. Error count: ✓ PASS**\\n- The sentence contains exactly 2 errors as stated in the instruction\\n- Error 1: \\\"analyze\\\" (incorrect noun form)\\n- Error 2: \\\"implementation\\\" (incorrect verb form)\\n\\n**2. Error type: ✓ PASS**\\n- \\\"analyze\\\" → \\\"analysis\\\": Noun form error (gerund/noun required after possessive \\\"the market\\\")\\n- \\\"implementation\\\" → \\\"implemented\\\": Verb form error (past participle required for passive voice construction with auxiliary \\\"a\\\")\\n- Both errors are specifically noun/verb form errors aligned with CO1\\n\\n**3. Answer uniqueness: ✓ PASS**\\n- \\\"analyze\\\" can only be corrected to \\\"analysis\\\" in this context\\n- \\\"implementation\\\" can only be corrected to \\\"implemented\\\" (past participle for passive voice)\\n- No ambiguous alternatives exist\\n\\n**4. Naturalness: ✓ PASS**\\n- Corrected sentence: \\\"After the consultant completed the market analysis, the sales team implemented a new pricing strategy across all branches.\\\"\\n- Reads naturally and idiomatically correct\\n- Proper subject-verb agreement and tense consistency\\n\\n**5. No-error check: ✓ PASS**\\n- Original sentence is genuinely flawed:\\n  - \\\"market analyze\\\" is ungrammatical (requires noun form)\\n  - \\\"sales team implementation\\\" is ungrammatical (requires past participle verb form)\\n- The sentence is NOT already correct\\n\\n**6. Instruction match: ✓ PASS**\\n- Instruction accurately describes the task\\n- Correctly identifies both errors\\n- Provides appropriate corrections\\n\\n---\\n\\n## Validation Result:\\n\\n**No flaws detected**\\n\\n**Overall Verdict: VALID**\\n\\n**Primary Reason:** This is a well-constructed Error Correction question that precisely targets noun/verb form distinctions (CO1). It contains exactly 2 unambiguous errors of the stated type, with clear corrections that produce a natural, grammatically correct sentence. The instruction accurately reflects the errors present.\\n</Output>\\n<Rubric>\\nThe Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \\\"follows the adjective\\\" or \\\"needs a main verb.\\\"\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "f8fa5e99-8686-4506-9ee1-229cf7aba15f",
+        "latencyMs": 5109,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nAfter the consultant completed the market analyze, the sales team implementation a new pricing strategy across all branches.\n\nPROPOSED SOLUTION:\nIncorrect words: analyze, implementation\nCorrect words: analysis, implemented\n\nCorrect sentence: After the consultant completed the market analysis, the sales team implemented a new pricing strategy across all branches.\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation of Error Correction Question\n\n## Analysis Against Criteria:\n\n**1. Error count: ✓ PASS**\n- The sentence contains exactly 2 errors as stated in the instruction\n- Error 1: \"analyze\" (incorrect noun form)\n- Error 2: \"implementation\" (incorrect verb form)\n\n**2. Error type: ✓ PASS**\n- \"analyze\" → \"analysis\": Noun form error (gerund/noun required after possessive \"the market\")\n- \"implementation\" → \"implemented\": Verb form error (past participle required for passive voice construction with auxiliary \"a\")\n- Both errors are specifically noun/verb form errors aligned with CO1\n\n**3. Answer uniqueness: ✓ PASS**\n- \"analyze\" can only be corrected to \"analysis\" in this context\n- \"implementation\" can only be corrected to \"implemented\" (past participle for passive voice)\n- No ambiguous alternatives exist\n\n**4. Naturalness: ✓ PASS**\n- Corrected sentence: \"After the consultant completed the market analysis, the sales team implemented a new pricing strategy across all branches.\"\n- Reads naturally and idiomatically correct\n- Proper subject-verb agreement and tense consistency\n\n**5. No-error check: ✓ PASS**\n- Original sentence is genuinely flawed:\n  - \"market analyze\" is ungrammatical (requires noun form)\n  - \"sales team implementation\" is ungrammatical (requires past participle verb form)\n- The sentence is NOT already correct\n\n**6. Instruction match: ✓ PASS**\n- Instruction accurately describes the task\n- Correctly identifies both errors\n- Provides appropriate corrections\n\n---\n\n## Validation Result:\n\n**No flaws detected**\n\n**Overall Verdict: VALID**\n\n**Primary Reason:** This is a well-constructed Error Correction question that precisely targets noun/verb form distinctions (CO1). It contains exactly 2 unambiguous errors of the stated type, with clear corrections that produce a natural, grammatically correct sentence. The instruction accurately reflects the errors present.",
+          "tokenUsage": {
+            "total": 820,
+            "prompt": 340,
+            "completion": 480
+          },
+          "finishReason": "stop",
+          "cost": 0.0027400000000000002
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "EC L4 Hard CO1 — consultant market analysis scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.",
+            "question_type": "Error Correction",
+            "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nAfter the consultant completed the market analyze, the sales team implementation a new pricing strategy across all branches.\n",
+            "solution": "Incorrect words: analyze, implementation\nCorrect words: analysis, implemented\n\nCorrect sentence: After the consultant completed the market analysis, the sales team implemented a new pricing strategy across all branches.\n",
+            "explanation": "Analysis is required because \"market analysis\" is a noun phrase and is the object of \"completed.\"\nImplemented is required because \"the sales team\" needs a main verb to show the action.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Error Correction question must contain exactly two incorrect words — one noun used where a verb is required and one verb used where a noun is required. The solution must identify both incorrect words, provide the correct replacements, and rewrite the full corrected sentence. The explanation must justify each correction using grammatical reasoning such as \"follows the adjective\" or \"needs a main verb.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.",
+          "question_type": "Error Correction",
+          "question": "Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.\n\nAfter the consultant completed the market analyze, the sales team implementation a new pricing strategy across all branches.\n",
+          "solution": "Incorrect words: analyze, implementation\nCorrect words: analysis, implemented\n\nCorrect sentence: After the consultant completed the market analysis, the sales team implemented a new pricing strategy across all branches.\n",
+          "explanation": "Analysis is required because \"market analysis\" is a noun phrase and is the object of \"completed.\"\nImplemented is required because \"the sales team\" needs a main verb to show the action.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0.0027510000000000004,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 862,
+            "prompt": 734,
+            "completion": 128,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator must reject this question. The sentence contains no grammatical errors — explanation is correctly used as a noun and described is correctly used as the main verb. A no-error sentence cannot serve as a valid error correction item.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output correctly identifies and validates the core issue: the sentence is grammatically correct with no errors present, making it invalid as an error correction question. The validator properly recognizes that 'explanation' is correctly used as a noun and 'described' is correctly used as a verb. The output thoroughly documents why a no-error sentence cannot serve as a valid error correction item, which directly aligns with the rubric's requirement to reject the question on these grounds.",
+              "tokensUsed": {
+                "total": 862,
+                "prompt": 734,
+                "completion": 128,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation Report\\n\\n## Analysis of Each Criterion:\\n\\n**1. Error count:** \\nThe instruction asks to identify TWO incorrect words. However, upon examination, the sentence is grammatically correct throughout. There are no errors present.\\n- ❌ FAILS\\n\\n**2. Error type:**\\nNot applicable, as no noun/verb form errors exist in the sentence.\\n- ❌ N/A\\n\\n**3. Answer uniqueness:**\\nThe proposed solution states \\\"No error,\\\" which is accurate but contradicts the instruction that explicitly requires finding and correcting two errors.\\n- ❌ FAILS (Contradiction between instruction and solution)\\n\\n**4. Naturalness:**\\nThe sentence reads naturally and is grammatically sound: \\\"During the art exhibition, the curator gave a detailed explanation of the paintings and described the history of each artist.\\\"\\n- ✓ PASSES\\n\\n**5. No-error check:**\\nThe sentence is already grammatically correct. All nouns are properly formed (curator, explanation, paintings, history, artist) and all verbs are correctly conjugated (gave, described). There is no basis for the instruction's claim that two errors exist.\\n- ❌ FAILS\\n\\n**6. Instruction match:**\\nThe instruction claims there are two errors to identify and correct, but the proposed solution contradicts this by stating \\\"No error.\\\" This is a fundamental mismatch.\\n- ❌ FAILS\\n\\n## Specific Flaws Found:\\n\\n1. **Instruction-Solution Mismatch:** The instruction explicitly asks to identify and correct TWO incorrect words, but the proposed solution claims there is no error.\\n2. **False Premise:** The sentence contains no grammatical errors in nouns or verbs, making the instruction's premise invalid.\\n3. **Assessment Validity:** This question cannot effectively assess CO1 (identifying and correcting noun/verb errors) because no such errors exist.\\n\\n---\\n\\n## Overall Verdict: **INVALID**\\n\\n**Primary Reason:** The instruction contradicts the proposed solution, and more critically, the sentence is grammatically correct with no errors present. An error correction question requires actual errors to correct. This question fails to meet the basic requirement of containing the errors it claims to assess.\\n</Output>\\n<Rubric>\\nThe validator must reject this question. The sentence contains no grammatical errors — explanation is correctly used as a noun and described is correctly used as the main verb. A no-error sentence cannot serve as a valid error correction item.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "15a8bd61-855c-45df-9b77-a0a503bf6854",
+        "latencyMs": 5675,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L3\nDifficulty: Medium\nCourse Outcome: CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nDuring the art exhibition, the curator gave a detailed explanation of the paintings and described the history of each artist.\n\nPROPOSED SOLUTION:\nNo error\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation Report\n\n## Analysis of Each Criterion:\n\n**1. Error count:** \nThe instruction asks to identify TWO incorrect words. However, upon examination, the sentence is grammatically correct throughout. There are no errors present.\n- ❌ FAILS\n\n**2. Error type:**\nNot applicable, as no noun/verb form errors exist in the sentence.\n- ❌ N/A\n\n**3. Answer uniqueness:**\nThe proposed solution states \"No error,\" which is accurate but contradicts the instruction that explicitly requires finding and correcting two errors.\n- ❌ FAILS (Contradiction between instruction and solution)\n\n**4. Naturalness:**\nThe sentence reads naturally and is grammatically sound: \"During the art exhibition, the curator gave a detailed explanation of the paintings and described the history of each artist.\"\n- ✓ PASSES\n\n**5. No-error check:**\nThe sentence is already grammatically correct. All nouns are properly formed (curator, explanation, paintings, history, artist) and all verbs are correctly conjugated (gave, described). There is no basis for the instruction's claim that two errors exist.\n- ❌ FAILS\n\n**6. Instruction match:**\nThe instruction claims there are two errors to identify and correct, but the proposed solution contradicts this by stating \"No error.\" This is a fundamental mismatch.\n- ❌ FAILS\n\n## Specific Flaws Found:\n\n1. **Instruction-Solution Mismatch:** The instruction explicitly asks to identify and correct TWO incorrect words, but the proposed solution claims there is no error.\n2. **False Premise:** The sentence contains no grammatical errors in nouns or verbs, making the instruction's premise invalid.\n3. **Assessment Validity:** This question cannot effectively assess CO1 (identifying and correcting noun/verb errors) because no such errors exist.\n\n---\n\n## Overall Verdict: **INVALID**\n\n**Primary Reason:** The instruction contradicts the proposed solution, and more critically, the sentence is grammatically correct with no errors present. An error correction question requires actual errors to correct. This question fails to meet the basic requirement of containing the errors it claims to assess.",
+          "tokenUsage": {
+            "total": 799,
+            "prompt": 311,
+            "completion": 488
+          },
+          "finishReason": "stop",
+          "cost": 0.0027510000000000004
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "EC negative — no-error sentence used: art exhibition scenario",
+          "vars": {
+            "bloom_level": "L3",
+            "difficulty": "Medium",
+            "course_outcome": "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.",
+            "question_type": "Error Correction",
+            "error_type": "No-error sentence: does not contain two errors",
+            "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nDuring the art exhibition, the curator gave a detailed explanation of the paintings and described the history of each artist.\n",
+            "flawed_solution": "No error",
+            "correct_solution": "The sentence is already correct and cannot be used as an error correction item.",
+            "explanation_of_flaw": "The sentence is already correct. Explanation is correctly used as a noun after \"detailed,\"\nand described is correctly used as the main verb. Since the instruction asks for two incorrect\nwords, the question is flawed.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must reject this question. The sentence contains no grammatical errors — explanation is correctly used as a noun and described is correctly used as the main verb. A no-error sentence cannot serve as a valid error correction item.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 5,
+        "vars": {
+          "bloom_level": "L3",
+          "difficulty": "Medium",
+          "course_outcome": "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.",
+          "question_type": "Error Correction",
+          "error_type": "No-error sentence: does not contain two errors",
+          "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nDuring the art exhibition, the curator gave a detailed explanation of the paintings and described the history of each artist.\n",
+          "flawed_solution": "No error",
+          "correct_solution": "The sentence is already correct and cannot be used as an error correction item.",
+          "explanation_of_flaw": "The sentence is already correct. Explanation is correctly used as a noun after \"detailed,\"\nand described is correctly used as the main verb. Since the instruction asks for two incorrect\nwords, the question is flawed.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0026980000000000003,
+        "error": "The rubric correctly identifies a flaw that the validator's analysis missed. While 'gave a clear instruction' is grammatically acceptable, it is indeed less natural than the plural form 'gave clear instructions.' More importantly, the rubric points out that achieving natural phrasing requires changing the number (singular to plural), which goes beyond the core noun/verb form distinction that CO1 is meant to test. This introduces ambiguity about what exactly is being corrected, making the question flawed as a focused assessment tool.",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "The rubric correctly identifies a flaw that the validator's analysis missed. While 'gave a clear instruction' is grammatically acceptable, it is indeed less natural than the plural form 'gave clear instructions.' More importantly, the rubric points out that achieving natural phrasing requires changing the number (singular to plural), which goes beyond the core noun/verb form distinction that CO1 is meant to test. This introduces ambiguity about what exactly is being corrected, making the question flawed as a focused assessment tool.",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 870,
+            "prompt": 728,
+            "completion": 142,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator must flag this question. The noun correction \"instruct → instruction\" produces an unnatural phrasing (\"gave a clear instruction\") and requires a number change to be natural (\"gave clear instructions\"), introducing ambiguity beyond the noun-vs-verb distinction being tested.\n"
+              },
+              "pass": false,
+              "score": 0,
+              "reason": "The rubric correctly identifies a flaw that the validator's analysis missed. While 'gave a clear instruction' is grammatically acceptable, it is indeed less natural than the plural form 'gave clear instructions.' More importantly, the rubric points out that achieving natural phrasing requires changing the number (singular to plural), which goes beyond the core noun/verb form distinction that CO1 is meant to test. This introduces ambiguity about what exactly is being corrected, making the question flawed as a focused assessment tool.",
+              "tokensUsed": {
+                "total": 870,
+                "prompt": 728,
+                "completion": 142,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation of Error Correction Question\\n\\n## Analysis Against Criteria:\\n\\n### 1. Error Count ✓\\nThe instruction asks to identify TWO incorrect words. The sentence contains exactly two errors:\\n- \\\"instruct\\\" (incorrect)\\n- \\\"motivation\\\" (incorrect)\\n**Status: VALID**\\n\\n### 2. Error Type ✓\\nBoth errors are noun/verb form errors, aligning with CO1:\\n- \\\"instruct\\\" → \\\"instruction\\\" (verb form to noun form)\\n- \\\"motivation\\\" → \\\"motivated\\\" (noun form to verb form/past participle)\\n**Status: VALID**\\n\\n### 3. Answer Uniqueness ✓\\nEach correction is unambiguous:\\n- \\\"instruct\\\" must become \\\"instruction\\\" (the only logical noun form in this context)\\n- \\\"motivation\\\" must become \\\"motivated\\\" (the only logical verb form to parallel \\\"gave\\\")\\n**Status: VALID**\\n\\n### 4. Naturalness ✓\\nThe corrected sentence reads naturally: \\\"The sports coach gave a clear instruction before the match and motivated the players to focus on teamwork.\\\"\\n- Proper parallel structure with \\\"gave...and motivated\\\"\\n- Idiomatic and grammatically sound\\n**Status: VALID**\\n\\n### 5. No-Error Check ✓\\nThe original sentence is genuinely flawed:\\n- \\\"gave a clear instruct\\\" is ungrammatical (requires noun form)\\n- \\\"motivation the players\\\" is ungrammatical (requires verb form)\\n**Status: VALID**\\n\\n### 6. Instruction Match ✓\\nThe instruction accurately describes the task and the proposed solution correctly identifies and corrects both errors.\\n**Status: VALID**\\n\\n---\\n\\n## Validation Result:\\n\\n**No flaws detected.**\\n\\n**Overall Verdict: VALID**\\n\\n**Primary Reason:** This is a well-constructed error correction question that precisely targets noun/verb form distinctions (CO1). It contains exactly two errors of the specified type, each with a single unambiguous correction, and the corrected sentence is natural and grammatically sound. The instruction accurately describes the task.\\n</Output>\\n<Rubric>\\nThe validator must flag this question. The noun correction \\\"instruct → instruction\\\" produces an unnatural phrasing (\\\"gave a clear instruction\\\") and requires a number change to be natural (\\\"gave clear instructions\\\"), introducing ambiguity beyond the noun-vs-verb distinction being tested.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "5a75aba6-5e67-4484-a4b5-8c336391cf94",
+        "latencyMs": 5698,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe sports coach gave a clear instruct before the match and motivation the players to focus on teamwork.\n\nPROPOSED SOLUTION:\nIncorrect words: instruct, motivation\nCorrect words: instruction, motivated\n\nCorrect sentence: The sports coach gave a clear instruction before the match and motivated the players to focus on teamwork.\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation of Error Correction Question\n\n## Analysis Against Criteria:\n\n### 1. Error Count ✓\nThe instruction asks to identify TWO incorrect words. The sentence contains exactly two errors:\n- \"instruct\" (incorrect)\n- \"motivation\" (incorrect)\n**Status: VALID**\n\n### 2. Error Type ✓\nBoth errors are noun/verb form errors, aligning with CO1:\n- \"instruct\" → \"instruction\" (verb form to noun form)\n- \"motivation\" → \"motivated\" (noun form to verb form/past participle)\n**Status: VALID**\n\n### 3. Answer Uniqueness ✓\nEach correction is unambiguous:\n- \"instruct\" must become \"instruction\" (the only logical noun form in this context)\n- \"motivation\" must become \"motivated\" (the only logical verb form to parallel \"gave\")\n**Status: VALID**\n\n### 4. Naturalness ✓\nThe corrected sentence reads naturally: \"The sports coach gave a clear instruction before the match and motivated the players to focus on teamwork.\"\n- Proper parallel structure with \"gave...and motivated\"\n- Idiomatic and grammatically sound\n**Status: VALID**\n\n### 5. No-Error Check ✓\nThe original sentence is genuinely flawed:\n- \"gave a clear instruct\" is ungrammatical (requires noun form)\n- \"motivation the players\" is ungrammatical (requires verb form)\n**Status: VALID**\n\n### 6. Instruction Match ✓\nThe instruction accurately describes the task and the proposed solution correctly identifies and corrects both errors.\n**Status: VALID**\n\n---\n\n## Validation Result:\n\n**No flaws detected.**\n\n**Overall Verdict: VALID**\n\n**Primary Reason:** This is a well-constructed error correction question that precisely targets noun/verb form distinctions (CO1). It contains exactly two errors of the specified type, each with a single unambiguous correction, and the corrected sentence is natural and grammatically sound. The instruction accurately describes the task.",
+          "tokenUsage": {
+            "total": 814,
+            "prompt": 343,
+            "completion": 471
+          },
+          "finishReason": "stop",
+          "cost": 0.0026980000000000003
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "EC negative — unnatural noun correction requires number change: sports coach scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.",
+            "question_type": "Error Correction",
+            "error_type": "Unnatural noun correction: requires number change",
+            "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe sports coach gave a clear instruct before the match and motivation the players to focus on teamwork.\n",
+            "flawed_solution": "Incorrect words: instruct, motivation\nCorrect words: instruction, motivated\n\nCorrect sentence: The sports coach gave a clear instruction before the match and motivated the players to focus on teamwork.\n",
+            "correct_solution": "Rewrite as: 'gave clear instructions' — the correction requires a number change, not just a noun-vs-verb fix.",
+            "explanation_of_flaw": "Although both errors can be corrected, \"gave a clear instruction\" is less natural in this context\nthan \"gave clear instructions.\" The item may confuse students because the correction requires a\nnumber change as well, not just a noun-vs-main-verb change.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must flag this question. The noun correction \"instruct → instruction\" produces an unnatural phrasing (\"gave a clear instruction\") and requires a number change to be natural (\"gave clear instructions\"), introducing ambiguity beyond the noun-vs-verb distinction being tested.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 6,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms.",
+          "question_type": "Error Correction",
+          "error_type": "Unnatural noun correction: requires number change",
+          "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe sports coach gave a clear instruct before the match and motivation the players to focus on teamwork.\n",
+          "flawed_solution": "Incorrect words: instruct, motivation\nCorrect words: instruction, motivated\n\nCorrect sentence: The sports coach gave a clear instruction before the match and motivated the players to focus on teamwork.\n",
+          "correct_solution": "Rewrite as: 'gave clear instructions' — the correction requires a number change, not just a noun-vs-verb fix.",
+          "explanation_of_flaw": "Although both errors can be corrected, \"gave a clear instruction\" is less natural in this context\nthan \"gave clear instructions.\" The item may confuse students because the correction requires a\nnumber change as well, not just a noun-vs-main-verb change.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0.002926,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 893,
+            "prompt": 763,
+            "completion": 130,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator must reject this question. The sentence contains no errors — analysis is correctly used as a noun and recorded as a main verb. A correct sentence cannot be presented as an error correction item.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output provides a comprehensive validation report that correctly identifies the fundamental flaw: the sentence is grammatically correct with no errors present, yet the instruction presupposes two errors exist. The validator's analysis aligns with the rubric's requirement to reject the question because a correct sentence cannot be presented as an error correction item. The output demonstrates that 'analysis' is correctly used as a noun and 'recorded' as a main verb, matching the rubric's specific examples.",
+              "tokensUsed": {
+                "total": 893,
+                "prompt": 763,
+                "completion": 130,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation Report\\n\\n## Analysis Against Criteria:\\n\\n**1. Error count:** ❌ FAILED\\n- The instruction asks to \\\"identify the two incorrect words,\\\" but the proposed solution states \\\"No error\\\"\\n- This is a direct contradiction. The instruction presupposes two errors exist, but the solution claims none do.\\n\\n**2. Error type:** ❌ FAILED\\n- The sentence contains no noun/verb form errors. All words are in correct forms:\\n  - \\\"completed\\\" (past tense verb) ✓\\n  - \\\"analysis\\\" (noun) ✓\\n  - \\\"recorded\\\" (past tense verb) ✓\\n  - \\\"submitted\\\" (past tense verb) ✓\\n  - \\\"report\\\" (noun) ✓\\n\\n**3. Answer uniqueness:** ❌ FAILED\\n- Since no errors exist, there are no corrections to provide, making the answer ambiguous rather than uniquely clear.\\n\\n**4. Naturalness:** ✓ PASSED\\n- The sentence is grammatically natural and reads correctly in English.\\n\\n**5. No-error check:** ❌ CRITICAL FLAW\\n- The sentence is **already grammatically correct**. There are no errors to correct.\\n- This contradicts the instruction's premise that two errors exist.\\n\\n**6. Instruction match:** ❌ FAILED\\n- The instruction and proposed solution are contradictory. The instruction demands identification of two errors; the solution denies any errors exist.\\n\\n---\\n\\n## Specific Flaws Found:\\n\\n1. **Fundamental mismatch:** The instruction presupposes two errors exist, but the sentence is grammatically correct.\\n2. **Contradictory solution:** \\\"No error\\\" directly contradicts the instruction to find and correct two words.\\n3. **Misalignment with CO1:** The question cannot assess the course outcome (analyzing noun/verb forms) if no such errors are present.\\n4. **Invalid assessment design:** This question cannot be answered as instructed because its premise is false.\\n\\n---\\n\\n## Overall Verdict:\\n\\n**INVALID**\\n\\n**Primary Reason:** The sentence contains no grammatical errors, making it impossible to fulfill the instruction to identify and correct two incorrect words. The proposed solution (\\\"No error\\\") contradicts the instruction itself, creating an unanswerable question that fails to assess the stated course outcome.\\n</Output>\\n<Rubric>\\nThe validator must reject this question. The sentence contains no errors — analysis is correctly used as a noun and recorded as a main verb. A correct sentence cannot be presented as an error correction item.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "d9bacdaf-60e3-4844-8c06-cb1185548caa",
+        "latencyMs": 5061,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Analyze sentence structure to distinguish between noun forms and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nAfter the scientist completed the chemical analysis, the lab assistant recorded the results and submitted the report.\n\nPROPOSED SOLUTION:\nNo error\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation Report\n\n## Analysis Against Criteria:\n\n**1. Error count:** ❌ FAILED\n- The instruction asks to \"identify the two incorrect words,\" but the proposed solution states \"No error\"\n- This is a direct contradiction. The instruction presupposes two errors exist, but the solution claims none do.\n\n**2. Error type:** ❌ FAILED\n- The sentence contains no noun/verb form errors. All words are in correct forms:\n  - \"completed\" (past tense verb) ✓\n  - \"analysis\" (noun) ✓\n  - \"recorded\" (past tense verb) ✓\n  - \"submitted\" (past tense verb) ✓\n  - \"report\" (noun) ✓\n\n**3. Answer uniqueness:** ❌ FAILED\n- Since no errors exist, there are no corrections to provide, making the answer ambiguous rather than uniquely clear.\n\n**4. Naturalness:** ✓ PASSED\n- The sentence is grammatically natural and reads correctly in English.\n\n**5. No-error check:** ❌ CRITICAL FLAW\n- The sentence is **already grammatically correct**. There are no errors to correct.\n- This contradicts the instruction's premise that two errors exist.\n\n**6. Instruction match:** ❌ FAILED\n- The instruction and proposed solution are contradictory. The instruction demands identification of two errors; the solution denies any errors exist.\n\n---\n\n## Specific Flaws Found:\n\n1. **Fundamental mismatch:** The instruction presupposes two errors exist, but the sentence is grammatically correct.\n2. **Contradictory solution:** \"No error\" directly contradicts the instruction to find and correct two words.\n3. **Misalignment with CO1:** The question cannot assess the course outcome (analyzing noun/verb forms) if no such errors are present.\n4. **Invalid assessment design:** This question cannot be answered as instructed because its premise is false.\n\n---\n\n## Overall Verdict:\n\n**INVALID**\n\n**Primary Reason:** The sentence contains no grammatical errors, making it impossible to fulfill the instruction to identify and correct two incorrect words. The proposed solution (\"No error\") contradicts the instruction itself, creating an unanswerable question that fails to assess the stated course outcome.",
+          "tokenUsage": {
+            "total": 830,
+            "prompt": 306,
+            "completion": 524
+          },
+          "finishReason": "stop",
+          "cost": 0.002926
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "EC negative — no-error sentence used: scientist chemical analysis scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verbs based on sentence context.",
+            "question_type": "Error Correction",
+            "error_type": "No-error sentence: unsuitable for error correction",
+            "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nAfter the scientist completed the chemical analysis, the lab assistant recorded the results and submitted the report.\n",
+            "flawed_solution": "No error",
+            "correct_solution": "The sentence is already correct and cannot be used as an error correction item.",
+            "explanation_of_flaw": "The sentence has no noun/main verb error. Analysis is correctly used as a noun, and recorded\nis correctly used as a main verb. Therefore, it is not suitable for a two-mark error correction question.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must reject this question. The sentence contains no errors — analysis is correctly used as a noun and recorded as a main verb. A correct sentence cannot be presented as an error correction item.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verbs based on sentence context.",
+          "question_type": "Error Correction",
+          "error_type": "No-error sentence: unsuitable for error correction",
+          "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nAfter the scientist completed the chemical analysis, the lab assistant recorded the results and submitted the report.\n",
+          "flawed_solution": "No error",
+          "correct_solution": "The sentence is already correct and cannot be used as an error correction item.",
+          "explanation_of_flaw": "The sentence has no noun/main verb error. Analysis is correctly used as a noun, and recorded\nis correctly used as a main verb. Therefore, it is not suitable for a two-mark error correction question.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0024960000000000004,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 792,
+            "prompt": 678,
+            "completion": 114,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator must flag this question. The instruction asks students to identify two incorrect words, but the sentence contains only one error (observe → observation). The mismatch between the instruction and the actual error count makes this an invalid question.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output correctly identifies and flags the critical mismatch between the instruction (which asks for two errors) and the actual content (which contains only one error). The analysis systematically evaluates the question against multiple criteria, identifies the specific flaw, and reaches the correct conclusion that the question is invalid due to this fundamental discrepancy. The validator properly flags the question as required by the rubric.",
+              "tokensUsed": {
+                "total": 792,
+                "prompt": 678,
+                "completion": 114,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Validation of Error Correction Question\\n\\n## Analysis Against Criteria:\\n\\n**1. Error count: ❌ FAILED**\\n- The instruction states: \\\"Identify the **two** incorrect words\\\"\\n- The proposed solution identifies only **one** error (observe → observation)\\n- The sentence contains only one grammatical error, not two\\n\\n**2. Error type: ✓ PASSED**\\n- The error identified is a noun form error (observe as a noun vs. observation)\\n- This aligns with CO1 (nouns and main verbs)\\n\\n**3. Answer uniqueness: ✓ PASSED**\\n- \\\"observation\\\" is the only correct noun form that fits the context\\n- No ambiguity in the correction\\n\\n**4. Naturalness: ✓ PASSED**\\n- The corrected sentence reads naturally: \\\"The nurse made a careful observation of the patient's symptoms and reported the changes to the doctor.\\\"\\n\\n**5. No-error check: ✓ PASSED**\\n- The original sentence is genuinely flawed (observe cannot function as a noun in this context)\\n\\n**6. Instruction match: ❌ FAILED**\\n- The instruction asks for two errors, but only one exists\\n- The proposed solution does not address the discrepancy\\n\\n## Specific Flaws Found:\\n\\n1. **Critical mismatch between instruction and content**: The instruction demands identification of two errors, but the sentence contains only one grammatical error. This creates an impossible task for students.\\n2. **Incomplete question design**: Either the instruction should be revised to say \\\"one incorrect word\\\" OR the sentence should be rewritten to contain a second error.\\n\\n## Overall Verdict:\\n\\n**INVALID**\\n\\n**Primary Reason:** The instruction explicitly requires students to find and correct two errors, but the sentence contains only one grammatical error. This fundamental mismatch makes the question unanswerable as written and fails to meet the stated requirements.\\n</Output>\\n<Rubric>\\nThe validator must flag this question. The instruction asks students to identify two incorrect words, but the sentence contains only one error (observe → observation). The mismatch between the instruction and the actual error count makes this an invalid question.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "0ed299bb-a2b1-41a7-b8b8-2836475ca336",
+        "latencyMs": 5517,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L3\nDifficulty: Medium\nCourse Outcome: CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe nurse made a careful observe of the patient's symptoms and reported the changes to the doctor.\n\nPROPOSED SOLUTION:\nIncorrect word: observe\nCorrect word: observation\n\nCorrect sentence: The nurse made a careful observation of the patient's symptoms and reported the changes to the doctor.\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Validation of Error Correction Question\n\n## Analysis Against Criteria:\n\n**1. Error count: ❌ FAILED**\n- The instruction states: \"Identify the **two** incorrect words\"\n- The proposed solution identifies only **one** error (observe → observation)\n- The sentence contains only one grammatical error, not two\n\n**2. Error type: ✓ PASSED**\n- The error identified is a noun form error (observe as a noun vs. observation)\n- This aligns with CO1 (nouns and main verbs)\n\n**3. Answer uniqueness: ✓ PASSED**\n- \"observation\" is the only correct noun form that fits the context\n- No ambiguity in the correction\n\n**4. Naturalness: ✓ PASSED**\n- The corrected sentence reads naturally: \"The nurse made a careful observation of the patient's symptoms and reported the changes to the doctor.\"\n\n**5. No-error check: ✓ PASSED**\n- The original sentence is genuinely flawed (observe cannot function as a noun in this context)\n\n**6. Instruction match: ❌ FAILED**\n- The instruction asks for two errors, but only one exists\n- The proposed solution does not address the discrepancy\n\n## Specific Flaws Found:\n\n1. **Critical mismatch between instruction and content**: The instruction demands identification of two errors, but the sentence contains only one grammatical error. This creates an impossible task for students.\n2. **Incomplete question design**: Either the instruction should be revised to say \"one incorrect word\" OR the sentence should be rewritten to contain a second error.\n\n## Overall Verdict:\n\n**INVALID**\n\n**Primary Reason:** The instruction explicitly requires students to find and correct two errors, but the sentence contains only one grammatical error. This fundamental mismatch makes the question unanswerable as written and fails to meet the stated requirements.",
+          "tokenUsage": {
+            "total": 772,
+            "prompt": 341,
+            "completion": 431
+          },
+          "finishReason": "stop",
+          "cost": 0.0024960000000000004
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "EC negative — error-count mismatch: only one error present (nurse scenario)",
+          "vars": {
+            "bloom_level": "L3",
+            "difficulty": "Medium",
+            "course_outcome": "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.",
+            "question_type": "Error Correction",
+            "error_type": "Error-count mismatch: only one error present",
+            "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe nurse made a careful observe of the patient's symptoms and reported the changes to the doctor.\n",
+            "flawed_solution": "Incorrect word: observe\nCorrect word: observation\n\nCorrect sentence: The nurse made a careful observation of the patient's symptoms and reported the changes to the doctor.\n",
+            "correct_solution": "Only one error exists (observe → observation). The instruction incorrectly asks for two errors.",
+            "explanation_of_flaw": "The sentence contains only one error. Observe should be changed to observation, but reported\nis already correct as the main verb. The question is flawed because the instruction asks for\ntwo incorrect words.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must flag this question. The instruction asks students to identify two incorrect words, but the sentence contains only one error (observe → observation). The mismatch between the instruction and the actual error count makes this an invalid question.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 8,
+        "vars": {
+          "bloom_level": "L3",
+          "difficulty": "Medium",
+          "course_outcome": "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context.",
+          "question_type": "Error Correction",
+          "error_type": "Error-count mismatch: only one error present",
+          "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe nurse made a careful observe of the patient's symptoms and reported the changes to the doctor.\n",
+          "flawed_solution": "Incorrect word: observe\nCorrect word: observation\n\nCorrect sentence: The nurse made a careful observation of the patient's symptoms and reported the changes to the doctor.\n",
+          "correct_solution": "Only one error exists (observe → observation). The instruction incorrectly asks for two errors.",
+          "explanation_of_flaw": "The sentence contains only one error. Observe should be changed to observation, but reported\nis already correct as the main verb. The question is flawed because the instruction asks for\ntwo incorrect words.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0029700000000000004,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 934,
+            "prompt": 784,
+            "completion": 150,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator must flag this question as ambiguous. The word \"comment\" can be corrected either as a verb (commented) or restructured as a noun phrase (comments/commentary), so the question does not have a single definitive answer and must be rewritten.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output correctly identifies and flags the ambiguity in the question. The analysis demonstrates that 'comment' can be validly corrected in multiple ways (as a verb 'commented' or as a noun 'comments/commentary'), which violates the requirement for a single definitive answer. The validator explicitly states 'INVALID' and identifies the primary reason as lack of answer uniqueness due to multiple contradictory corrections for the same error, which directly aligns with the rubric's requirement to flag the question as ambiguous with no single definitive answer.",
+              "tokensUsed": {
+                "total": 934,
+                "prompt": 784,
+                "completion": 150,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# Error Correction Question Validation\\n\\n## Analysis Against Criteria:\\n\\n### 1. Error Count ✓\\n**PASS** - The sentence contains exactly 2 errors as stated in the instruction.\\n\\n### 2. Error Type ✓\\n**PASS** - Both errors are verb form errors (aligned with the CO1 outcome on distinguishing noun/verb forms):\\n- \\\"review\\\" should be a noun (correct) but \\\"comment\\\" should be a verb to match the parallel structure\\n- The sentence requires parallel verb forms in a compound predicate\\n\\n### 3. Answer Uniqueness ✗\\n**FAIL** - The proposed solution presents **two different corrections** for the same error:\\n- Correction 1: `comment → commented` (verb form)\\n- Correction 2: `comment → commentary / comments` (noun forms)\\n\\nThese are contradictory. The question should have **one clear answer per error**, not multiple alternatives.\\n\\n**The correct answer should be:**\\n- `comment → commented` (to parallel \\\"gave\\\")\\n- The sentence should read: \\\"The editor gave a brief review of the article and **commented** on the writer's use of evidence.\\\"\\n\\n### 4. Naturalness ✓\\n**PASS** - The corrected sentence with \\\"commented\\\" is grammatically natural and idiomatic.\\n\\n### 5. No-Error Check ✓\\n**PASS** - The original sentence is genuinely flawed (lacks parallel structure in the compound predicate).\\n\\n### 6. Instruction Match ✗\\n**PARTIAL FAIL** - The instruction asks to \\\"replace them with the correct forms\\\" (singular), but the proposed solution offers multiple alternatives, creating ambiguity about what constitutes the \\\"correct\\\" answer.\\n\\n---\\n\\n## Specific Flaws Found:\\n\\n1. **Ambiguous answer key**: Offering both \\\"commented\\\" and \\\"commentary/comments\\\" as corrections undermines answer uniqueness and creates confusion about the correct solution.\\n2. **Misalignment with instruction**: The instruction implies one correct form per error, but the solution provides alternatives.\\n\\n---\\n\\n## Overall Verdict: **INVALID**\\n\\n**Primary Reason:** The proposed solution lacks answer uniqueness by providing multiple contradictory corrections for the same error. For a hard-difficulty L4 question, the answer key must be unambiguous. The correct single answer should be: `comment → commented`.\\n</Output>\\n<Rubric>\\nThe validator must flag this question as ambiguous. The word \\\"comment\\\" can be corrected either as a verb (commented) or restructured as a noun phrase (comments/commentary), so the question does not have a single definitive answer and must be rewritten.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "a36c69d2-82bd-4d12-9655-8c4897486ba7",
+        "latencyMs": 5729,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Error Correction questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Analyze sentence structure to distinguish between noun forms and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe editor gave a brief review of the article and comment on the writer's use of evidence.\n\nPROPOSED SOLUTION:\nPossible correction 1: comment → commented\nPossible correction 2: comment → commentary / comments\n\nValidate this Error Correction question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Error count: Does the sentence contain exactly the number of errors stated in the instruction?\n2. Error type: Are the errors specifically noun/verb form errors (not other grammar errors)?\n3. Answer uniqueness: Is there only one clear, unambiguous correction for each error?\n4. Naturalness: Does the corrected sentence sound grammatically natural in English?\n5. No-error check: Is the sentence actually flawed, or is it already grammatically correct?\n6. Instruction match: Does the instruction accurately describe what needs to be corrected?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "8d194dfbc61361e2f255e2232846766374bfa4faba429a0d194c21a570354636",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "output": "# Error Correction Question Validation\n\n## Analysis Against Criteria:\n\n### 1. Error Count ✓\n**PASS** - The sentence contains exactly 2 errors as stated in the instruction.\n\n### 2. Error Type ✓\n**PASS** - Both errors are verb form errors (aligned with the CO1 outcome on distinguishing noun/verb forms):\n- \"review\" should be a noun (correct) but \"comment\" should be a verb to match the parallel structure\n- The sentence requires parallel verb forms in a compound predicate\n\n### 3. Answer Uniqueness ✗\n**FAIL** - The proposed solution presents **two different corrections** for the same error:\n- Correction 1: `comment → commented` (verb form)\n- Correction 2: `comment → commentary / comments` (noun forms)\n\nThese are contradictory. The question should have **one clear answer per error**, not multiple alternatives.\n\n**The correct answer should be:**\n- `comment → commented` (to parallel \"gave\")\n- The sentence should read: \"The editor gave a brief review of the article and **commented** on the writer's use of evidence.\"\n\n### 4. Naturalness ✓\n**PASS** - The corrected sentence with \"commented\" is grammatically natural and idiomatic.\n\n### 5. No-Error Check ✓\n**PASS** - The original sentence is genuinely flawed (lacks parallel structure in the compound predicate).\n\n### 6. Instruction Match ✗\n**PARTIAL FAIL** - The instruction asks to \"replace them with the correct forms\" (singular), but the proposed solution offers multiple alternatives, creating ambiguity about what constitutes the \"correct\" answer.\n\n---\n\n## Specific Flaws Found:\n\n1. **Ambiguous answer key**: Offering both \"commented\" and \"commentary/comments\" as corrections undermines answer uniqueness and creates confusion about the correct solution.\n2. **Misalignment with instruction**: The instruction implies one correct form per error, but the solution provides alternatives.\n\n---\n\n## Overall Verdict: **INVALID**\n\n**Primary Reason:** The proposed solution lacks answer uniqueness by providing multiple contradictory corrections for the same error. For a hard-difficulty L4 question, the answer key must be unambiguous. The correct single answer should be: `comment → commented`.",
+          "tokenUsage": {
+            "total": 854,
+            "prompt": 325,
+            "completion": 529
+          },
+          "finishReason": "stop",
+          "cost": 0.0029700000000000004
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "EC negative — ambiguous correction: more than one possible answer (editor article scenario)",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verbs based on sentence context.",
+            "question_type": "Error Correction",
+            "error_type": "Ambiguous correction: more than one possible answer",
+            "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe editor gave a brief review of the article and comment on the writer's use of evidence.\n",
+            "flawed_solution": "Possible correction 1: comment → commented\nPossible correction 2: comment → commentary / comments\n",
+            "correct_solution": "Question must be rewritten — the correction of 'comment' is ambiguous between verb (commented) and noun (commentary/comments).",
+            "explanation_of_flaw": "The first part, \"gave a brief review,\" is correct. The second error is ambiguous because\ncomment could be corrected as the main verb commented, or the sentence could be revised as\na noun phrase such as gave brief comments/commentary. Since the correction is not fixed,\nthe question is not exam-ready.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must flag this question as ambiguous. The word \"comment\" can be corrected either as a verb (commented) or restructured as a noun phrase (comments/commentary), so the question does not have a single definitive answer and must be rewritten.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 9,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Analyze sentence structure to distinguish between noun forms and main verbs based on sentence context.",
+          "question_type": "Error Correction",
+          "error_type": "Ambiguous correction: more than one possible answer",
+          "question": "Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.\n\nThe editor gave a brief review of the article and comment on the writer's use of evidence.\n",
+          "flawed_solution": "Possible correction 1: comment → commented\nPossible correction 2: comment → commentary / comments\n",
+          "correct_solution": "Question must be rewritten — the correction of 'comment' is ambiguous between verb (commented) and noun (commentary/comments).",
+          "explanation_of_flaw": "The first part, \"gave a brief review,\" is correct. The second error is ambiguous because\ncomment could be corrected as the main verb commented, or the sentence could be revised as\na noun phrase such as gave brief comments/commentary. Since the correction is not fixed,\nthe question is not exam-ready.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 8,
+      "failures": 2,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 3328,
+        "completion": 4780,
+        "cached": 0,
+        "total": 8108,
+        "numRequests": 10,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0
+        },
+        "assertions": {
+          "total": 8974,
+          "prompt": 7414,
+          "completion": 1560,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0
+          }
+        }
+      },
+      "durationMs": 23381,
+      "evaluationDurationMs": 23381
+    }
+  },
+  "config": {
+    "description": "Eval — Error Correction",
+    "prompts": [
+      "file://prompt.txt"
+    ],
+    "providers": [
+      {
+        "id": "anthropic:messages:claude-haiku-4-5-20251001",
+        "config": {
+          "temperature": 0
+        }
+      }
+    ],
+    "tests": [
+      "file://eval_tests.yaml",
+      "file://testing_tests.yaml"
+    ],
+    "defaultTest": {
+      "options": {
+        "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+      }
+    },
+    "outputPath": [
+      "results.json"
+    ],
+    "extensions": []
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.121.3",
+    "nodeVersion": "v25.8.2",
+    "platform": "win32",
+    "arch": "x64",
+    "exportedAt": "2026-05-19T12:35:59.093Z",
+    "evaluationCreatedAt": "2026-05-19T12:35:32.903Z"
+  }
+}

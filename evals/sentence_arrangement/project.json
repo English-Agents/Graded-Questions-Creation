@@ -1,0 +1,20 @@
+{
+  "name": "sentence-arrangement",
+  "projectType": "application",
+  "targets": {
+    "eval": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo eval --no-cache",
+        "cwd": "evals/sentence_arrangement"
+      }
+    },
+    "view": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx promptfoo view",
+        "cwd": "evals/sentence_arrangement"
+      }
+    }
+  }
+}

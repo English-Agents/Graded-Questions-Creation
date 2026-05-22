@@ -1,0 +1,201 @@
+# POSITIVE QUESTIONS — Correctly formed Sentence Correction / MCQ questions
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify and correct errors in noun and main verb forms based on sentence context."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: After the supervisor's detailed inspect of the machinery, the technician repaired the damaged motor.
+
+      i) After the supervisor's detailed inspection of the machinery, the technician repaired the damaged motor.
+      ii) After the supervisor's detailed inspected of the machinery, the technician repaired the damaged motor.
+      iii) After the supervisor's detailed inspecting of the machinery, the technician repaired the damaged motor.
+      iv) After the supervisor's detailed inspects of the machinery, the technician repaired the damaged motor.
+    solution: "i) After the supervisor's detailed inspection of the machinery, the technician repaired the damaged motor."
+    explanation: "Option i is correct because inspection is the noun form required after the adjective 'detailed.' The other options use verb forms that do not fit the noun position in the sentence."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify and correct errors in noun and main verb forms based on sentence context."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The scientist's careful observe of the samples helped the team identify the unusual reaction.
+
+      i) The scientist's careful observation of the samples helped the team identify the unusual reaction.
+      ii) The scientist's careful observed of the samples helped the team identify the unusual reaction.
+      iii) The scientist's careful observes of the samples helped the team identify the unusual reaction.
+      iv) The scientist's careful observe of the samples helped the team identify the unusual reaction.
+    solution: "i) The scientist's careful observation of the samples helped the team identify the unusual reaction."
+    explanation: "Option i is correct because observation is the noun form required after the adjective 'careful.' The other options use verb forms or the unchanged base form, which do not fit the noun position."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify and correct errors in noun and main verb forms based on sentence context."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The committee recommendation several changes after reviewing the safety report.
+
+      i) The committee recommendation several changes after reviewing the safety report.
+      ii) The committee recommended several changes after reviewing the safety report.
+      iii) The committee recommend several changes after reviewing the safety report.
+      iv) The committee recommending several changes after reviewing the safety report.
+    solution: "ii) The committee recommended several changes after reviewing the safety report."
+    explanation: "Option ii is correct because recommended is the main verb required after the subject 'The committee.' The other options use a noun, a base verb form that does not match the sentence tense, or an incomplete verb form."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Analyze sentence structure to identify the correct noun or main verb form."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: After the editor's final revise of the article, the magazine published the corrected version.
+
+      i) After the editor's final revised of the article, the magazine published the corrected version.
+      ii) After the editor's final revision of the article, the magazine published the corrected version.
+      iii) After the editor's final revise of the article, the magazine published the corrected version.
+      iv) After the editor's final revises of the article, the magazine published the corrected version.
+    solution: "ii) After the editor's final revision of the article, the magazine published the corrected version."
+    explanation: "Option ii is correct because revision is the noun form required after the adjective 'final.' The other options use verb forms that cannot function as the noun in this structure."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify and correct errors in noun and main verb forms based on sentence context."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The technician installation the security cameras before the office reopened.
+
+      i) The technician installation the security cameras before the office reopened.
+      ii) The technician installing the security cameras before the office reopened.
+      iii) The technician installed the security cameras before the office reopened.
+      iv) The technician installment the security cameras before the office reopened.
+    solution: "iii) The technician installed the security cameras before the office reopened."
+    explanation: "Option iii is correct because installed is the main verb showing the action performed by 'The technician.' The other options use noun forms or an incomplete verb form."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Analyze sentence structure to identify the correct noun or main verb form."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The auditor prepared a detailed summarize of the financial irregularities for the board.
+
+      i) The auditor prepared a detailed summary of the financial irregularities for the board.
+      ii) The auditor prepared a detailed summarized of the financial irregularities for the board.
+      iii) The auditor prepared a detailed summarizes of the financial irregularities for the board.
+      iv) The auditor prepared a detailed summarize of the financial irregularities for the board.
+    solution: "i) The auditor prepared a detailed summary of the financial irregularities for the board."
+    explanation: "Option i is correct because summary is the noun required after the adjective 'detailed.' The other options are verb forms or unchanged base forms that do not fit after 'a detailed.'"
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify and correct errors in noun and main verb forms based on sentence context."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The coach instruction the players to focus on defensive positioning during the final round.
+
+      i) The coach instruction the players to focus on defensive positioning during the final round.
+      ii) The coach instructed the players to focus on defensive positioning during the final round.
+      iii) The coach instructional the players to focus on defensive positioning during the final round.
+      iv) The coach instructing the players to focus on defensive positioning during the final round.
+    solution: "ii) The coach instructed the players to focus on defensive positioning during the final round."
+    explanation: "Option ii is correct because instructed is the main verb required after the subject 'The coach.' The other options use a noun, an adjective, or an incomplete verb form."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Analyze sentence structure to identify the correct noun or main verb form."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: Before the launch, the marketing head gave a clear explain of the campaign strategy.
+
+      i) Before the launch, the marketing head gave a clear explained of the campaign strategy.
+      ii) Before the launch, the marketing head gave a clear explains of the campaign strategy.
+      iii) Before the launch, the marketing head gave a clear explanation of the campaign strategy.
+      iv) Before the launch, the marketing head gave a clear explain of the campaign strategy.
+    solution: "iii) Before the launch, the marketing head gave a clear explanation of the campaign strategy."
+    explanation: "Option iii is correct because explanation is the noun form required after the adjective 'clear.' The other options use verb forms that do not fit the noun position."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L3
+    difficulty: Medium
+    course_outcome: "CO1: Identify and correct errors in noun and main verb forms based on sentence context."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The field officer assessment the damage after the heavy rainfall.
+
+      i) The field officer assessment the damage after the heavy rainfall.
+      ii) The field officer assessing the damage after the heavy rainfall.
+      iii) The field officer assessed the damage after the heavy rainfall.
+      iv) The field officer assess the damage after the heavy rainfall.
+    solution: "iii) The field officer assessed the damage after the heavy rainfall."
+    explanation: "Option iii is correct because assessed is the main verb required after the subject 'The field officer.' The other options use a noun, an incomplete verb form, or a base verb form that does not fit the sentence."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."
+
+- vars:
+    question_type: Sentence Correction / MCQ
+    bloom_level: L4
+    difficulty: Hard
+    course_outcome: "CO1: Analyze sentence structure to identify the correct noun or main verb form."
+    question: |
+      Instruction: Choose the grammatically correct version of the sentence given below.
+
+      Incorrect sentence: The historian's accurate interpret of the inscription changed the researchers' understanding of the site.
+
+      i) The historian's accurate interpretation of the inscription changed the researchers' understanding of the site.
+      ii) The historian's accurate interpreted of the inscription changed the researchers' understanding of the site.
+      iii) The historian's accurate interprets of the inscription changed the researchers' understanding of the site.
+      iv) The historian's accurate interpret of the inscription changed the researchers' understanding of the site.
+    solution: "i) The historian's accurate interpretation of the inscription changed the researchers' understanding of the site."
+    explanation: "Option i is correct because interpretation is the noun form required after the adjective 'accurate.' The other options use verb forms or the unchanged base form, which do not fit the noun position."
+  assert:
+    - type: llm-rubric
+      value: "The Sentence Correction / MCQ must: (1) present an incorrect sentence with a noun-vs-main-verb error, (2) give exactly 4 options (i–iv), (3) have exactly ONE grammatically correct option fixing the noun or main verb form, (4) have three distractors using wrong forms, (5) provide an accurate answer key. Respond: VALID or INVALID."

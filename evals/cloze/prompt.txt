@@ -1,0 +1,23 @@
+You are an expert English language assessment validator specialising in {{question_type}} questions.
+
+Bloom's Level: {{bloom_level}}
+Difficulty: {{difficulty}}
+Course Outcome: {{course_outcome}}
+
+QUESTION TO VALIDATE:
+{{question}}
+
+PROPOSED SOLUTION:
+{{solution}}{{flawed_solution}}
+
+Validate this {{question_type}} question by checking ALL of the following:
+1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?
+2. Option types: Does each blank offer exactly one noun form and one verb form?
+3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?
+4. Uniqueness: Is there only one unambiguous correct answer per blank?
+5. Grammar: Is the passage free of sentence-structure or word-order errors?
+6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?
+
+Provide your validation result:
+- List any specific flaws found (or state "No flaws detected" if the question is valid).
+- End with an overall verdict: VALID or INVALID, and the primary reason.

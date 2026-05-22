@@ -1,0 +1,154 @@
+# testing_tests.yaml — Cloze
+# 5 negative / intentionally flawed questions (Q1-Q5). Q6-Q10 reserved.
+
+- description: "Cloze negative — wrong answer key: noun and verb forms reversed (legal team)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    error_type: "Incorrect answer key: noun and main verb forms are reversed"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      After the legal team's careful (i)_________________ (review / reviewed) of the contract,
+      the director (ii)_________________ (approval / approved) the revised clauses, sent a formal
+      (iii)_________________ (notify / notification) to the client, and
+      (iv)_________________ (recorded / record) the final agreement in the archive.
+    flawed_solution: |
+      (i) reviewed
+      (ii) approval
+      (iii) notify
+      (iv) record
+    correct_solution: |
+      (i) review
+      (ii) approved
+      (iii) notification
+      (iv) recorded
+    explanation_of_flaw: |
+      The flawed key reverses noun and main verb forms. "review" is needed after "careful",
+      "approved" is the main verb for "the director", "notification" is the object of "sent",
+      and "recorded" is another main verb parallel to "sent."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must reject this question. The answer key selects verb forms where nouns are
+        required and noun forms where verbs are required throughout all four blanks.
+
+- description: "Cloze negative — invalid options: no verb available for verb blanks (museum)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    error_type: "Invalid options: no main verb option is available"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      During the museum's restoration project, the curator requested a detailed
+      (i)_________________ (description / describe) of the damaged artefacts, the conservation
+      team (ii)_________________ (preservation / restoration) the paintings, issued a formal
+      (iii)_________________ (statement / state) to the donors, and
+      (iv)_________________ (documentation / classification) every repair in the archive.
+    flawed_solution: |
+      (i) description
+      (ii) No valid answer
+      (iii) statement
+      (iv) No valid answer
+    correct_solution: "Blanks (ii) and (iv) must be rewritten with verb options such as preserved/restored and documented/classified."
+    explanation_of_flaw: |
+      Blanks (ii) and (iv) require main verbs but both bracket options are nouns.
+      The question cannot be answered correctly as written.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag this question as invalid. Blanks (ii) and (iv) require main verbs
+        but only noun forms are provided as options.
+
+- description: "Cloze negative — ambiguous options: two correct verbs per blank (research team)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    error_type: "Ambiguous options: more than one correct main verb"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      After the research team completed its preliminary (i)_________________ (observation / observe)
+      of the participants, the coordinator (ii)_________________ (reported / documented) the findings,
+      prepared a formal (iii)_________________ (summary / summarize) for the ethics board,
+      and (iv)_________________ (presented / explained) the recommendations during the review meeting.
+    flawed_solution: |
+      (i) observation
+      (ii) reported / documented
+      (iii) summary
+      (iv) presented / explained
+    correct_solution: "Blanks (ii) and (iv) are ambiguous — both options are grammatically correct. Question must be rewritten."
+    explanation_of_flaw: |
+      Blanks (ii) and (iv) each have two grammatically correct main verb options.
+      Since more than one answer is possible the item does not have a single correct solution.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag this question as ambiguous. Blanks (ii) and (iv) each accept two
+        correct answers, so the question does not test a single clear distinction.
+
+- description: "Cloze negative — sentence structure error: incorrect word order (engineer bridge)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    error_type: "Sentence-structure error: incorrect word order"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      Following the engineer's technical (i)_________________ (inspection / inspect) of the bridge,
+      the safety board (ii)_________________ (recommendation / recommended) immediate repairs,
+      issued a detailed (iii)_________________ (warning / warn) to commuters,
+      and the damaged section before reopening (iv)_________________ (reinforcement / reinforced).
+    flawed_solution: |
+      (i) inspection
+      (ii) recommended
+      (iii) warning
+      (iv) No valid answer as written
+    correct_solution: "Blank (iv) requires the sentence to be rewritten as: 'and reinforced the damaged section before reopening.'"
+    explanation_of_flaw: |
+      Blank (iv) has a word-order problem. The object "the damaged section" appears before the verb,
+      making the sentence grammatically incorrect as written.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag blank (iv) as having a word-order error. The sentence structure
+        places the object before the verb position, making it unanswerable as written.
+
+- description: "Cloze negative — non-finite verb as option where finite verb required (safety training)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Differentiate between nouns and main verbs based on sentence context."
+    question_type: "Cloze"
+    error_type: "Incorrect verb form: non-finite verb used where a main verb is required"
+    question: |
+      Instruction: Fill in each blank with the correct word from the options given in brackets.
+
+      During the company's annual safety training, the supervisor requested a brief
+      (i)_________________ (demonstration / demonstrate) of the emergency procedure, the trainers
+      (ii)_________________ (preparation / preparing) the evacuation drills, gave a clear
+      (iii)_________________ (explanation / explain) of the exit routes,
+      and (iv)_________________ (evaluation / evaluated) each employee's response time.
+    flawed_solution: |
+      (i) demonstration
+      (ii) No valid answer
+      (iii) explanation
+      (iv) evaluated
+    correct_solution: "Blank (ii) requires 'prepared' — the question must be rewritten to provide a finite verb option."
+    explanation_of_flaw: |
+      Blank (ii) requires a finite main verb such as "prepared". "preparation" is a noun and
+      "preparing" is non-finite without an auxiliary. Neither option is a complete main verb.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag blank (ii) as invalid. The options provide only a noun and a
+        non-finite verb form where a complete finite main verb is required.

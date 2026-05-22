@@ -1,0 +1,37 @@
+# Web framework
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.12
+
+# Database
+sqlalchemy[asyncio]==2.0.36
+asyncpg==0.30.0
+alembic==1.14.0
+
+# Vector DB
+chromadb>=1.0.0
+
+# AI / LLM
+anthropic>=0.40.0
+dspy-ai>=3.0.0
+openai>=1.58.1          # optional — only needed for OpenAI embeddings
+langchain-openai>=0.2.14
+langgraph>=0.2.58
+
+# DSPy Skills (ivanvza/dspy-skills)
+# Install separately: pip install git+https://github.com/ivanvza/dspy-skills.git
+
+# RAG / embeddings
+tiktoken==0.8.0
+pypdf==5.1.0
+python-docx==1.1.2
+
+# Excel export
+openpyxl==3.1.5
+
+# Utilities
+pydantic==2.10.3
+pydantic-settings==2.6.1
+python-dotenv==1.0.1
+httpx==0.28.1
+anyio==4.7.0

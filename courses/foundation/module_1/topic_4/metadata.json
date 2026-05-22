@@ -1,0 +1,21 @@
+﻿{
+    "topic_name":  "Verb Forms and Noun + Helping Verb Agreement",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  2,
+                       "question_types":  [
+                                              "Fill in the blanks",
+                                              "Error correction",
+                                              "Cloze"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Foundation",
+    "module":  "Module 1: Building Accuracy and Sentence Structure"
+}

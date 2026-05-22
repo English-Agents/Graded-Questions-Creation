@@ -1,0 +1,21 @@
+﻿{
+    "topic_name":  "Verbal Ability: Question Solving Strategies Part 1",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  2,
+                       "question_types":  [
+                                              "Fill in the blanks",
+                                              "Error correction",
+                                              "Cloze"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 1: Vocabulary and Word Practice",
+    "course":  "Language Analytics"
+}

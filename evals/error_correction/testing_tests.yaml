@@ -1,0 +1,132 @@
+# testing_tests.yaml — Error Correction
+# 5 negative / intentionally flawed questions (Q1-Q5). Q6-Q10 reserved.
+
+- description: "EC negative — no-error sentence used: art exhibition scenario"
+  vars:
+    bloom_level: "L3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context."
+    question_type: "Error Correction"
+    error_type: "No-error sentence: does not contain two errors"
+    question: |
+      Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.
+
+      During the art exhibition, the curator gave a detailed explanation of the paintings and described the history of each artist.
+    flawed_solution: "No error"
+    correct_solution: "The sentence is already correct and cannot be used as an error correction item."
+    explanation_of_flaw: |
+      The sentence is already correct. Explanation is correctly used as a noun after "detailed,"
+      and described is correctly used as the main verb. Since the instruction asks for two incorrect
+      words, the question is flawed.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must reject this question. The sentence contains no grammatical errors —
+        explanation is correctly used as a noun and described is correctly used as the main verb.
+        A no-error sentence cannot serve as a valid error correction item.
+
+- description: "EC negative — unnatural noun correction requires number change: sports coach scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms."
+    question_type: "Error Correction"
+    error_type: "Unnatural noun correction: requires number change"
+    question: |
+      Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.
+
+      The sports coach gave a clear instruct before the match and motivation the players to focus on teamwork.
+    flawed_solution: |
+      Incorrect words: instruct, motivation
+      Correct words: instruction, motivated
+
+      Correct sentence: The sports coach gave a clear instruction before the match and motivated the players to focus on teamwork.
+    correct_solution: "Rewrite as: 'gave clear instructions' — the correction requires a number change, not just a noun-vs-verb fix."
+    explanation_of_flaw: |
+      Although both errors can be corrected, "gave a clear instruction" is less natural in this context
+      than "gave clear instructions." The item may confuse students because the correction requires a
+      number change as well, not just a noun-vs-main-verb change.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag this question. The noun correction "instruct → instruction" produces
+        an unnatural phrasing ("gave a clear instruction") and requires a number change to be natural
+        ("gave clear instructions"), introducing ambiguity beyond the noun-vs-verb distinction being tested.
+
+- description: "EC negative — no-error sentence used: scientist chemical analysis scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Analyze sentence structure to distinguish between noun forms and main verbs based on sentence context."
+    question_type: "Error Correction"
+    error_type: "No-error sentence: unsuitable for error correction"
+    question: |
+      Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.
+
+      After the scientist completed the chemical analysis, the lab assistant recorded the results and submitted the report.
+    flawed_solution: "No error"
+    correct_solution: "The sentence is already correct and cannot be used as an error correction item."
+    explanation_of_flaw: |
+      The sentence has no noun/main verb error. Analysis is correctly used as a noun, and recorded
+      is correctly used as a main verb. Therefore, it is not suitable for a two-mark error correction question.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must reject this question. The sentence contains no errors — analysis is
+        correctly used as a noun and recorded as a main verb. A correct sentence cannot be presented
+        as an error correction item.
+
+- description: "EC negative — error-count mismatch: only one error present (nurse scenario)"
+  vars:
+    bloom_level: "L3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context."
+    question_type: "Error Correction"
+    error_type: "Error-count mismatch: only one error present"
+    question: |
+      Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.
+
+      The nurse made a careful observe of the patient's symptoms and reported the changes to the doctor.
+    flawed_solution: |
+      Incorrect word: observe
+      Correct word: observation
+
+      Correct sentence: The nurse made a careful observation of the patient's symptoms and reported the changes to the doctor.
+    correct_solution: "Only one error exists (observe → observation). The instruction incorrectly asks for two errors."
+    explanation_of_flaw: |
+      The sentence contains only one error. Observe should be changed to observation, but reported
+      is already correct as the main verb. The question is flawed because the instruction asks for
+      two incorrect words.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag this question. The instruction asks students to identify two incorrect
+        words, but the sentence contains only one error (observe → observation). The mismatch between
+        the instruction and the actual error count makes this an invalid question.
+
+- description: "EC negative — ambiguous correction: more than one possible answer (editor article scenario)"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Analyze sentence structure to distinguish between noun forms and main verbs based on sentence context."
+    question_type: "Error Correction"
+    error_type: "Ambiguous correction: more than one possible answer"
+    question: |
+      Instruction: Identify the two incorrect words in the sentence and replace them with the correct forms.
+
+      The editor gave a brief review of the article and comment on the writer's use of evidence.
+    flawed_solution: |
+      Possible correction 1: comment → commented
+      Possible correction 2: comment → commentary / comments
+    correct_solution: "Question must be rewritten — the correction of 'comment' is ambiguous between verb (commented) and noun (commentary/comments)."
+    explanation_of_flaw: |
+      The first part, "gave a brief review," is correct. The second error is ambiguous because
+      comment could be corrected as the main verb commented, or the sentence could be revised as
+      a noun phrase such as gave brief comments/commentary. Since the correction is not fixed,
+      the question is not exam-ready.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator must flag this question as ambiguous. The word "comment" can be corrected
+        either as a verb (commented) or restructured as a noun phrase (comments/commentary), so
+        the question does not have a single definitive answer and must be rewritten.

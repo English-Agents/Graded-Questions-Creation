@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Scenario Application: Simple and Continuous Tenses",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Sentence Conversion",
+                                              "Sentence arrangement"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 2: Describing Actions and Expressing Possibility",
+    "course":  "Communicative English Advanced"
+}

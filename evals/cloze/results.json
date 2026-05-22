@@ -1,0 +1,760 @@
+{
+  "evalId": "eval-b68-2026-05-19T12:40:55",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-05-19T12:40:55.651Z",
+    "prompts": [
+      {
+        "raw": "You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+        "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+        "id": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "provider": "anthropic:messages:claude-haiku-4-5-20251001",
+        "metrics": {
+          "score": 0,
+          "testPassCount": 0,
+          "testFailCount": 0,
+          "testErrorCount": 10,
+          "assertPassCount": 0,
+          "assertFailCount": 0,
+          "totalLatencyMs": 4253,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 10,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "235f19bf-4b9a-443c-8645-bf94199912fb",
+        "latencyMs": 449,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the consultant's detailed (i)_________________ (analysis / analyze) of the sales data,\nthe management team (ii)_________________ (revision / revised) the outdated pricing policy,\nissued a formal (iii)_________________ (instruct / instruction) to the regional offices,\nand (iv)_________________ (implementation / implemented) stricter reporting rules for all future audits.\n\nPROPOSED SOLUTION:\n(i) analysis\n(ii) revised\n(iii) instruction\n(iv) implemented\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze L4 Hard CO1 — consultant sales data scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the consultant's detailed (i)_________________ (analysis / analyze) of the sales data,\nthe management team (ii)_________________ (revision / revised) the outdated pricing policy,\nissued a formal (iii)_________________ (instruct / instruction) to the regional offices,\nand (iv)_________________ (implementation / implemented) stricter reporting rules for all future audits.\n",
+            "solution": "(i) analysis\n(ii) revised\n(iii) instruction\n(iv) implemented\n",
+            "explanation": "(i) analysis is a noun because it follows the adjective \"detailed\" and refers to a process.\n(ii) revised is the main verb because it shows the action performed by \"the management team.\"\n(iii) instruction is a noun because it follows the adjective \"formal\" and is the object of \"issued.\"\n(iv) implemented is a main verb because it shows another action performed by \"the management team.\"\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form. Solution must correctly identify noun vs verb. Explanation must justify each answer using grammatical reasoning such as \"follows the adjective\" or \"shows the action performed by.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the consultant's detailed (i)_________________ (analysis / analyze) of the sales data,\nthe management team (ii)_________________ (revision / revised) the outdated pricing policy,\nissued a formal (iii)_________________ (instruct / instruction) to the regional offices,\nand (iv)_________________ (implementation / implemented) stricter reporting rules for all future audits.\n",
+          "solution": "(i) analysis\n(ii) revised\n(iii) instruction\n(iv) implemented\n",
+          "explanation": "(i) analysis is a noun because it follows the adjective \"detailed\" and refers to a process.\n(ii) revised is the main verb because it shows the action performed by \"the management team.\"\n(iii) instruction is a noun because it follows the adjective \"formal\" and is the object of \"issued.\"\n(iv) implemented is a main verb because it shows another action performed by \"the management team.\"\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "ae6f5301-7ecd-4420-9b49-1400d2bf3246",
+        "latencyMs": 549,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Medium\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nBefore the hospital introduced the new patient-record system, the medical director requested\na complete (i)_________________ (evaluation / evaluate) of the existing process, the IT team\n(ii)_________________ (installation / installed) the updated software, the nurses received a\nclear (iii)_________________ (explain / explanation) of the changes, and the administrator\n(iv)_________________ (approval / approved) the final rollout schedule.\n\nPROPOSED SOLUTION:\n(i) evaluation\n(ii) installed\n(iii) explanation\n(iv) approved\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze L4 Medium CO1 — hospital patient-record scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Medium",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nBefore the hospital introduced the new patient-record system, the medical director requested\na complete (i)_________________ (evaluation / evaluate) of the existing process, the IT team\n(ii)_________________ (installation / installed) the updated software, the nurses received a\nclear (iii)_________________ (explain / explanation) of the changes, and the administrator\n(iv)_________________ (approval / approved) the final rollout schedule.\n",
+            "solution": "(i) evaluation\n(ii) installed\n(iii) explanation\n(iv) approved\n",
+            "explanation": "(i) evaluation is a noun because it follows the adjective \"complete\" and names a process.\n(ii) installed is the main verb because it shows the action performed by \"the IT team.\"\n(iii) explanation is a noun because it follows the adjective \"clear\" and is the object of \"received.\"\n(iv) approved is the main verb because it shows the action performed by \"the administrator.\"\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form. Solution must correctly identify noun vs verb. Explanation must justify each answer using grammatical reasoning such as \"follows the adjective\" or \"shows the action performed by.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Medium",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nBefore the hospital introduced the new patient-record system, the medical director requested\na complete (i)_________________ (evaluation / evaluate) of the existing process, the IT team\n(ii)_________________ (installation / installed) the updated software, the nurses received a\nclear (iii)_________________ (explain / explanation) of the changes, and the administrator\n(iv)_________________ (approval / approved) the final rollout schedule.\n",
+          "solution": "(i) evaluation\n(ii) installed\n(iii) explanation\n(iv) approved\n",
+          "explanation": "(i) evaluation is a noun because it follows the adjective \"complete\" and names a process.\n(ii) installed is the main verb because it shows the action performed by \"the IT team.\"\n(iii) explanation is a noun because it follows the adjective \"clear\" and is the object of \"received.\"\n(iv) approved is the main verb because it shows the action performed by \"the administrator.\"\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "0b70cba5-1e42-4bfb-b8af-e95bb9108bc1",
+        "latencyMs": 482,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the city council's careful (i)_________________ (assessment / assess) of traffic patterns,\nthe planning department (ii)_________________ (reconstruction / redesigned) the main intersection,\npublished an official (iii)_________________ (announce / announcement) for local residents,\nand (iv)_________________ (coordination / coordinated) the construction schedule with nearby businesses.\n\nPROPOSED SOLUTION:\n(i) assessment\n(ii) redesigned\n(iii) announcement\n(iv) coordinated\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze L4 Hard CO1 — city council traffic patterns scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the city council's careful (i)_________________ (assessment / assess) of traffic patterns,\nthe planning department (ii)_________________ (reconstruction / redesigned) the main intersection,\npublished an official (iii)_________________ (announce / announcement) for local residents,\nand (iv)_________________ (coordination / coordinated) the construction schedule with nearby businesses.\n",
+            "solution": "(i) assessment\n(ii) redesigned\n(iii) announcement\n(iv) coordinated\n",
+            "explanation": "(i) assessment is a noun because it follows the adjective \"careful\" and refers to a study or judgment.\n(ii) redesigned is the main verb because it shows what \"the planning department\" did.\n(iii) announcement is a noun because it follows the adjective \"official\" and is the object of \"published.\"\n(iv) coordinated is the main verb because it shows another action performed by \"the planning department.\"\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form. Solution must correctly identify noun vs verb. Explanation must justify each answer using grammatical reasoning such as \"follows the adjective\" or \"shows the action performed by.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the city council's careful (i)_________________ (assessment / assess) of traffic patterns,\nthe planning department (ii)_________________ (reconstruction / redesigned) the main intersection,\npublished an official (iii)_________________ (announce / announcement) for local residents,\nand (iv)_________________ (coordination / coordinated) the construction schedule with nearby businesses.\n",
+          "solution": "(i) assessment\n(ii) redesigned\n(iii) announcement\n(iv) coordinated\n",
+          "explanation": "(i) assessment is a noun because it follows the adjective \"careful\" and refers to a study or judgment.\n(ii) redesigned is the main verb because it shows what \"the planning department\" did.\n(iii) announcement is a noun because it follows the adjective \"official\" and is the object of \"published.\"\n(iv) coordinated is the main verb because it shows another action performed by \"the planning department.\"\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "a1f6dc2a-c360-4e03-b8a6-613b055c21a2",
+        "latencyMs": 512,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nFollowing the auditor's independent (i)_________________ (inspection / inspect) of the company's accounts,\nthe finance officer (ii)_________________ (correction / corrected) several reporting errors,\nprepared a detailed (iii)_________________ (summarize / summary) for the board,\nand (iv)_________________ (submission / submitted) the revised statements before the deadline.\n\nPROPOSED SOLUTION:\n(i) inspection\n(ii) corrected\n(iii) summary\n(iv) submitted\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze L4 Hard CO1 — auditor accounts scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nFollowing the auditor's independent (i)_________________ (inspection / inspect) of the company's accounts,\nthe finance officer (ii)_________________ (correction / corrected) several reporting errors,\nprepared a detailed (iii)_________________ (summarize / summary) for the board,\nand (iv)_________________ (submission / submitted) the revised statements before the deadline.\n",
+            "solution": "(i) inspection\n(ii) corrected\n(iii) summary\n(iv) submitted\n",
+            "explanation": "(i) inspection is a noun because it follows the adjective \"independent\" and names an activity.\n(ii) corrected is the main verb because it shows the action performed by \"the finance officer.\"\n(iii) summary is a noun because it follows the adjective \"detailed\" and is the object of \"prepared.\"\n(iv) submitted is the main verb because it shows another action performed by \"the finance officer.\"\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form. Solution must correctly identify noun vs verb. Explanation must justify each answer using grammatical reasoning such as \"follows the adjective\" or \"shows the action performed by.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nFollowing the auditor's independent (i)_________________ (inspection / inspect) of the company's accounts,\nthe finance officer (ii)_________________ (correction / corrected) several reporting errors,\nprepared a detailed (iii)_________________ (summarize / summary) for the board,\nand (iv)_________________ (submission / submitted) the revised statements before the deadline.\n",
+          "solution": "(i) inspection\n(ii) corrected\n(iii) summary\n(iv) submitted\n",
+          "explanation": "(i) inspection is a noun because it follows the adjective \"independent\" and names an activity.\n(ii) corrected is the main verb because it shows the action performed by \"the finance officer.\"\n(iii) summary is a noun because it follows the adjective \"detailed\" and is the object of \"prepared.\"\n(iv) submitted is the main verb because it shows another action performed by \"the finance officer.\"\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "8d82be2c-4d13-4904-8046-46eea2f36e70",
+        "latencyMs": 355,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Medium\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the university's curriculum review, the academic committee completed a thorough\n(i)_________________ (comparison / compare) of similar courses, the department\n(ii)_________________ (modified / modification) the syllabus, issued a formal\n(iii)_________________ (recommend / recommendation) to the faculty board,\nand (iv)_________________ (introduced / introduction) the revised course structure in the next semester.\n\nPROPOSED SOLUTION:\n(i) comparison\n(ii) modified\n(iii) recommendation\n(iv) introduced\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze L4 Medium CO1 — university curriculum review scenario",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Medium",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the university's curriculum review, the academic committee completed a thorough\n(i)_________________ (comparison / compare) of similar courses, the department\n(ii)_________________ (modified / modification) the syllabus, issued a formal\n(iii)_________________ (recommend / recommendation) to the faculty board,\nand (iv)_________________ (introduced / introduction) the revised course structure in the next semester.\n",
+            "solution": "(i) comparison\n(ii) modified\n(iii) recommendation\n(iv) introduced\n",
+            "explanation": "(i) comparison is a noun because it follows the adjective \"thorough\" and names an act of examining similarities.\n(ii) modified is the main verb because it shows the action performed by \"the department.\"\n(iii) recommendation is a noun because it follows the adjective \"formal\" and is the object of \"issued.\"\n(iv) introduced is the main verb because it shows another action performed by \"the department.\"\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The Cloze passage must have 4 numbered blanks with two bracket options each — one noun and one verb form. Solution must correctly identify noun vs verb. Explanation must justify each answer using grammatical reasoning such as \"follows the adjective\" or \"shows the action performed by.\"\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Medium",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the university's curriculum review, the academic committee completed a thorough\n(i)_________________ (comparison / compare) of similar courses, the department\n(ii)_________________ (modified / modification) the syllabus, issued a formal\n(iii)_________________ (recommend / recommendation) to the faculty board,\nand (iv)_________________ (introduced / introduction) the revised course structure in the next semester.\n",
+          "solution": "(i) comparison\n(ii) modified\n(iii) recommendation\n(iv) introduced\n",
+          "explanation": "(i) comparison is a noun because it follows the adjective \"thorough\" and names an act of examining similarities.\n(ii) modified is the main verb because it shows the action performed by \"the department.\"\n(iii) recommendation is a noun because it follows the adjective \"formal\" and is the object of \"issued.\"\n(iv) introduced is the main verb because it shows another action performed by \"the department.\"\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "ca399e63-1553-4e03-9eff-598fc4daba55",
+        "latencyMs": 355,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the legal team's careful (i)_________________ (review / reviewed) of the contract,\nthe director (ii)_________________ (approval / approved) the revised clauses, sent a formal\n(iii)_________________ (notify / notification) to the client, and\n(iv)_________________ (recorded / record) the final agreement in the archive.\n\nPROPOSED SOLUTION:\n(i) reviewed\n(ii) approval\n(iii) notify\n(iv) record\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze negative — wrong answer key: noun and verb forms reversed (legal team)",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "error_type": "Incorrect answer key: noun and main verb forms are reversed",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the legal team's careful (i)_________________ (review / reviewed) of the contract,\nthe director (ii)_________________ (approval / approved) the revised clauses, sent a formal\n(iii)_________________ (notify / notification) to the client, and\n(iv)_________________ (recorded / record) the final agreement in the archive.\n",
+            "flawed_solution": "(i) reviewed\n(ii) approval\n(iii) notify\n(iv) record\n",
+            "correct_solution": "(i) review\n(ii) approved\n(iii) notification\n(iv) recorded\n",
+            "explanation_of_flaw": "The flawed key reverses noun and main verb forms. \"review\" is needed after \"careful\",\n\"approved\" is the main verb for \"the director\", \"notification\" is the object of \"sent\",\nand \"recorded\" is another main verb parallel to \"sent.\"\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must reject this question. The answer key selects verb forms where nouns are required and noun forms where verbs are required throughout all four blanks.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 5,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "error_type": "Incorrect answer key: noun and main verb forms are reversed",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the legal team's careful (i)_________________ (review / reviewed) of the contract,\nthe director (ii)_________________ (approval / approved) the revised clauses, sent a formal\n(iii)_________________ (notify / notification) to the client, and\n(iv)_________________ (recorded / record) the final agreement in the archive.\n",
+          "flawed_solution": "(i) reviewed\n(ii) approval\n(iii) notify\n(iv) record\n",
+          "correct_solution": "(i) review\n(ii) approved\n(iii) notification\n(iv) recorded\n",
+          "explanation_of_flaw": "The flawed key reverses noun and main verb forms. \"review\" is needed after \"careful\",\n\"approved\" is the main verb for \"the director\", \"notification\" is the object of \"sent\",\nand \"recorded\" is another main verb parallel to \"sent.\"\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "41ed6541-7ac8-43b9-95f7-d6ff3c22e362",
+        "latencyMs": 493,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the museum's restoration project, the curator requested a detailed\n(i)_________________ (description / describe) of the damaged artefacts, the conservation\nteam (ii)_________________ (preservation / restoration) the paintings, issued a formal\n(iii)_________________ (statement / state) to the donors, and\n(iv)_________________ (documentation / classification) every repair in the archive.\n\nPROPOSED SOLUTION:\n(i) description\n(ii) No valid answer\n(iii) statement\n(iv) No valid answer\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze negative — invalid options: no verb available for verb blanks (museum)",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "error_type": "Invalid options: no main verb option is available",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the museum's restoration project, the curator requested a detailed\n(i)_________________ (description / describe) of the damaged artefacts, the conservation\nteam (ii)_________________ (preservation / restoration) the paintings, issued a formal\n(iii)_________________ (statement / state) to the donors, and\n(iv)_________________ (documentation / classification) every repair in the archive.\n",
+            "flawed_solution": "(i) description\n(ii) No valid answer\n(iii) statement\n(iv) No valid answer\n",
+            "correct_solution": "Blanks (ii) and (iv) must be rewritten with verb options such as preserved/restored and documented/classified.",
+            "explanation_of_flaw": "Blanks (ii) and (iv) require main verbs but both bracket options are nouns.\nThe question cannot be answered correctly as written.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must flag this question as invalid. Blanks (ii) and (iv) require main verbs but only noun forms are provided as options.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 6,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "error_type": "Invalid options: no main verb option is available",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the museum's restoration project, the curator requested a detailed\n(i)_________________ (description / describe) of the damaged artefacts, the conservation\nteam (ii)_________________ (preservation / restoration) the paintings, issued a formal\n(iii)_________________ (statement / state) to the donors, and\n(iv)_________________ (documentation / classification) every repair in the archive.\n",
+          "flawed_solution": "(i) description\n(ii) No valid answer\n(iii) statement\n(iv) No valid answer\n",
+          "correct_solution": "Blanks (ii) and (iv) must be rewritten with verb options such as preserved/restored and documented/classified.",
+          "explanation_of_flaw": "Blanks (ii) and (iv) require main verbs but both bracket options are nouns.\nThe question cannot be answered correctly as written.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "9a22adb2-fef7-4c59-b2a9-07d6dd58265f",
+        "latencyMs": 341,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the research team completed its preliminary (i)_________________ (observation / observe)\nof the participants, the coordinator (ii)_________________ (reported / documented) the findings,\nprepared a formal (iii)_________________ (summary / summarize) for the ethics board,\nand (iv)_________________ (presented / explained) the recommendations during the review meeting.\n\nPROPOSED SOLUTION:\n(i) observation\n(ii) reported / documented\n(iii) summary\n(iv) presented / explained\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze negative — ambiguous options: two correct verbs per blank (research team)",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "error_type": "Ambiguous options: more than one correct main verb",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the research team completed its preliminary (i)_________________ (observation / observe)\nof the participants, the coordinator (ii)_________________ (reported / documented) the findings,\nprepared a formal (iii)_________________ (summary / summarize) for the ethics board,\nand (iv)_________________ (presented / explained) the recommendations during the review meeting.\n",
+            "flawed_solution": "(i) observation\n(ii) reported / documented\n(iii) summary\n(iv) presented / explained\n",
+            "correct_solution": "Blanks (ii) and (iv) are ambiguous — both options are grammatically correct. Question must be rewritten.",
+            "explanation_of_flaw": "Blanks (ii) and (iv) each have two grammatically correct main verb options.\nSince more than one answer is possible the item does not have a single correct solution.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must flag this question as ambiguous. Blanks (ii) and (iv) each accept two correct answers, so the question does not test a single clear distinction.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "error_type": "Ambiguous options: more than one correct main verb",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nAfter the research team completed its preliminary (i)_________________ (observation / observe)\nof the participants, the coordinator (ii)_________________ (reported / documented) the findings,\nprepared a formal (iii)_________________ (summary / summarize) for the ethics board,\nand (iv)_________________ (presented / explained) the recommendations during the review meeting.\n",
+          "flawed_solution": "(i) observation\n(ii) reported / documented\n(iii) summary\n(iv) presented / explained\n",
+          "correct_solution": "Blanks (ii) and (iv) are ambiguous — both options are grammatically correct. Question must be rewritten.",
+          "explanation_of_flaw": "Blanks (ii) and (iv) each have two grammatically correct main verb options.\nSince more than one answer is possible the item does not have a single correct solution.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "7afb2c0a-0a45-4d1c-87ce-600a9cfb6f9b",
+        "latencyMs": 344,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nFollowing the engineer's technical (i)_________________ (inspection / inspect) of the bridge,\nthe safety board (ii)_________________ (recommendation / recommended) immediate repairs,\nissued a detailed (iii)_________________ (warning / warn) to commuters,\nand the damaged section before reopening (iv)_________________ (reinforcement / reinforced).\n\nPROPOSED SOLUTION:\n(i) inspection\n(ii) recommended\n(iii) warning\n(iv) No valid answer as written\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze negative — sentence structure error: incorrect word order (engineer bridge)",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "error_type": "Sentence-structure error: incorrect word order",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nFollowing the engineer's technical (i)_________________ (inspection / inspect) of the bridge,\nthe safety board (ii)_________________ (recommendation / recommended) immediate repairs,\nissued a detailed (iii)_________________ (warning / warn) to commuters,\nand the damaged section before reopening (iv)_________________ (reinforcement / reinforced).\n",
+            "flawed_solution": "(i) inspection\n(ii) recommended\n(iii) warning\n(iv) No valid answer as written\n",
+            "correct_solution": "Blank (iv) requires the sentence to be rewritten as: 'and reinforced the damaged section before reopening.'",
+            "explanation_of_flaw": "Blank (iv) has a word-order problem. The object \"the damaged section\" appears before the verb,\nmaking the sentence grammatically incorrect as written.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must flag blank (iv) as having a word-order error. The sentence structure places the object before the verb position, making it unanswerable as written.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 8,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "error_type": "Sentence-structure error: incorrect word order",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nFollowing the engineer's technical (i)_________________ (inspection / inspect) of the bridge,\nthe safety board (ii)_________________ (recommendation / recommended) immediate repairs,\nissued a detailed (iii)_________________ (warning / warn) to commuters,\nand the damaged section before reopening (iv)_________________ (reinforcement / reinforced).\n",
+          "flawed_solution": "(i) inspection\n(ii) recommended\n(iii) warning\n(iv) No valid answer as written\n",
+          "correct_solution": "Blank (iv) requires the sentence to be rewritten as: 'and reinforced the damaged section before reopening.'",
+          "explanation_of_flaw": "Blank (iv) has a word-order problem. The object \"the damaged section\" appears before the verb,\nmaking the sentence grammatically incorrect as written.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error",
+        "gradingResult": null,
+        "id": "77505a4b-4706-43a5-a0bf-c7ab3a1ec428",
+        "latencyMs": 373,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Cloze questions.\n\nBloom's Level: L4\nDifficulty: Hard\nCourse Outcome: CO1: Differentiate between nouns and main verbs based on sentence context.\n\nQUESTION TO VALIDATE:\nInstruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the company's annual safety training, the supervisor requested a brief\n(i)_________________ (demonstration / demonstrate) of the emergency procedure, the trainers\n(ii)_________________ (preparation / preparing) the evacuation drills, gave a clear\n(iii)_________________ (explanation / explain) of the exit routes,\nand (iv)_________________ (evaluation / evaluated) each employee's response time.\n\nPROPOSED SOLUTION:\n(i) demonstration\n(ii) No valid answer\n(iii) explanation\n(iv) evaluated\n\nValidate this Cloze question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION TO VALIDATE:\n{{question}}\n\nPROPOSED SOLUTION:\n{{solution}}{{flawed_solution}}\n\nValidate this {{question_type}} question by checking ALL of the following:\n1. Structure: Does the passage have exactly 4 numbered blanks (i–iv) with two bracket options each?\n2. Option types: Does each blank offer exactly one noun form and one verb form?\n3. Answer key accuracy: Is each selected answer grammatically correct for its position in the sentence?\n4. Uniqueness: Is there only one unambiguous correct answer per blank?\n5. Grammar: Is the passage free of sentence-structure or word-order errors?\n6. Key reversal: Are noun blanks filled with nouns and verb blanks filled with verbs (not reversed)?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          }
+        },
+        "promptId": "904b1774809b978e948f7734d0244f5b1a52e9acdaa9667a34dcf42f9ef34f51",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-haiku-4-5-20251001",
+          "label": ""
+        },
+        "response": {
+          "error": "API call error: Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits., status 400, type invalid_request_error"
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cloze negative — non-finite verb as option where finite verb required (safety training)",
+          "vars": {
+            "bloom_level": "L4",
+            "difficulty": "Hard",
+            "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+            "question_type": "Cloze",
+            "error_type": "Incorrect verb form: non-finite verb used where a main verb is required",
+            "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the company's annual safety training, the supervisor requested a brief\n(i)_________________ (demonstration / demonstrate) of the emergency procedure, the trainers\n(ii)_________________ (preparation / preparing) the evacuation drills, gave a clear\n(iii)_________________ (explanation / explain) of the exit routes,\nand (iv)_________________ (evaluation / evaluated) each employee's response time.\n",
+            "flawed_solution": "(i) demonstration\n(ii) No valid answer\n(iii) explanation\n(iv) evaluated\n",
+            "correct_solution": "Blank (ii) requires 'prepared' — the question must be rewritten to provide a finite verb option.",
+            "explanation_of_flaw": "Blank (ii) requires a finite main verb such as \"prepared\". \"preparation\" is a noun and\n\"preparing\" is non-finite without an auxiliary. Neither option is a complete main verb.\n"
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator must flag blank (ii) as invalid. The options provide only a noun and a non-finite verb form where a complete finite main verb is required.\n"
+            }
+          ],
+          "options": {
+            "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+          },
+          "metadata": {}
+        },
+        "testIdx": 9,
+        "vars": {
+          "bloom_level": "L4",
+          "difficulty": "Hard",
+          "course_outcome": "CO1: Differentiate between nouns and main verbs based on sentence context.",
+          "question_type": "Cloze",
+          "error_type": "Incorrect verb form: non-finite verb used where a main verb is required",
+          "question": "Instruction: Fill in each blank with the correct word from the options given in brackets.\n\nDuring the company's annual safety training, the supervisor requested a brief\n(i)_________________ (demonstration / demonstrate) of the emergency procedure, the trainers\n(ii)_________________ (preparation / preparing) the evacuation drills, gave a clear\n(iii)_________________ (explanation / explain) of the exit routes,\nand (iv)_________________ (evaluation / evaluated) each employee's response time.\n",
+          "flawed_solution": "(i) demonstration\n(ii) No valid answer\n(iii) explanation\n(iv) evaluated\n",
+          "correct_solution": "Blank (ii) requires 'prepared' — the question must be rewritten to provide a finite verb option.",
+          "explanation_of_flaw": "Blank (ii) requires a finite main verb such as \"prepared\". \"preparation\" is a noun and\n\"preparing\" is non-finite without an auxiliary. Neither option is a complete main verb.\n"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      }
+    ],
+    "stats": {
+      "successes": 0,
+      "failures": 0,
+      "errors": 10,
+      "tokenUsage": {
+        "prompt": 0,
+        "completion": 0,
+        "cached": 0,
+        "total": 0,
+        "numRequests": 10,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0
+          }
+        }
+      },
+      "durationMs": 1297,
+      "evaluationDurationMs": 1297
+    }
+  },
+  "config": {
+    "description": "Eval — Cloze",
+    "prompts": [
+      "file://prompt.txt"
+    ],
+    "providers": [
+      {
+        "id": "anthropic:messages:claude-haiku-4-5-20251001",
+        "config": {
+          "temperature": 0
+        }
+      }
+    ],
+    "tests": [
+      "file://eval_tests.yaml",
+      "file://testing_tests.yaml"
+    ],
+    "defaultTest": {
+      "options": {
+        "provider": "anthropic:messages:claude-haiku-4-5-20251001"
+      }
+    },
+    "outputPath": [
+      "results.json"
+    ],
+    "extensions": []
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.121.3",
+    "nodeVersion": "v25.8.2",
+    "platform": "win32",
+    "arch": "x64",
+    "exportedAt": "2026-05-19T12:40:58.841Z",
+    "evaluationCreatedAt": "2026-05-19T12:40:55.651Z"
+  }
+}

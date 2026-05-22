@@ -1,0 +1,13 @@
+description: "Eval — Sentence Correction / MCQ"
+providers:
+  - id: openrouter:anthropic/claude-sonnet-4-5
+    config:
+      temperature: 0
+prompts:
+  - file://prompt.txt
+defaultTest:
+  options:
+    provider: openrouter:anthropic/claude-sonnet-4-5
+tests:
+  - file://eval_tests.yaml
+  - file://testing_tests.yaml

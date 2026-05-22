@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Present Perfect and Perfect Continuous Application",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Sentence Conversion",
+                                              "Sentence arrangement"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 3: Talking About Past Experiences",
+    "course":  "Communicative English Advanced"
+}

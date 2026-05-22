@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Spot the Error and Sentence Correction",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  2,
+                       "question_types":  [
+                                              "Error correction"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 2: Reading and Comprehension Practice",
+    "course":  "Language Analytics"
+}

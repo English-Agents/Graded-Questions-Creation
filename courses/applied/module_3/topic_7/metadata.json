@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Framing Effective Questions",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  2,
+                       "question_types":  [
+                                              "Sentence Conversion",
+                                              "Fill in the blanks"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Applied Communicative English",
+    "module":  "Module 3: Strategic Questioning and Response Techniques"
+}

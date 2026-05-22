@@ -1,0 +1,21 @@
+# testing_tests.yaml
+# Pipeline / integration tests — drop your cases here.
+# Each test checks that the generation pipeline produces the right output format.
+#
+# Format:
+# - description: what this test checks
+#   vars:
+#     topic_id: 1
+#     skill: "Grammar & Vocabulary"
+#     marks: 2
+#     question_type: "Fill in the blanks"
+#     difficulty: medium
+#     count: 5
+#   assert:
+#     - type: is-json
+#     - type: javascript
+#       value: output.length === 5
+#     - type: javascript
+#       value: output.every(q => q.text && q.answer_key)
+
+# ADD YOUR TESTING TEST CASES BELOW:

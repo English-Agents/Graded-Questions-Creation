@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Jumbled Words",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Jumbled Sentences"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "module":  "Module 2: Reading and Comprehension Practice",
+    "course":  "Language Analytics"
+}

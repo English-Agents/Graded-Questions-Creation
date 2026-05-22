@@ -1,0 +1,229 @@
+- assert:
+  - type: llm-rubric
+    value: 'The Fill in the Blanks question must have exactly 2 numbered blanks, each
+      with a base word in brackets. Blank (i) must require a noun form and blank (ii)
+      must require a main verb form, or vice versa. The solution must produce the
+      correct derived form from the given base word. The explanation must justify
+      each answer using grammatical reasoning such as "follows the adjective" or "main
+      verb showing the action performed by."
+
+      '
+  description: FIB L3 Medium CO1 — hospital patient-tracking system scenario
+  vars:
+    bloom_level: L3
+    course_outcome: 'CO1: Use the correct noun or main verb form of given base words
+      according to sentence context.'
+    difficulty: Medium
+    explanation: 'Evaluation is needed in blank (i) because it follows the adjective
+      "complete" and functions as a noun.
+
+      Installed is needed in blank (ii) because it functions as the main verb showing
+      the action performed by "the IT team."
+
+      '
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      Before the hospital introduced the new patient-tracking system, the administrator
+      requested a complete
+
+      (i)_________________ (evaluate) of the old process, and the IT team (ii)_________________
+      (install)
+
+      the updated software in every department.
+
+      '
+    question_type: Fill in the Blanks
+    solution: '(i) evaluation
+
+      (ii) installed
+
+      '
+- assert:
+  - type: llm-rubric
+    value: 'The Fill in the Blanks question must have exactly 2 numbered blanks, each
+      with a base word in brackets. Blank (i) must require a noun form and blank (ii)
+      must require a main verb form, or vice versa. The solution must produce the
+      correct derived form from the given base word. The explanation must justify
+      each answer using grammatical reasoning such as "follows the adjective" or "main
+      verb showing the action performed by."
+
+      '
+  description: FIB L3 Medium CO1 — school inspection classroom activities scenario
+  vars:
+    bloom_level: L3
+    course_outcome: 'CO1: Use the correct noun or main verb form of given base words
+      according to sentence context.'
+    difficulty: Medium
+    explanation: 'Observation is required because it follows the adjective "detailed"
+      and functions as a noun.
+
+      Recorded is required because it acts as the main verb showing the action performed
+      by "the senior teacher."
+
+      '
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      During the school inspection, the principal requested a detailed (i)_________________
+      (observe)
+
+      of classroom activities, and the senior teacher (ii)_________________ (record)
+      the students''
+
+      participation levels in each lesson.
+
+      '
+    question_type: Fill in the Blanks
+    solution: '(i) observation
+
+      (ii) recorded
+
+      '
+- assert:
+  - type: llm-rubric
+    value: 'The Fill in the Blanks question must have exactly 2 numbered blanks, each
+      with a base word in brackets. Blank (i) must require a noun form and blank (ii)
+      must require a main verb form, or vice versa. The solution must produce the
+      correct derived form from the given base word. The explanation must justify
+      each answer using grammatical reasoning such as "follows the adjective" or "main
+      verb showing the action performed by."
+
+      '
+  description: FIB L3 Medium CO1 — charity event donation process scenario
+  vars:
+    bloom_level: L3
+    course_outcome: 'CO1: Use the correct noun or main verb form of given base words
+      according to sentence context.'
+    difficulty: Medium
+    explanation: 'Explanation is required because it follows the adjective "clear"
+      and functions as a noun.
+
+      Assisted is required because it is the main verb showing what "the volunteers"
+      did.
+
+      '
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      Before the charity event began, the coordinator gave a clear (i)_________________
+      (explain)
+
+      of the donation process, and the volunteers (ii)_________________ (assist) elderly
+      visitors
+
+      at the registration desk.
+
+      '
+    question_type: Fill in the Blanks
+    solution: '(i) explanation
+
+      (ii) assisted
+
+      '
+- assert:
+  - type: llm-rubric
+    value: 'The Fill in the Blanks question must have exactly 2 numbered blanks, each
+      with a base word in brackets. Blank (i) must require a noun form and blank (ii)
+      must require a main verb form, or vice versa. The solution must produce the
+      correct derived form from the given base word. The explanation must justify
+      each answer using grammatical reasoning such as "follows the adjective" or "main
+      verb showing the action performed by."
+
+      '
+  description: FIB L4 Hard CO1 — scientist liquid samples lab scenario
+  vars:
+    bloom_level: L4
+    course_outcome: 'CO1: Analyze sentence context to choose the correct noun or main
+      verb form of given base words.'
+    difficulty: Hard
+    explanation: 'Measurement is required because it follows the adjective "precise"
+      and functions as a noun.
+
+      Classified is required because it acts as the main verb showing the action performed
+      by "the lab technician."
+
+      '
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      After the scientist completed a precise (i)_________________ (measure) of the
+      liquid samples,
+
+      the lab technician (ii)_________________ (classify) them according to their
+      chemical properties.
+
+      '
+    question_type: Fill in the Blanks
+    solution: '(i) measurement
+
+      (ii) classified
+
+      '
+- assert:
+  - type: llm-rubric
+    value: 'The Fill in the Blanks question must have exactly 2 numbered blanks, each
+      with a base word in brackets. Blank (i) must require a noun form and blank (ii)
+      must require a main verb form, or vice versa. The solution must produce the
+      correct derived form from the given base word. The explanation must justify
+      each answer using grammatical reasoning such as "follows the adjective" or "main
+      verb showing the action performed by."
+
+      '
+  description: FIB L3 Medium CO1 — museum tour ancient sculpture scenario
+  vars:
+    bloom_level: L3
+    course_outcome: 'CO1: Use the correct noun or main verb form of given base words
+      according to sentence context.'
+    difficulty: Medium
+    explanation: 'Description is required because it follows the adjective "brief"
+      and functions as a noun.
+
+      Examined is required because it is the main verb showing the action performed
+      by "the visitors."
+
+      '
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      During the museum tour, the guide gave a brief (i)_________________ (describe)
+      of the ancient
+
+      sculpture, and the visitors (ii)_________________ (examine) its carvings closely.
+
+      '
+    question_type: Fill in the Blanks
+    solution: '(i) description
+
+      (ii) examined
+
+      '
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K5
+    course_outcome: CO1
+    difficulty: Hard
+    explanation: 'Assessment is required in blank (i) because it follows the adjective
+      "comprehensive" and functions as a noun naming the thing provided by the consultant.
+
+      Critiqued is required in blank (ii) because it serves as the main verb showing
+      the action performed by "the board members."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      The management consultant provided a comprehensive (i)_________________ (assess)
+      of the company''s financial health, and the board members (ii)_________________
+      (critique) the proposed restructuring plan during the emergency meeting.'
+    question_type: Fill in the Blanks
+    solution: '(i) assessment
+
+      (ii) critiqued'

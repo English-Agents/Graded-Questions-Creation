@@ -1,0 +1,19 @@
+﻿{
+    "topic_name":  "Real Time Session 1",
+    "skills":  [
+                   {
+                       "skill":  "Writing",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Short functional writing"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Foundation",
+    "module":  "Module 2: Developing Description and Expression"
+}

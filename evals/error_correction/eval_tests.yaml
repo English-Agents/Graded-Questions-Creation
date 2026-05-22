@@ -1,0 +1,137 @@
+# eval_tests.yaml — Error Correction
+# 5 positive reference questions (Q1-Q5). Q6-Q10 reserved.
+
+- description: "EC L3 Medium CO1 — manager quarterly report scenario"
+  vars:
+    bloom_level: "L3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context."
+    question_type: "Error Correction"
+    question: |
+      Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.
+
+      After the manager's detailed reviewed of the quarterly report, the finance team approval the revised budget.
+    solution: |
+      Incorrect words: reviewed, approval
+      Correct words: review, approved
+
+      Correct sentence: After the manager's detailed review of the quarterly report, the finance team approved the revised budget.
+    explanation: |
+      Review is required because it follows the adjective "detailed" and functions as a noun.
+      Approved is required because "the finance team" needs a main verb to show the action.
+  assert:
+    - type: llm-rubric
+      value: >
+        The Error Correction question must contain exactly two incorrect words — one noun used where a verb
+        is required and one verb used where a noun is required. The solution must identify both incorrect
+        words, provide the correct replacements, and rewrite the full corrected sentence. The explanation
+        must justify each correction using grammatical reasoning such as "follows the adjective" or
+        "needs a main verb."
+
+- description: "EC L3 Medium CO1 — research assistant observation scenario"
+  vars:
+    bloom_level: "L3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify and correct errors in the use of nouns and main verbs based on sentence context."
+    question_type: "Error Correction"
+    question: |
+      Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.
+
+      The research assistant observation the participants carefully and prepared a detailed summarize of the findings.
+    solution: |
+      Incorrect words: observation, summarize
+      Correct words: observed, summary
+
+      Correct sentence: The research assistant observed the participants carefully and prepared a detailed summary of the findings.
+    explanation: |
+      Observed is required because the subject "The research assistant" needs a main verb.
+      Summary is required because it follows the adjective "detailed" and functions as a noun.
+  assert:
+    - type: llm-rubric
+      value: >
+        The Error Correction question must contain exactly two incorrect words — one noun used where a verb
+        is required and one verb used where a noun is required. The solution must identify both incorrect
+        words, provide the correct replacements, and rewrite the full corrected sentence. The explanation
+        must justify each correction using grammatical reasoning such as "follows the adjective" or
+        "needs a main verb."
+
+- description: "EC L4 Hard CO1 — auditor financial records scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms."
+    question_type: "Error Correction"
+    question: |
+      Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.
+
+      Following the auditor's careful inspect of the financial records, the company submission a corrected statement to the board.
+    solution: |
+      Incorrect words: inspect, submission
+      Correct words: inspection, submitted
+
+      Correct sentence: Following the auditor's careful inspection of the financial records, the company submitted a corrected statement to the board.
+    explanation: |
+      Inspection is required because it follows the adjective "careful" and acts as a noun.
+      Submitted is required because "the company" needs a main verb to show the action.
+  assert:
+    - type: llm-rubric
+      value: >
+        The Error Correction question must contain exactly two incorrect words — one noun used where a verb
+        is required and one verb used where a noun is required. The solution must identify both incorrect
+        words, provide the correct replacements, and rewrite the full corrected sentence. The explanation
+        must justify each correction using grammatical reasoning such as "follows the adjective" or
+        "needs a main verb."
+
+- description: "EC L4 Hard CO1 — committee safety changes scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms."
+    question_type: "Error Correction"
+    question: |
+      Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.
+
+      The committee recommendation several safety changes and issued a formal warn to the factory owners.
+    solution: |
+      Incorrect words: recommendation, warn
+      Correct words: recommended, warning
+
+      Correct sentence: The committee recommended several safety changes and issued a formal warning to the factory owners.
+    explanation: |
+      Recommended is required because "The committee" needs a main verb.
+      Warning is required because it follows the adjective "formal" and is the object of the verb "issued."
+  assert:
+    - type: llm-rubric
+      value: >
+        The Error Correction question must contain exactly two incorrect words — one noun used where a verb
+        is required and one verb used where a noun is required. The solution must identify both incorrect
+        words, provide the correct replacements, and rewrite the full corrected sentence. The explanation
+        must justify each correction using grammatical reasoning such as "follows the adjective" or
+        "needs a main verb."
+
+- description: "EC L4 Hard CO1 — consultant market analysis scenario"
+  vars:
+    bloom_level: "L4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Analyze sentence structure to distinguish between noun forms and main verb forms."
+    question_type: "Error Correction"
+    question: |
+      Instruction: Identify the incorrect words in the sentence and replace them with the correct forms.
+
+      After the consultant completed the market analyze, the sales team implementation a new pricing strategy across all branches.
+    solution: |
+      Incorrect words: analyze, implementation
+      Correct words: analysis, implemented
+
+      Correct sentence: After the consultant completed the market analysis, the sales team implemented a new pricing strategy across all branches.
+    explanation: |
+      Analysis is required because "market analysis" is a noun phrase and is the object of "completed."
+      Implemented is required because "the sales team" needs a main verb to show the action.
+  assert:
+    - type: llm-rubric
+      value: >
+        The Error Correction question must contain exactly two incorrect words — one noun used where a verb
+        is required and one verb used where a noun is required. The solution must identify both incorrect
+        words, provide the correct replacements, and rewrite the full corrected sentence. The explanation
+        must justify each correction using grammatical reasoning such as "follows the adjective" or
+        "needs a main verb."

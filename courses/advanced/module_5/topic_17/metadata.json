@@ -1,0 +1,21 @@
+﻿{
+    "topic_name":  "Question Making with Question Words",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  2,
+                       "question_types":  [
+                                              "Fill in the blanks",
+                                              "Sentence Conversion",
+                                              "Error correction"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  10,
+                                                       "medium":  15,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Advanced",
+    "module":  "Module 5: Expressing Conditions and Complex Ideas"
+}

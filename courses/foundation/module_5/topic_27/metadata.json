@@ -1,0 +1,20 @@
+﻿{
+    "topic_name":  "Past Simple: Scenario Application",
+    "skills":  [
+                   {
+                       "skill":  "Grammar \u0026 Vocabulary",
+                       "marks":  3,
+                       "question_types":  [
+                                              "Sentence arrangement",
+                                              "Sentence Conversion"
+                                          ],
+                       "difficulty_distribution":  {
+                                                       "easy":  5,
+                                                       "medium":  10,
+                                                       "hard":  5
+                                                   }
+                   }
+               ],
+    "course":  "Communicative English Foundation",
+    "module":  "Module 5: Applying Tenses in Real Communication"
+}
