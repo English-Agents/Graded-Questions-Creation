@@ -10,6 +10,7 @@ Sheet layout
 
 import io
 import json
+import os
 import threading
 import traceback
 from collections import Counter, defaultdict
@@ -58,11 +59,16 @@ class SheetsClient:
     # ── Auth ──────────────────────────────────────────────────────────────────
 
     def _load_creds(self):
-        if not TOKEN_FILE.exists():
+        # Prefer file (local dev); fall back to GOOGLE_TOKEN env var (Render/production)
+        if TOKEN_FILE.exists():
+            token_str = TOKEN_FILE.read_text(encoding="utf-8")
+        else:
+            token_str = os.environ.get("GOOGLE_TOKEN", "")
+        if not token_str:
             return None
         try:
-            creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
-            # Auto-delete token if it was created with a narrower scope set
+            creds = Credentials.from_authorized_user_info(json.loads(token_str), SCOPES)
+            # Auto-delete/ignore token if it was created with a narrower scope set
             if creds.scopes and not all(s in creds.scopes for s in SCOPES):
                 TOKEN_FILE.unlink(missing_ok=True)
                 self._auth_status = "unauthenticated"
@@ -71,7 +77,10 @@ class SheetsClient:
                 return creds
             if creds.expired and creds.refresh_token:
                 creds.refresh(Request())
-                TOKEN_FILE.write_text(creds.to_json(), encoding="utf-8")
+                try:
+                    TOKEN_FILE.write_text(creds.to_json(), encoding="utf-8")
+                except Exception:
+                    pass  # read-only filesystem on Render — refreshed creds still work in memory
                 return creds
         except Exception as e:
             self._auth_error = f"Token refresh failed: {e}"
@@ -89,9 +98,9 @@ class SheetsClient:
                 return {"status": "authenticating", "message": "Auth already in progress."}
             if self.auth_status == "ready":
                 return {"status": "ready", "message": "Already authenticated."}
-            if not SECRET_FILE.exists():
-                return {"status": "error", "message": "client_secret.json not found in credentials/."}
-            # Delete stale token so the new flow uses fresh scopes
+            has_secret = SECRET_FILE.exists() or os.environ.get("GOOGLE_CLIENT_SECRET")
+            if not has_secret:
+                return {"status": "error", "message": "client_secret.json not found and GOOGLE_CLIENT_SECRET env var not set."}
             if TOKEN_FILE.exists():
                 TOKEN_FILE.unlink()
             self._auth_status = "authenticating"
@@ -102,10 +111,17 @@ class SheetsClient:
 
     def _run_flow(self):
         try:
-            flow  = InstalledAppFlow.from_client_secrets_file(str(SECRET_FILE), SCOPES)
+            secret_env = os.environ.get("GOOGLE_CLIENT_SECRET", "")
+            if secret_env:
+                flow = InstalledAppFlow.from_client_config(json.loads(secret_env), SCOPES)
+            else:
+                flow = InstalledAppFlow.from_client_secrets_file(str(SECRET_FILE), SCOPES)
             creds = flow.run_local_server(port=0, open_browser=True)
             CREDS_DIR.mkdir(parents=True, exist_ok=True)
-            TOKEN_FILE.write_text(creds.to_json(), encoding="utf-8")
+            try:
+                TOKEN_FILE.write_text(creds.to_json(), encoding="utf-8")
+            except Exception:
+                pass
             self._service     = None
             self._auth_status = "ready"
         except Exception as e:
