@@ -21,6 +21,7 @@ from openai import OpenAI
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
+from fastapi.staticfiles import StaticFiles
 from openpyxl.styles import Alignment, Font, PatternFill
 from pydantic import BaseModel
 
@@ -320,7 +321,7 @@ app = FastAPI(title="GA Question Generator API", version="1.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -957,3 +958,9 @@ def list_syllabi():
         except Exception:
             result.append({"course_id": f.stem, "course_name": f.stem})
     return result
+
+
+# ── Serve built React frontend (production) ───────────────────────────────────
+_frontend_dist = ROOT / "frontend" / "dist"
+if _frontend_dist.exists():
+    app.mount("/", StaticFiles(directory=str(_frontend_dist), html=True), name="frontend")
