@@ -116,6 +116,7 @@ function InsightCard({ insight }) {
 
 export default function Dashboard({ pool = [], co = '', onClose }) {
   const [authStatus,   setAuthStatus]   = useState('loading')
+  const [authError,    setAuthError]    = useState('')
   const [sheetUrl,     setSheetUrl]     = useState('')
   const [stats,        setStats]        = useState(null)
   const [logging,      setLogging]      = useState(false)
@@ -128,9 +129,10 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
     try {
       const data = await sheetsStatus()
       setAuthStatus(data.auth_status)
+      setAuthError(data.auth_error || '')
       setSheetUrl(data.spreadsheet_url || '')
       if (data.auth_status === 'ready' && !stats) fetchStats()
-    } catch { setAuthStatus('error') }
+    } catch (e) { setAuthStatus('error'); setAuthError(e.message) }
   }, [stats]) // eslint-disable-line
 
   useEffect(() => { loadStatus() }, []) // eslint-disable-line
@@ -282,6 +284,13 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
         {authMsg && (
           <div className="max-w-5xl mx-auto mb-3 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-xl px-4 py-2.5">
             {authMsg}
+          </div>
+        )}
+        {authError && authStatus !== 'ready' && (
+          <div className="max-w-5xl mx-auto mb-3 text-xs text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-2.5 flex items-start justify-between gap-3">
+            <span><strong>Sheets error:</strong> {authError}</span>
+            <a href="/api/sheets/debug" target="_blank" rel="noopener noreferrer"
+              className="text-[10px] font-bold text-red-600 underline shrink-0">Debug info ↗</a>
           </div>
         )}
         {logResult && (

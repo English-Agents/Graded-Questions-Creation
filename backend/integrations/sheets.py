@@ -105,9 +105,13 @@ class SheetsClient:
 
     @property
     def auth_status(self):
-        if self._auth_status in ("authenticating", "error"):
-            return self._auth_status
-        return "ready" if self._load_creds() else "unauthenticated"
+        if self._auth_status == "authenticating":
+            return "authenticating"
+        # Always try to load creds — allows recovery after a previous error
+        creds = self._load_creds()
+        if creds:
+            return "ready"
+        return self._auth_status if self._auth_status == "error" else "unauthenticated"
 
     def start_auth(self):
         with self._lock:

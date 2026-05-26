@@ -444,16 +444,19 @@ def generate(req: GenerateRequest):
         questions = unique
 
     # ── Dedup: remove near-duplicates against existing pool ──────────────────
+    # Use Jaccard >= 0.85 only (same as within-batch). 4-gram overlap causes
+    # false positives on instruction-based types (e.g. "Rearrange the following
+    # sentences" appears in every Sentence Arrangement question).
     filtered_count = 0
     if req.existing_questions:
-        seen = list(req.existing_questions)   # copy so we can grow it
+        seen = list(req.existing_questions)
         final: list[Question] = []
         for q in questions:
-            if _is_near_dup(q.question, seen):
+            if any(_jaccard(q.question, e) >= 0.85 for e in seen):
                 filtered_count += 1
             else:
                 final.append(q)
-                seen.append(q.question)     # also dedup within this new batch
+                seen.append(q.question)
         questions = final
 
     meta = {
@@ -818,6 +821,36 @@ def sheets_dashboard():
         return sheets_client.get_stats()
     except Exception as e:
         raise HTTPException(500, str(e))
+
+
+@app.get("/api/sheets/debug")
+def sheets_debug():
+    """Return detailed credential info to help diagnose Sheets auth problems."""
+    from backend.integrations.sheets import TOKEN_FILE, CONFIG_FILE
+    creds_info: dict = {}
+    try:
+        creds = sheets_client._load_creds()
+        if creds:
+            creds_info = {
+                "valid":             creds.valid,
+                "expired":           creds.expired,
+                "has_refresh_token": bool(creds.refresh_token),
+                "expiry":            str(creds.expiry) if creds.expiry else None,
+                "scopes":            list(creds.scopes or []),
+            }
+        else:
+            creds_info = {"loaded": False}
+    except Exception as e:
+        creds_info = {"error": str(e)}
+    return {
+        "auth_status":        sheets_client.auth_status,
+        "auth_error":         sheets_client._auth_error,
+        "token_file_exists":  TOKEN_FILE.exists(),
+        "config_file_exists": CONFIG_FILE.exists(),
+        "google_token_env":   bool(os.environ.get("GOOGLE_TOKEN")),
+        "spreadsheet_id_env": bool(os.environ.get("GOOGLE_SPREADSHEET_ID")),
+        "credentials":        creds_info,
+    }
 
 
 @app.get("/health")

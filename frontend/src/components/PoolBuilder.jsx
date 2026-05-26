@@ -41,7 +41,7 @@ function bloomSummary(targets) {
 }
 
 function defaultDiff() {
-  return { count: 5, loading: false, error: '', info: '' }
+  return { count: 5, bloom: 'auto', loading: false, error: '', info: '' }
 }
 
 function defaultTypeSettings() {
@@ -129,7 +129,10 @@ export default function PoolBuilder({
     let totalFiltered = 0
     for (const topicId of effectiveTopics) {
       try {
-        const bloomTargets = computeBloomTargets(co, diff, s.count)
+        const isManualBloom = s.bloom && s.bloom !== 'auto'
+        const bloomTargets = isManualBloom
+          ? Array(s.count).fill(s.bloom)
+          : computeBloomTargets(co, diff, s.count)
         const data = await generateQuestions({
           course:             selection.course,
           module:             selection.module,
@@ -138,7 +141,7 @@ export default function PoolBuilder({
           count:              s.count,
           difficulty:         diff,
           marks:              questionMarks[qType] || 2,
-          bloom:              '',
+          bloom:              isManualBloom ? s.bloom : '',
           course_outcome:     co,
           model:              'anthropic/claude-sonnet-4-5',
           existing_questions: pool.map(q => q.question),
@@ -304,9 +307,19 @@ export default function PoolBuilder({
                       <span className={`text-[10px] font-bold border rounded-full px-2 py-0.5 text-center ${DIFF_PILL[diff]}`}>
                         {diff}
                       </span>
-                      <span className="text-[10px] font-semibold text-gray-500 bg-gray-100 rounded px-1.5 py-0.5 text-center whitespace-nowrap">
-                        {s.count > 0 ? bloomSummary(computeBloomTargets(co, diff, s.count)) : BLOOM_RANGE[diff]}
-                      </span>
+                      <select
+                        value={s.bloom || 'auto'}
+                        onChange={e => patchType(qType, diff, { bloom: e.target.value })}
+                        disabled={s.loading}
+                        className="text-[10px] font-semibold text-gray-600 bg-gray-100 border border-gray-200 rounded px-1 py-0.5 w-full focus:outline-none focus:ring-1 focus:ring-blue-300 disabled:opacity-40 cursor-pointer">
+                        <option value="auto">Auto ({s.count > 0 ? bloomSummary(computeBloomTargets(co, diff, s.count)) : BLOOM_RANGE[diff]})</option>
+                        <option value="K1">K1 – Remember</option>
+                        <option value="K2">K2 – Understand</option>
+                        <option value="K3">K3 – Apply</option>
+                        <option value="K4">K4 – Analyze</option>
+                        <option value="K5">K5 – Evaluate</option>
+                        <option value="K6">K6 – Create</option>
+                      </select>
                       <div className="flex items-center gap-2 min-w-0">
                         <div className="flex items-center gap-1 shrink-0">
                           <button onClick={() => patchType(qType, diff, { count: Math.max(0, s.count - 1) })}
