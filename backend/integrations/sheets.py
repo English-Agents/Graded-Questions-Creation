@@ -164,8 +164,12 @@ class SheetsClient:
         creds = self._load_creds()
         if not creds:
             raise RuntimeError("Not authenticated. Complete Google sign-in first.")
-        if not self._service:
-            self._service = build("sheets", "v4", credentials=creds)
+        # Rebuild service whenever the access token changes (handles token refresh on Render
+        # where _load_creds() creates a new Credentials object from the env var each time).
+        current_token = getattr(creds, "token", None)
+        if not self._service or getattr(self, "_cached_token", None) != current_token:
+            self._service     = build("sheets", "v4", credentials=creds)
+            self._cached_token = current_token
         return self._service
 
     # ── Config ────────────────────────────────────────────────────────────────

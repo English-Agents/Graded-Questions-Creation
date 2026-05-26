@@ -99,6 +99,22 @@ export async function sheetsLog(questions) {
   return data
 }
 
+// Fire-and-forget — log new questions in background without blocking the UI
+export function sheetsAutoLog(questions) {
+  if (!questions.length) return
+  fetch(`${BASE}/sheets/status`)
+    .then(r => r.json())
+    .then(status => {
+      if (status.auth_status !== 'ready') return
+      fetch(`${BASE}/sheets/log`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ questions }),
+      }).catch(() => {})   // silent — auto-log is best-effort
+    })
+    .catch(() => {})
+}
+
 export async function sheetsDashboard() {
   const res = await fetch(`${BASE}/sheets/dashboard`)
   const data = await res.json()

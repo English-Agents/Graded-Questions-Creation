@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { generateQuestions, submitFeedback, optimizePrompts } from '../api/client.js'
+import { generateQuestions, submitFeedback, optimizePrompts, sheetsAutoLog } from '../api/client.js'
 
 const DIFFICULTIES = ['Easy', 'Medium', 'Hard']
 const BLOOM_RANGE  = { Easy: 'K1–K2', Medium: 'K3–K4', Hard: 'K5–K6' }
@@ -171,6 +171,25 @@ export default function PoolBuilder({
         _feedback:   '',
       }))
       setPool(prev => [...prev, ...tagged])
+
+      // Auto-log new questions to Sheets in background (fire-and-forget)
+      const sheetsItems = tagged.map(q => ({
+        question:       q.question,
+        solution:       q.solution,
+        explanation:    q.explanation || '',
+        bloom:          q._bloom || q.bloom || '',
+        difficulty:     diff,
+        question_type:  qType,
+        module_id:      data.meta?.module || '',
+        module_display: data.meta?.module_display || '',
+        topic_display:  data.meta?.topic_display || '',
+        course_outcome: data.meta?.course_outcome || '',
+        course_display: data.meta?.course_display || '',
+        status:         'pending',
+        feedback:       '',
+      }))
+      sheetsAutoLog(sheetsItems)
+
       const filtered = data.filtered_count || 0
       patchType(qType, diff, {
         loading: false,

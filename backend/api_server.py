@@ -853,6 +853,15 @@ def sheets_debug():
     }
 
 
+@app.get("/api/sheets/token")
+def sheets_token():
+    """Return the current refreshed token JSON — use this to update GOOGLE_TOKEN in Render."""
+    creds = sheets_client._load_creds()
+    if not creds:
+        raise HTTPException(401, "Not authenticated — no valid token available.")
+    return {"token_json": creds.to_json(), "expiry": str(creds.expiry) if creds.expiry else None}
+
+
 @app.get("/health")
 def health():
     api_key = os.environ.get("OPENROUTER_API_KEY", "")

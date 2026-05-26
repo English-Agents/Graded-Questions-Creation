@@ -115,15 +115,17 @@ function InsightCard({ insight }) {
 // ── main component ────────────────────────────────────────────────────────────
 
 export default function Dashboard({ pool = [], co = '', onClose }) {
-  const [authStatus,   setAuthStatus]   = useState('loading')
-  const [authError,    setAuthError]    = useState('')
-  const [sheetUrl,     setSheetUrl]     = useState('')
-  const [stats,        setStats]        = useState(null)
-  const [logging,      setLogging]      = useState(false)
-  const [logResult,    setLogResult]    = useState('')
-  const [loadingStats, setLoadingStats] = useState(false)
-  const [authMsg,      setAuthMsg]      = useState('')
-  const [pollTimer,    setPollTimer]    = useState(null)
+  const [authStatus,    setAuthStatus]    = useState('loading')
+  const [authError,     setAuthError]     = useState('')
+  const [sheetUrl,      setSheetUrl]      = useState('')
+  const [stats,         setStats]         = useState(null)
+  const [logging,       setLogging]       = useState(false)
+  const [logResult,     setLogResult]     = useState('')
+  const [loadingStats,  setLoadingStats]  = useState(false)
+  const [authMsg,       setAuthMsg]       = useState('')
+  const [pollTimer,     setPollTimer]     = useState(null)
+  const [tokenJson,     setTokenJson]     = useState('')
+  const [tokenCopied,   setTokenCopied]   = useState(false)
 
   const loadStatus = useCallback(async () => {
     try {
@@ -131,7 +133,8 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
       setAuthStatus(data.auth_status)
       setAuthError(data.auth_error || '')
       setSheetUrl(data.spreadsheet_url || '')
-      if (data.auth_status === 'ready' && !stats) fetchStats()
+      // Fetch stats on first load OR if a previous fetch errored out
+      if (data.auth_status === 'ready' && (!stats || stats.error)) fetchStats()
     } catch (e) { setAuthStatus('error'); setAuthError(e.message) }
   }, [stats]) // eslint-disable-line
 
@@ -153,6 +156,18 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
       const r = await sheetsAuth()
       setAuthStatus(r.status)
       setAuthMsg(r.message || '')
+    } catch (e) { setAuthMsg(e.message) }
+  }
+
+  async function handleGetToken() {
+    try {
+      const res = await fetch('/api/sheets/token')
+      const data = await res.json()
+      if (!res.ok) { setAuthMsg(data.detail || 'Could not get token'); return }
+      setTokenJson(data.token_json)
+      await navigator.clipboard.writeText(data.token_json)
+      setTokenCopied(true)
+      setTimeout(() => setTokenCopied(false), 3000)
     } catch (e) { setAuthMsg(e.message) }
   }
 
@@ -270,6 +285,10 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
                 className="text-xs font-medium text-gray-500 hover:text-blue-700 border border-gray-200 hover:border-blue-300 px-3 py-1.5 rounded-lg transition-colors">
                 {loadingStats ? 'Refreshing…' : '↺ Refresh'}
               </button>
+              <button onClick={handleGetToken} title="Copy refreshed token for Render env var update"
+                className="text-xs font-medium text-gray-500 hover:text-emerald-700 border border-gray-200 hover:border-emerald-300 px-3 py-1.5 rounded-lg transition-colors">
+                {tokenCopied ? '✓ Copied' : '⬇ Token'}
+              </button>
             </>
           )}
           <button onClick={onClose}
@@ -296,6 +315,18 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
         {logResult && (
           <div className="max-w-5xl mx-auto mb-3 text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-2.5">
             {logResult}
+          </div>
+        )}
+        {tokenJson && (
+          <div className="max-w-5xl mx-auto mb-3 bg-gray-900 rounded-xl px-4 py-3 space-y-2">
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+              Refreshed GOOGLE_TOKEN — paste this into Render → Environment → GOOGLE_TOKEN
+            </p>
+            <pre className="text-[9px] text-green-300 whitespace-pre-wrap break-all leading-relaxed max-h-32 overflow-y-auto">
+              {tokenJson}
+            </pre>
+            <button onClick={() => setTokenJson('')}
+              className="text-[10px] text-gray-500 hover:text-white transition-colors">✕ Dismiss</button>
           </div>
         )}
 
