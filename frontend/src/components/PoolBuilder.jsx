@@ -40,12 +40,15 @@ function bloomSummary(targets) {
   return Object.entries(counts).map(([k, n]) => n > 1 ? `${k}×${n}` : k).join(' · ')
 }
 
-function defaultDiff() {
-  return { count: 5, bloom: 'auto', loading: false, error: '', info: '' }
+// Default per-K counts when mix mode is active
+const MIX_DEFAULT = { Easy: { kLow: 2, kHigh: 3 }, Medium: { kLow: 2, kHigh: 3 }, Hard: { kLow: 2, kHigh: 3 } }
+
+function defaultDiff(diff = 'Easy') {
+  return { count: 5, bloom: 'auto', kLow: MIX_DEFAULT[diff]?.kLow ?? 2, kHigh: MIX_DEFAULT[diff]?.kHigh ?? 3, loading: false, error: '', info: '' }
 }
 
 function defaultTypeSettings() {
-  return { Easy: defaultDiff(), Medium: defaultDiff(), Hard: defaultDiff() }
+  return { Easy: defaultDiff('Easy'), Medium: defaultDiff('Medium'), Hard: defaultDiff('Hard') }
 }
 
 export default function PoolBuilder({
@@ -117,7 +120,9 @@ export default function PoolBuilder({
   // ── Generation ─────────────────────────────────────────────────────────────
   async function generateForTypeDiff(qType, diff) {
     const s = typeSettings[qType]?.[diff]
-    if (!s || s.count === 0 || s.loading) return
+    const isMix = s?.bloom?.includes('+')
+    const totalCount = isMix ? (s.kLow + s.kHigh) : s?.count
+    if (!s || totalCount === 0 || s.loading) return
 
     if (effectiveTopics.length === 0) {
       patchType(qType, diff, { error: 'No topics with reading material. Add .md files or select topics that have material.' })
@@ -132,22 +137,21 @@ export default function PoolBuilder({
         const isManualBloom = s.bloom && s.bloom !== 'auto'
         let bloomTargets
         if (!isManualBloom) {
-          bloomTargets = computeBloomTargets(co, diff, s.count)
-        } else if (s.bloom.includes('+')) {
-          // Equal mix of two K-levels (e.g. "K1+K2")
-          const [kLow, kHigh] = s.bloom.split('+')
-          const half = Math.floor(s.count / 2)
-          bloomTargets = [...Array(half).fill(kLow), ...Array(s.count - half).fill(kHigh)]
+          bloomTargets = computeBloomTargets(co, diff, totalCount)
+        } else if (isMix) {
+          // User-specified counts per K-level (e.g. K1:2 + K2:3)
+          const [kLowLevel, kHighLevel] = s.bloom.split('+')
+          bloomTargets = [...Array(s.kLow).fill(kLowLevel), ...Array(s.kHigh).fill(kHighLevel)]
         } else {
-          bloomTargets = Array(s.count).fill(s.bloom)
+          bloomTargets = Array(totalCount).fill(s.bloom)
         }
-        const singleBloom = isManualBloom && !s.bloom.includes('+') ? s.bloom : ''
+        const singleBloom = isManualBloom && !isMix ? s.bloom : ''
         const data = await generateQuestions({
           course:             selection.course,
           module:             selection.module,
           topic:              topicId,
           question_type:      qType,
-          count:              s.count,
+          count:              totalCount,
           difficulty:         diff,
           marks:              questionMarks[qType] || 2,
           bloom:              singleBloom,
@@ -304,11 +308,14 @@ export default function PoolBuilder({
             {/* Difficulty rows */}
             <div className="divide-y divide-gray-50">
               {DIFFICULTIES.map(diff => {
-                const s      = typeS[diff] || defaultDiff()
+                const s        = typeS[diff] || defaultDiff(diff)
+                const isMixRow = s.bloom?.includes('+')
+                const [kLowLevel, kHighLevel] = (s.bloom || '').split('+')
+                const totalCount = isMixRow ? (s.kLow + s.kHigh) : s.count
                 const inPool = poolTypeStats[qType]?.[diff] || 0
-                const target = s.count * Math.max(1, effectiveTopics.length)
+                const target = totalCount * Math.max(1, effectiveTopics.length)
                 const pct    = target > 0 ? Math.min(100, (inPool / target) * 100) : 0
-                const done   = s.count > 0 && effectiveTopics.length > 0 && inPool >= target
+                const done   = totalCount > 0 && effectiveTopics.length > 0 && inPool >= target
 
                 return (
                   <div key={diff} className={`px-4 py-3.5 transition-colors ${s.loading ? 'bg-blue-50/30' : ''}`}>
@@ -316,6 +323,8 @@ export default function PoolBuilder({
                       <span className={`text-[10px] font-bold border rounded-full px-2 py-0.5 text-center ${DIFF_PILL[diff]}`}>
                         {diff}
                       </span>
+
+                      {/* Bloom selector */}
                       <select
                         value={s.bloom || 'auto'}
                         onChange={e => patchType(qType, diff, { bloom: e.target.value })}
@@ -323,37 +332,65 @@ export default function PoolBuilder({
                         className="text-[10px] font-semibold text-gray-600 bg-gray-100 border border-gray-200 rounded px-1 py-0.5 w-full focus:outline-none focus:ring-1 focus:ring-blue-300 disabled:opacity-40 cursor-pointer">
                         {diff === 'Easy' && <>
                           <option value="auto">Auto (K1–K2)</option>
-                          <option value="K1+K2">K1+K2 Mix</option>
+                          <option value="K1+K2">K1+K2 Custom</option>
                           <option value="K1">K1 – Remember</option>
                           <option value="K2">K2 – Understand</option>
                         </>}
                         {diff === 'Medium' && <>
                           <option value="auto">Auto (K3–K4)</option>
-                          <option value="K3+K4">K3+K4 Mix</option>
+                          <option value="K3+K4">K3+K4 Custom</option>
                           <option value="K3">K3 – Apply</option>
                           <option value="K4">K4 – Analyze</option>
                         </>}
                         {diff === 'Hard' && <>
                           <option value="auto">Auto (K5–K6)</option>
-                          <option value="K5+K6">K5+K6 Mix</option>
+                          <option value="K5+K6">K5+K6 Custom</option>
                           <option value="K5">K5 – Evaluate</option>
                           <option value="K6">K6 – Create</option>
                         </>}
                       </select>
+
+                      {/* Count + Progress */}
                       <div className="flex items-center gap-2 min-w-0">
-                        <div className="flex items-center gap-1 shrink-0">
-                          <button onClick={() => patchType(qType, diff, { count: Math.max(0, s.count - 1) })}
-                            disabled={s.loading}
-                            className="w-6 h-6 rounded border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-40 flex items-center justify-center font-medium">−</button>
-                          <span className="w-6 text-center text-sm font-semibold tabular-nums">{s.count}</span>
-                          <button onClick={() => patchType(qType, diff, { count: Math.min(20, s.count + 1) })}
-                            disabled={s.loading}
-                            className="w-6 h-6 rounded border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-40 flex items-center justify-center font-medium">+</button>
-                          {effectiveTopics.length > 1 && (
-                            <span className="text-[10px] text-gray-400 ml-0.5">×{effectiveTopics.length}</span>
-                          )}
-                        </div>
-                        {s.count > 0 && effectiveTopics.length > 0 && (
+                        {isMixRow ? (
+                          /* Custom K-level counters */
+                          <div className="flex items-center gap-3 shrink-0 flex-wrap">
+                            {[
+                              { key: 'kLow',  label: kLowLevel,  val: s.kLow  },
+                              { key: 'kHigh', label: kHighLevel, val: s.kHigh },
+                            ].map(({ key, label, val }) => (
+                              <div key={key} className="flex items-center gap-1">
+                                <span className="text-[9px] font-bold text-indigo-600 w-6">{label}</span>
+                                <button onClick={() => patchType(qType, diff, { [key]: Math.max(0, val - 1) })}
+                                  disabled={s.loading}
+                                  className="w-5 h-5 rounded border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-40 flex items-center justify-center text-xs">−</button>
+                                <span className="w-5 text-center text-sm font-semibold tabular-nums">{val}</span>
+                                <button onClick={() => patchType(qType, diff, { [key]: Math.min(20, val + 1) })}
+                                  disabled={s.loading}
+                                  className="w-5 h-5 rounded border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-40 flex items-center justify-center text-xs">+</button>
+                              </div>
+                            ))}
+                            <span className="text-[9px] text-gray-400 font-medium">={totalCount}</span>
+                            {effectiveTopics.length > 1 && (
+                              <span className="text-[10px] text-gray-400">×{effectiveTopics.length}</span>
+                            )}
+                          </div>
+                        ) : (
+                          /* Single count */
+                          <div className="flex items-center gap-1 shrink-0">
+                            <button onClick={() => patchType(qType, diff, { count: Math.max(0, s.count - 1) })}
+                              disabled={s.loading}
+                              className="w-6 h-6 rounded border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-40 flex items-center justify-center font-medium">−</button>
+                            <span className="w-6 text-center text-sm font-semibold tabular-nums">{s.count}</span>
+                            <button onClick={() => patchType(qType, diff, { count: Math.min(20, s.count + 1) })}
+                              disabled={s.loading}
+                              className="w-6 h-6 rounded border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-40 flex items-center justify-center font-medium">+</button>
+                            {effectiveTopics.length > 1 && (
+                              <span className="text-[10px] text-gray-400 ml-0.5">×{effectiveTopics.length}</span>
+                            )}
+                          </div>
+                        )}
+                        {totalCount > 0 && effectiveTopics.length > 0 && (
                           <div className="flex-1 flex items-center gap-2 min-w-0">
                             <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
                               <div className={`h-full rounded-full transition-all duration-500 ${done ? 'bg-emerald-400' : DIFF_BAR[diff]}`}
@@ -365,8 +402,9 @@ export default function PoolBuilder({
                           </div>
                         )}
                       </div>
+
                       <button onClick={() => generateForTypeDiff(qType, diff)}
-                        disabled={s.loading || !apiKeyReady || s.count === 0 || effectiveTopics.length === 0}
+                        disabled={s.loading || !apiKeyReady || totalCount === 0 || effectiveTopics.length === 0}
                         className="flex items-center justify-center gap-1 text-xs font-medium border border-gray-200 hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 disabled:opacity-40 text-gray-600 px-2 py-1.5 rounded-lg transition-colors whitespace-nowrap">
                         {s.loading
                           ? <><span className="w-3 h-3 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />Generating</>
