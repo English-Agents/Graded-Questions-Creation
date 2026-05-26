@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { sheetsStatus, sheetsAuth, sheetsLog, sheetsDashboard } from '../api/client.js'
 
 // ── analytics helpers ─────────────────────────────────────────────────────────
@@ -171,6 +171,9 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
   const [pollTimer,    setPollTimer]    = useState(null)
   const [tokenJson,    setTokenJson]    = useState('')
   const [tokenCopied,  setTokenCopied]  = useState(false)
+  const [importing,    setImporting]    = useState(false)
+  const [importResult, setImportResult] = useState('')
+  const csvInputRef = useRef(null)
 
   const loadStatus = useCallback(async () => {
     try {
@@ -247,6 +250,23 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
       await fetchStats()
     } catch (e) { setLogResult(`Error: ${e.message}`) }
     finally { setLogging(false) }
+  }
+
+  async function handleImportCsv(e) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    e.target.value = ''   // reset so same file can be re-selected
+    setImporting(true); setImportResult('')
+    try {
+      const form = new FormData()
+      form.append('file', file)
+      const res = await fetch('/api/import/csv', { method: 'POST', body: form })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.detail || 'Import failed')
+      setImportResult(`✓ Imported ${data.logged} of ${data.total} questions from "${file.name}" into Google Sheets.`)
+      await fetchStats()
+    } catch (err) { setImportResult(`Error: ${err.message}`) }
+    finally { setImporting(false) }
   }
 
   // ── derive counts ────────────────────────────────────────────────────────────
@@ -333,6 +353,11 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
                 className="text-xs font-medium text-gray-500 hover:text-blue-700 border border-gray-200 hover:border-blue-300 px-3 py-1.5 rounded-lg transition-colors">
                 {loadingStats ? 'Refreshing…' : '↺ Refresh'}
               </button>
+              <button onClick={() => csvInputRef.current?.click()} disabled={importing}
+                className="text-xs font-medium text-gray-500 hover:text-indigo-700 border border-gray-200 hover:border-indigo-300 px-3 py-1.5 rounded-lg transition-colors disabled:opacity-50">
+                {importing ? 'Importing…' : '⬆ Import CSV'}
+              </button>
+              <input ref={csvInputRef} type="file" accept=".csv" className="hidden" onChange={handleImportCsv} />
               <button onClick={handleGetToken} title="Copy refreshed token for Render env var update"
                 className="text-xs font-medium text-gray-500 hover:text-emerald-700 border border-gray-200 hover:border-emerald-300 px-3 py-1.5 rounded-lg transition-colors">
                 {tokenCopied ? '✓ Copied' : '⬇ Token'}
@@ -364,6 +389,11 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
         {logResult && (
           <div className="max-w-5xl mx-auto mb-3 text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-2.5">
             {logResult}
+          </div>
+        )}
+        {importResult && (
+          <div className={`max-w-5xl mx-auto mb-3 text-xs font-medium rounded-xl px-4 py-2.5 border ${importResult.startsWith('Error') ? 'text-red-700 bg-red-50 border-red-200' : 'text-indigo-700 bg-indigo-50 border-indigo-200'}`}>
+            {importResult}
           </div>
         )}
         {tokenJson && (

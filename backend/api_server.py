@@ -862,6 +862,54 @@ def sheets_token():
     return {"token_json": creds.to_json(), "expiry": str(creds.expiry) if creds.expiry else None}
 
 
+@app.post("/api/import/csv")
+async def import_csv(file: UploadFile = File(...)):
+    """Parse a question CSV and append all rows to Google Sheets Questions Log."""
+    if sheets_client.auth_status != "ready":
+        raise HTTPException(401, "Not authenticated with Google Sheets. Sign in first.")
+
+    content = await file.read()
+    # Handle UTF-8 BOM that Excel adds
+    text = content.decode("utf-8-sig", errors="replace")
+    reader = csv.DictReader(io.StringIO(text))
+
+    def _detect_type(q_text: str) -> str:
+        ql = q_text.lower()
+        if any(k in ql for k in ["error correction", "identify and correct",
+                                   "correct the error", "find and correct",
+                                   "underline the error", "rewrite the corrected",
+                                   "contains one error"]):
+            return "Error Correction"
+        return "Fill in the Blanks"
+
+    items = []
+    for row in reader:
+        q_text = row.get("Questions", "").strip()
+        if not q_text:
+            continue
+        items.append({
+            "question":      q_text,
+            "solution":      row.get("Solution", "").strip(),
+            "explanation":   "",
+            "bloom":         row.get("Blooms Level", "").strip(),
+            "difficulty":    row.get("Difficulty level", "").strip(),
+            "question_type": _detect_type(q_text),
+            "module_id":     row.get("Module Number", "").strip(),
+            "module_display": row.get("Name of the Module", "").strip(),
+            "topic_display": row.get("Topic name", "").strip(),
+            "course_outcome": row.get("Course Outcomes", "").strip(),
+            "course_display": "",
+            "status":        "pending",
+            "feedback":      "",
+        })
+
+    if not items:
+        raise HTTPException(400, "No question rows found in the CSV.")
+
+    result = sheets_client.log_questions(items)
+    return {"logged": result.get("logged", len(items)), "total": len(items)}
+
+
 @app.get("/health")
 def health():
     api_key = os.environ.get("OPENROUTER_API_KEY", "")
