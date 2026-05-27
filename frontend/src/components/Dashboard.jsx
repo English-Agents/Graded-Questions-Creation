@@ -302,7 +302,22 @@ export default function Dashboard({ pool = [], co = '', onClose }) {
     return poolCounts
   }, [stats, poolCounts])
 
-  const metrics = useMemo(() => computeMetrics(activeCounts), [activeCounts])
+  // Use server-computed metrics when Sheets data is available (keeps dashboard in sync with sheet)
+  const metrics = useMemo(() => {
+    if (stats && !stats.error && stats.metrics && (stats.total || 0) > 0) {
+      const m = stats.metrics
+      return {
+        ...m,
+        total:    stats.total,
+        approved: m.TN,
+        rejected: m.TP,
+        pending:  m.FN,
+        f1:       m.f1,
+        approvalRate: m.approval_rate,
+      }
+    }
+    return computeMetrics(activeCounts)
+  }, [stats, activeCounts])
 
   const sourceLabel = (stats && !stats.error && (stats.total || 0) > 0)
     ? 'All sessions (Google Sheets)'

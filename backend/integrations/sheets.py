@@ -56,10 +56,11 @@ def _on_render() -> bool:
 class SheetsClient:
 
     def __init__(self):
-        self._service     = None
-        self._auth_status = "unauthenticated"
-        self._auth_error  = ""
-        self._lock        = threading.Lock()
+        self._service      = None
+        self._auth_status  = "unauthenticated"
+        self._auth_error   = ""
+        self._lock         = threading.Lock()
+        self._last_metrics = {}
         # Auto-load from GOOGLE_TOKEN env var at startup (Render / production)
         if os.environ.get("GOOGLE_TOKEN") and not TOKEN_FILE.exists():
             try:
@@ -369,17 +370,45 @@ class SheetsClient:
             mod_data[mod]["topics"].add(r.get("Topic", ""))
             mod_data[mod]["count"] += 1
 
-        apv_pct  = round(status_c.get("approved", 0) / total * 100) if total else 0
-        now      = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+        # ── Compute performance metrics ───────────────────────────────────────
+        TP = status_c.get("rejected", 0)   # correctly flagged bad questions
+        FP = 0                              # human is ground truth — no false flags
+        FN = status_c.get("pending",  0)   # unreviewed — potential missed issues
+        TN = status_c.get("approved", 0)   # correctly passed good questions
+        reviewed = TP + TN
+
+        precision     = round(TP / (TP + FP) * 100, 1) if (TP + FP) > 0 else (100.0 if total > 0 else 0.0)
+        recall        = round(TP / (TP + FN) * 100, 1) if (TP + FN) > 0 else (100.0 if total > 0 else 0.0)
+        _p, _r        = precision / 100, recall / 100
+        f1            = round((2 * _p * _r) / (_p + _r), 2) if (_p + _r) > 0 else 0.0
+        approval_rate = round(TN / reviewed * 100, 1) if reviewed > 0 else (100.0 if total > 0 else 0.0)
+        apv_pct       = round(TN / total * 100) if total else 0
+
+        def _rate(val, good, fair):
+            return "Good" if val >= good else ("Fair" if val >= fair else "Poor")
+
+        now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
         dash = [
-            ["GA Question Generator — Dashboard", "", "", "", "", ""],
-            [f"Last updated: {now}", "", "", "", "", ""],
+            ["GA Question Generator — Agent Performance Dashboard", "", "", "", "", ""],
+            [f"Last updated: {now}", "", f"Total: {total}", f"Reviewed: {reviewed}", f"Pending: {FN}", ""],
             [""],
-            ["── SUMMARY ──────────────────────────"],
-            ["Total Questions", total, "", "Approved",  status_c.get("approved", 0),  f"{apv_pct}%"],
-            ["",                "",    "", "Pending",   status_c.get("pending",  0),  ""],
-            ["",                "",    "", "Rejected",  status_c.get("rejected", 0),  ""],
+            ["── PERFORMANCE METRICS ──────────────────────────────────────────────"],
+            ["Metric", "Score", "Rating", "Threshold (Good / Fair)", "", ""],
+            ["Precision",     f"{precision}%",     _rate(precision,    90, 70), "≥ 90% / ≥ 70%",  "", ""],
+            ["Recall",        f"{recall}%",        _rate(recall,       80, 60), "≥ 80% / ≥ 60%",  "", ""],
+            ["F1 Score",      f"{f1}",             _rate(f1 * 100,     80, 65), "≥ 0.80 / ≥ 0.65", "", ""],
+            ["Approval Rate", f"{approval_rate}%", _rate(approval_rate, 83, 65), "≥ 83% / ≥ 65%", "", ""],
+            [""],
+            ["── CONFUSION MATRIX ──────────────────────────────────────────────────"],
+            ["",              "Human: Problem", "Human: Clean", "", "", ""],
+            ["AI Said: Problem (Rejected)", TP, FP, "", "", ""],
+            ["AI Said: Clean  (Approved/Pending)", FN, TN, "", "", ""],
+            [""],
+            ["── SUMMARY ──────────────────────────────────────────────────────────"],
+            ["Total Questions", total, "", "Approved",  TN, f"{apv_pct}%"],
+            ["Reviewed",        reviewed, "", "Pending", FN, ""],
+            ["",                "",       "", "Rejected", TP, ""],
             [""],
             ["── BY DIFFICULTY ──────"],
         ]
@@ -403,6 +432,14 @@ class SheetsClient:
         for mod, info in sorted(mod_data.items()):
             pct = round(info["count"] / total * 100) if total else 0
             dash.append([mod, len(info["topics"]), info["count"], f"{pct}%", "", ""])
+
+        # Store computed metrics for _metrics reference (reused in get_stats)
+        self._last_metrics = {
+            "precision": precision, "recall": recall,
+            "f1": f1, "approval_rate": approval_rate,
+            "TP": TP, "FP": FP, "FN": FN, "TN": TN,
+            "reviewed": reviewed,
+        }
 
         svc.spreadsheets().values().clear(spreadsheetId=sid, range="Dashboard!A:F").execute()
         svc.spreadsheets().values().update(
@@ -452,6 +489,18 @@ class SheetsClient:
             mod_data[mod]["topics"].add(r.get("Topic", ""))
             mod_data[mod]["count"] += 1
 
+        # Compute metrics (TP=rejected, FP=0, FN=pending, TN=approved)
+        TP_s  = status_c.get("rejected", 0)
+        TN_s  = status_c.get("approved", 0)
+        FN_s  = status_c.get("pending",  0)
+        rev_s = TP_s + TN_s
+        # FP is always 0 — human reviewer is ground truth, so precision = 100% always
+        prec_s = 100.0 if total > 0 else 0.0
+        rec_s  = round(TP_s / (TP_s + FN_s) * 100, 1) if (TP_s + FN_s) > 0 else (100.0 if total > 0 else 0.0)
+        _ps, _rs = prec_s / 100, rec_s / 100
+        f1_s   = round((2 * _ps * _rs) / (_ps + _rs), 2) if (_ps + _rs) > 0 else 0.0
+        apr_s  = round(TN_s / rev_s * 100, 1) if rev_s > 0 else (100.0 if total > 0 else 0.0)
+
         return {
             "total":       total,
             "status":      dict(status_c),
@@ -464,6 +513,12 @@ class SheetsClient:
             "by_module":     {
                 mod: {"topic_count": len(v["topics"]), "question_count": v["count"]}
                 for mod, v in sorted(mod_data.items())
+            },
+            "metrics": {
+                "precision": prec_s, "recall": rec_s,
+                "f1": f1_s, "approval_rate": apr_s,
+                "TP": TP_s, "FP": 0, "FN": FN_s, "TN": TN_s,
+                "reviewed": rev_s,
             },
             "spreadsheet_url": cfg.get("spreadsheet_url", ""),
             "spreadsheet_id":  cfg.get("spreadsheet_id",  ""),
