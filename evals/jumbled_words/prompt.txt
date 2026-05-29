@@ -26,4 +26,4 @@ Explanation:
 
 Evaluate this question carefully against all four criteria above.
 
-Respond with exactly one word: VALID or INVALID.
+Respond with VALID or INVALID on the first line, followed by a one-sentence justification explaining your verdict.

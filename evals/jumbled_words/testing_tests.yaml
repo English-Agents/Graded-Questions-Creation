@@ -18,7 +18,11 @@
     error_type: Swapped Noun and Main Verb
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: noun and main verb are
+        swapped — 'repaired' is a verb listed as a noun, 'engineer' is a noun listed
+        as the main verb. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -38,7 +42,11 @@
     error_type: Incorrect Identification of Adjective as Verb
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: 'delicious' is an adjective
+        incorrectly identified as the main verb. The actual main verb is 'prepared'.
+        The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -58,7 +66,11 @@
     error_type: Partial Noun Identification
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: 'class' is a noun in
+        "during class" but is not listed in the solution. The requirement is to identify
+        ALL nouns. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -78,7 +90,11 @@
     error_type: Misclassification of Adverb as Verb
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: 'beautifully' is an adverb
+        (not even present in the jumbled words) listed as the main verb. The actual
+        main verb is 'painted'. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -98,7 +114,12 @@
     error_type: Multiple Incorrect Classifications
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: 'discussed' is a verb and
+        'carefully' is an adverb, both wrongly listed as nouns; 'members' is a noun
+        wrongly listed as the main verb. Multiple classifications are incorrect.
+        The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -118,7 +139,11 @@
     error_type: Incorrect Main Verb Identification
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: 'trapped' is used as a
+        participial adjective modifying 'family', not the main verb. The actual main
+        verb is 'rescued'. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -138,7 +163,11 @@
     error_type: Incorrect Sentence Formation
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: the solution sentence
+        "The safely aircraft pilot the landed" is not a grammatical English sentence —
+        the words are not properly rearranged. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -158,7 +187,10 @@
     error_type: Misclassification of Adverb as Noun
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: 'confidently' is an adverb
+        incorrectly listed as a noun. Adverbs are not nouns. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -178,7 +210,11 @@
     error_type: Incorrect Identification of Adjective as Verb
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: 'financial' is an adjective
+        incorrectly listed as the main verb. The actual main verb is 'reviewed'.
+        The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: Jumbled Words
@@ -198,4 +234,8 @@
     error_type: Incorrect Grammatical Explanation
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a FLAWED question. Flaw: the explanation wrongly states
+        that 'ancient' and 'underground' (both adjectives) are main verbs. The actual main
+        verb is 'discovered'. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

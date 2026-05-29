@@ -17,7 +17,12 @@
     explanation: "'Engineer' and 'machine' are naming words, so they are nouns. 'Repaired' shows the action performed in the sentence, so it is the main verb."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -36,7 +41,12 @@
     explanation: "'Chef' and 'meal' name a person and a thing, so they are nouns. 'Prepared' expresses the action in the sentence, so it is the main verb."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -55,7 +65,12 @@
     explanation: "'Scientist,' 'experiment,' and 'class' are naming words, so they are nouns. 'Conducted' shows the main action performed in the sentence."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -74,7 +89,12 @@
     explanation: "'Artist' and 'landscape' function as nouns because they name a person and a place/scene. 'Painted' indicates the primary action, making it the main verb."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -93,7 +113,12 @@
     explanation: "'Committee,' 'members,' and 'proposal' are nouns because they name people or things. 'Discussed' is the action word that acts as the main verb in the sentence."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -112,7 +137,12 @@
     explanation: "'Firefighters' and 'family' are nouns because they name people. 'Rescued' describes the action completed by the firefighters, so it is the main verb."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -131,7 +161,12 @@
     explanation: "'Pilot' and 'aircraft' are nouns because they name a person and a thing. 'Landed' expresses the action in the sentence, so it is the main verb."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -150,7 +185,12 @@
     explanation: "'Musicians' and 'stage' are nouns because they name people and a place. 'Performed' shows the main action carried out in the sentence."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -169,7 +209,12 @@
     explanation: "'Manager' and 'reports' are naming words, so they function as nouns. 'Reviewed' indicates the primary action and acts as the main verb."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
 
 - vars:
     question_type: Jumbled Words
@@ -188,4 +233,9 @@
     explanation: "'Archaeologists' and 'temple' are nouns because they name people and a place/object. 'Discovered' shows the action completed in the sentence, making it the main verb."
   assert:
     - type: llm-rubric
-      value: "The Jumbled Words question must: (1) provide jumbled words that form exactly one meaningful sentence, (2) correctly identify ALL nouns in the sentence, (3) correctly identify the main verb — not an adverb, adjective, or noun, (4) give a clear grammatical explanation. Respond: VALID or INVALID."
+      value: >
+        The validator is evaluating a correctly formed Jumbled Words question.
+        The correct verdict is VALID — the jumbled words form one clear sentence,
+        all nouns are identified, the main verb is correctly named, and the
+        explanation is grammatically accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.

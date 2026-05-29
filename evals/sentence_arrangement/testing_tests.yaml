@@ -1,21 +1,126 @@
-# testing_tests.yaml
-# Pipeline / integration tests — drop your cases here.
-# Each test checks that the generation pipeline produces the right output format.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     topic_id: 1
-#     skill: "Grammar & Vocabulary"
-#     marks: 2
-#     question_type: "Fill in the blanks"
-#     difficulty: medium
-#     count: 5
-#   assert:
-#     - type: is-json
-#     - type: javascript
-#       value: output.length === 5
-#     - type: javascript
-#       value: output.every(q => q.text && q.answer_key)
+# testing_tests.yaml — Sentence Arrangement
+# 5 negative test cases: intentionally flawed questions that the validator must reject.
 
-# ADD YOUR TESTING TEST CASES BELOW:
+- description: "SA INVALID — wrong solution order produces ungrammatical sentence"
+  vars:
+    bloom_level: "K2"
+    difficulty: "Easy"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    error_type: "Incorrect solution order"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) at the end of each month
+      (B) submits financial reports
+      (C) the accountant
+      (D) to the directors
+    solution: "A–D–C–B"
+    explanation: |
+      The correct order is: At the end of each month to the directors the accountant submits financial reports.
+  assert:
+    - type: llm-rubric
+      value: >
+        This question has a deliberate flaw: the solution order A–D–C–B produces an
+        ungrammatical, non-idiomatic sentence. The validator must output INVALID.
+        Mark PASS if the validator responded INVALID. Mark FAIL if it responded VALID.
+
+- description: "SA INVALID — parts form two independent clauses, not one sentence"
+  vars:
+    bloom_level: "K3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    error_type: "Two independent clauses instead of one sentence"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) the manager left the office
+      (B) the meeting ended
+      (C) everyone applauded
+      (D) the team was happy
+    solution: "B–A–D–C"
+    explanation: |
+      The correct order is: The meeting ended. The manager left the office. The team was happy. Everyone applauded.
+  assert:
+    - type: llm-rubric
+      value: >
+        This question has a deliberate flaw: the four parts are each independent clauses and
+        cannot be joined into a single coherent sentence — they form four separate sentences.
+        The validator must output INVALID.
+        Mark PASS if the validator responded INVALID. Mark FAIL if it responded VALID.
+
+- description: "SA INVALID — ambiguous arrangement (two valid orders exist)"
+  vars:
+    bloom_level: "K2"
+    difficulty: "Easy"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    error_type: "Ambiguous — multiple valid orders"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) carefully
+      (B) she
+      (C) wrote
+      (D) the letter
+    solution: "B–C–D–A"
+    explanation: |
+      The correct order is: She wrote the letter carefully.
+  assert:
+    - type: llm-rubric
+      value: >
+        This question has a deliberate flaw: two orders are equally grammatical —
+        B–C–D–A (She wrote the letter carefully) AND B–A–C–D (She carefully wrote the letter)
+        are both correct English. The arrangement is ambiguous, so the validator must output INVALID.
+        Mark PASS if the validator responded INVALID. Mark FAIL if it responded VALID.
+
+- description: "SA INVALID — solution is missing one part label"
+  vars:
+    bloom_level: "K3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    error_type: "Solution missing a part label"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) a comprehensive analysis
+      (B) of the grammar rules
+      (C) the teacher
+      (D) presented
+    solution: "C–D–A"
+    explanation: |
+      The correct order is: The teacher presented a comprehensive analysis.
+  assert:
+    - type: llm-rubric
+      value: >
+        This question has a deliberate flaw: the solution order C–D–A omits part (B),
+        meaning the solution is incomplete and does not use all given parts.
+        The validator must output INVALID.
+        Mark PASS if the validator responded INVALID. Mark FAIL if it responded VALID.
+
+- description: "SA INVALID — part contains a grammatical error making arrangement impossible"
+  vars:
+    bloom_level: "K4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    error_type: "A part itself contains a grammatical error"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) in each sentence
+      (B) the students
+      (C) correctly identified
+      (D) a main verbs
+    solution: "B–C–D–A"
+    explanation: |
+      The correct order is: The students correctly identified a main verbs in each sentence.
+  assert:
+    - type: llm-rubric
+      value: >
+        This question has a deliberate flaw: part (D) reads "a main verbs" which is
+        grammatically incorrect (article-noun disagreement). No arrangement can produce
+        a grammatically correct sentence. The validator must output INVALID.
+        Mark PASS if the validator responded INVALID. Mark FAIL if it responded VALID.

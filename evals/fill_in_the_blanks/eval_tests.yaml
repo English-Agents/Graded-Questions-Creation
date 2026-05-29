@@ -227,3 +227,252 @@
     solution: '(i) assessment
 
       (ii) critiqued'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K1
+    course_outcome: CO1
+    difficulty: Easy
+    explanation: 'Collection is required in blank (i) because it follows the adjective
+      "complete" and functions as a noun naming the result of gathering items together.
+
+      Pushed is required in blank (ii) because it acts as the main verb showing the
+      action performed by "the staff members."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      At the grocery store, the manager asked for a complete (i)_________________
+      (collect) of all the shopping carts from the parking lot, and the staff members
+      (ii)_________________ (push) them back inside the store.'
+    question_type: Fill in the Blanks
+    solution: '(i) collection
+
+      (ii) pushed'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K2
+    course_outcome: CO1
+    difficulty: Easy
+    explanation: 'Decision is required in blank (i) because it follows the adjective
+      "quick" and functions as a noun naming the act of choosing.
+
+      Grabbed is required in blank (ii) because it is the main verb showing the action
+      performed by the subject "shopper."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      Before leaving the dairy section, the shopper made a quick (i)_________________
+      (decide) about which brand to buy, and then (ii)_________________ (grab) a gallon
+      of milk from the refrigerated shelf.'
+    question_type: Fill in the Blanks
+    solution: '(i) decision
+
+      (ii) grabbed'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K3
+    course_outcome: CO1
+    difficulty: Medium
+    explanation: 'Selection is required in blank (i) because it follows the adjective
+      "careful" and functions as a noun naming the result of choosing items.
+
+      Arranged is required in blank (ii) because it acts as the main verb showing
+      the action performed by "the stock assistant."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      When the grocery store manager conducted the weekly inventory check, she made
+      a careful (i)_________________ (select) of fresh produce items for the promotional
+      display, and the stock assistant (ii)_________________ (arrange) the colorful
+      fruits and vegetables on the shelves.'
+    question_type: Fill in the Blanks
+    solution: '(i) selection
+
+      (ii) arranged'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K4
+    course_outcome: CO1
+    difficulty: Medium
+    explanation: 'Comparison is required in blank (i) because it follows the adjective
+      "comprehensive" and functions as a noun representing the analytical process
+      of examining differences.
+
+      Resisted is required in blank (ii) because it serves as the main verb showing
+      the action performed by "the participants."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      During the nutrition workshop at the community center, the dietitian provided
+      a comprehensive (i)_________________ (compare) between processed snacks and
+      wholesome alternatives, while the participants (ii)_________________ (resist)
+      the temptation to choose cookies over healthier options in their meal planning
+      activity.'
+    question_type: Fill in the Blanks
+    solution: '(i) comparison
+
+      (ii) resisted'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K5
+    course_outcome: CO1
+    difficulty: Hard
+    explanation: 'Evaluation is required in blank (i) because it follows the adjective
+      "thorough" and functions as a noun naming the process of assessment.
+
+      Organized is required in blank (ii) because it acts as the main verb showing
+      the action performed by "the team" in response to the manager''s findings.'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      When the store manager conducted a thorough (i)_________________ (evaluate)
+      of customer shopping patterns, she realized that the healthier snack options
+      needed better placement, so the team (ii)_________________ (organize) the entire
+      snack aisle to promote nutritious choices over processed treats.'
+    question_type: Fill in the Blanks
+    solution: '(i) evaluation
+
+      (ii) organized'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K1
+    course_outcome: CO1
+    difficulty: Easy
+    explanation: 'Fruits is required in blank (i) because it follows the adjective
+      "colorful" and functions as a noun naming things in the shopping cart.
+
+      Pushed is required in blank (ii) because it acts as the main verb showing the
+      action performed by "the shopper."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      At the grocery store adventure, the shopper placed several colorful (i)_________________
+      (fruit) into the shopping cart, and then (ii)_________________ (push) it through
+      the store aisles toward the checkout.'
+    question_type: Fill in the Blanks
+    solution: '(i) fruits
+
+      (ii) pushed'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K2
+    course_outcome: CO1
+    difficulty: Easy
+    explanation: 'Choice is required in blank (i) because it follows the adjective
+      "careful" and functions as a noun representing the decision made.
+
+      Resisted is required in blank (ii) because it is the main verb showing the action
+      performed by "the customer."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      During the grocery shopping trip, the customer made a careful (i)_________________
+      (choose) between healthy snacks and treats, and eventually (ii)_________________
+      (resist) the temptation to buy cookies from the snack aisle.'
+    question_type: Fill in the Blanks
+    solution: '(i) choice
+
+      (ii) resisted'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K3
+    course_outcome: CO1
+    difficulty: Medium
+    explanation: 'Organization is required in blank (i) because it follows the adjective
+      "thorough" and functions as a noun naming the process needed for the snack aisle.
+
+      Arranged is required in blank (ii) because it acts as the main verb showing
+      the action performed by "the staff members."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      When the grocery store manager planned the weekend promotion, she requested
+      a thorough (i)_________________ (organize) of the snack aisle, and the staff
+      members (ii)_________________ (arrange) the chips and cookies on the display
+      shelves.'
+    question_type: Fill in the Blanks
+    solution: '(i) organization
+
+      (ii) arranged'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K4
+    course_outcome: CO1
+    difficulty: Medium
+    explanation: 'Investigation is required in blank (i) because it follows the adjective
+      "comprehensive" and functions as a noun denoting the systematic inquiry into
+      user behavior.
+
+      Implemented is required in blank (ii) because it serves as the main verb showing
+      the action performed by "the technical team."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      Before the library launched its digital catalog system, the head librarian conducted
+      a comprehensive (i)_________________ (investigate) of user search patterns,
+      and the technical team (ii)_________________ (implement) new filtering options
+      based on reader preferences.'
+    question_type: Fill in the Blanks
+    solution: '(i) investigation
+
+      (ii) implemented'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K5
+    course_outcome: CO1
+    difficulty: Hard
+    explanation: 'Verification is required in blank (i) because it follows the adjective
+      "rigorous" and functions as a noun naming the process being demanded.
+
+      Assessed is required in blank (ii) because it acts as the main verb showing
+      the action performed by "the ethics committee."'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      When the researcher proposed a controversial theory about climate patterns,
+      the scientific community demanded rigorous (i)_________________ (verify) of
+      all experimental data, and the ethics committee (ii)_________________ (assess)
+      whether the methodology met international standards before approving publication.'
+    question_type: Fill in the Blanks
+    solution: '(i) verification
+
+      (ii) assessed'

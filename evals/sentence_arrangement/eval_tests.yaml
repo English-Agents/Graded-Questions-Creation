@@ -1,18 +1,123 @@
-# eval_tests.yaml
-# Quality evaluation tests — drop your cases here.
-# Each test checks whether a generated question meets the expected standard.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     question: the generated question text
-#     answer_key: the expected answer
-#     difficulty: easy | medium | hard
-#     marks: 2
-#   assert:
-#     - type: llm-rubric
-#       value: >
-#         The question is grammatically correct, matches the difficulty level,
-#         and the blank is clearly indicated with ___.
+# eval_tests.yaml — Sentence Arrangement
+# 5 positive test cases: valid, well-formed sentence arrangement questions.
 
-# ADD YOUR EVAL TEST CASES BELOW:
+- description: "SA Easy CO1 — accountant submits reports scenario"
+  vars:
+    bloom_level: "K2"
+    difficulty: "Easy"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) at the end of each month
+      (B) submits financial reports
+      (C) the accountant
+      (D) to the directors
+    solution: "C–B–D–A"
+    explanation: |
+      The correct order is: The accountant submits financial reports to the directors at the end of each month.
+      (C) is the subject, (B) is the verb phrase, (D) is the indirect object, (A) is the time adverbial.
+  assert:
+    - type: llm-rubric
+      value: >
+        This is a VALID Sentence Arrangement question. The 4 parts (A–D) form exactly one
+        grammatically correct sentence in order C–B–D–A. The validator must output VALID.
+        Mark PASS if the validator responded VALID. Mark FAIL if it responded INVALID.
+
+- description: "SA Medium CO1 — proposal presented at quarterly review"
+  vars:
+    bloom_level: "K3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) was presented
+      (B) by the research team
+      (C) the new proposal
+      (D) at the quarterly review
+    solution: "C–A–B–D"
+    explanation: |
+      The correct order is: The new proposal was presented by the research team at the quarterly review.
+      (C) is the subject, (A) is the passive verb, (B) is the agent phrase, (D) is the location phrase.
+  assert:
+    - type: llm-rubric
+      value: >
+        This is a VALID Sentence Arrangement question. The 4 parts (A–D) form exactly one
+        grammatically correct passive sentence in order C–A–B–D. The validator must output VALID.
+        Mark PASS if the validator responded VALID. Mark FAIL if it responded INVALID.
+
+- description: "SA Medium CO1 — teacher presents grammar analysis"
+  vars:
+    bloom_level: "K3"
+    difficulty: "Medium"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) a comprehensive analysis
+      (B) of the grammar rules
+      (C) the teacher
+      (D) presented
+    solution: "C–D–A–B"
+    explanation: |
+      The correct order is: The teacher presented a comprehensive analysis of the grammar rules.
+      (C) is the subject, (D) is the main verb, (A) is the object, (B) is the prepositional phrase.
+  assert:
+    - type: llm-rubric
+      value: >
+        This is a VALID Sentence Arrangement question. The 4 parts (A–D) form exactly one
+        grammatically correct sentence in order C–D–A–B. The validator must output VALID.
+        Mark PASS if the validator responded VALID. Mark FAIL if it responded INVALID.
+
+- description: "SA Hard CO1 — students identified verb correctly"
+  vars:
+    bloom_level: "K4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) in each sentence
+      (B) the students
+      (C) correctly identified
+      (D) the main verb
+    solution: "B–C–D–A"
+    explanation: |
+      The correct order is: The students correctly identified the main verb in each sentence.
+      (B) is the subject, (C) is the verb phrase with adverb, (D) is the object, (A) is the prepositional phrase.
+  assert:
+    - type: llm-rubric
+      value: >
+        This is a VALID Sentence Arrangement question. The 4 parts (A–D) form exactly one
+        grammatically correct sentence in order B–C–D–A. The validator must output VALID.
+        Mark PASS if the validator responded VALID. Mark FAIL if it responded INVALID.
+
+- description: "SA Hard CO1 — five parts, engineer analyzed data scenario"
+  vars:
+    bloom_level: "K4"
+    difficulty: "Hard"
+    course_outcome: "CO1: Identify nouns and main verbs in sentence context."
+    question_type: "Sentence Arrangement"
+    question: |
+      Instruction: Arrange the following parts to form a single meaningful sentence.
+
+      (A) to improve system performance
+      (B) the data
+      (C) the engineer
+      (D) analyzed
+      (E) before submitting the report
+    solution: "C–D–B–A–E"
+    explanation: |
+      The correct order is: The engineer analyzed the data to improve system performance before submitting the report.
+      (C) is the subject, (D) is the main verb, (B) is the object, (A) is the infinitive phrase, (E) is the time clause.
+  assert:
+    - type: llm-rubric
+      value: >
+        This is a VALID Sentence Arrangement question with 5 parts (A–E) forming exactly one
+        grammatically correct sentence in order C–D–B–A–E. The validator must output VALID.
+        Mark PASS if the validator responded VALID. Mark FAIL if it responded INVALID.

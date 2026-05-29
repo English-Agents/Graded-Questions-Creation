@@ -21,11 +21,32 @@ Examples:
 
 import argparse
 import os
+import re
 import sys
+import uuid
+from collections import Counter
 from pathlib import Path
 
+import numpy as np
 import yaml
 from openai import OpenAI
+
+try:
+    from sentence_transformers import SentenceTransformer
+    from sklearn.metrics.pairwise import cosine_similarity
+    from database.queries import (
+        fetch_all_questions_from_db,
+        check_similarity_in_db,
+        check_exact_duplicate_in_db,
+        insert_question_to_db,
+    )
+    from database.sheets_sync import sync_question_to_sheets
+    # Load once at module level — downloads 80MB model on first run
+    EMBEDDING_MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+    DB_AVAILABLE = True
+except Exception:
+    EMBEDDING_MODEL = None
+    DB_AVAILABLE = False
 
 ROOT = Path(__file__).parent
 EVALS_DIR = ROOT / "evals"
@@ -308,11 +329,287 @@ def format_samples(samples: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def build_diversity_log(questions):
+    """
+    Builds a summary of what already exists.
+    Passed to LLM prompt every call to force diversity.
+    """
+    if not questions:
+        return {
+            "connectors_used":           [],
+            "domains_used":              [],
+            "sentence_starters_used":    [],
+            "correct_answer_positions":  [],
+            "question_count":            0
+        }
+
+    connectors = []
+    domains    = []
+    starters   = []
+    positions  = []
+
+    for q in questions:
+        if q.get("correct_answer"):
+            connectors.append(str(q["correct_answer"]).lower().strip())
+        if q.get("domain"):
+            domains.append(q["domain"])
+        if q.get("question_text"):
+            first_word = q["question_text"].strip().split()[0].lower()
+            starters.append(first_word)
+        if q.get("correct_answer_position"):
+            positions.append(q["correct_answer_position"])
+
+    return {
+        "connectors_used":           list(Counter(connectors).most_common(10)),
+        "domains_used":              list(set(domains)),
+        "sentence_starters_used":    list(set(starters)),
+        "correct_answer_positions":  list(Counter(positions).most_common()),
+        "question_count":            len(questions)
+    }
+
+
+def update_diversity_log(log, new_question):
+    """Updates diversity log after each accepted question."""
+    if new_question.get("correct_answer"):
+        connector = str(new_question["correct_answer"]).lower().strip()
+        existing = dict(log["connectors_used"])
+        existing[connector] = existing.get(connector, 0) + 1
+        log["connectors_used"] = sorted(
+            existing.items(), key=lambda x: x[1], reverse=True
+        )
+
+    if new_question.get("domain"):
+        log["domains_used"] = list(
+            set(log["domains_used"] + [new_question["domain"]])
+        )
+
+    if new_question.get("question_text"):
+        first_word = new_question["question_text"].strip().split()[0].lower()
+        log["sentence_starters_used"] = list(
+            set(log["sentence_starters_used"] + [first_word])
+        )
+
+    if new_question.get("correct_answer_position"):
+        positions = dict(log["correct_answer_positions"])
+        pos = new_question["correct_answer_position"]
+        positions[pos] = positions.get(pos, 0) + 1
+        log["correct_answer_positions"] = sorted(
+            positions.items(), key=lambda x: x[1], reverse=True
+        )
+
+    log["question_count"] += 1
+    return log
+
+
+def _parse_raw_to_dicts(raw: str, question_type: str, difficulty: str,
+                        domain: str) -> list[dict]:
+    """Parses LLM output blocks into question dicts for DB insertion."""
+    blocks = re.split(r"={3,}\s*QUESTION\s+\d+\s*={3,}", raw, flags=re.IGNORECASE)
+    results = []
+    for block in blocks:
+        block = block.strip()
+        if not block:
+            continue
+
+        def extract(label: str) -> str:
+            m = re.search(
+                rf"{label}:\s*\n(.*?)(?=\n(?:Question|Solution|Explanation|Bloom):|$)",
+                block, re.DOTALL | re.IGNORECASE,
+            )
+            return m.group(1).strip() if m else ""
+
+        q_text = extract("Question")
+        solution = extract("Solution")
+        explanation = extract("Explanation")
+        if not q_text:
+            continue
+
+        # Extract instructions line if present
+        instructions = None
+        m = re.match(r"^(Instruction[^:\n]*:[^\n]+)\n", q_text, re.IGNORECASE)
+        if m:
+            instructions = m.group(1).strip()
+
+        # Extract correct_answer_position from solution (e.g. "i)", "A", "B")
+        pos_match = re.search(r"\b([ABCDabcd]|[ivIV]+)\b(?:\)|\.|:)", solution)
+        correct_answer_position = pos_match.group(1).upper() if pos_match else None
+
+        results.append({
+            "question_id":             str(uuid.uuid4()),
+            "question_type":           question_type,
+            "question_text":           q_text,
+            "instructions":            instructions,
+            "options":                 None,
+            "correct_answer":          solution,
+            "correct_answer_position": correct_answer_position,
+            "explanation":             explanation,
+            "difficulty":              difficulty,
+            "domain":                  domain,
+            "question_purpose":        None,
+            "tags":                    None,
+            "schema_type":             None,
+        })
+    return results
+
+
+def generate_chunk(
+    client,
+    material: str,
+    samples: list[dict],
+    count: int,
+    question_type: str,
+    topic: str,
+    bloom: str,
+    difficulty: str,
+    course_outcome: str,
+    model: str,
+    marks: int = 2,
+    diversity_log: dict | None = None,
+    bloom_targets: list[str] | None = None,
+) -> list[dict]:
+    """Generates one chunk of questions via LLM and returns parsed dicts."""
+    prompt = build_prompt(
+        material=material,
+        question_type=question_type,
+        count=count,
+        bloom=bloom,
+        difficulty=difficulty,
+        course_outcome=course_outcome,
+        samples=samples,
+        diversity_log=diversity_log,
+        bloom_targets=bloom_targets,
+        marks=marks,
+    )
+    response = client.chat.completions.create(
+        model=model,
+        max_tokens=4096,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    raw = response.choices[0].message.content
+    return _parse_raw_to_dicts(raw, question_type, difficulty, topic)
+
+
+def generate_questions_in_chunks(
+    client,
+    material: str,
+    samples: list[dict],
+    total_required: int,
+    question_type: str,
+    topic: str,
+    bloom: str,
+    difficulty: str,
+    course_outcome: str,
+    model: str,
+    marks: int = 2,
+    chunk_size: int = 5,
+    similarity_threshold: float = 0.85,
+) -> list[dict]:
+    """
+    Generates questions in chunks of chunk_size.
+    Each candidate is checked against:
+      1. Exact text match in DB
+      2. Semantic similarity in DB via pgvector
+      3. Semantic similarity against questions accepted this session
+    Diversity log is updated after each accepted question and passed
+    into the LLM prompt to prevent repetition.
+    """
+    accepted_questions = []
+    accepted_embeddings = []
+
+    # Build diversity log from existing DB questions upfront
+    existing_questions = fetch_all_questions_from_db(question_type)
+    diversity_log = build_diversity_log(existing_questions)
+
+    print(f"Loaded {len(existing_questions)} existing questions from DB.")
+    print(f"Generating {total_required} new unique questions...")
+
+    while len(accepted_questions) < total_required:
+        remaining = total_required - len(accepted_questions)
+        batch_size = min(chunk_size, remaining)
+
+        print(f"\nGenerating chunk of {batch_size} "
+              f"({len(accepted_questions)}/{total_required} accepted so far)...")
+
+        batch = generate_chunk(
+            client=client,
+            material=material,
+            samples=samples,
+            count=batch_size,
+            question_type=question_type,
+            topic=topic,
+            bloom=bloom,
+            difficulty=difficulty,
+            course_outcome=course_outcome,
+            model=model,
+            marks=marks,
+            diversity_log=diversity_log,
+        )
+
+        for candidate in batch:
+            question_text = candidate.get("question_text", "").strip()
+
+            if not question_text:
+                print("SKIP: empty question text")
+                continue
+
+            # Gate 1: exact duplicate check (fast, no embedding needed)
+            if check_exact_duplicate_in_db(question_text, question_type):
+                print(f"SKIP (exact DB duplicate): {question_text[:60]}")
+                continue
+
+            # Gate 2: compute embedding
+            candidate_embedding = EMBEDDING_MODEL.encode([question_text])[0]
+
+            # Gate 3: semantic similarity against DB via pgvector
+            similar_in_db = check_similarity_in_db(
+                candidate_embedding,
+                question_type,
+                similarity_threshold
+            )
+            if similar_in_db:
+                top = similar_in_db[0]
+                print(
+                    f"SKIP (DB similar, "
+                    f"sim={top['similarity']:.2f}): {question_text[:60]}"
+                )
+                continue
+
+            # Gate 4: semantic similarity against session questions
+            if len(accepted_embeddings) > 0:
+                sims = cosine_similarity(
+                    [candidate_embedding],
+                    np.array(accepted_embeddings)
+                )
+                if sims.max() > similarity_threshold:
+                    print(
+                        f"SKIP (session similar, "
+                        f"sim={sims.max():.2f}): {question_text[:60]}"
+                    )
+                    continue
+
+            # All gates passed — accept this question
+            db_id = insert_question_to_db(candidate, candidate_embedding)
+            sync_question_to_sheets(candidate)
+
+            accepted_questions.append(candidate)
+            accepted_embeddings.append(candidate_embedding)
+            diversity_log = update_diversity_log(diversity_log, candidate)
+
+            print(
+                f"ACCEPTED ({len(accepted_questions)}/{total_required}): "
+                f"{question_text[:60]}"
+            )
+
+    print(f"\nDone. {len(accepted_questions)} unique questions generated.")
+    return accepted_questions
+
+
 def build_prompt(material: str, question_type: str, count: int,
                  bloom: str, difficulty: str, course_outcome: str,
                  samples: list[dict],
                  existing_questions: list[str] | None = None,
                  bloom_targets: list[str] | None = None,
+                 diversity_log: dict | None = None,
                  marks: int = 2) -> str:
 
     type_rules = TYPE_PROMPTS.get(question_type, "")
@@ -360,9 +657,39 @@ Do NOT reuse any topic, phrase, or sentence pattern from this list:
             "  K6 Create     — produce, construct, compose"
         )
 
+    diversity_section = ""
+    if diversity_log and diversity_log.get("question_count", 0) > 0:
+        diversity_section = f"""
+══════════════════════════════════════════════
+DIVERSITY REQUIREMENTS — READ CAREFULLY BEFORE GENERATING
+══════════════════════════════════════════════
+You have already generated {diversity_log["question_count"]} questions. You must NOT repeat patterns already overused.
+
+Connectors already used as correct answers — avoid overused ones:
+{diversity_log["connectors_used"]}
+
+Domains already covered — use different domains:
+{diversity_log["domains_used"]}
+
+Sentence starters already used — do not start questions the same way:
+{diversity_log["sentence_starters_used"]}
+
+Correct answer position distribution so far:
+{diversity_log["correct_answer_positions"]}
+
+STRICT RULES FOR THIS BATCH:
+- Do not use any connector that appears more than 2 times in connectors_used as the correct answer.
+- Do not use the same domain as the last 3 questions.
+- Distribute correct answer positions evenly across A, B, C, D.
+- Each question must test a different logical relationship: causal, concessive, additive, inferential, or contrastive.
+- No two questions in this batch may start with the same word.
+- Every sentence in every question must sound naturally written by a human, not AI-generated.
+
+"""
+
     return f"""You are an expert English language assessment designer specialising in {question_type} questions.
 
-{avoid_section}══════════════════════════════════════════════
+{avoid_section}{diversity_section}══════════════════════════════════════════════
 READING MATERIAL (source for all questions)
 ══════════════════════════════════════════════
 {material[:7000]}
@@ -432,6 +759,10 @@ def main():
     parser.add_argument("--co", default="CO1", help="Course outcome string (default CO1)")
     parser.add_argument("--model", default="anthropic/claude-sonnet-4-5",
                         help="OpenRouter model ID (default anthropic/claude-sonnet-4-5)")
+    parser.add_argument("--chunk-size", type=int, default=5,
+                        help="Questions per LLM call when using chunked mode (default 5)")
+    parser.add_argument("--similarity-threshold", type=float, default=0.85,
+                        help="Cosine similarity threshold for dedup (default 0.85)")
     args = parser.parse_args()
 
     api_key = os.environ.get("OPENROUTER_API_KEY")
@@ -453,29 +784,61 @@ def main():
     samples = load_samples(args.type)
     print(f"Loaded {len(samples)} sample question(s) for '{args.type}'\n")
 
-    prompt = build_prompt(
-        material=material,
-        question_type=args.type,
-        count=args.count,
-        bloom=args.bloom,
-        difficulty=args.difficulty,
-        course_outcome=args.co,
-        samples=samples,
-    )
-
-    print(f"Generating {args.count} × '{args.type}' question(s) [{args.bloom} / {args.difficulty}]...\n")
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
-    response = client.chat.completions.create(
-        model=args.model,
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}],
-    )
+    topic = Path(args.material).stem  # derive topic label from file name
 
-    output = response.choices[0].message.content
-    print("=" * 60)
-    print(output)
-    print("=" * 60)
-    print(f"\nTokens used — input: {response.usage.prompt_tokens}, output: {response.usage.completion_tokens}")
+    # Use chunked dedup pipeline when DB is available, else fall back to single call
+    if DB_AVAILABLE:
+        similarity_threshold = float(
+            os.environ.get("SIMILARITY_THRESHOLD", args.similarity_threshold)
+        )
+        print(f"Generating {args.count} × '{args.type}' [{args.bloom} / {args.difficulty}] "
+              f"with deduplication (threshold={similarity_threshold})...\n")
+        questions = generate_questions_in_chunks(
+            client=client,
+            material=material,
+            samples=samples,
+            total_required=args.count,
+            question_type=args.type,
+            topic=topic,
+            bloom=args.bloom,
+            difficulty=args.difficulty,
+            course_outcome=args.co,
+            model=args.model,
+            chunk_size=args.chunk_size,
+            similarity_threshold=similarity_threshold,
+        )
+        print("\n" + "=" * 60)
+        for i, q in enumerate(questions, 1):
+            print(f"\n{'='*40}\nQUESTION {i}\n{'='*40}")
+            print(f"Question:\n{q['question_text']}\n")
+            print(f"Solution:\n{q['correct_answer']}\n")
+            print(f"Explanation:\n{q['explanation']}")
+        print("=" * 60)
+        print(f"\n{len(questions)} unique questions generated and saved to DB.")
+    else:
+        print(f"[DB not available — running single-call mode]")
+        print(f"Generating {args.count} × '{args.type}' question(s) [{args.bloom} / {args.difficulty}]...\n")
+        prompt = build_prompt(
+            material=material,
+            question_type=args.type,
+            count=args.count,
+            bloom=args.bloom,
+            difficulty=args.difficulty,
+            course_outcome=args.co,
+            samples=samples,
+        )
+        response = client.chat.completions.create(
+            model=args.model,
+            max_tokens=4096,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        output = response.choices[0].message.content
+        print("=" * 60)
+        print(output)
+        print("=" * 60)
+        print(f"\nTokens used — input: {response.usage.prompt_tokens}, "
+              f"output: {response.usage.completion_tokens}")
 
 
 if __name__ == "__main__":
