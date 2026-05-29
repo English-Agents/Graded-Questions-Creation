@@ -37,7 +37,7 @@ if _env_file.exists():
             _k, _v = _line.split("=", 1)
             os.environ.setdefault(_k.strip(), _v.strip())
 
-from generate_questions import build_prompt, load_samples, FOLDER_MAP, compute_bloom_targets, DB_AVAILABLE, _get_embedding_model
+from generate_questions import build_prompt, load_samples, FOLDER_MAP, compute_bloom_targets, DB_AVAILABLE, EMBEDDING_AVAILABLE, _get_embedding_model
 
 if DB_AVAILABLE:
     from database.queries import insert_question_to_db, check_exact_duplicate_in_db, check_similarity_in_db
@@ -402,25 +402,25 @@ import uuid as _uuid
 
 def _save_to_db(questions: list, req, meta: dict) -> int:
     """
-    Saves accepted questions to PostgreSQL with embeddings.
-    Returns count of questions actually inserted.
+    Saves accepted questions to PostgreSQL.
+    Uses semantic dedup when embeddings available, exact-match only otherwise.
     Fails silently — DB issues never block generation.
     """
     if not DB_AVAILABLE:
         return 0
     saved = 0
     try:
-        model = _get_embedding_model()
         for q in questions:
             text = q.question.strip()
             if not text:
                 continue
-            # Skip if already in DB (cross-session dedup)
             if check_exact_duplicate_in_db(text, req.question_type):
                 continue
-            embedding = model.encode([text])[0]
-            if check_similarity_in_db(embedding, req.question_type, 0.85):
-                continue
+            embedding = None
+            if EMBEDDING_AVAILABLE:
+                embedding = _get_embedding_model().encode([text])[0]
+                if check_similarity_in_db(embedding, req.question_type, 0.85):
+                    continue
             record = {
                 "question_id":   str(_uuid.uuid4()),
                 "question_type": req.question_type,

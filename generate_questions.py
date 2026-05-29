@@ -27,13 +27,11 @@ import uuid
 from collections import Counter
 from pathlib import Path
 
-import numpy as np
 import yaml
 from openai import OpenAI
 
+# Lightweight DB imports — only psycopg2 + pgvector needed
 try:
-    from sentence_transformers import SentenceTransformer
-    from sklearn.metrics.pairwise import cosine_similarity
     from database.queries import (
         fetch_all_questions_from_db,
         check_similarity_in_db,
@@ -44,6 +42,15 @@ try:
     DB_AVAILABLE = True
 except Exception:
     DB_AVAILABLE = False
+
+# Heavy ML imports — sentence-transformers + torch (optional, local only)
+try:
+    import numpy as np
+    from sentence_transformers import SentenceTransformer
+    from sklearn.metrics.pairwise import cosine_similarity
+    EMBEDDING_AVAILABLE = True
+except Exception:
+    EMBEDDING_AVAILABLE = False
 
 # Lazy singleton — loaded on first use, not at import time
 _EMBEDDING_MODEL = None

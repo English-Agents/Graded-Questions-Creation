@@ -123,6 +123,7 @@ def insert_question_to_db(question, embedding):
     conn = get_connection()
     try:
         cursor = conn.cursor()
+        emb_value = embedding.tolist() if embedding is not None else None
         cursor.execute(
             """
             INSERT INTO questions (
@@ -133,7 +134,8 @@ def insert_question_to_db(question, embedding):
                 tags, schema_type, embedding
             ) VALUES (
                 %s, %s, %s, %s, %s, %s, %s, %s,
-                %s, %s, %s, %s, %s, %s::vector
+                %s, %s, %s, %s, %s,
+                CASE WHEN %s IS NULL THEN NULL ELSE %s::vector END
             )
             ON CONFLICT (question_id) DO NOTHING
             RETURNING id
@@ -152,7 +154,8 @@ def insert_question_to_db(question, embedding):
                 question.get("question_purpose"),
                 question.get("tags"),
                 question.get("schema_type"),
-                embedding.tolist()
+                emb_value,
+                emb_value,
             )
         )
         conn.commit()
