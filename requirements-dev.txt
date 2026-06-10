@@ -1,0 +1,6 @@
+# Full local development requirements (includes ML packages for embedding/dedup).
+# Use this on your local machine: pip install -r requirements-dev.txt
+# Render uses requirements.txt (lightweight, no torch).
+-r requirements.txt
+sentence-transformers>=2.2.0
+scikit-learn>=1.3.0
