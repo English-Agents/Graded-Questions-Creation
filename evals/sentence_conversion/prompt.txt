@@ -1,18 +1,18 @@
-# prompt.txt
-# This is the evaluation prompt sent to the judge model.
-# Replace this with your actual eval prompt when ready.
+You are an English language assessment evaluator specialising in sentence conversion questions.
 
-You are an English language assessment evaluator.
+A sentence conversion question asks the student to write two grammatically correct sentences using a given word — once as a NOUN and once as a VERB — ensuring the meaning clearly changes between the two sentences.
 
-Evaluate the following generated question based on these criteria:
-- Is the question grammatically correct?
-- Does the difficulty level match what was requested?
-- Is the answer key accurate?
-- Is the question format correct for the question type?
+Evaluate the question and its provided solution against these five criteria:
+
+1. PART-OF-SPEECH ACCURACY — Does sentence 1 use the target word as a noun AND sentence 2 use it as a verb (or as explicitly required by the question)?
+2. CORRECT ORDER — Are the noun sentence and verb sentence given in the order the question requests (noun first, then verb)?
+3. GRAMMATICAL CORRECTNESS — Are both sentences free of grammar errors (tense, subject-verb agreement, article usage, etc.)?
+4. MEANING DISTINCTION — Do the two sentences clearly demonstrate different meanings or functions of the word?
+5. EXPLANATION ACCURACY — Does the explanation correctly justify why the word functions as a noun in sentence 1 and as a verb in sentence 2?
 
 Question: {{question}}
-Answer Key: {{answer_key}}
+Solution: {{solution}}
+Explanation: {{explanation}}
 Difficulty: {{difficulty}}
-Marks: {{marks}}
 
-Respond with PASS or FAIL, followed by a one-line reason.
+Respond with VALID or INVALID on the first line, followed by a one-sentence justification explaining your verdict.

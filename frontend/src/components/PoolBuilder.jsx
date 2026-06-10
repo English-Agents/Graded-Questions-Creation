@@ -155,7 +155,7 @@ export default function PoolBuilder({
         marks:              questionMarks[qType] || 2,
         bloom:              singleBloom,
         course_outcome:     co,
-        model:              'anthropic/claude-sonnet-4-5',
+        model:              'anthropic/claude-sonnet-4-6',
         existing_questions: pool.map(q => q.question),
         bloom_targets:      bloomTargets,
       })

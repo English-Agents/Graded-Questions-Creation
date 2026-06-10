@@ -1,18 +1,25 @@
-# prompt.txt
-# This is the evaluation prompt sent to the judge model.
-# Replace this with your actual eval prompt when ready.
+You are an English language assessment evaluator specialising in guided story writing tasks.
 
-You are an English language assessment evaluator.
+A guided story writing question gives students a set of prompts, a word limit, and a mark allocation. A valid question must have a well-formed task and a sample answer that serves as an acceptable model response.
 
-Evaluate the following generated question based on these criteria:
-- Is the question grammatically correct?
-- Does the difficulty level match what was requested?
-- Is the answer key accurate?
-- Is the question format correct for the question type?
+Evaluate the question and its sample answer against these five criteria:
 
-Question: {{question}}
-Answer Key: {{answer_key}}
-Difficulty: {{difficulty}}
+1. PROMPT COVERAGE — Does the sample answer incorporate ALL given prompts logically and in a coherent sequence? Ignoring or skipping major prompts is a flaw.
+2. WORD COUNT — Is the sample answer within the specified word limit (check approximate word count against the required range)?
+3. NARRATIVE STRUCTURE — Does the story have a clear beginning, development (conflict or complication), and resolution or conclusion?
+4. LOGICAL CONSISTENCY — Is the plot free from internal contradictions? (e.g., a character cannot be harmed and then perfectly fine without explanation)
+5. NARRATIVE DEVELOPMENT — Is the story sufficiently developed for the stated difficulty level? At B2-C1 / C1, the story must include descriptive language, character motivation, and narrative depth — a bare summary or list of events is not sufficient.
+
+Task:
+{{question}}
+
+Sample Answer:
+{{sample_answer}}
+
+Explanation:
+{{explanation}}
+
 Marks: {{marks}}
+Difficulty: {{difficulty}}
 
-Respond with PASS or FAIL, followed by a one-line reason.
+Respond with VALID or INVALID on the first line, followed by a one-sentence justification explaining your verdict.

@@ -1,21 +1,452 @@
-# testing_tests.yaml
-# Pipeline / integration tests — drop your cases here.
-# Each test checks that the generation pipeline produces the right output format.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     topic_id: 1
-#     skill: "Grammar & Vocabulary"
-#     marks: 2
-#     question_type: "Fill in the blanks"
-#     difficulty: medium
-#     count: 5
-#   assert:
-#     - type: is-json
-#     - type: javascript
-#       value: output.length === 5
-#     - type: javascript
-#       value: output.every(q => q.text && q.answer_key)
+# NEGATIVE QUESTIONS — Flawed Reading Comprehension questions (should be marked INVALID)
 
-# ADD YOUR TESTING TEST CASES BELOW:
+# ── Flawed Passage 1: The Growth of Remote Work ──────────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Multiple Correct Answers
+    passage: |
+      The Growth of Remote Work
+
+      Remote work has become increasingly common in many industries over the past decade.
+      Advances in communication technology, cloud computing, and collaboration software
+      have made it possible for employees to perform their duties from locations outside
+      traditional offices. While remote work was already growing steadily, global events
+      in recent years accelerated its adoption across organizations of all sizes.
+
+      One advantage of remote work is flexibility. Employees can often choose where they
+      work and may spend less time commuting. This can improve work-life balance and reduce
+      transportation costs. Employers may also benefit by accessing a wider talent pool
+      because they are no longer limited to hiring people who live near a physical office.
+
+      However, remote work presents challenges. Communication can sometimes become more
+      difficult when team members are located in different time zones. Employees may
+      experience feelings of isolation if they have limited social interaction with
+      colleagues. In addition, maintaining cybersecurity and protecting sensitive company
+      data require continuous attention.
+
+      Many organizations have adopted hybrid work models that combine remote and in-office
+      work. Supporters argue that hybrid arrangements provide flexibility while preserving
+      opportunities for collaboration and team building. Researchers continue to study the
+      long-term effects of remote work on productivity, employee satisfaction, and
+      organisational culture.
+    question: |
+      Which of the following technologies helped enable remote work?
+
+      a) Cloud computing
+      b) Collaboration software
+      c) Communication technology
+      d) All of the above
+    answer_key: "a) Cloud computing"
+    explanation: "Options a, b, and c are all correct — all three technologies are mentioned in the passage."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the passage
+        mentions all three technologies (communication technology, cloud computing, AND
+        collaboration software), making options a, b, and c all correct — so option d
+        is actually the right answer, not a. The question has multiple correct options.
+        The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Information Not Present in Passage
+    passage: |
+      The Growth of Remote Work
+
+      Remote work has become increasingly common in many industries over the past decade.
+      Advances in communication technology, cloud computing, and collaboration software
+      have made it possible for employees to perform their duties from locations outside
+      traditional offices. While remote work was already growing steadily, global events
+      in recent years accelerated its adoption across organizations of all sizes.
+
+      One advantage of remote work is flexibility. Employees can often choose where they
+      work and may spend less time commuting. This can improve work-life balance and reduce
+      transportation costs. Employers may also benefit by accessing a wider talent pool
+      because they are no longer limited to hiring people who live near a physical office.
+
+      However, remote work presents challenges. Communication can sometimes become more
+      difficult when team members are located in different time zones. Employees may
+      experience feelings of isolation if they have limited social interaction with
+      colleagues. In addition, maintaining cybersecurity and protecting sensitive company
+      data require continuous attention.
+
+      Many organizations have adopted hybrid work models that combine remote and in-office
+      work. Supporters argue that hybrid arrangements provide flexibility while preserving
+      opportunities for collaboration and team building. Researchers continue to study the
+      long-term effects of remote work on productivity, employee satisfaction, and
+      organisational culture.
+    question: |
+      What percentage of employees worldwide currently work remotely full-time?
+
+      a) 25%
+      b) 40%
+      c) 60%
+      d) 75%
+    answer_key: "b) 40%"
+    explanation: "The passage provides no percentage data about remote work adoption rates."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the passage
+        contains no percentage figures about remote work adoption — this statistic is
+        fabricated and not present in the passage, making the question unanswerable from
+        the text. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Invalid True/False Statement
+    passage: |
+      The Growth of Remote Work
+
+      Remote work has become increasingly common in many industries over the past decade.
+      Advances in communication technology, cloud computing, and collaboration software
+      have made it possible for employees to perform their duties from locations outside
+      traditional offices. While remote work was already growing steadily, global events
+      in recent years accelerated its adoption across organizations of all sizes.
+
+      One advantage of remote work is flexibility. Employees can often choose where they
+      work and may spend less time commuting. This can improve work-life balance and reduce
+      transportation costs. Employers may also benefit by accessing a wider talent pool
+      because they are no longer limited to hiring people who live near a physical office.
+
+      However, remote work presents challenges. Communication can sometimes become more
+      difficult when team members are located in different time zones. Employees may
+      experience feelings of isolation if they have limited social interaction with
+      colleagues. In addition, maintaining cybersecurity and protecting sensitive company
+      data require continuous attention.
+
+      Many organizations have adopted hybrid work models that combine remote and in-office
+      work. Supporters argue that hybrid arrangements provide flexibility while preserving
+      opportunities for collaboration and team building. Researchers continue to study the
+      long-term effects of remote work on productivity, employee satisfaction, and
+      organisational culture.
+    question: "Remote work reduces commuting time for some employees."
+    answer_key: "Cannot be determined"
+    explanation: "True/False questions cannot have 'Cannot be determined' as a valid answer."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False question.
+        Flaw: the answer key is "Cannot be determined" — this is not a valid answer for
+        a True/False question, which must be answered TRUE or FALSE. In fact the passage
+        clearly supports TRUE (employees may spend less time commuting). The correct
+        verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage 2: Citizen Science Projects ───────────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Information Not Present in Passage
+    passage: |
+      Citizen Science Projects
+
+      Citizen science refers to scientific research that involves participation from members
+      of the public. Rather than being conducted solely by professional scientists, many
+      projects invite volunteers to collect data, make observations, or analyze information.
+      These initiatives help researchers gather large amounts of data while increasing
+      public engagement with science.
+
+      Citizen science projects cover a wide range of fields. In environmental studies,
+      volunteers may monitor bird populations, track weather patterns, or record changes
+      in local ecosystems. In astronomy, participants help identify celestial objects by
+      examining images collected from telescopes. Some health-related projects also
+      encourage individuals to contribute information that supports medical research.
+
+      Technology has played a major role in expanding citizen science. Mobile applications
+      and online platforms allow participants to submit observations quickly and accurately.
+      As a result, researchers can access information from many geographic regions that
+      would otherwise be difficult to study.
+    question: |
+      What color are the mobile applications commonly used in citizen science projects?
+
+      a) Blue
+      b) Green
+      c) Black
+      d) White
+    answer_key: "a) Blue"
+    explanation: "The passage contains no information about the color of mobile applications."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the passage
+        makes no mention of the color of any mobile applications — this detail is entirely
+        absent from the text, making the question impossible to answer from the passage.
+        The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      Citizen Science Projects
+
+      Citizen science refers to scientific research that involves participation from members
+      of the public. Rather than being conducted solely by professional scientists, many
+      projects invite volunteers to collect data, make observations, or analyze information.
+      These initiatives help researchers gather large amounts of data while increasing
+      public engagement with science.
+
+      Citizen science projects cover a wide range of fields. In environmental studies,
+      volunteers may monitor bird populations, track weather patterns, or record changes
+      in local ecosystems. In astronomy, participants help identify celestial objects by
+      examining images collected from telescopes. Some health-related projects also
+      encourage individuals to contribute information that supports medical research.
+
+      Technology has played a major role in expanding citizen science. Mobile applications
+      and online platforms allow participants to submit observations quickly and accurately.
+      As a result, researchers can access information from many geographic regions that
+      would otherwise be difficult to study.
+    question: "Technology has helped expand citizen science projects."
+    answer_key: "FALSE"
+    explanation: "The passage explicitly states that technology has played a major role in expanding citizen science."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False question.
+        Flaw: the statement is clearly TRUE according to the passage (technology has played
+        a major role in expanding citizen science), but the answer key incorrectly states
+        FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Subjective / Opinion-Based Question
+    passage: |
+      Citizen Science Projects
+
+      Citizen science refers to scientific research that involves participation from members
+      of the public. Rather than being conducted solely by professional scientists, many
+      projects invite volunteers to collect data, make observations, or analyze information.
+      These initiatives help researchers gather large amounts of data while increasing
+      public engagement with science.
+
+      Citizen science projects cover a wide range of fields. In environmental studies,
+      volunteers may monitor bird populations, track weather patterns, or record changes
+      in local ecosystems. In astronomy, participants help identify celestial objects by
+      examining images collected from telescopes. Some health-related projects also
+      encourage individuals to contribute information that supports medical research.
+
+      Technology has played a major role in expanding citizen science. Mobile applications
+      and online platforms allow participants to submit observations quickly and accurately.
+      As a result, researchers can access information from many geographic regions that
+      would otherwise be difficult to study.
+    question: |
+      Citizen science is the best form of scientific research.
+
+      a) Agree
+      b) Strongly Agree
+      c) Disagree
+      d) Strongly Disagree
+    answer_key: "a) Agree"
+    explanation: "This is an opinion question, not a reading comprehension question based on passage content."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the question
+        asks for a personal opinion ("best form of scientific research") not addressed in
+        the passage — this is a subjective Likert-style question, not a comprehension
+        question. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage 4: The Importance of Coral Reefs ──────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Importance of Coral Reefs
+
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and
+      subtropical oceans, they provide habitat for thousands of marine species. Reefs also
+      support fishing industries, protect coastlines from erosion, and contribute
+      significantly to tourism in many countries.
+
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures
+      can lead to coral bleaching, a process in which corals lose the algae that provide
+      them with nutrients and color. Pollution, overfishing, and destructive coastal
+      development can also damage reef ecosystems.
+
+      Scientists, governments, and environmental organisations are working to protect coral
+      reefs through conservation programs, marine protected areas, and public education
+      initiatives. Long-term reef survival depends on both local conservation efforts and
+      broader actions to address climate change.
+    question: |
+      Coral reefs are found primarily in:
+
+      a) Tropical and subtropical oceans
+      b) Mountain ranges
+      c) Desert regions
+      d) Arctic ice fields
+    answer_key: "b) Mountain ranges"
+    explanation: "The passage clearly states that coral reefs are found in tropical and subtropical oceans, not mountain ranges."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the answer
+        key states b) Mountain ranges, but the passage explicitly says coral reefs are
+        found in tropical and subtropical oceans — option a is the correct answer.
+        The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Importance of Coral Reefs
+
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and
+      subtropical oceans, they provide habitat for thousands of marine species. Reefs also
+      support fishing industries, protect coastlines from erosion, and contribute
+      significantly to tourism in many countries.
+
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures
+      can lead to coral bleaching, a process in which corals lose the algae that provide
+      them with nutrients and color. Pollution, overfishing, and destructive coastal
+      development can also damage reef ecosystems.
+
+      Scientists, governments, and environmental organisations are working to protect coral
+      reefs through conservation programs, marine protected areas, and public education
+      initiatives. Long-term reef survival depends on both local conservation efforts and
+      broader actions to address climate change.
+    question: "Pollution can damage coral reef ecosystems."
+    answer_key: "FALSE"
+    explanation: "The passage explicitly identifies pollution as one of the threats to coral reefs."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False question.
+        Flaw: the statement is clearly TRUE (the passage lists pollution as a direct threat
+        to reef ecosystems), but the answer key incorrectly states FALSE. The correct
+        verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage 5: The Expansion of Space Tourism ─────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Expansion of Space Tourism
+
+      Space tourism is an emerging industry that aims to provide private individuals with
+      opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology
+      and increased investment from private companies have contributed to the growth of
+      this sector. Several organisations have already conducted commercial flights that
+      allow passengers to experience brief periods of weightlessness and view Earth from
+      space.
+
+      Supporters of space tourism argue that it encourages innovation and inspires public
+      interest in science and technology. The industry has also contributed to the
+      development of reusable rocket systems designed to reduce launch costs. However,
+      space tourism remains expensive, limiting participation to a relatively small number
+      of customers.
+
+      Environmental concerns have also been raised. Rocket launches require significant
+      amounts of fuel and may contribute to atmospheric pollution. Researchers are studying
+      ways to make future space travel more sustainable while maintaining safety standards.
+      In addition, governments and international agencies continue to develop regulations
+      to address legal and operational challenges associated with commercial spaceflight.
+
+      Although the industry is still in its early stages, experts believe that technological
+      improvements may gradually increase accessibility. Whether space tourism becomes a
+      common form of travel or remains a niche activity will depend on factors such as
+      cost, safety, environmental impact, and public demand.
+    question: |
+      What is the main purpose of space tourism?
+
+      a) To transport cargo between countries
+      b) To provide private individuals with opportunities to travel beyond Earth's atmosphere
+      c) To replace commercial airlines completely
+      d) To study marine ecosystems
+    answer_key: "c) To replace commercial airlines completely"
+    explanation: "The passage states the purpose is to provide private individuals opportunities to travel beyond Earth's atmosphere — option b is correct, not c."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the answer
+        key states c) To replace commercial airlines, but the passage defines space
+        tourism's purpose as providing private individuals opportunities to travel beyond
+        Earth's atmosphere — option b is the correct answer. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Outside Passage Scope
+    passage: |
+      The Expansion of Space Tourism
+
+      Space tourism is an emerging industry that aims to provide private individuals with
+      opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology
+      and increased investment from private companies have contributed to the growth of
+      this sector. Several organisations have already conducted commercial flights that
+      allow passengers to experience brief periods of weightlessness and view Earth from
+      space.
+
+      Supporters of space tourism argue that it encourages innovation and inspires public
+      interest in science and technology. The industry has also contributed to the
+      development of reusable rocket systems designed to reduce launch costs. However,
+      space tourism remains expensive, limiting participation to a relatively small number
+      of customers.
+
+      Environmental concerns have also been raised. Rocket launches require significant
+      amounts of fuel and may contribute to atmospheric pollution. Researchers are studying
+      ways to make future space travel more sustainable while maintaining safety standards.
+      In addition, governments and international agencies continue to develop regulations
+      to address legal and operational challenges associated with commercial spaceflight.
+
+      Although the industry is still in its early stages, experts believe that technological
+      improvements may gradually increase accessibility. Whether space tourism becomes a
+      common form of travel or remains a niche activity will depend on factors such as
+      cost, safety, environmental impact, and public demand.
+    question: |
+      Space tourism will definitely become the most popular form of travel in the future.
+
+      a) Yes
+      b) No
+      c) Maybe
+      d) Cannot be determined
+    answer_key: "a) Yes"
+    explanation: "The passage does not make this prediction — it says the outcome will depend on multiple factors. The question introduces an unsupported speculation."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the question
+        asks students to confirm a speculative claim ("definitely become the most popular
+        form") that the passage explicitly does not support — the passage says outcomes
+        depend on cost, safety, and demand. The answer key is also wrong (a = Yes, but
+        the passage is non-committal). The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

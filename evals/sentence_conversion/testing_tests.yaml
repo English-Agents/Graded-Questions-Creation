@@ -1,21 +1,102 @@
-# testing_tests.yaml
-# Pipeline / integration tests — drop your cases here.
-# Each test checks that the generation pipeline produces the right output format.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     topic_id: 1
-#     skill: "Grammar & Vocabulary"
-#     marks: 2
-#     question_type: "Fill in the blanks"
-#     difficulty: medium
-#     count: 5
-#   assert:
-#     - type: is-json
-#     - type: javascript
-#       value: output.length === 5
-#     - type: javascript
-#       value: output.every(q => q.text && q.answer_key)
+# NEGATIVE QUESTIONS — Flawed Sentence Conversion questions (should be marked INVALID)
 
-# ADD YOUR TESTING TEST CASES BELOW:
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L2 – Understand
+    difficulty: Easy
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'play' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. The children play in the park every evening.
+      2. The actors performed a play on stage.
+    explanation: "The answers are given in reverse order. The first sentence uses 'play' as a verb instead of a noun, while the second sentence uses it as a noun instead of a verb."
+    error_type: Reversed Noun–Verb Usage
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Sentence Conversion question. Flaw: the noun
+        and verb sentences are in reverse order — sentence 1 uses 'play' as a verb and
+        sentence 2 uses it as a noun, contradicting the instruction (noun first, then verb).
+        The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L3 – Apply
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'drink' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. She likes to drink juice after exercise.
+      2. They drink water during practice.
+    explanation: "Both sentences use 'drink' as a verb. The noun usage is missing entirely, making the response incomplete and flawed."
+    error_type: Missing Noun Usage
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Sentence Conversion question. Flaw: both
+        sentences use 'drink' as a verb — the required noun usage (e.g., 'a refreshing
+        drink') is completely absent. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L4 – Analyse
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'walk' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. We went for a walk near the beach.
+      2. The walk was enjoyable yesterday.
+    explanation: "Both sentences use 'walk' as a noun. The required verb usage is not provided."
+    error_type: Missing Verb Usage
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Sentence Conversion question. Flaw: both
+        sentences use 'walk' as a noun — the required verb usage (e.g., 'They walk to
+        work') is completely absent. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L3 – Apply
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'call' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. I received an important call from the office.
+      2. The manager made a call to the client.
+    explanation: "Both sentences use 'call' as a noun. Although the contexts differ, the second sentence still does not use 'call' as a verb."
+    error_type: Incorrect Verb Conversion
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Sentence Conversion question. Flaw: both
+        sentences use 'call' as a noun — 'made a call' is still a noun usage, not the
+        verb form (e.g., 'Please call me'). The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L4 – Analyse
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'paint' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. The paint on the wall is bright and colorful.
+      2. The artist paint beautiful landscapes every month.
+    explanation: "The second sentence attempts to use 'paint' as a verb but contains a subject-verb agreement error. The correct form should be 'paints'."
+    error_type: Additional Grammar Error in Verb Usage
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Sentence Conversion question. Flaw: sentence 2
+        has a subject-verb agreement error — 'The artist paint' should be 'The artist paints'.
+        A grammatically incorrect sentence makes the response invalid. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

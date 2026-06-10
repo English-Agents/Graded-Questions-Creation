@@ -1,21 +1,129 @@
-# testing_tests.yaml
-# Pipeline / integration tests — drop your cases here.
-# Each test checks that the generation pipeline produces the right output format.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     topic_id: 1
-#     skill: "Grammar & Vocabulary"
-#     marks: 2
-#     question_type: "Fill in the blanks"
-#     difficulty: medium
-#     count: 5
-#   assert:
-#     - type: is-json
-#     - type: javascript
-#       value: output.length === 5
-#     - type: javascript
-#       value: output.every(q => q.text && q.answer_key)
+# NEGATIVE QUESTIONS — Flawed Guided Story Writing questions (should be marked INVALID)
+# Exception: case 4 has no flaw — the validator should correctly return VALID.
 
-# ADD YOUR TESTING TEST CASES BELOW:
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: B2-C1
+    marks: 8
+    error_type: Missing prompts / unrelated development
+    course_outcome: "Develop a coherent story using guided prompts, logical sequencing, descriptive language, and an appropriate conclusion."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: rainy night / power cut / strange sound / old neighbour / locked room / missing photograph / sudden discovery / happy ending
+    sample_answer: |
+      It was a rainy night when Aarav sat alone in his room, reading a comic book. Suddenly, the lights went out. He heard a strange sound from the kitchen and felt frightened. His old neighbour came to check on him and told him not to worry. Aarav then went to school the next day and won a prize in a painting competition. Everyone clapped for him, and he felt very proud. His parents took him out for dinner, and the day ended happily.
+    explanation: "The sample answer begins with the given situation but ignores major prompts such as the locked room, missing photograph, and sudden discovery. The story shifts suddenly to an unrelated school event."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Guided Story Writing question. Flaw: the sample
+        answer uses only 3 of the 8 prompts (rainy night, power cut, old neighbour) and then
+        jumps to a completely unrelated school event, ignoring the locked room, missing
+        photograph, and sudden discovery entirely. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: B2-C1
+    marks: 8
+    error_type: Word limit violation
+    course_outcome: "Compose an original narrative with character development, conflict, and resolution based on guided cues."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: school debate competition / nervous speaker / forgot lines / supportive friend / second chance / powerful speech / judges impressed / lesson learned
+    sample_answer: |
+      Meena was nervous before the school debate competition. When her name was called, she walked to the stage and forgot her lines. Her friend smiled from the audience and encouraged her. Meena got a second chance and gave a powerful speech. The judges were impressed, and she learned that confidence grows with courage.
+    explanation: "The answer is only about 60 words, far below the required 150-180 words. Although it uses the prompts, it does not meet the expected length for an 8-mark guided writing task."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Guided Story Writing question. Flaw: the sample
+        answer is approximately 60 words — far below the required 150-180 word range for an
+        8-mark task. A sample answer this short cannot model the expected level of narrative
+        development. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: C1
+    marks: 8
+    error_type: Contradictory plot
+    course_outcome: "Produce a coherent and engaging story using setting, conflict, suspense, and resolution."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: lonely railway station / midnight / unattended suitcase / police announcement / frightened passenger / hidden letter / family secret / unexpected reunion
+    sample_answer: |
+      At midnight, a lonely railway station was silent except for the sound of a distant train. A frightened passenger noticed an unattended suitcase near a bench. The police announcement warned everyone not to touch suspicious luggage. However, the passenger opened it and found a hidden letter. The letter revealed a family secret about a brother who had disappeared years ago. Suddenly, the suitcase exploded, and everyone ran in fear. A few minutes later, the missing brother arrived safely and hugged the passenger. It was an emotional reunion.
+    explanation: "The story has a serious logical contradiction. If the suitcase exploded, the later peaceful reunion happens without explanation. The ending does not resolve the danger or explain how the characters remained safe."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Guided Story Writing question. Flaw: the plot
+        is internally contradictory — the suitcase explodes, yet a calm emotional reunion
+        follows moments later with no explanation of how anyone survived unharmed. A
+        logically inconsistent plot cannot serve as a valid sample answer. The correct
+        verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: B2-C1
+    marks: 8
+    error_type: No flaw present
+    course_outcome: "Construct a narrative with logical flow, descriptive details, and a suitable ending using guided prompts."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: village fair / magic show / young girl volunteers / magician disappears / secret trapdoor / hidden passage / truth revealed / brave decision
+    sample_answer: |
+      The village fair was full of lights, music, and laughter. Nisha watched the magic show with excitement. When the magician asked for a volunteer, she raised her hand. He placed her inside a wooden box and waved his wand. The crowd gasped as he disappeared instead of her. Nisha noticed a secret trapdoor below the stage. She climbed down and found a hidden passage. The magician had used it to escape because he wanted to avoid paying his workers. Nisha bravely told the fair organiser the truth. The workers received their money, and the magician apologised.
+    explanation: "This item was intended to be flawed but the sample answer is actually valid — it uses all prompts logically, follows the word limit, has a clear conflict and resolution, and ends appropriately."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a story writing question that was labelled as flawed
+        but is actually correctly formed. The sample answer uses all eight prompts logically,
+        has a clear conflict and brave resolution, and is free from contradictions. The
+        correct verdict is VALID — the validator must not be tricked into marking a
+        well-formed answer as invalid.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: B2-C1
+    marks: 8
+    error_type: Underdeveloped response
+    course_outcome: "Write a well-structured story using guided prompts, character motivation, conflict, and resolution."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: new student in class / group project / ignored by classmates / unexpected talent / final presentation / teacher's praise / changed attitudes / new friendship
+    sample_answer: |
+      Rohan was the new student in class, and he was excited about the group project. At first, his classmates ignored him because they thought he would slow them down. However, during preparation, they discovered that Rohan was excellent at designing slides and explaining ideas clearly. He helped the group prepare a strong final presentation. The teacher praised their teamwork, and everyone realised that they had judged him unfairly. From that day, his classmates changed their attitude towards him, and Rohan made new friends.
+    explanation: "The answer uses the prompts but is too direct and underdeveloped for a B2-C1, 8-mark task. It reads more like a summary than a complete story and lacks descriptive detail, dialogue, and narrative development."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Guided Story Writing question. Flaw: the sample
+        answer (~110 words) reads as a bare plot summary with no descriptive language,
+        dialogue, or character development — insufficient as a model response for a B2-C1
+        8-mark task that requires narrative depth and craft. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

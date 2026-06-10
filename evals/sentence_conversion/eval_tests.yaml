@@ -1,18 +1,201 @@
-# eval_tests.yaml
-# Quality evaluation tests — drop your cases here.
-# Each test checks whether a generated question meets the expected standard.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     question: the generated question text
-#     answer_key: the expected answer
-#     difficulty: easy | medium | hard
-#     marks: 2
-#   assert:
-#     - type: llm-rubric
-#       value: >
-#         The question is grammatically correct, matches the difficulty level,
-#         and the blank is clearly indicated with ___.
+# POSITIVE QUESTIONS — Correctly formed Sentence Conversion questions
 
-# ADD YOUR EVAL TEST CASES BELOW:
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L2 – Understand
+    difficulty: Easy
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'paint' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. The paint on the fence has faded.
+      2. The workers will paint the fence tomorrow.
+    explanation: "In the first sentence, 'paint' refers to a substance, so it functions as a noun. In the second sentence, 'paint' expresses an action, so it functions as a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — the noun sentence uses 'paint' as a substance (noun),
+        the verb sentence uses 'paint' as an action (verb), meanings differ, both sentences
+        are grammatically correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L3 – Apply
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'watch' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. My watch needs a new battery.
+      2. We watch the news every evening.
+    explanation: "In the first sentence, 'watch' refers to an object, making it a noun. In the second sentence, it describes the action of viewing, making it a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'watch' is used as a timepiece (noun) then as
+        an action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L3 – Apply
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'drink' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. She ordered a cold drink after practice.
+      2. Players drink plenty of water during matches.
+    explanation: "In the first sentence, 'drink' names a beverage, so it acts as a noun. In the second sentence, it describes the action of consuming liquid, so it functions as a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'drink' is used as a beverage (noun) then as
+        an action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L4 – Analyse
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'reply' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. Her reply was appreciated by the manager.
+      2. Please reply to the client before noon.
+    explanation: "In the first sentence, 'reply' refers to a response, so it is a noun. In the second sentence, it expresses the action of responding, so it is a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'reply' is used as a response object (noun) then
+        as an action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L4 – Analyse
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'visit' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. Their visit to the science exhibition was memorable.
+      2. We will visit the exhibition again next year.
+    explanation: "In the first sentence, 'visit' refers to an event, making it a noun. In the second sentence, it expresses the action of going somewhere, making it a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'visit' is used as an event/occasion (noun) then
+        as an action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L2 – Understand
+    difficulty: Easy
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'cook' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. The cook prepared dinner for the guests.
+      2. I cook breakfast every Sunday.
+    explanation: "In the first sentence, 'cook' refers to a person, so it functions as a noun. In the second sentence, 'cook' expresses an action, so it functions as a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'cook' is used as a person (noun) then as an
+        action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L3 – Apply
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'drive' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. The charity organised a food drive last weekend.
+      2. She will drive to the airport tomorrow morning.
+    explanation: "In the first sentence, 'drive' refers to an organised campaign, making it a noun. In the second sentence, it expresses the action of operating a vehicle, making it a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'drive' is used as an organised campaign (noun)
+        then as an action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L3 – Apply
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'call' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. I received an urgent call from the office.
+      2. Please call me after the meeting ends.
+    explanation: "In the first sentence, 'call' refers to a phone conversation, so it functions as a noun. In the second sentence, it describes the action of contacting someone, so it functions as a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'call' is used as a phone conversation (noun)
+        then as an action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L4 – Analyse
+    difficulty: Medium
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'walk' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. We went for a long walk near the river.
+      2. They walk to college every morning.
+    explanation: "In the first sentence, 'walk' refers to an activity, so it acts as a noun. In the second sentence, it expresses the action of moving on foot, so it functions as a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'walk' is used as an activity/outing (noun) then
+        as an action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Sentence Conversion
+    bloom_level: L4 – Analyse
+    difficulty: Hard
+    course_outcome: "CO1: Use the correct noun or main verb form of given base words according to sentence context."
+    question: |
+      Write one grammatically correct sentence using 'play' as a noun and one grammatically correct sentence using it as a verb. Ensure that the meaning clearly changes between the two sentences.
+    solution: |
+      1. The school performed a play during the annual festival.
+      2. Children play in the park every evening.
+    explanation: "In the first sentence, 'play' refers to a theatrical performance, making it a noun. In the second sentence, it expresses the action of engaging in games or activities, making it a verb."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Sentence Conversion question.
+        The correct verdict is VALID — 'play' is used as a theatrical performance (noun)
+        then as an action (verb), meanings clearly differ, both sentences are grammatically
+        correct, and the explanation is accurate.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.

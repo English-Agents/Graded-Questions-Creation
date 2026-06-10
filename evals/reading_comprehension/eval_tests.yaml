@@ -1,18 +1,583 @@
-# eval_tests.yaml
-# Quality evaluation tests — drop your cases here.
-# Each test checks whether a generated question meets the expected standard.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     question: the generated question text
-#     answer_key: the expected answer
-#     difficulty: easy | medium | hard
-#     marks: 2
-#   assert:
-#     - type: llm-rubric
-#       value: >
-#         The question is grammatically correct, matches the difficulty level,
-#         and the blank is clearly indicated with ___.
+# POSITIVE QUESTIONS — Correctly formed Reading Comprehension questions
 
-# ADD YOUR EVAL TEST CASES BELOW:
+# ── Passage 1: The Rise of Renewable Energy ──────────────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    passage: |
+      The Rise of Renewable Energy
+
+      As concerns about climate change and environmental sustainability continue to grow,
+      countries around the world are increasingly investing in renewable sources of energy.
+      Renewable energy comes from natural resources that are replenished continuously, such
+      as sunlight, wind, water, and geothermal heat. Unlike fossil fuels, which take millions
+      of years to form and release large amounts of carbon dioxide when burned, renewable
+      energy sources produce little or no greenhouse gas emissions during operation.
+
+      Solar energy has become one of the fastest-growing renewable energy technologies.
+      Advances in solar panel efficiency and reductions in manufacturing costs have made
+      solar power more affordable for homes and businesses. Similarly, wind energy has
+      expanded significantly, with large wind farms generating electricity for millions of
+      households. Offshore wind projects, located in coastal waters, are becoming
+      increasingly common because stronger and more consistent winds are often available
+      at sea.
+
+      Hydroelectric power remains one of the largest sources of renewable electricity
+      worldwide. It uses flowing water to generate energy and has been utilized for more
+      than a century. However, environmental concerns related to dam construction have
+      encouraged researchers to explore alternative approaches. New technologies such as
+      tidal and wave energy aim to harness the power of oceans while minimizing
+      ecological disruption.
+
+      Despite its advantages, renewable energy faces challenges. Energy production from
+      solar and wind sources can vary depending on weather conditions. To address this
+      issue, scientists are developing advanced battery storage systems that can store
+      excess energy for later use. Governments are also investing in modern electrical
+      grids capable of efficiently distributing renewable power across large regions.
+
+      The transition to renewable energy is creating new economic opportunities as well.
+      Industries related to manufacturing, installation, maintenance, and research are
+      generating millions of jobs worldwide. As technology continues to improve and costs
+      decline, renewable energy is expected to play an increasingly important role in
+      meeting global energy demands while reducing environmental impacts.
+    question: |
+      What challenge is commonly associated with solar and wind energy?
+
+      a) They produce excessive pollution
+      b) They require fossil fuels to operate
+      c) Their energy production depends on weather conditions
+      d) They cannot generate electricity
+    answer_key: "c) Their energy production depends on weather conditions"
+    explanation: "The passage explains that energy generation from solar and wind sources can vary depending on weather conditions."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension MCQ.
+        The correct verdict is VALID — the answer is directly supported by the passage
+        (which states solar and wind production varies by weather), there is exactly one
+        correct option, and the question is answerable from the passage alone.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    passage: |
+      The Rise of Renewable Energy
+
+      As concerns about climate change and environmental sustainability continue to grow,
+      countries around the world are increasingly investing in renewable sources of energy.
+      Renewable energy comes from natural resources that are replenished continuously, such
+      as sunlight, wind, water, and geothermal heat. Unlike fossil fuels, which take millions
+      of years to form and release large amounts of carbon dioxide when burned, renewable
+      energy sources produce little or no greenhouse gas emissions during operation.
+
+      Solar energy has become one of the fastest-growing renewable energy technologies.
+      Advances in solar panel efficiency and reductions in manufacturing costs have made
+      solar power more affordable for homes and businesses. Similarly, wind energy has
+      expanded significantly, with large wind farms generating electricity for millions of
+      households. Offshore wind projects, located in coastal waters, are becoming
+      increasingly common because stronger and more consistent winds are often available
+      at sea.
+
+      Hydroelectric power remains one of the largest sources of renewable electricity
+      worldwide. It uses flowing water to generate energy and has been utilized for more
+      than a century. However, environmental concerns related to dam construction have
+      encouraged researchers to explore alternative approaches. New technologies such as
+      tidal and wave energy aim to harness the power of oceans while minimizing
+      ecological disruption.
+
+      Despite its advantages, renewable energy faces challenges. Energy production from
+      solar and wind sources can vary depending on weather conditions. To address this
+      issue, scientists are developing advanced battery storage systems that can store
+      excess energy for later use. Governments are also investing in modern electrical
+      grids capable of efficiently distributing renewable power across large regions.
+
+      The transition to renewable energy is creating new economic opportunities as well.
+      Industries related to manufacturing, installation, maintenance, and research are
+      generating millions of jobs worldwide. As technology continues to improve and costs
+      decline, renewable energy is expected to play an increasingly important role in
+      meeting global energy demands while reducing environmental impacts.
+    question: "Offshore wind farms are usually built in deserts."
+    answer_key: "FALSE"
+    explanation: "Offshore wind farms are located in coastal waters, not deserts."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension True/False question.
+        The correct verdict is VALID — the statement is clearly FALSE (the passage states
+        offshore wind projects are located in coastal waters, not deserts), and the answer
+        key correctly states FALSE.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+# ── Passage 2: The History of Libraries ─────────────────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    passage: |
+      The History of Libraries
+
+      Libraries have played an important role in preserving and sharing knowledge throughout
+      human history. Long before the invention of printing, ancient civilizations stored
+      information on clay tablets, papyrus scrolls, and handwritten manuscripts. Some of
+      the earliest known libraries existed in Mesopotamia and Egypt, where records of trade,
+      laws, and literature were carefully maintained.
+
+      One of the most famous libraries of the ancient world was the Library of Alexandria
+      in Egypt. Established during the third century BCE, it aimed to collect all available
+      knowledge from across the known world. Scholars traveled great distances to study its
+      vast collection. Although much of the library was eventually lost due to a series of
+      destructive events, its legacy continues to symbolize the pursuit of learning and
+      intellectual exchange.
+
+      The invention of the printing press in the fifteenth century transformed libraries
+      dramatically. Books could be produced more quickly and at lower cost, making
+      information accessible to a larger portion of society. Public libraries gradually
+      emerged, offering citizens opportunities to read, learn, and conduct research
+      regardless of their economic background.
+
+      Modern libraries provide far more than books. Many now offer digital resources,
+      including e-books, online journals, databases, and multimedia collections. Computers
+      and internet access have become standard services in many library systems. Some
+      libraries also host workshops, educational programs, and community events that
+      encourage lifelong learning.
+
+      Technology has further expanded the reach of libraries. Digital archives allow rare
+      documents and historical records to be preserved and shared globally. Researchers can
+      access materials from institutions located thousands of kilometres away. At the same
+      time, librarians continue to play an essential role in helping people evaluate
+      information critically and locate reliable sources.
+
+      Despite the growth of online information, libraries remain valuable institutions.
+      They provide quiet spaces for study, support academic research, and promote literacy
+      within communities. By adapting to technological changes while preserving their
+      educational mission, libraries continue to serve as gateways to knowledge for people
+      of all ages.
+    question: |
+      What invention greatly increased access to books?
+
+      a) The steam engine
+      b) The compass
+      c) The printing press
+      d) The telescope
+    answer_key: "c) The printing press"
+    explanation: "The printing press allowed books to be produced more quickly and cheaply."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension MCQ.
+        The correct verdict is VALID — the answer is directly supported by the passage
+        (which states the printing press transformed libraries by making books cheaper
+        and faster to produce), there is exactly one correct option, and the question
+        is passage-based.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    passage: |
+      The History of Libraries
+
+      Libraries have played an important role in preserving and sharing knowledge throughout
+      human history. Long before the invention of printing, ancient civilizations stored
+      information on clay tablets, papyrus scrolls, and handwritten manuscripts. Some of
+      the earliest known libraries existed in Mesopotamia and Egypt, where records of trade,
+      laws, and literature were carefully maintained.
+
+      One of the most famous libraries of the ancient world was the Library of Alexandria
+      in Egypt. Established during the third century BCE, it aimed to collect all available
+      knowledge from across the known world. Scholars traveled great distances to study its
+      vast collection. Although much of the library was eventually lost due to a series of
+      destructive events, its legacy continues to symbolize the pursuit of learning and
+      intellectual exchange.
+
+      The invention of the printing press in the fifteenth century transformed libraries
+      dramatically. Books could be produced more quickly and at lower cost, making
+      information accessible to a larger portion of society. Public libraries gradually
+      emerged, offering citizens opportunities to read, learn, and conduct research
+      regardless of their economic background.
+
+      Modern libraries provide far more than books. Many now offer digital resources,
+      including e-books, online journals, databases, and multimedia collections. Computers
+      and internet access have become standard services in many library systems. Some
+      libraries also host workshops, educational programs, and community events that
+      encourage lifelong learning.
+
+      Technology has further expanded the reach of libraries. Digital archives allow rare
+      documents and historical records to be preserved and shared globally. Researchers can
+      access materials from institutions located thousands of kilometres away. At the same
+      time, librarians continue to play an essential role in helping people evaluate
+      information critically and locate reliable sources.
+
+      Despite the growth of online information, libraries remain valuable institutions.
+      They provide quiet spaces for study, support academic research, and promote literacy
+      within communities. By adapting to technological changes while preserving their
+      educational mission, libraries continue to serve as gateways to knowledge for people
+      of all ages.
+    question: "Digital archives help preserve and share rare historical documents."
+    answer_key: "TRUE"
+    explanation: "The passage explicitly states that digital archives allow rare documents and historical records to be preserved and shared globally."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension True/False question.
+        The correct verdict is VALID — the statement is clearly TRUE (the passage explicitly
+        states digital archives allow rare documents to be preserved and shared globally),
+        and the answer key correctly states TRUE.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+# ── Passage 3: Urban Transportation and Smart Cities ─────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    passage: |
+      Urban Transportation and Smart Cities
+
+      As urban populations continue to grow, cities face increasing challenges related to
+      transportation. Traffic congestion, air pollution, and long commuting times affect
+      millions of people daily. To address these issues, many cities are adopting smart
+      transportation systems that use technology to improve efficiency and sustainability.
+
+      Smart transportation relies on data collected from sensors, cameras, and connected
+      devices. Traffic management systems can analyze road conditions in real time and
+      adjust traffic signals accordingly. This helps reduce delays and improve the flow of
+      vehicles through busy intersections. Public transportation networks also benefit from
+      technology, as passengers can receive real-time updates about schedules and route
+      changes through mobile applications.
+
+      Many cities are investing in environmentally friendly transportation options. Electric
+      buses, bicycle-sharing programs, and dedicated cycling lanes encourage residents to
+      choose alternatives to private vehicles. These initiatives can help reduce greenhouse
+      gas emissions while promoting healthier lifestyles. Some urban areas have also
+      introduced low-emission zones where highly polluting vehicles face restrictions or
+      additional charges.
+
+      Autonomous vehicles represent another area of innovation. These vehicles use sensors,
+      cameras, and artificial intelligence to navigate roads with limited human intervention.
+      Supporters argue that autonomous technology could improve road safety by reducing
+      accidents caused by human error. However, challenges related to regulation,
+      cybersecurity, and public acceptance must still be addressed before widespread
+      adoption becomes possible.
+
+      Smart cities often integrate transportation systems with broader urban planning
+      strategies. Data collected from transportation networks can help city officials make
+      informed decisions about infrastructure investments. For example, identifying areas
+      with frequent congestion may guide the construction of additional public transit
+      routes or road improvements.
+
+      While technology offers significant opportunities, experts emphasize that
+      transportation solutions must remain accessible and affordable. Successful smart city
+      initiatives require cooperation among governments, businesses, and citizens. By
+      combining technological innovation with sustainable planning, cities can create
+      transportation systems that are more efficient, environmentally responsible, and
+      responsive to the needs of their residents.
+    question: |
+      Why are electric buses and bicycle-sharing programs encouraged?
+
+      a) To increase fuel consumption
+      b) To reduce greenhouse gas emissions
+      c) To replace all roads
+      d) To increase traffic congestion
+    answer_key: "b) To reduce greenhouse gas emissions"
+    explanation: "These initiatives support environmental sustainability by reducing greenhouse gas emissions."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension MCQ.
+        The correct verdict is VALID — the answer is directly supported by the passage
+        (which states electric buses and bicycle-sharing help reduce greenhouse gas
+        emissions), there is exactly one correct option, and the question is
+        answerable from the passage alone.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    passage: |
+      Urban Transportation and Smart Cities
+
+      As urban populations continue to grow, cities face increasing challenges related to
+      transportation. Traffic congestion, air pollution, and long commuting times affect
+      millions of people daily. To address these issues, many cities are adopting smart
+      transportation systems that use technology to improve efficiency and sustainability.
+
+      Smart transportation relies on data collected from sensors, cameras, and connected
+      devices. Traffic management systems can analyze road conditions in real time and
+      adjust traffic signals accordingly. This helps reduce delays and improve the flow of
+      vehicles through busy intersections. Public transportation networks also benefit from
+      technology, as passengers can receive real-time updates about schedules and route
+      changes through mobile applications.
+
+      Many cities are investing in environmentally friendly transportation options. Electric
+      buses, bicycle-sharing programs, and dedicated cycling lanes encourage residents to
+      choose alternatives to private vehicles. These initiatives can help reduce greenhouse
+      gas emissions while promoting healthier lifestyles. Some urban areas have also
+      introduced low-emission zones where highly polluting vehicles face restrictions or
+      additional charges.
+
+      Autonomous vehicles represent another area of innovation. These vehicles use sensors,
+      cameras, and artificial intelligence to navigate roads with limited human intervention.
+      Supporters argue that autonomous technology could improve road safety by reducing
+      accidents caused by human error. However, challenges related to regulation,
+      cybersecurity, and public acceptance must still be addressed before widespread
+      adoption becomes possible.
+
+      Smart cities often integrate transportation systems with broader urban planning
+      strategies. Data collected from transportation networks can help city officials make
+      informed decisions about infrastructure investments. For example, identifying areas
+      with frequent congestion may guide the construction of additional public transit
+      routes or road improvements.
+
+      While technology offers significant opportunities, experts emphasize that
+      transportation solutions must remain accessible and affordable. Successful smart city
+      initiatives require cooperation among governments, businesses, and citizens. By
+      combining technological innovation with sustainable planning, cities can create
+      transportation systems that are more efficient, environmentally responsible, and
+      responsive to the needs of their residents.
+    question: "Successful smart city initiatives require cooperation among different groups."
+    answer_key: "TRUE"
+    explanation: "The passage states that governments, businesses, and citizens must work together."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension True/False question.
+        The correct verdict is VALID — the statement is clearly TRUE (the passage explicitly
+        states successful initiatives require cooperation among governments, businesses, and
+        citizens), and the answer key correctly states TRUE.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+# ── Passage 4: Sleep ─────────────────────────────────────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    passage: |
+      Sleep and Health
+
+      Sleep is a biological process that plays a crucial role in maintaining physical health,
+      mental well-being, and cognitive performance. Although people often view sleep as a
+      period of inactivity, the brain remains highly active during different stages of the
+      sleep cycle. Scientists have discovered that sleep contributes to memory formation,
+      emotional regulation, and the repair of tissues throughout the body.
+
+      A typical sleep cycle consists of several stages, including non-rapid eye movement
+      (NREM) sleep and rapid eye movement (REM) sleep. During NREM sleep, the body relaxes,
+      heart rate decreases, and important restorative processes occur. REM sleep is
+      associated with vivid dreaming and increased brain activity. Researchers believe that
+      REM sleep plays a significant role in learning and memory consolidation.
+
+      Sleep requirements vary according to age. Infants require substantially more sleep than
+      adults because their brains and bodies are developing rapidly. Most adults, however,
+      are generally advised to obtain seven to nine hours of sleep per night. Consistently
+      getting less sleep than recommended can affect concentration, decision-making, and
+      reaction time.
+
+      Modern lifestyles often interfere with healthy sleep habits. Exposure to bright screens
+      before bedtime can disrupt the body's natural sleep-wake cycle by affecting the
+      production of melatonin, a hormone involved in regulating sleep. Stress, irregular
+      schedules, and excessive caffeine consumption can also contribute to sleep difficulties.
+
+      Researchers continue to investigate the long-term consequences of insufficient sleep.
+      Studies have linked chronic sleep deprivation to an increased risk of conditions such
+      as heart disease, obesity, and diabetes. In addition, lack of sleep may weaken the
+      immune system, making individuals more susceptible to illness.
+
+      Experts recommend maintaining consistent sleep schedules, creating a comfortable
+      sleeping environment, and limiting stimulating activities before bedtime. By
+      understanding the science of sleep and adopting healthy habits, individuals can
+      improve both their physical health and overall quality of life.
+    question: |
+      Which stage of sleep is commonly associated with vivid dreaming?
+
+      a) NREM sleep
+      b) Deep coma
+      c) REM sleep
+      d) Wakefulness
+    answer_key: "c) REM sleep"
+    explanation: "REM sleep is associated with vivid dreams and increased brain activity."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension MCQ.
+        The correct verdict is VALID — the answer is directly supported by the passage
+        (which states REM sleep is associated with vivid dreaming), there is exactly one
+        correct option, and the question is answerable from the passage alone.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    passage: |
+      Sleep and Health
+
+      Sleep is a biological process that plays a crucial role in maintaining physical health,
+      mental well-being, and cognitive performance. Although people often view sleep as a
+      period of inactivity, the brain remains highly active during different stages of the
+      sleep cycle. Scientists have discovered that sleep contributes to memory formation,
+      emotional regulation, and the repair of tissues throughout the body.
+
+      A typical sleep cycle consists of several stages, including non-rapid eye movement
+      (NREM) sleep and rapid eye movement (REM) sleep. During NREM sleep, the body relaxes,
+      heart rate decreases, and important restorative processes occur. REM sleep is
+      associated with vivid dreaming and increased brain activity. Researchers believe that
+      REM sleep plays a significant role in learning and memory consolidation.
+
+      Sleep requirements vary according to age. Infants require substantially more sleep than
+      adults because their brains and bodies are developing rapidly. Most adults, however,
+      are generally advised to obtain seven to nine hours of sleep per night. Consistently
+      getting less sleep than recommended can affect concentration, decision-making, and
+      reaction time.
+
+      Modern lifestyles often interfere with healthy sleep habits. Exposure to bright screens
+      before bedtime can disrupt the body's natural sleep-wake cycle by affecting the
+      production of melatonin, a hormone involved in regulating sleep. Stress, irregular
+      schedules, and excessive caffeine consumption can also contribute to sleep difficulties.
+
+      Researchers continue to investigate the long-term consequences of insufficient sleep.
+      Studies have linked chronic sleep deprivation to an increased risk of conditions such
+      as heart disease, obesity, and diabetes. In addition, lack of sleep may weaken the
+      immune system, making individuals more susceptible to illness.
+
+      Experts recommend maintaining consistent sleep schedules, creating a comfortable
+      sleeping environment, and limiting stimulating activities before bedtime. By
+      understanding the science of sleep and adopting healthy habits, individuals can
+      improve both their physical health and overall quality of life.
+    question: "Sleep deprivation may weaken the immune system."
+    answer_key: "TRUE"
+    explanation: "The passage specifically mentions that lack of sleep may weaken the immune system."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension True/False question.
+        The correct verdict is VALID — the statement is clearly TRUE (the passage states
+        lack of sleep may weaken the immune system), and the answer key correctly states TRUE.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+# ── Passage 5: Artificial Intelligence in Everyday Life ──────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    passage: |
+      Artificial Intelligence in Everyday Life
+
+      Artificial Intelligence (AI) has become an important part of modern life. Although
+      many people associate AI with robots and advanced technology, it is already present
+      in numerous everyday activities. AI refers to computer systems that can perform tasks
+      that typically require human intelligence, such as learning, problem-solving,
+      decision-making, and recognizing patterns.
+
+      One of the most common uses of AI is in digital assistants. Applications such as
+      voice-controlled assistants can answer questions, set reminders, and provide
+      directions. AI is also widely used in online shopping platforms, where recommendation
+      systems suggest products based on a user's previous searches and purchases. Similarly,
+      streaming services use AI algorithms to recommend movies, television shows, and music
+      that match individual preferences.
+
+      In healthcare, AI is helping medical professionals analyze large amounts of data more
+      quickly and accurately. Some AI systems can assist doctors in identifying diseases
+      from medical images, while others help predict patient outcomes based on health
+      records. Although these tools support decision-making, they do not replace healthcare
+      professionals, who continue to play a critical role in diagnosis and treatment.
+
+      Transportation is another area where AI is having a significant impact. Navigation
+      applications use AI to analyze traffic conditions and suggest faster routes.
+      Researchers are also developing autonomous vehicles that can interpret their
+      surroundings and make driving decisions with minimal human intervention. While this
+      technology offers potential benefits, concerns regarding safety, regulation, and
+      ethics remain important topics of discussion.
+
+      Despite its advantages, AI also presents challenges. Issues such as data privacy,
+      algorithmic bias, and job displacement require careful consideration. Governments,
+      businesses, and researchers are working together to establish guidelines that
+      encourage responsible AI development. As technology continues to evolve, AI is
+      expected to influence even more aspects of daily life, making it essential for
+      individuals to understand both its opportunities and its limitations.
+    question: |
+      What does Artificial Intelligence refer to?
+
+      a) Machines that only store data
+      b) Computer systems that perform tasks requiring human intelligence
+      c) Devices used only in factories
+      d) Programs that cannot learn from data
+    answer_key: "b) Computer systems that perform tasks requiring human intelligence"
+    explanation: "The passage defines AI as systems capable of tasks such as learning, problem-solving, and decision-making."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension MCQ.
+        The correct verdict is VALID — the answer directly matches the passage's definition
+        of AI, there is exactly one correct option, and the question is passage-based.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    passage: |
+      Artificial Intelligence in Everyday Life
+
+      Artificial Intelligence (AI) has become an important part of modern life. Although
+      many people associate AI with robots and advanced technology, it is already present
+      in numerous everyday activities. AI refers to computer systems that can perform tasks
+      that typically require human intelligence, such as learning, problem-solving,
+      decision-making, and recognizing patterns.
+
+      One of the most common uses of AI is in digital assistants. Applications such as
+      voice-controlled assistants can answer questions, set reminders, and provide
+      directions. AI is also widely used in online shopping platforms, where recommendation
+      systems suggest products based on a user's previous searches and purchases. Similarly,
+      streaming services use AI algorithms to recommend movies, television shows, and music
+      that match individual preferences.
+
+      In healthcare, AI is helping medical professionals analyze large amounts of data more
+      quickly and accurately. Some AI systems can assist doctors in identifying diseases
+      from medical images, while others help predict patient outcomes based on health
+      records. Although these tools support decision-making, they do not replace healthcare
+      professionals, who continue to play a critical role in diagnosis and treatment.
+
+      Transportation is another area where AI is having a significant impact. Navigation
+      applications use AI to analyze traffic conditions and suggest faster routes.
+      Researchers are also developing autonomous vehicles that can interpret their
+      surroundings and make driving decisions with minimal human intervention. While this
+      technology offers potential benefits, concerns regarding safety, regulation, and
+      ethics remain important topics of discussion.
+
+      Despite its advantages, AI also presents challenges. Issues such as data privacy,
+      algorithmic bias, and job displacement require careful consideration. Governments,
+      businesses, and researchers are working together to establish guidelines that
+      encourage responsible AI development. As technology continues to evolve, AI is
+      expected to influence even more aspects of daily life, making it essential for
+      individuals to understand both its opportunities and its limitations.
+    question: "AI has no role in transportation systems."
+    answer_key: "FALSE"
+    explanation: "The passage states that AI is used in navigation applications and autonomous vehicle development."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension True/False question.
+        The correct verdict is VALID — the statement is clearly FALSE (the passage dedicates
+        a paragraph to AI's role in transportation, including navigation apps and autonomous
+        vehicles), and the answer key correctly states FALSE.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.

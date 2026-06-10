@@ -99,7 +99,7 @@ class GenerateRequest(BaseModel):
     marks: int = 2                     # marks per question — included in prompt
     bloom: str = ""                   # empty = auto-derive from difficulty via BLOOM_MAP
     course_outcome: str = ""
-    model: str = "anthropic/claude-sonnet-4-5"
+    model: str = "anthropic/claude-sonnet-4-6"
     existing_questions: List[str] = []  # pool question texts — used for dedup
     bloom_targets: List[str] = []     # per-question K-levels; computed if not provided
 
@@ -487,6 +487,7 @@ def generate(req: GenerateRequest):
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
         api_key=api_key,
+        timeout=90.0,
     )
     try:
         resp = client.chat.completions.create(
@@ -500,6 +501,10 @@ def generate(req: GenerateRequest):
             raise HTTPException(402, "OpenRouter credit balance too low. Top up at openrouter.ai/credits")
         if "invalid" in err.lower() or "authentication" in err.lower() or "401" in err:
             raise HTTPException(401, "Invalid OpenRouter API key. Check D:\\GA\\.env")
+        if "timed out" in err.lower() or "timeout" in err.lower() or "read timeout" in err.lower():
+            raise HTTPException(504, "OpenRouter request timed out. Try again or reduce the question count.")
+        if "model" in err.lower() and ("not found" in err.lower() or "404" in err or "does not exist" in err.lower()):
+            raise HTTPException(422, f"Model not available on OpenRouter: {req.model}")
         raise HTTPException(500, f"Generation failed: {err}")
 
     raw = resp.choices[0].message.content
@@ -664,7 +669,7 @@ class GenerateModuleRequest(BaseModel):
     count: int = 3             # questions per topic
     difficulty: str = "Medium"
     course_outcome: str = ""
-    model: str = "anthropic/claude-sonnet-4-5"
+    model: str = "anthropic/claude-sonnet-4-6"
     existing_questions: List[str] = []
 
 
@@ -680,7 +685,7 @@ def generate_module(req: GenerateModuleRequest):
         raise HTTPException(404, f"Module not found: {req.module}")
 
     bloom = BLOOM_MAP.get(req.difficulty, "K3")
-    client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
+    client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key, timeout=90.0)
     samples = load_samples(req.question_type)
 
     all_questions: list[dict] = []
@@ -1210,7 +1215,7 @@ async def upload_syllabus(
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
     try:
         resp = client.chat.completions.create(
-            model="anthropic/claude-sonnet-4-5",
+            model="anthropic/claude-sonnet-4-6",
             max_tokens=8192,
             messages=[{"role": "user", "content": prompt}],
         )

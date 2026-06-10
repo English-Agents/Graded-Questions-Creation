@@ -1,18 +1,126 @@
-# eval_tests.yaml
-# Quality evaluation tests — drop your cases here.
-# Each test checks whether a generated question meets the expected standard.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     question: the generated question text
-#     answer_key: the expected answer
-#     difficulty: easy | medium | hard
-#     marks: 2
-#   assert:
-#     - type: llm-rubric
-#       value: >
-#         The question is grammatically correct, matches the difficulty level,
-#         and the blank is clearly indicated with ___.
+# POSITIVE QUESTIONS — Correctly formed Guided Story Writing questions
 
-# ADD YOUR EVAL TEST CASES BELOW:
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: B2-C1
+    marks: 8
+    course_outcome: "Develop a coherent story using given prompts, logical sequencing, descriptive language, and an appropriate conclusion."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: rainy evening / missed bus / strange old bookshop / shopkeeper gives a warning / mysterious diary / name appears on first page / unexpected decision
+    sample_answer: |
+      It was a rainy evening, and Arjun stood helplessly at the bus stop. He had missed the last bus home. While looking for shelter, he noticed a narrow old bookshop at the corner of the street. The shop looked strange, but warm light glowed from inside. An elderly shopkeeper welcomed him silently and handed him a dusty diary. "Open it only if you are ready to know the truth," he warned. Arjun laughed nervously, but curiosity won. On the first page, he saw his own name written in dark blue ink. Below it was a date: tomorrow. The diary described a mistake he was about to make at school. Shocked, Arjun closed it. He could ignore the warning, but something inside him changed. The next day, instead of cheating in a test, he studied honestly. When he returned to thank the shopkeeper, the bookshop had disappeared.
+    explanation: "The sample answer uses all prompts logically and creates suspense with a clear beginning, twist, and resolution."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Guided Story Writing question.
+        The correct verdict is VALID — the sample answer uses all seven prompts logically,
+        is within the 150-180 word limit, has a clear narrative arc (beginning, complication,
+        resolution), is logically consistent, and includes descriptive detail and character
+        development appropriate for B2-C1 level.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: B2-C1
+    marks: 8
+    course_outcome: "Compose an original narrative with character development, conflict, and resolution based on guided cues."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: school science exhibition / nervous student / model fails at first / classmates laugh / teacher encourages / sudden idea / model works / unexpected applause
+    sample_answer: |
+      Riya had spent three weeks preparing her model for the school science exhibition. It was a small machine that could separate plastic from sand using air pressure. On the day of the exhibition, she stood beside it nervously as students and teachers gathered around. When she switched it on, nothing happened. A few classmates laughed, and Riya's face turned red. She wanted to leave the hall immediately. Just then, her science teacher placed a hand on her shoulder and said, "Failure is also part of science. Check it again." Riya took a deep breath and examined the wires. Suddenly, she noticed that one tube was blocked. She cleared it with a pin and restarted the machine. This time, it worked perfectly. The plastic pieces lifted smoothly while the sand stayed behind. The same classmates who had laughed now clapped loudly. Riya smiled, realising that courage often begins after embarrassment.
+    explanation: "The answer follows a problem-solution structure and shows emotional development, encouragement, and success."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Guided Story Writing question.
+        The correct verdict is VALID — the sample answer uses all eight prompts logically
+        in sequence, is within the 150-180 word limit, has a clear conflict and resolution,
+        is free from contradictions, and includes dialogue, emotional development, and
+        descriptive detail appropriate for B2-C1 level.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: B2-C1
+    marks: 8
+    course_outcome: "Write a well-structured story using narrative techniques, dialogue, and descriptive details."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: early morning train journey / lost ticket / kind stranger / unexpected conversation / important interview / final stop approaching / surprising connection / lesson learned
+    sample_answer: |
+      The train left the station just as the first light of morning touched the sky. Neeraj was travelling to the city for an important interview. He checked his bag for the ticket, but his hands froze. It was missing. Panic filled his mind as the ticket examiner entered the coach. An old man sitting opposite him noticed his fear. "Tell him the truth," he said kindly. Neeraj explained everything, and the old man helped him pay the fine. Soon, they began talking. Neeraj spoke about his dream of working in a publishing company. The stranger listened with interest and asked thoughtful questions. As the final stop approached, Neeraj thanked him and rushed out. At the interview office, he was shocked to see the same old man seated on the panel. "Honesty under pressure matters," the man said with a smile. Neeraj learned that character is often tested before talent.
+    explanation: "The sample answer connects the journey, conflict, stranger, interview, surprise, and lesson in a coherent way."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Guided Story Writing question.
+        The correct verdict is VALID — all eight prompts are used in a logical, connected
+        sequence, the story is within the word limit, the plot is internally consistent,
+        and it includes dialogue, narrative tension, and a clearly stated lesson appropriate
+        for B2-C1 level.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: C1
+    marks: 8
+    course_outcome: "Produce a coherent and engaging narrative using setting, conflict, suspense, and resolution."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: abandoned house near the village / group of friends / strange light upstairs / decision to investigate / hidden room / old photograph / truth about the house / promise to keep a secret
+    sample_answer: |
+      Everyone in the village avoided the abandoned house near the banyan tree. One evening, four friends saw a strange light moving across an upstairs window. Instead of running away, they decided to investigate. The front door opened with a long creak, and dust covered every corner. As they climbed the staircase, the light disappeared. Behind a broken cupboard, Meera noticed a narrow gap in the wall. They pushed it open and found a hidden room. Inside lay an old photograph of a young woman standing with a child. Under it was a letter explaining the truth about the house. The woman had once hidden village records there to protect the land from being stolen. The so-called "haunting" had been created by her family to keep thieves away. The friends realised that the light came from an old lantern maintained by the woman's grandson. They promised to keep the secret and protect the house forever.
+    explanation: "The answer builds suspense, uses discovery effectively, and ends with a meaningful resolution."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Guided Story Writing question.
+        The correct verdict is VALID — all eight prompts are incorporated logically, the
+        story is within the word limit, it builds suspense effectively and resolves it
+        coherently, there are no plot contradictions, and the depth and detail are
+        appropriate for C1 level.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Guided Story Writing
+    bloom_level: Create
+    difficulty: B2-C1
+    marks: 8
+    course_outcome: "Construct a narrative with a clear moral or message using guided prompts and appropriate language."
+    question: |
+      Write a story in 150-180 words using the given prompts.
+
+      Marks: 8
+
+      Prompts: busy market / young boy finds a wallet / temptation to keep it / address inside / long walk to return it / grateful owner / unexpected reward / honesty remembered
+    sample_answer: |
+      The market was crowded with shoppers, fruit sellers, and noisy traffic. Twelve-year-old Kabir was helping his mother carry vegetables when he noticed a brown wallet near a tea stall. He picked it up and found several notes inside. For a moment, he felt tempted to keep it. His school shoes were torn, and the money could easily buy a new pair. Then he saw an address card inside the wallet. After telling his mother, Kabir decided to return it. The address was far away, and he walked nearly thirty minutes through narrow lanes. At last, he reached a small house and knocked on the door. An elderly man opened it and looked shocked. He had lost the wallet while buying medicines. Tears filled his eyes as he thanked Kabir. He gave the boy a small reward and blessed him. Kabir bought his shoes later, but what he remembered most was the peace honesty gave him.
+    explanation: "The answer clearly presents moral conflict, an honest decision, and a suitable moral-based ending."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Guided Story Writing question.
+        The correct verdict is VALID — all eight prompts are used in a logical sequence,
+        the story is within the word limit, it has a clear moral conflict and resolution,
+        the plot is consistent, and descriptive detail and character motivation are
+        appropriate for B2-C1 level.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.

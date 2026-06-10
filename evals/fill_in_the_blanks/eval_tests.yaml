@@ -476,3 +476,28 @@
     solution: '(i) verification
 
       (ii) assessed'
+- assert:
+  - type: llm-rubric
+    value: 'Evaluate this Fill in the Blanks question for correctness and clarity.
+      Respond: VALID or INVALID.'
+  vars:
+    bloom_level: K2
+    course_outcome: CO1
+    difficulty: Easy
+    explanation: 'Will visit is required in blank (i) because it follows the subject
+      "Maria" and functions as the main verb expressing a future action using the
+      future simple structure (subject + will + verb I form).
+
+      Will help is required in blank (ii) because it acts as the main verb showing
+      the future action that "she" is expected to perform, following the future simple
+      positive sentence structure.'
+    question: 'Instruction: Fill in each blank with the correct form of the base word
+      given in brackets.
+
+
+      Next summer, Maria (i)_________________ (visit) her grandparents in the countryside,
+      and she (ii)_________________ (help) them with the garden work every morning.'
+    question_type: Fill in the Blanks
+    solution: '(i) will visit
+
+      (ii) will help'
