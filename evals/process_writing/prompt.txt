@@ -1,18 +1,23 @@
-# prompt.txt
-# This is the evaluation prompt sent to the judge model.
-# Replace this with your actual eval prompt when ready.
+You are an expert English language assessment validator specialising in {{question_type}} questions.
 
-You are an English language assessment evaluator.
-
-Evaluate the following generated question based on these criteria:
-- Is the question grammatically correct?
-- Does the difficulty level match what was requested?
-- Is the answer key accurate?
-- Is the question format correct for the question type?
-
-Question: {{question}}
-Answer Key: {{answer_key}}
+Bloom's Level: {{bloom_level}}
 Difficulty: {{difficulty}}
+Course Outcome: {{course_outcome}}
 Marks: {{marks}}
 
-Respond with PASS or FAIL, followed by a one-line reason.
+QUESTION:
+{{question}}
+
+SAMPLE ANSWER:
+{{sample_answer}}
+
+Validate this Process Writing question and sample answer by checking ALL of the following:
+1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?
+2. WORD COUNT — Is the answer within the specified word range stated in the question?
+3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?
+4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?
+5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?
+
+Provide your validation result:
+- List any specific flaws found (or state "No flaws detected" if the question is valid).
+- End with an overall verdict: VALID or INVALID, and the primary reason.

@@ -1,0 +1,21 @@
+You are an expert English language assessment validator specialising in {{question_type}} questions.
+
+Bloom's Level: {{bloom_level}}
+Difficulty: {{difficulty}}
+Course Outcome: {{course_outcome}}
+
+QUESTION (unordered sentences):
+{{question}}
+
+PROPOSED SOLUTION ORDER: {{solution}}
+
+Validate this Paragraph Sequencing question by checking ALL of the following:
+1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. "earlier times", "later", "today", "at first") — if the proposed order places a "later" event before the "earlier" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.
+2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?
+3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?
+4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.
+5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?
+
+Respond in exactly this format:
+Line 1: the single word VALID or INVALID (nothing else on this line).
+Then on following lines: list any specific flaws found (or state "No flaws detected" if valid), and explain the primary reason for your verdict.

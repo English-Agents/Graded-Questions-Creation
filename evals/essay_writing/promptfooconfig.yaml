@@ -1,16 +1,22 @@
-description: "Eval — Essay Writing"
+﻿description: "Eval â€” Essay Writing"
 
 providers:
-  - id: openai:gpt-4o
+  - id: openai:chat:anthropic/claude-haiku-4-5
     config:
+      apiBaseUrl: https://openrouter.ai/api/v1
       temperature: 0
 
 prompts:
   - file://prompt.txt
 
-# Drop your test cases in these two files:
-#   eval_tests.yaml   — quality checks (does the question meet the standard?)
-#   testing_tests.yaml — pipeline checks (does generation produce correct output?)
+defaultTest:
+  options:
+    provider:
+      id: openai:chat:anthropic/claude-haiku-4-5
+      config:
+        apiBaseUrl: https://openrouter.ai/api/v1
+        temperature: 0
+
 tests:
   - file://eval_tests.yaml
   - file://testing_tests.yaml

@@ -1,0 +1,584 @@
+# POSITIVE QUESTIONS — Correctly formed Reading Comprehension Q&A items
+# 5 passages x 4 sub-questions each = 20 total
+
+# ── Passage: Meera's Tea Stall and the Vacant Plot ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    passage: |
+      Every morning, before the shops opened and the traffic thickened, Meera wheeled a small cart to the corner of Lake Road. On it she kept clay cups, a brass kettle, and two glass jars: one filled with sugar, the other with tea leaves. Her tea stall was modest, but people stopped there because Meera remembered their names, their worries, and exactly how strong they liked their tea.
+
+      Across the road stood a vacant plot where children had once played cricket. Over the years, it had become a dumping ground. Plastic bags clung to the fence, and rainwater collected in shallow pits. One Monday, Meera saw a boy hold his nose as he passed the plot. She looked at the empty cups stacked on her cart and had an idea.
+
+      That evening, she placed a hand-painted sign beside her stall: "One cup, one clean corner." For every cup of tea sold, Meera promised to spend one minute cleaning the plot. At first, customers smiled politely and treated the sign as another cheerful slogan. But Meera kept her promise. After closing, she collected bottles, swept leaves, and separated plastic from paper. By Friday, two college students joined her. The following week, an office clerk brought gloves, and a retired teacher donated flower seeds.
+
+      As the plot changed, so did the street. Children returned with bats and balls. Neighbours argued less about the smell and spoke more about planting trees. Some customers began carrying reusable cups, saying that Meera's minute of work should not be wasted by their carelessness.
+
+      A month later, the municipal officer visited. He offered to install benches if the residents formed a committee to maintain the space. Meera refused to become the committee leader. "This corner belongs to everyone," she said. Still, when the first marigolds bloomed, people called it Meera's Garden. Meera never corrected them, but each morning she placed her sign where everyone could see it, reminding them that change had begun with a cup of tea and continued only because many hands had chosen to help. She smiled, then poured tea for the next waiting customer.
+    question: |
+      What promise did Meera make through the sign "One cup, one clean corner"?
+    answer_key: "For every cup of tea sold, Meera promised to spend one minute cleaning the vacant plot."
+    explanation: |
+      The answer is directly stated in the passage when Meera puts up the sign and explains her plan.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal).
+        The correct verdict is VALID — the answer restates the promise exactly as stated in the passage with no added or missing detail.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    passage: |
+      Every morning, before the shops opened and the traffic thickened, Meera wheeled a small cart to the corner of Lake Road. On it she kept clay cups, a brass kettle, and two glass jars: one filled with sugar, the other with tea leaves. Her tea stall was modest, but people stopped there because Meera remembered their names, their worries, and exactly how strong they liked their tea.
+
+      Across the road stood a vacant plot where children had once played cricket. Over the years, it had become a dumping ground. Plastic bags clung to the fence, and rainwater collected in shallow pits. One Monday, Meera saw a boy hold his nose as he passed the plot. She looked at the empty cups stacked on her cart and had an idea.
+
+      That evening, she placed a hand-painted sign beside her stall: "One cup, one clean corner." For every cup of tea sold, Meera promised to spend one minute cleaning the plot. At first, customers smiled politely and treated the sign as another cheerful slogan. But Meera kept her promise. After closing, she collected bottles, swept leaves, and separated plastic from paper. By Friday, two college students joined her. The following week, an office clerk brought gloves, and a retired teacher donated flower seeds.
+
+      As the plot changed, so did the street. Children returned with bats and balls. Neighbours argued less about the smell and spoke more about planting trees. Some customers began carrying reusable cups, saying that Meera's minute of work should not be wasted by their carelessness.
+
+      A month later, the municipal officer visited. He offered to install benches if the residents formed a committee to maintain the space. Meera refused to become the committee leader. "This corner belongs to everyone," she said. Still, when the first marigolds bloomed, people called it Meera's Garden. Meera never corrected them, but each morning she placed her sign where everyone could see it, reminding them that change had begun with a cup of tea and continued only because many hands had chosen to help. She smiled, then poured tea for the next waiting customer.
+    question: |
+      How did Meera put her idea into action after closing her tea stall?
+    answer_key: "She collected bottles, swept leaves, and separated plastic from paper after closing the stall."
+    explanation: |
+      The passage shows that Meera did not merely display a slogan; she applied her idea through regular cleaning work.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal + Application).
+        The correct verdict is VALID — the answer accurately describes Meera's after-closing actions exactly as the passage describes them.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    passage: |
+      Every morning, before the shops opened and the traffic thickened, Meera wheeled a small cart to the corner of Lake Road. On it she kept clay cups, a brass kettle, and two glass jars: one filled with sugar, the other with tea leaves. Her tea stall was modest, but people stopped there because Meera remembered their names, their worries, and exactly how strong they liked their tea.
+
+      Across the road stood a vacant plot where children had once played cricket. Over the years, it had become a dumping ground. Plastic bags clung to the fence, and rainwater collected in shallow pits. One Monday, Meera saw a boy hold his nose as he passed the plot. She looked at the empty cups stacked on her cart and had an idea.
+
+      That evening, she placed a hand-painted sign beside her stall: "One cup, one clean corner." For every cup of tea sold, Meera promised to spend one minute cleaning the plot. At first, customers smiled politely and treated the sign as another cheerful slogan. But Meera kept her promise. After closing, she collected bottles, swept leaves, and separated plastic from paper. By Friday, two college students joined her. The following week, an office clerk brought gloves, and a retired teacher donated flower seeds.
+
+      As the plot changed, so did the street. Children returned with bats and balls. Neighbours argued less about the smell and spoke more about planting trees. Some customers began carrying reusable cups, saying that Meera's minute of work should not be wasted by their carelessness.
+
+      A month later, the municipal officer visited. He offered to install benches if the residents formed a committee to maintain the space. Meera refused to become the committee leader. "This corner belongs to everyone," she said. Still, when the first marigolds bloomed, people called it Meera's Garden. Meera never corrected them, but each morning she placed her sign where everyone could see it, reminding them that change had begun with a cup of tea and continued only because many hands had chosen to help. She smiled, then poured tea for the next waiting customer.
+    question: |
+      How did Meera's actions influence the behaviour of the people around her?
+    answer_key: "Her consistent effort encouraged others to help clean and maintain the plot, donate useful items, plant flowers, and use reusable cups."
+    explanation: |
+      The passage shows a gradual change: students joined her, an office clerk brought gloves, a teacher donated seeds, and customers became more careful.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the answer correctly synthesizes the chain of influence described across the passage without adding unsupported claims.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    passage: |
+      Every morning, before the shops opened and the traffic thickened, Meera wheeled a small cart to the corner of Lake Road. On it she kept clay cups, a brass kettle, and two glass jars: one filled with sugar, the other with tea leaves. Her tea stall was modest, but people stopped there because Meera remembered their names, their worries, and exactly how strong they liked their tea.
+
+      Across the road stood a vacant plot where children had once played cricket. Over the years, it had become a dumping ground. Plastic bags clung to the fence, and rainwater collected in shallow pits. One Monday, Meera saw a boy hold his nose as he passed the plot. She looked at the empty cups stacked on her cart and had an idea.
+
+      That evening, she placed a hand-painted sign beside her stall: "One cup, one clean corner." For every cup of tea sold, Meera promised to spend one minute cleaning the plot. At first, customers smiled politely and treated the sign as another cheerful slogan. But Meera kept her promise. After closing, she collected bottles, swept leaves, and separated plastic from paper. By Friday, two college students joined her. The following week, an office clerk brought gloves, and a retired teacher donated flower seeds.
+
+      As the plot changed, so did the street. Children returned with bats and balls. Neighbours argued less about the smell and spoke more about planting trees. Some customers began carrying reusable cups, saying that Meera's minute of work should not be wasted by their carelessness.
+
+      A month later, the municipal officer visited. He offered to install benches if the residents formed a committee to maintain the space. Meera refused to become the committee leader. "This corner belongs to everyone," she said. Still, when the first marigolds bloomed, people called it Meera's Garden. Meera never corrected them, but each morning she placed her sign where everyone could see it, reminding them that change had begun with a cup of tea and continued only because many hands had chosen to help. She smiled, then poured tea for the next waiting customer.
+    question: |
+      Do you think Meera was right to refuse to become the committee leader? Justify your answer with evidence from the passage.
+    answer_key: "Yes. Meera was right because she believed the cleaned plot belonged to everyone, not just to her. By refusing leadership, she encouraged shared responsibility among the residents."
+    explanation: |
+      Her statement, "This corner belongs to everyone," shows that she valued collective ownership. The passage also says the change continued because "many hands had chosen to help."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the evaluative judgment is directly grounded in two explicit quotes from the passage, not personal opinion.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+# ── Passage: The Second Chance Shelf ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    passage: |
+      Arjun had always believed that the school library was the quietest place on campus. Students entered it only during free periods, whispered for a few minutes, and left with books they rarely finished. The librarian, Mrs. Rao, kept the room neat, but even she looked disappointed when rows of chairs remained empty.
+
+      One rainy afternoon, Arjun noticed a cardboard box near the entrance. It was filled with old magazines, torn storybooks, and faded comics that were going to be discarded. He picked up a comic and found a page missing, but the ending still made him laugh. Suddenly, he wondered whether imperfect books could still bring perfect joy.
+
+      The next day, Arjun asked Mrs. Rao if he could create a "Second Chance Shelf" for damaged but readable books. She agreed, provided that he labelled each book clearly. Arjun made bright bookmarks that said, "Read me before I disappear." At first, his classmates teased him for saving books that looked worn out. However, during lunch break, one student opened a travel magazine and began showing pictures of mountains to others.
+
+      Soon, the shelf became popular. Students who felt nervous about borrowing library books found the old books less intimidating. They could turn pages freely without worrying about a small crease. Some students repaired torn covers with tape, while others wrote short reviews on sticky notes. Mrs. Rao noticed that the students who first came for comics gradually began exploring novels and biographies too.
+
+      By the end of the month, the library was no longer empty during lunch. Arjun suggested a weekly exchange where students could bring books from home that they no longer needed. The idea spread quickly. Parents sent storybooks, teachers donated reference guides, and the principal announced that the library would host a reading hour every Friday.
+
+      Arjun did not think he had done anything extraordinary. He had only looked carefully at something others had planned to throw away. Yet, whenever he saw a student reading beside the Second Chance Shelf, he felt that some things became valuable again simply because someone believed they were still useful.
+    question: |
+      What did Arjun find in the cardboard box near the library entrance?
+    answer_key: "Arjun found old magazines, torn storybooks, and faded comics that were going to be discarded."
+    explanation: |
+      The answer is directly stated in the passage when Arjun notices the cardboard box near the library entrance.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal).
+        The correct verdict is VALID — the answer lists exactly the items the passage names in the cardboard box.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    passage: |
+      Arjun had always believed that the school library was the quietest place on campus. Students entered it only during free periods, whispered for a few minutes, and left with books they rarely finished. The librarian, Mrs. Rao, kept the room neat, but even she looked disappointed when rows of chairs remained empty.
+
+      One rainy afternoon, Arjun noticed a cardboard box near the entrance. It was filled with old magazines, torn storybooks, and faded comics that were going to be discarded. He picked up a comic and found a page missing, but the ending still made him laugh. Suddenly, he wondered whether imperfect books could still bring perfect joy.
+
+      The next day, Arjun asked Mrs. Rao if he could create a "Second Chance Shelf" for damaged but readable books. She agreed, provided that he labelled each book clearly. Arjun made bright bookmarks that said, "Read me before I disappear." At first, his classmates teased him for saving books that looked worn out. However, during lunch break, one student opened a travel magazine and began showing pictures of mountains to others.
+
+      Soon, the shelf became popular. Students who felt nervous about borrowing library books found the old books less intimidating. They could turn pages freely without worrying about a small crease. Some students repaired torn covers with tape, while others wrote short reviews on sticky notes. Mrs. Rao noticed that the students who first came for comics gradually began exploring novels and biographies too.
+
+      By the end of the month, the library was no longer empty during lunch. Arjun suggested a weekly exchange where students could bring books from home that they no longer needed. The idea spread quickly. Parents sent storybooks, teachers donated reference guides, and the principal announced that the library would host a reading hour every Friday.
+
+      Arjun did not think he had done anything extraordinary. He had only looked carefully at something others had planned to throw away. Yet, whenever he saw a student reading beside the Second Chance Shelf, he felt that some things became valuable again simply because someone believed they were still useful.
+    question: |
+      How did Arjun make the damaged books attractive to other students?
+    answer_key: "He created a \"Second Chance Shelf,\" labelled the books clearly, and made bright bookmarks that said, \"Read me before I disappear.\""
+    explanation: |
+      Arjun applied his idea by presenting the old books in a creative and inviting way.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal + Application).
+        The correct verdict is VALID — the answer accurately describes Arjun's specific actions exactly as the passage describes them.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    passage: |
+      Arjun had always believed that the school library was the quietest place on campus. Students entered it only during free periods, whispered for a few minutes, and left with books they rarely finished. The librarian, Mrs. Rao, kept the room neat, but even she looked disappointed when rows of chairs remained empty.
+
+      One rainy afternoon, Arjun noticed a cardboard box near the entrance. It was filled with old magazines, torn storybooks, and faded comics that were going to be discarded. He picked up a comic and found a page missing, but the ending still made him laugh. Suddenly, he wondered whether imperfect books could still bring perfect joy.
+
+      The next day, Arjun asked Mrs. Rao if he could create a "Second Chance Shelf" for damaged but readable books. She agreed, provided that he labelled each book clearly. Arjun made bright bookmarks that said, "Read me before I disappear." At first, his classmates teased him for saving books that looked worn out. However, during lunch break, one student opened a travel magazine and began showing pictures of mountains to others.
+
+      Soon, the shelf became popular. Students who felt nervous about borrowing library books found the old books less intimidating. They could turn pages freely without worrying about a small crease. Some students repaired torn covers with tape, while others wrote short reviews on sticky notes. Mrs. Rao noticed that the students who first came for comics gradually began exploring novels and biographies too.
+
+      By the end of the month, the library was no longer empty during lunch. Arjun suggested a weekly exchange where students could bring books from home that they no longer needed. The idea spread quickly. Parents sent storybooks, teachers donated reference guides, and the principal announced that the library would host a reading hour every Friday.
+
+      Arjun did not think he had done anything extraordinary. He had only looked carefully at something others had planned to throw away. Yet, whenever he saw a student reading beside the Second Chance Shelf, he felt that some things became valuable again simply because someone believed they were still useful.
+    question: |
+      How did the Second Chance Shelf change the students' attitude toward reading?
+    answer_key: "It made students more comfortable with books, encouraged them to read during lunch, repair damaged books, write reviews, and later explore novels and biographies."
+    explanation: |
+      The passage shows that students first approached the old books casually and then developed stronger reading habits.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the answer correctly traces the gradual change in student behaviour described across the passage.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    passage: |
+      Arjun had always believed that the school library was the quietest place on campus. Students entered it only during free periods, whispered for a few minutes, and left with books they rarely finished. The librarian, Mrs. Rao, kept the room neat, but even she looked disappointed when rows of chairs remained empty.
+
+      One rainy afternoon, Arjun noticed a cardboard box near the entrance. It was filled with old magazines, torn storybooks, and faded comics that were going to be discarded. He picked up a comic and found a page missing, but the ending still made him laugh. Suddenly, he wondered whether imperfect books could still bring perfect joy.
+
+      The next day, Arjun asked Mrs. Rao if he could create a "Second Chance Shelf" for damaged but readable books. She agreed, provided that he labelled each book clearly. Arjun made bright bookmarks that said, "Read me before I disappear." At first, his classmates teased him for saving books that looked worn out. However, during lunch break, one student opened a travel magazine and began showing pictures of mountains to others.
+
+      Soon, the shelf became popular. Students who felt nervous about borrowing library books found the old books less intimidating. They could turn pages freely without worrying about a small crease. Some students repaired torn covers with tape, while others wrote short reviews on sticky notes. Mrs. Rao noticed that the students who first came for comics gradually began exploring novels and biographies too.
+
+      By the end of the month, the library was no longer empty during lunch. Arjun suggested a weekly exchange where students could bring books from home that they no longer needed. The idea spread quickly. Parents sent storybooks, teachers donated reference guides, and the principal announced that the library would host a reading hour every Friday.
+
+      Arjun did not think he had done anything extraordinary. He had only looked carefully at something others had planned to throw away. Yet, whenever he saw a student reading beside the Second Chance Shelf, he felt that some things became valuable again simply because someone believed they were still useful.
+    question: |
+      Was Arjun's idea valuable even though the books were damaged? Justify your answer with evidence from the passage.
+    answer_key: "Yes. Arjun's idea was valuable because the damaged books encouraged more students to visit the library, read regularly, and contribute books of their own."
+    explanation: |
+      The library became active during lunch, students repaired books, parents and teachers donated more books, and the school began a Friday reading hour.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the evaluative judgment is grounded in concrete, passage-stated outcomes rather than unsupported opinion.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+# ── Passage: Nisha's Balcony Garden ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    passage: |
+      Nisha's apartment balcony was small, with barely enough space for two chairs and a clothes stand. From the seventh floor, she could see a row of grey buildings, a narrow road, and a patch of sky that changed colour in the evening. Her grandmother often said that a home without plants felt incomplete, but Nisha thought gardening required land, tools, and plenty of time.
+
+      During the summer holidays, Nisha visited her grandmother in a village. Every morning, her grandmother watered spinach, chillies, and jasmine plants before breakfast. She spoke to the plants as if they understood her. Nisha laughed at first, but she soon noticed that the garden gave the house a calm feeling. Even neighbours stopped by to ask for curry leaves or admire the flowers.
+
+      When Nisha returned to the city, the balcony looked emptier than before. She did not have money for large pots, so she used old paint buckets, coconut shells, and plastic bottles. She filled them with soil from a nearby nursery and planted coriander, mint, and marigold seeds. For the first week, nothing happened. Nisha checked the containers every morning and wondered whether balcony gardens were only suitable for people with experience.
+
+      Then, one day, tiny green shoots appeared. Nisha felt surprisingly proud. She began reading about sunlight, watering, and composting kitchen waste. Instead of throwing away vegetable peels, she collected them in a covered box to make compost. Her younger brother helped her hang bottle planters along the railing. Their neighbours, who had once used their balconies only for storage, began asking questions.
+
+      Within two months, three more balconies in the building had plants. One family grew tomatoes, another planted tulsi, and an elderly man started growing roses. The building still stood among traffic and concrete, but the balconies made it look alive. Birds began visiting in the mornings, and residents greeted one another while watering their plants.
+
+      Nisha understood then that gardening was not only about land. It was about care, patience, and the willingness to begin with whatever space one had. Her balcony remained small, but it no longer felt empty.
+    question: |
+      What items did Nisha use as containers for her balcony garden?
+    answer_key: "Nisha used old paint buckets, coconut shells, and plastic bottles as containers."
+    explanation: |
+      The answer is directly stated in the passage when Nisha begins gardening on her balcony.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal).
+        The correct verdict is VALID — the answer lists exactly the containers named in the passage.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    passage: |
+      Nisha's apartment balcony was small, with barely enough space for two chairs and a clothes stand. From the seventh floor, she could see a row of grey buildings, a narrow road, and a patch of sky that changed colour in the evening. Her grandmother often said that a home without plants felt incomplete, but Nisha thought gardening required land, tools, and plenty of time.
+
+      During the summer holidays, Nisha visited her grandmother in a village. Every morning, her grandmother watered spinach, chillies, and jasmine plants before breakfast. She spoke to the plants as if they understood her. Nisha laughed at first, but she soon noticed that the garden gave the house a calm feeling. Even neighbours stopped by to ask for curry leaves or admire the flowers.
+
+      When Nisha returned to the city, the balcony looked emptier than before. She did not have money for large pots, so she used old paint buckets, coconut shells, and plastic bottles. She filled them with soil from a nearby nursery and planted coriander, mint, and marigold seeds. For the first week, nothing happened. Nisha checked the containers every morning and wondered whether balcony gardens were only suitable for people with experience.
+
+      Then, one day, tiny green shoots appeared. Nisha felt surprisingly proud. She began reading about sunlight, watering, and composting kitchen waste. Instead of throwing away vegetable peels, she collected them in a covered box to make compost. Her younger brother helped her hang bottle planters along the railing. Their neighbours, who had once used their balconies only for storage, began asking questions.
+
+      Within two months, three more balconies in the building had plants. One family grew tomatoes, another planted tulsi, and an elderly man started growing roses. The building still stood among traffic and concrete, but the balconies made it look alive. Birds began visiting in the mornings, and residents greeted one another while watering their plants.
+
+      Nisha understood then that gardening was not only about land. It was about care, patience, and the willingness to begin with whatever space one had. Her balcony remained small, but it no longer felt empty.
+    question: |
+      How did Nisha use kitchen waste to support her balcony garden?
+    answer_key: "She collected vegetable peels in a covered box to make compost for her plants."
+    explanation: |
+      Nisha applied what she learned about composting by reusing kitchen waste instead of throwing it away.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal + Application).
+        The correct verdict is VALID — the answer matches the passage's description of Nisha's composting action precisely.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    passage: |
+      Nisha's apartment balcony was small, with barely enough space for two chairs and a clothes stand. From the seventh floor, she could see a row of grey buildings, a narrow road, and a patch of sky that changed colour in the evening. Her grandmother often said that a home without plants felt incomplete, but Nisha thought gardening required land, tools, and plenty of time.
+
+      During the summer holidays, Nisha visited her grandmother in a village. Every morning, her grandmother watered spinach, chillies, and jasmine plants before breakfast. She spoke to the plants as if they understood her. Nisha laughed at first, but she soon noticed that the garden gave the house a calm feeling. Even neighbours stopped by to ask for curry leaves or admire the flowers.
+
+      When Nisha returned to the city, the balcony looked emptier than before. She did not have money for large pots, so she used old paint buckets, coconut shells, and plastic bottles. She filled them with soil from a nearby nursery and planted coriander, mint, and marigold seeds. For the first week, nothing happened. Nisha checked the containers every morning and wondered whether balcony gardens were only suitable for people with experience.
+
+      Then, one day, tiny green shoots appeared. Nisha felt surprisingly proud. She began reading about sunlight, watering, and composting kitchen waste. Instead of throwing away vegetable peels, she collected them in a covered box to make compost. Her younger brother helped her hang bottle planters along the railing. Their neighbours, who had once used their balconies only for storage, began asking questions.
+
+      Within two months, three more balconies in the building had plants. One family grew tomatoes, another planted tulsi, and an elderly man started growing roses. The building still stood among traffic and concrete, but the balconies made it look alive. Birds began visiting in the mornings, and residents greeted one another while watering their plants.
+
+      Nisha understood then that gardening was not only about land. It was about care, patience, and the willingness to begin with whatever space one had. Her balcony remained small, but it no longer felt empty.
+    question: |
+      How did Nisha's balcony garden influence the other residents in her building?
+    answer_key: "Her garden inspired neighbours to ask questions and start their own balcony gardens with tomatoes, tulsi, and roses."
+    explanation: |
+      The passage shows that Nisha's effort created a positive change beyond her own balcony, encouraging others to grow plants too.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the answer accurately synthesizes the spreading influence described in the passage without adding unsupported claims.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    passage: |
+      Nisha's apartment balcony was small, with barely enough space for two chairs and a clothes stand. From the seventh floor, she could see a row of grey buildings, a narrow road, and a patch of sky that changed colour in the evening. Her grandmother often said that a home without plants felt incomplete, but Nisha thought gardening required land, tools, and plenty of time.
+
+      During the summer holidays, Nisha visited her grandmother in a village. Every morning, her grandmother watered spinach, chillies, and jasmine plants before breakfast. She spoke to the plants as if they understood her. Nisha laughed at first, but she soon noticed that the garden gave the house a calm feeling. Even neighbours stopped by to ask for curry leaves or admire the flowers.
+
+      When Nisha returned to the city, the balcony looked emptier than before. She did not have money for large pots, so she used old paint buckets, coconut shells, and plastic bottles. She filled them with soil from a nearby nursery and planted coriander, mint, and marigold seeds. For the first week, nothing happened. Nisha checked the containers every morning and wondered whether balcony gardens were only suitable for people with experience.
+
+      Then, one day, tiny green shoots appeared. Nisha felt surprisingly proud. She began reading about sunlight, watering, and composting kitchen waste. Instead of throwing away vegetable peels, she collected them in a covered box to make compost. Her younger brother helped her hang bottle planters along the railing. Their neighbours, who had once used their balconies only for storage, began asking questions.
+
+      Within two months, three more balconies in the building had plants. One family grew tomatoes, another planted tulsi, and an elderly man started growing roses. The building still stood among traffic and concrete, but the balconies made it look alive. Birds began visiting in the mornings, and residents greeted one another while watering their plants.
+
+      Nisha understood then that gardening was not only about land. It was about care, patience, and the willingness to begin with whatever space one had. Her balcony remained small, but it no longer felt empty.
+    question: |
+      Do you agree that gardening is "about care, patience, and the willingness to begin with whatever space one had"? Justify your answer using the passage.
+    answer_key: "Yes. Nisha began with a small balcony and reused simple containers, but through regular care and patience, she created a garden that inspired others."
+    explanation: |
+      The passage shows that she waited for seeds to grow, learned about plant care, made compost, and encouraged other residents to start gardening.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the evaluative judgment is directly supported by specific passage evidence about patience and care.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+# ── Passage: The Road Safety Team ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    passage: |
+      Ravi's school stood beside a busy main road where vehicles passed from morning until evening. Although the classrooms were clean, the area near the school gate was noisy and unsafe. Students often rushed across the road after school, while drivers honked impatiently. The teachers repeatedly reminded students to be careful, but the problem continued because everyone was in a hurry.
+
+      One afternoon, Ravi saw a younger student drop his water bottle while crossing the road. The child bent down to pick it up just as a motorbike approached. A security guard pulled him back in time, but the incident frightened everyone who had seen it. Ravi kept thinking about how easily an ordinary school day could have turned dangerous.
+
+      That evening, he spoke to his classmates about making the road safer. Some suggested writing a complaint to the traffic department, while others felt that students could not do much. Ravi agreed that adults had to help, but he also believed students could begin by changing their own behaviour. With permission from the principal, his class formed a Road Safety Team.
+
+      The team made posters reminding students to use the zebra crossing and wait for the guard's signal. They also created short slogans and displayed them near the school gate. During dispersal time, team members stood in pairs and guided younger students to walk in lines instead of running. At first, some students ignored them, but the team remained polite and consistent.
+
+      Within two weeks, teachers noticed a difference. The crowd near the gate became more orderly, and drivers slowed down when they saw students waiting together. Parents also became more careful while parking their vehicles. The principal then invited a traffic police officer to conduct a safety session. After the session, a proper signboard was installed near the school zone.
+
+      Ravi understood that the Road Safety Team had not solved every problem. The road was still busy, and students still needed to remain alert. Yet he felt proud because his classmates had proved that safety was not only the responsibility of guards, teachers, or police officers. It also depended on the choices students made every day.
+    question: |
+      What incident made Ravi think seriously about road safety near the school gate?
+    answer_key: "Ravi saw a younger student drop his water bottle and bend to pick it up while a motorbike was approaching."
+    explanation: |
+      This incident is directly stated in the passage and is the event that frightened Ravi and made him think about safety.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal).
+        The correct verdict is VALID — the answer restates the exact incident described in the passage.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    passage: |
+      Ravi's school stood beside a busy main road where vehicles passed from morning until evening. Although the classrooms were clean, the area near the school gate was noisy and unsafe. Students often rushed across the road after school, while drivers honked impatiently. The teachers repeatedly reminded students to be careful, but the problem continued because everyone was in a hurry.
+
+      One afternoon, Ravi saw a younger student drop his water bottle while crossing the road. The child bent down to pick it up just as a motorbike approached. A security guard pulled him back in time, but the incident frightened everyone who had seen it. Ravi kept thinking about how easily an ordinary school day could have turned dangerous.
+
+      That evening, he spoke to his classmates about making the road safer. Some suggested writing a complaint to the traffic department, while others felt that students could not do much. Ravi agreed that adults had to help, but he also believed students could begin by changing their own behaviour. With permission from the principal, his class formed a Road Safety Team.
+
+      The team made posters reminding students to use the zebra crossing and wait for the guard's signal. They also created short slogans and displayed them near the school gate. During dispersal time, team members stood in pairs and guided younger students to walk in lines instead of running. At first, some students ignored them, but the team remained polite and consistent.
+
+      Within two weeks, teachers noticed a difference. The crowd near the gate became more orderly, and drivers slowed down when they saw students waiting together. Parents also became more careful while parking their vehicles. The principal then invited a traffic police officer to conduct a safety session. After the session, a proper signboard was installed near the school zone.
+
+      Ravi understood that the Road Safety Team had not solved every problem. The road was still busy, and students still needed to remain alert. Yet he felt proud because his classmates had proved that safety was not only the responsibility of guards, teachers, or police officers. It also depended on the choices students made every day.
+    question: |
+      How did the Road Safety Team help younger students during dispersal time?
+    answer_key: "The team members stood in pairs and guided younger students to walk in lines instead of running."
+    explanation: |
+      The answer shows how Ravi's team applied their safety plan in a practical situation.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal + Application).
+        The correct verdict is VALID — the answer matches the passage's description of the team's dispersal-time actions precisely.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    passage: |
+      Ravi's school stood beside a busy main road where vehicles passed from morning until evening. Although the classrooms were clean, the area near the school gate was noisy and unsafe. Students often rushed across the road after school, while drivers honked impatiently. The teachers repeatedly reminded students to be careful, but the problem continued because everyone was in a hurry.
+
+      One afternoon, Ravi saw a younger student drop his water bottle while crossing the road. The child bent down to pick it up just as a motorbike approached. A security guard pulled him back in time, but the incident frightened everyone who had seen it. Ravi kept thinking about how easily an ordinary school day could have turned dangerous.
+
+      That evening, he spoke to his classmates about making the road safer. Some suggested writing a complaint to the traffic department, while others felt that students could not do much. Ravi agreed that adults had to help, but he also believed students could begin by changing their own behaviour. With permission from the principal, his class formed a Road Safety Team.
+
+      The team made posters reminding students to use the zebra crossing and wait for the guard's signal. They also created short slogans and displayed them near the school gate. During dispersal time, team members stood in pairs and guided younger students to walk in lines instead of running. At first, some students ignored them, but the team remained polite and consistent.
+
+      Within two weeks, teachers noticed a difference. The crowd near the gate became more orderly, and drivers slowed down when they saw students waiting together. Parents also became more careful while parking their vehicles. The principal then invited a traffic police officer to conduct a safety session. After the session, a proper signboard was installed near the school zone.
+
+      Ravi understood that the Road Safety Team had not solved every problem. The road was still busy, and students still needed to remain alert. Yet he felt proud because his classmates had proved that safety was not only the responsibility of guards, teachers, or police officers. It also depended on the choices students made every day.
+    question: |
+      How did the Road Safety Team's actions affect drivers and parents?
+    answer_key: "Their actions made drivers slow down when they saw students waiting together and made parents more careful while parking."
+    explanation: |
+      The passage shows that the team's organized behaviour influenced not only students but also adults around the school gate.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the answer accurately reflects the effects on drivers and parents exactly as stated in the passage.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    passage: |
+      Ravi's school stood beside a busy main road where vehicles passed from morning until evening. Although the classrooms were clean, the area near the school gate was noisy and unsafe. Students often rushed across the road after school, while drivers honked impatiently. The teachers repeatedly reminded students to be careful, but the problem continued because everyone was in a hurry.
+
+      One afternoon, Ravi saw a younger student drop his water bottle while crossing the road. The child bent down to pick it up just as a motorbike approached. A security guard pulled him back in time, but the incident frightened everyone who had seen it. Ravi kept thinking about how easily an ordinary school day could have turned dangerous.
+
+      That evening, he spoke to his classmates about making the road safer. Some suggested writing a complaint to the traffic department, while others felt that students could not do much. Ravi agreed that adults had to help, but he also believed students could begin by changing their own behaviour. With permission from the principal, his class formed a Road Safety Team.
+
+      The team made posters reminding students to use the zebra crossing and wait for the guard's signal. They also created short slogans and displayed them near the school gate. During dispersal time, team members stood in pairs and guided younger students to walk in lines instead of running. At first, some students ignored them, but the team remained polite and consistent.
+
+      Within two weeks, teachers noticed a difference. The crowd near the gate became more orderly, and drivers slowed down when they saw students waiting together. Parents also became more careful while parking their vehicles. The principal then invited a traffic police officer to conduct a safety session. After the session, a proper signboard was installed near the school zone.
+
+      Ravi understood that the Road Safety Team had not solved every problem. The road was still busy, and students still needed to remain alert. Yet he felt proud because his classmates had proved that safety was not only the responsibility of guards, teachers, or police officers. It also depended on the choices students made every day.
+    question: |
+      Was Ravi correct in believing that students could help improve road safety? Justify your answer with evidence from the passage.
+    answer_key: "Yes. Ravi was correct because the students' efforts made the crowd more orderly, encouraged drivers to slow down, and led to a traffic safety session and a signboard near the school zone."
+    explanation: |
+      The passage proves that student action created visible improvement and encouraged adults to support the safety initiative.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the evaluative judgment is grounded in concrete passage-stated outcomes of the team's efforts.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+# ── Passage: Anaya's Air Diary ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    passage: |
+      Anaya enjoyed science, but she often felt that experiments belonged only inside laboratories. Her textbook explained air pollution with diagrams of factories, smoke, and crowded roads. She understood the meaning of the words, but the problem seemed too large and distant for a student to study closely.
+
+      One winter morning, her class teacher asked the students to observe the air around them for a week. Anaya decided to keep an "air diary." Every day, she noted what the sky looked like, whether she could see the hills beyond her town, and how often people around her coughed. She also recorded the smell of smoke from burning leaves near her apartment and the dust raised by passing trucks.
+
+      At first, Anaya thought her notes were too simple to matter. However, by the fourth day, she noticed a pattern. The air seemed worse in the mornings when leaves were burned and in the evenings when traffic was heavy. On days after light rain, the sky looked clearer, and the hills were easier to see. She realised that observation could turn an ordinary environment into a source of learning.
+
+      When Anaya shared her diary in class, her teacher encouraged her to present the findings during the morning assembly. Anaya felt nervous, but she prepared a chart showing the connection between daily activities and air quality. Instead of blaming anyone, she suggested small changes: avoiding the burning of dry leaves, watering dusty patches near homes, and using shared transport whenever possible.
+
+      Her presentation surprised many students because it was based on familiar places and daily experiences. A few classmates began keeping their own diaries. The school gardener agreed to compost dry leaves instead of burning them. Some parents discussed carpooling for students who lived nearby.
+
+      Anaya's diary did not end air pollution in the town, but it changed how people looked at the problem. They understood that pollution was not only something shown in textbooks or news reports. It was present in their own streets, and reducing it required attention, evidence, and responsible habits.
+    question: |
+      What did Anaya record in her "air diary"?
+    answer_key: "She recorded the appearance of the sky, the visibility of the hills, coughing around her, the smell of smoke, and the dust raised by passing trucks."
+    explanation: |
+      The answer is directly stated in the passage when Anaya begins observing the air around her.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal).
+        The correct verdict is VALID — the answer lists exactly the observations the passage attributes to Anaya's diary.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    passage: |
+      Anaya enjoyed science, but she often felt that experiments belonged only inside laboratories. Her textbook explained air pollution with diagrams of factories, smoke, and crowded roads. She understood the meaning of the words, but the problem seemed too large and distant for a student to study closely.
+
+      One winter morning, her class teacher asked the students to observe the air around them for a week. Anaya decided to keep an "air diary." Every day, she noted what the sky looked like, whether she could see the hills beyond her town, and how often people around her coughed. She also recorded the smell of smoke from burning leaves near her apartment and the dust raised by passing trucks.
+
+      At first, Anaya thought her notes were too simple to matter. However, by the fourth day, she noticed a pattern. The air seemed worse in the mornings when leaves were burned and in the evenings when traffic was heavy. On days after light rain, the sky looked clearer, and the hills were easier to see. She realised that observation could turn an ordinary environment into a source of learning.
+
+      When Anaya shared her diary in class, her teacher encouraged her to present the findings during the morning assembly. Anaya felt nervous, but she prepared a chart showing the connection between daily activities and air quality. Instead of blaming anyone, she suggested small changes: avoiding the burning of dry leaves, watering dusty patches near homes, and using shared transport whenever possible.
+
+      Her presentation surprised many students because it was based on familiar places and daily experiences. A few classmates began keeping their own diaries. The school gardener agreed to compost dry leaves instead of burning them. Some parents discussed carpooling for students who lived nearby.
+
+      Anaya's diary did not end air pollution in the town, but it changed how people looked at the problem. They understood that pollution was not only something shown in textbooks or news reports. It was present in their own streets, and reducing it required attention, evidence, and responsible habits.
+    question: |
+      How did Anaya use her observations to explain air pollution to her schoolmates?
+    answer_key: "She prepared a chart showing the connection between daily activities and air quality and presented it during the morning assembly."
+    explanation: |
+      Anaya applied her observations by organizing them into a chart and using them to explain a real problem.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Literal + Application).
+        The correct verdict is VALID — the answer matches the passage's description of Anaya's presentation method precisely.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    passage: |
+      Anaya enjoyed science, but she often felt that experiments belonged only inside laboratories. Her textbook explained air pollution with diagrams of factories, smoke, and crowded roads. She understood the meaning of the words, but the problem seemed too large and distant for a student to study closely.
+
+      One winter morning, her class teacher asked the students to observe the air around them for a week. Anaya decided to keep an "air diary." Every day, she noted what the sky looked like, whether she could see the hills beyond her town, and how often people around her coughed. She also recorded the smell of smoke from burning leaves near her apartment and the dust raised by passing trucks.
+
+      At first, Anaya thought her notes were too simple to matter. However, by the fourth day, she noticed a pattern. The air seemed worse in the mornings when leaves were burned and in the evenings when traffic was heavy. On days after light rain, the sky looked clearer, and the hills were easier to see. She realised that observation could turn an ordinary environment into a source of learning.
+
+      When Anaya shared her diary in class, her teacher encouraged her to present the findings during the morning assembly. Anaya felt nervous, but she prepared a chart showing the connection between daily activities and air quality. Instead of blaming anyone, she suggested small changes: avoiding the burning of dry leaves, watering dusty patches near homes, and using shared transport whenever possible.
+
+      Her presentation surprised many students because it was based on familiar places and daily experiences. A few classmates began keeping their own diaries. The school gardener agreed to compost dry leaves instead of burning them. Some parents discussed carpooling for students who lived nearby.
+
+      Anaya's diary did not end air pollution in the town, but it changed how people looked at the problem. They understood that pollution was not only something shown in textbooks or news reports. It was present in their own streets, and reducing it required attention, evidence, and responsible habits.
+    question: |
+      What pattern did Anaya notice about the air quality during the week?
+    answer_key: "She noticed that the air seemed worse in the mornings when leaves were burned and in the evenings when traffic was heavy, while it became clearer after light rain."
+    explanation: |
+      This answer requires analyzing the relationship between daily events and changes in air quality.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the answer correctly identifies the cause-effect pattern exactly as described in the passage.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    passage: |
+      Anaya enjoyed science, but she often felt that experiments belonged only inside laboratories. Her textbook explained air pollution with diagrams of factories, smoke, and crowded roads. She understood the meaning of the words, but the problem seemed too large and distant for a student to study closely.
+
+      One winter morning, her class teacher asked the students to observe the air around them for a week. Anaya decided to keep an "air diary." Every day, she noted what the sky looked like, whether she could see the hills beyond her town, and how often people around her coughed. She also recorded the smell of smoke from burning leaves near her apartment and the dust raised by passing trucks.
+
+      At first, Anaya thought her notes were too simple to matter. However, by the fourth day, she noticed a pattern. The air seemed worse in the mornings when leaves were burned and in the evenings when traffic was heavy. On days after light rain, the sky looked clearer, and the hills were easier to see. She realised that observation could turn an ordinary environment into a source of learning.
+
+      When Anaya shared her diary in class, her teacher encouraged her to present the findings during the morning assembly. Anaya felt nervous, but she prepared a chart showing the connection between daily activities and air quality. Instead of blaming anyone, she suggested small changes: avoiding the burning of dry leaves, watering dusty patches near homes, and using shared transport whenever possible.
+
+      Her presentation surprised many students because it was based on familiar places and daily experiences. A few classmates began keeping their own diaries. The school gardener agreed to compost dry leaves instead of burning them. Some parents discussed carpooling for students who lived nearby.
+
+      Anaya's diary did not end air pollution in the town, but it changed how people looked at the problem. They understood that pollution was not only something shown in textbooks or news reports. It was present in their own streets, and reducing it required attention, evidence, and responsible habits.
+    question: |
+      Was Anaya's air diary an effective way to create awareness about pollution? Justify your answer with evidence from the passage.
+    answer_key: "Yes. It was effective because her diary helped students and adults understand pollution through familiar daily experiences and encouraged actions such as composting leaves and discussing carpooling."
+    explanation: |
+      The passage shows that Anaya's evidence-based presentation changed people's awareness and led to practical responses.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Reading Comprehension Q&A item (Inferential).
+        The correct verdict is VALID — the evaluative judgment is grounded in the concrete passage-stated outcomes of Anaya's diary.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.

@@ -1,0 +1,126 @@
+# POSITIVE QUESTIONS — Correctly formed Paragraph Sequencing questions
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Analyze
+    difficulty: "B2-C1"
+    course_outcome: "Arrange sentences logically to create a coherent paragraph using sequencing clues, cause-effect links, and referencing devices."
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. This shift has also changed how teachers assess progress, as participation can now be tracked through digital platforms.
+      B. Online learning was once treated as a temporary solution during disruptions.
+      C. However, many institutions have continued using it even after classrooms reopened.
+      D. Students who were hesitant to speak in class often contribute more confidently through discussion boards.
+      E. As a result, blended learning has become a practical model rather than an emergency arrangement.
+      F. The flexibility of recorded lectures allows learners to revisit difficult concepts at their own pace.
+      G. Yet, the success of this model depends on careful planning rather than simply placing materials online.
+      H. Therefore, schools must train teachers to design interactive and purposeful online activities.
+    solution: "B-C-F-D-A-E-G-H"
+    explanation: "The paragraph begins with the earlier view of online learning and then contrasts it with current practice. It explains benefits, shows the result, introduces a limitation, and ends with a recommendation."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Paragraph Sequencing question.
+        The correct verdict is VALID — the order follows a clear logical chain — past view, contrast, benefits, result, limitation, and recommendation — using all 8 sentences exactly once with correct discourse-marker links.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Analyze
+    difficulty: "B2-C1"
+    course_outcome: "Identify chronological and logical progression in a paragraph."
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. At first, the team assumed that the drop was caused by poor advertising.
+      B. The company had enjoyed steady sales for nearly five years.
+      C. Therefore, the real issue was not visibility but customer trust.
+      D. A closer review, however, showed that customers were reading the advertisements but not completing purchases.
+      E. The problem began when several delayed deliveries were reported online.
+      F. Once the company improved its delivery process, sales slowly began to recover.
+      G. Negative reviews spread quickly, making new buyers uncertain about the service.
+      H. This taught the company that operational reliability can influence marketing success.
+    solution: "B-E-G-A-D-C-F-H"
+    explanation: "The sequence starts with the company's stable past, introduces the problem, explains the mistaken assumption, reveals the actual cause, and ends with the lesson learned."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Paragraph Sequencing question.
+        The correct verdict is VALID — the order correctly moves from stable past to problem, false assumption, true cause, resolution, and lesson, using all 8 sentences exactly once with consistent cause-effect logic.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Analyze
+    difficulty: "C1"
+    course_outcome: "Organize ideas using contrast, exemplification, and conclusion markers."
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. In contrast, deep reading requires attention to tone, structure, and implied meaning.
+      B. Many readers today consume information quickly through headlines and short summaries.
+      C. For instance, a news headline may suggest urgency, while the full article may present a more balanced view.
+      D. This habit is useful when people need basic updates in a short time.
+      E. However, it can also encourage superficial understanding.
+      F. As a result, readers may react strongly before fully understanding the issue.
+      G. Developing deeper reading habits is therefore essential in an age of constant information.
+      H. It enables people to evaluate arguments instead of merely absorbing impressions.
+    solution: "B-D-E-A-C-F-H-G"
+    explanation: "The paragraph begins with a general habit, acknowledges its usefulness, introduces its limitation, contrasts it with deep reading, gives an example, and concludes with its importance."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Paragraph Sequencing question.
+        The correct verdict is VALID — the order correctly sequences general habit, usefulness, limitation, contrast, example, consequence, benefit, and conclusion, using all 8 sentences exactly once.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Apply
+    difficulty: "B2-C1"
+    course_outcome: "Use discourse markers and reference clues to arrange sentences meaningfully."
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. This does not mean that creativity is disappearing.
+      B. Artificial intelligence is now able to produce images, music, and written text within seconds.
+      C. Instead, it suggests that human creativity is being redefined.
+      D. People still need to decide what is meaningful, ethical, and appropriate for a particular audience.
+      E. Because of this, some artists worry that machines may replace human imagination.
+      F. The best results often come when humans guide the tool with clear intention.
+      G. In such cases, technology becomes a partner rather than a substitute.
+      H. Therefore, the future of creativity may depend on collaboration between human judgment and machine capability.
+    solution: "B-E-A-C-D-F-G-H"
+    explanation: "The paragraph introduces AI's creative ability, presents concern, corrects the concern, explains the continuing role of humans, and concludes with a balanced view."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Paragraph Sequencing question.
+        The correct verdict is VALID — the order correctly progresses from AI capability, to concern, correction of the concern, human role, partnership framing, and balanced conclusion, using all 8 sentences exactly once.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Analyze
+    difficulty: "C1"
+    course_outcome: "Arrange abstract ideas into a coherent argumentative paragraph."
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. If they are used only to reward correct answers, they may discourage risk-taking.
+      B. Feedback plays a central role in the learning process.
+      C. This is why effective feedback should focus on strategies, effort, and improvement.
+      D. Yet not all forms of feedback produce the same result.
+      E. Students may then begin to avoid difficult tasks because mistakes feel like failure.
+      F. When feedback is specific, it helps learners understand what to change and how to improve.
+      G. In this way, feedback becomes a guide for growth rather than a judgment of ability.
+      H. Therefore, teachers must be careful about both the content and tone of their comments.
+    solution: "B-D-F-A-E-C-G-H"
+    explanation: "The paragraph starts with the topic, distinguishes effective and ineffective feedback, explains consequences, and ends with a practical recommendation."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Paragraph Sequencing question.
+        The correct verdict is VALID — the order correctly sequences topic introduction, distinguishing feedback types, consequence, recommendation, reframing, and final practical advice, using all 8 sentences exactly once.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.

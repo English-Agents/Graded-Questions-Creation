@@ -1,21 +1,138 @@
-# testing_tests.yaml
-# Pipeline / integration tests — drop your cases here.
-# Each test checks that the generation pipeline produces the right output format.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     topic_id: 1
-#     skill: "Grammar & Vocabulary"
-#     marks: 2
-#     question_type: "Fill in the blanks"
-#     difficulty: medium
-#     count: 5
-#   assert:
-#     - type: is-json
-#     - type: javascript
-#       value: output.length === 5
-#     - type: javascript
-#       value: output.every(q => q.text && q.answer_key)
+# NEGATIVE QUESTIONS — Flawed Process Writing questions (one is an edge case that should be VALID)
 
-# ADD YOUR TESTING TEST CASES BELOW:
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Describe a process clearly using logical sequence, appropriate linking words, passive voice where needed, and accurate procedural details."
+    error_type: "Word limit violation / missing steps"
+    question: |
+      Describe the process of preparing lemonade in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: take fresh lemons – wash them – cut and squeeze juice – add sugar and salt – pour cold water – stir well – strain if needed – serve chilled
+    sample_answer: |
+      The Process of Preparing Lemonade
+
+      Lemonade is a refreshing drink, especially in summer. First, fresh lemons are taken and washed properly. Then they are cut into halves and the juice is squeezed into a bowl. Sugar and salt are added according to taste. After that, the mixture is stirred well until everything dissolves. Finally, the lemonade is served chilled in glasses.
+    explanation: "The answer is too short for the required 120-150 words. It also skips important steps such as adding cold water and straining if needed."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Process Writing question. Flaw:
+        the answer is roughly 55 words, far short of the 120-150 word range, and omits two given hints (pour cold water, strain if needed) entirely. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Explain a process in a coherent paragraph using order markers, precise vocabulary, and suitable process-writing style."
+    error_type: "Incorrect sequence"
+    question: |
+      Describe the process of planting a sapling in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: choose a suitable place – dig a small pit – place sapling carefully – cover roots with soil – press soil gently – water the plant – protect with fence or stick – check growth regularly
+    sample_answer: |
+      The Process of Planting a Sapling
+
+      First, the sapling is watered regularly and checked for growth. Then a suitable place is chosen where it can receive enough sunlight. After that, the roots are covered with soil. Next, a small pit is dug in the ground. The soil is pressed gently, and the sapling is placed carefully into the pit. Finally, a stick or fence is used to protect it.
+    explanation: "The steps are in an illogical order. The answer begins with watering and checking growth before the sapling is even planted. It also places the sapling after covering the roots with soil, which makes the process unclear."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Process Writing question. Flaw:
+        the answer begins with watering and checking growth (the final hints) before the sapling is even planted, and covers the roots with soil before placing the sapling in the pit, reversing the required real-world order. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "C1"
+    marks: 8
+    course_outcome: "Produce a structured process description with logical transitions, relevant details, and appropriate formal tone."
+    error_type: "No flaw present"
+    question: |
+      Describe the process of organizing a blood donation camp in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: contact hospital or blood bank – choose date and venue – inform volunteers – arrange beds and medical equipment – register donors – conduct health check-up – collect blood safely – provide refreshments and certificates
+    sample_answer: |
+      The Process of Organizing a Blood Donation Camp
+
+      A blood donation camp is organized to help people in need. First, a hospital or blood bank is contacted for support. Then a suitable date and venue are selected. Volunteers are informed and asked to help with registration. Beds and medical equipment are arranged before the camp begins. Donors register their names and undergo a basic health check-up. Blood is then collected safely by trained medical staff. After the donation, refreshments and certificates are given to the donors. Finally, the collected blood is stored and transported carefully by the medical team.
+    explanation: "The answer is valid and follows the hints logically. Since this is supposed to be a negative question, the item is flawed because there is no actual error in the sample answer."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a Process Writing question that the dataset intentionally
+        mislabels as negative, but the sample answer is actually correct and valid — it uses
+        every hint in order, stays within the word range, and is logically sequenced.
+        This tests whether the validator gives a false negative.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Describe a digital process clearly using step-by-step organization, relevant vocabulary, and concise explanation."
+    error_type: "Task mismatch"
+    question: |
+      Describe the process of creating an email account in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: open email service website – click create account – enter personal details – choose username – create password – verify phone number – accept terms – start using account
+    sample_answer: |
+      The Process of Creating an Email Account
+
+      To create an email account, first visit a bank and ask for an account opening form. Fill in your name, address, and identity details. Then attach a photograph and submit the form to the bank officer. After verification, deposit the minimum amount required. The bank will provide an account number, passbook, and debit card. Finally, you can use the account for deposits and withdrawals.
+    explanation: "The sample answer describes the process of opening a bank account instead of creating an email account. It does not address the given task or use the provided hints."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Process Writing question. Flaw:
+        the sample answer describes opening a bank account, an entirely different process from the assigned task of creating an email account, and uses none of the given hints. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Write a clear process description using chronological order, connectors, and accurate explanation of each stage."
+    error_type: "Irrelevant sentence / lack of coherence"
+    question: |
+      Describe the process of preparing for an examination in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: check syllabus – make timetable – collect notes – study difficult topics first – revise regularly – practise sample papers – take short breaks – sleep well before exam
+    sample_answer: |
+      The Process of Preparing for an Examination
+
+      Preparing for an examination requires planning and discipline. First, the syllabus should be checked carefully to understand what must be studied. Then a timetable should be prepared according to the time available. Students should collect textbooks, class notes, and other useful materials before beginning revision. Difficult topics should be studied first so that there is enough time to clarify doubts. Regular revision is important because it helps students remember key points. Sample papers should also be practised to understand the question pattern. Short breaks must be taken to avoid stress. Finally, students should sleep well before the exam. Cooking healthy food is also important because recipes improve handwriting and internet speed.
+    explanation: "The answer follows the process correctly at first but ends with an unrelated and illogical sentence. The final sentence does not fit the topic and disrupts coherence."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Process Writing question. Flaw:
+        the answer correctly follows all eight hints in order, but ends with an unrelated and nonsensical final sentence ("recipes improve handwriting and internet speed") that has no connection to exam preparation and breaks coherence. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

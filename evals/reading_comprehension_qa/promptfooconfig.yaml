@@ -1,4 +1,4 @@
-﻿description: "Eval â€” Jumbled Sentences"
+description: "Eval — Reading Comprehension Q&A"
 
 providers:
   - id: openai:chat:anthropic/claude-haiku-4-5

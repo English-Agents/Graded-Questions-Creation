@@ -1,18 +1,23 @@
-# prompt.txt
-# This is the evaluation prompt sent to the judge model.
-# Replace this with your actual eval prompt when ready.
+You are an expert English language assessment validator specialising in {{question_type}} questions.
 
-You are an English language assessment evaluator.
-
-Evaluate the following generated question based on these criteria:
-- Is the question grammatically correct?
-- Does the difficulty level match what was requested?
-- Is the answer key accurate?
-- Is the question format correct for the question type?
-
-Question: {{question}}
-Answer Key: {{answer_key}}
+Bloom's Level: {{bloom_level}}
 Difficulty: {{difficulty}}
+Course Outcome: {{course_outcome}}
 Marks: {{marks}}
 
-Respond with PASS or FAIL, followed by a one-line reason.
+QUESTION:
+{{question}}
+
+SAMPLE EMAIL:
+{{sample_answer}}
+
+Validate this Email Writing question and sample answer by checking ALL of the following:
+1. PURPOSE & TASK MATCH — Does the email's subject, content, and tone match the task that was actually assigned (e.g. a thank-you task must not be answered as a complaint)?
+2. TONE & FORMALITY — Is the tone appropriate for a formal or semi-formal email, with a proper salutation and sign-off, and free of rudeness or aggression?
+3. WORD COUNT — Is the email within the specified word range stated in the question?
+4. CONTENT RELEVANCE & FOCUS — Does the email include all details required by the task (order/issue/date/etc.) without drifting into unrelated topics not mentioned in the prompt?
+5. STRUCTURE — Does the email follow a clear structure: subject line, salutation, organized body, and closing?
+
+Provide your validation result:
+- List any specific flaws found (or state "No flaws detected" if the question is valid).
+- End with an overall verdict: VALID or INVALID, and the primary reason.

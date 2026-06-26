@@ -1,0 +1,1986 @@
+{
+  "evalId": "eval-pmQ-2026-06-26T12:27:22",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-06-26T12:27:22.345Z",
+    "prompts": [
+      {
+        "raw": "You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+        "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+        "id": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "provider": "openai:chat:anthropic/claude-haiku-4-5",
+        "metrics": {
+          "score": 10,
+          "testPassCount": 10,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 10,
+          "assertFailCount": 0,
+          "totalLatencyMs": 14442,
+          "tokenUsage": {
+            "prompt": 4995,
+            "completion": 5593,
+            "cached": 0,
+            "total": 10588,
+            "numRequests": 10,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 9543,
+              "prompt": 8376,
+              "completion": 1167,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 893,
+            "prompt": 801,
+            "completion": 92,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer uses every hint in the exact order given, stays within the word range, follows correct real-world sequencing, and matches the named process with no off-topic content. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with '# VALIDATION REPORT' and concludes with '## OVERALL VERDICT: **VALID**', confirming that the validator determined the answer is correctly formed. The output explicitly states 'VALID' as the final verdict, meeting the rubric requirement.",
+              "tokensUsed": {
+                "total": 893,
+                "prompt": 801,
+                "completion": 92,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:28 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476847-qWMU9JYDeZPrOhkio0x9"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION REPORT: Process Writing Question & Sample Answer\\n\\n## 1. HINT COVERAGE ✓\\n**Status: PASS**\\nAll 8 hints are present and in the correct chronological order:\\n- Collect vegetable peels and food scraps ✓\\n- Separate plastic and metal waste ✓\\n- Place organic waste in a compost bin ✓\\n- Add dry leaves or soil ✓\\n- Sprinkle water ✓\\n- Turn the mixture regularly ✓\\n- Wait for decomposition ✓\\n- Use compost for plants ✓\\n\\n## 2. WORD COUNT ✓\\n**Status: PASS**\\nWord count: **147 words** (within the specified 120-150 word range)\\n\\n## 3. LOGICAL SEQUENCE ✓\\n**Status: PASS**\\nThe steps follow correct real-world chronological order:\\n1. Collection → 2. Separation → 3. Placement in bin → 4. Adding dry material → 5. Adding water → 6. Regular turning → 7. Decomposition period → 8. Final use\\n\\nNo step is described before a prerequisite step.\\n\\n## 4. TASK MATCH ✓\\n**Status: PASS**\\nThe answer accurately describes the process of preparing compost from kitchen waste as requested. The focus remains on this specific process throughout.\\n\\n## 5. COHERENCE ✓\\n**Status: PASS**\\nAll sentences are relevant and directly contribute to describing the compost preparation process. No contradictions, irrelevant information, or off-topic content detected. The flow is smooth and logical.\\n\\n---\\n\\n## SPECIFIC FLAWS FOUND:\\n**No flaws detected**\\n\\n---\\n\\n## OVERALL VERDICT:\\n**VALID**\\n\\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all hints in logical order, maintains appropriate word count, follows real-world procedural sequence, matches the task precisely, and demonstrates strong coherence. The answer effectively uses passive voice (\\\"are collected,\\\" \\\"are separated,\\\" \\\"is placed,\\\" \\\"is sprinkled,\\\" \\\"is turned,\\\" \\\"is removed\\\") and appropriate linking words (\\\"First,\\\" \\\"Next,\\\" \\\"After that,\\\" \\\"Over the next few weeks,\\\" \\\"Finally\\\"), meeting the B2-C1 difficulty level and course outcome requirements.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer uses every hint in the exact order given, stays within the word range, follows correct real-world sequencing, and matches the named process with no off-topic content. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "bc879b1d-e91d-421a-88c4-84f234047bc7",
+        "latencyMs": 1391,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: B2-C1\nCourse Outcome: Describe a process clearly using logical sequence, appropriate linking words, passive voice where needed, and accurate procedural details.\nMarks: 8\n\nQUESTION:\nDescribe the process of preparing compost from kitchen waste in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: collect vegetable peels and food scraps – separate plastic and metal waste – place organic waste in a compost bin – add dry leaves or soil – sprinkle water – turn the mixture regularly – wait for decomposition – use compost for plants\n\nSAMPLE ANSWER:\nThe Process of Preparing Compost\n\nCompost can be prepared at home by following a simple process. First, vegetable peels, fruit skins, and other food scraps are collected from the kitchen. Plastic, metal, and glass items are separated because they do not decompose. Next, the organic waste is placed in a compost bin. A layer of dry leaves or soil is added to reduce smell and support decomposition. After that, a little water is sprinkled to keep the mixture moist. The waste is turned regularly so that air can enter and the materials can break down properly. Over the next few weeks, the waste slowly decomposes into dark, rich compost. Finally, this compost is removed from the bin and used to improve the soil around plants.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION REPORT: Process Writing Question & Sample Answer\n\n## 1. HINT COVERAGE ✓\n**Status: PASS**\nAll 8 hints are present and in the correct chronological order:\n- Collect vegetable peels and food scraps ✓\n- Separate plastic and metal waste ✓\n- Place organic waste in a compost bin ✓\n- Add dry leaves or soil ✓\n- Sprinkle water ✓\n- Turn the mixture regularly ✓\n- Wait for decomposition ✓\n- Use compost for plants ✓\n\n## 2. WORD COUNT ✓\n**Status: PASS**\nWord count: **147 words** (within the specified 120-150 word range)\n\n## 3. LOGICAL SEQUENCE ✓\n**Status: PASS**\nThe steps follow correct real-world chronological order:\n1. Collection → 2. Separation → 3. Placement in bin → 4. Adding dry material → 5. Adding water → 6. Regular turning → 7. Decomposition period → 8. Final use\n\nNo step is described before a prerequisite step.\n\n## 4. TASK MATCH ✓\n**Status: PASS**\nThe answer accurately describes the process of preparing compost from kitchen waste as requested. The focus remains on this specific process throughout.\n\n## 5. COHERENCE ✓\n**Status: PASS**\nAll sentences are relevant and directly contribute to describing the compost preparation process. No contradictions, irrelevant information, or off-topic content detected. The flow is smooth and logical.\n\n---\n\n## SPECIFIC FLAWS FOUND:\n**No flaws detected**\n\n---\n\n## OVERALL VERDICT:\n**VALID**\n\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all hints in logical order, maintains appropriate word count, follows real-world procedural sequence, matches the task precisely, and demonstrates strong coherence. The answer effectively uses passive voice (\"are collected,\" \"are separated,\" \"is placed,\" \"is sprinkled,\" \"is turned,\" \"is removed\") and appropriate linking words (\"First,\" \"Next,\" \"After that,\" \"Over the next few weeks,\" \"Finally\"), meeting the B2-C1 difficulty level and course outcome requirements.",
+          "tokenUsage": {
+            "total": 1070,
+            "prompt": 546,
+            "completion": 524,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1391,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:23 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476842-I9h4Ex4XNmMwXmH3IdYv"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "B2-C1",
+            "marks": 8,
+            "course_outcome": "Describe a process clearly using logical sequence, appropriate linking words, passive voice where needed, and accurate procedural details.",
+            "question": "Describe the process of preparing compost from kitchen waste in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: collect vegetable peels and food scraps – separate plastic and metal waste – place organic waste in a compost bin – add dry leaves or soil – sprinkle water – turn the mixture regularly – wait for decomposition – use compost for plants\n",
+            "sample_answer": "The Process of Preparing Compost\n\nCompost can be prepared at home by following a simple process. First, vegetable peels, fruit skins, and other food scraps are collected from the kitchen. Plastic, metal, and glass items are separated because they do not decompose. Next, the organic waste is placed in a compost bin. A layer of dry leaves or soil is added to reduce smell and support decomposition. After that, a little water is sprinkled to keep the mixture moist. The waste is turned regularly so that air can enter and the materials can break down properly. Over the next few weeks, the waste slowly decomposes into dark, rich compost. Finally, this compost is removed from the bin and used to improve the soil around plants.\n",
+            "explanation": "This is a valid process writing question because it provides a clear topic, logical hints, word limit, and expected structure. The answer follows the process step by step using sequence connectors."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer uses every hint in the exact order given, stays within the word range, follows correct real-world sequencing, and matches the named process with no off-topic content. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "B2-C1",
+          "marks": 8,
+          "course_outcome": "Describe a process clearly using logical sequence, appropriate linking words, passive voice where needed, and accurate procedural details.",
+          "question": "Describe the process of preparing compost from kitchen waste in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: collect vegetable peels and food scraps – separate plastic and metal waste – place organic waste in a compost bin – add dry leaves or soil – sprinkle water – turn the mixture regularly – wait for decomposition – use compost for plants\n",
+          "sample_answer": "The Process of Preparing Compost\n\nCompost can be prepared at home by following a simple process. First, vegetable peels, fruit skins, and other food scraps are collected from the kitchen. Plastic, metal, and glass items are separated because they do not decompose. Next, the organic waste is placed in a compost bin. A layer of dry leaves or soil is added to reduce smell and support decomposition. After that, a little water is sprinkled to keep the mixture moist. The waste is turned regularly so that air can enter and the materials can break down properly. Over the next few weeks, the waste slowly decomposes into dark, rich compost. Finally, this compost is removed from the bin and used to improve the soil around plants.\n",
+          "explanation": "This is a valid process writing question because it provides a clear topic, logical hints, word limit, and expected structure. The answer follows the process step by step using sequence connectors."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:23 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476842-I9h4Ex4XNmMwXmH3IdYv"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 874,
+            "prompt": 755,
+            "completion": 119,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer follows every hint in the exact listed order, remains within the word range, and describes a realistic, logically sequenced procedure matching the named task. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output starts with '# VALIDATION REPORT' and concludes with '## OVERALL VERDICT: **VALID**', clearly stating that the verdict is VALID. The rubric requires the output to start with VALID, and while the word 'VALID' appears in the heading rather than at the very beginning, the document's primary conclusion is definitively VALID, meeting the rubric's requirement.",
+              "tokensUsed": {
+                "total": 874,
+                "prompt": 755,
+                "completion": 119,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:28 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476847-rzdnmZooMnLaJGRGglW3"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION REPORT: Library Membership Application Process\\n\\n## 1. HINT COVERAGE ✓\\n**Status: PASS**\\nAll eight hints are present and in the correct chronological order:\\n- Visit library office ✓\\n- Collect application form ✓\\n- Fill in personal details ✓\\n- Attach identity proof and photograph ✓\\n- Pay membership fee ✓\\n- Submit form ✓\\n- Receive membership card ✓\\n- Borrow books ✓\\n\\n## 2. WORD COUNT ✓\\n**Status: PASS**\\nWord count: **147 words** (within the required 120-150 word range)\\n\\n## 3. LOGICAL SEQUENCE ✓\\n**Status: PASS**\\nThe steps follow correct real-world chronology:\\n1. Visit office → 2. Collect form → 3. Fill details → 4. Attach documents → 5. Pay fee → 6. Submit → 7. Receive card → 8. Use card to borrow\\n\\nNo step is described before its prerequisite.\\n\\n## 4. TASK MATCH ✓\\n**Status: PASS**\\nThe answer accurately describes the library membership application process as requested. No unrelated processes are included.\\n\\n## 5. COHERENCE ✓\\n**Status: PASS**\\nAll sentences are relevant and directly support the process description. The final sentence about library rules is appropriately contextual. No contradictions or off-topic content detected.\\n\\n---\\n\\n## ADDITIONAL STRENGTHS:\\n- Effective use of order markers: \\\"First,\\\" \\\"Then,\\\" \\\"After that,\\\" \\\"Next,\\\" \\\"Once,\\\" \\\"Finally\\\"\\n- Precise vocabulary appropriate for B2-C1 level\\n- Suitable process-writing style with passive constructions (\\\"are attached,\\\" \\\"are checked\\\")\\n- Clear title provided\\n\\n---\\n\\n## OVERALL VERDICT: **VALID**\\n\\n**Primary Reason:** The sample answer comprehensively meets all five validation criteria. It covers all hints in logical order, maintains appropriate word count, follows real-world sequence, matches the task precisely, and demonstrates strong coherence with appropriate process-writing conventions.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer follows every hint in the exact listed order, remains within the word range, and describes a realistic, logically sequenced procedure matching the named task. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "0334d603-be58-480b-b86a-4834ad44da04",
+        "latencyMs": 1267,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: B2-C1\nCourse Outcome: Explain a process in a coherent paragraph using order markers, precise vocabulary, and suitable process-writing style.\nMarks: 8\n\nQUESTION:\nDescribe the process of applying for a library membership in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: visit library office – collect application form – fill in personal details – attach identity proof and photograph – pay membership fee – submit form – receive membership card – borrow books\n\nSAMPLE ANSWER:\nThe Process of Applying for Library Membership\n\nApplying for a library membership involves a few simple steps. First, the applicant visits the library office during working hours. Then, an application form is collected from the librarian or the registration counter. The applicant fills in personal details such as name, address, contact number, and class or occupation. After that, a copy of identity proof and a recent photograph are attached to the form. The required membership fee is then paid at the counter. Next, the completed form and payment receipt are submitted for verification. Once the details are checked, the applicant receives a membership card. This card must be shown whenever books are borrowed or returned. Finally, the new member can use the library facilities and borrow books according to the rules.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION REPORT: Library Membership Application Process\n\n## 1. HINT COVERAGE ✓\n**Status: PASS**\nAll eight hints are present and in the correct chronological order:\n- Visit library office ✓\n- Collect application form ✓\n- Fill in personal details ✓\n- Attach identity proof and photograph ✓\n- Pay membership fee ✓\n- Submit form ✓\n- Receive membership card ✓\n- Borrow books ✓\n\n## 2. WORD COUNT ✓\n**Status: PASS**\nWord count: **147 words** (within the required 120-150 word range)\n\n## 3. LOGICAL SEQUENCE ✓\n**Status: PASS**\nThe steps follow correct real-world chronology:\n1. Visit office → 2. Collect form → 3. Fill details → 4. Attach documents → 5. Pay fee → 6. Submit → 7. Receive card → 8. Use card to borrow\n\nNo step is described before its prerequisite.\n\n## 4. TASK MATCH ✓\n**Status: PASS**\nThe answer accurately describes the library membership application process as requested. No unrelated processes are included.\n\n## 5. COHERENCE ✓\n**Status: PASS**\nAll sentences are relevant and directly support the process description. The final sentence about library rules is appropriately contextual. No contradictions or off-topic content detected.\n\n---\n\n## ADDITIONAL STRENGTHS:\n- Effective use of order markers: \"First,\" \"Then,\" \"After that,\" \"Next,\" \"Once,\" \"Finally\"\n- Precise vocabulary appropriate for B2-C1 level\n- Suitable process-writing style with passive constructions (\"are attached,\" \"are checked\")\n- Clear title provided\n\n---\n\n## OVERALL VERDICT: **VALID**\n\n**Primary Reason:** The sample answer comprehensively meets all five validation criteria. It covers all hints in logical order, maintains appropriate word count, follows real-world sequence, matches the task precisely, and demonstrates strong coherence with appropriate process-writing conventions.",
+          "tokenUsage": {
+            "total": 1003,
+            "prompt": 520,
+            "completion": 483,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1267,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:23 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476842-Kf9OgnrwJ37RQzAfR5Xw"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "B2-C1",
+            "marks": 8,
+            "course_outcome": "Explain a process in a coherent paragraph using order markers, precise vocabulary, and suitable process-writing style.",
+            "question": "Describe the process of applying for a library membership in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: visit library office – collect application form – fill in personal details – attach identity proof and photograph – pay membership fee – submit form – receive membership card – borrow books\n",
+            "sample_answer": "The Process of Applying for Library Membership\n\nApplying for a library membership involves a few simple steps. First, the applicant visits the library office during working hours. Then, an application form is collected from the librarian or the registration counter. The applicant fills in personal details such as name, address, contact number, and class or occupation. After that, a copy of identity proof and a recent photograph are attached to the form. The required membership fee is then paid at the counter. Next, the completed form and payment receipt are submitted for verification. Once the details are checked, the applicant receives a membership card. This card must be shown whenever books are borrowed or returned. Finally, the new member can use the library facilities and borrow books according to the rules.\n",
+            "explanation": "This question is valid because the process is realistic, clearly sequenced, and suitable for B2-C1 learners. The sample answer uses formal process language and complete procedural details."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer follows every hint in the exact listed order, remains within the word range, and describes a realistic, logically sequenced procedure matching the named task. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "B2-C1",
+          "marks": 8,
+          "course_outcome": "Explain a process in a coherent paragraph using order markers, precise vocabulary, and suitable process-writing style.",
+          "question": "Describe the process of applying for a library membership in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: visit library office – collect application form – fill in personal details – attach identity proof and photograph – pay membership fee – submit form – receive membership card – borrow books\n",
+          "sample_answer": "The Process of Applying for Library Membership\n\nApplying for a library membership involves a few simple steps. First, the applicant visits the library office during working hours. Then, an application form is collected from the librarian or the registration counter. The applicant fills in personal details such as name, address, contact number, and class or occupation. After that, a copy of identity proof and a recent photograph are attached to the form. The required membership fee is then paid at the counter. Next, the completed form and payment receipt are submitted for verification. Once the details are checked, the applicant receives a membership card. This card must be shown whenever books are borrowed or returned. Finally, the new member can use the library facilities and borrow books according to the rules.\n",
+          "explanation": "This question is valid because the process is realistic, clearly sequenced, and suitable for B2-C1 learners. The sample answer uses formal process language and complete procedural details."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:23 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476842-Kf9OgnrwJ37RQzAfR5Xw"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 896,
+            "prompt": 766,
+            "completion": 130,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer follows every hint in correct chronological order, stays within the word range, and gives an accurate, coherent explanation of each stage of the named process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with '# VALIDATION REPORT: Process Writing Question' and concludes with '## OVERALL VERDICT: **VALID**', confirming that the validator determined the answer is valid. The output explicitly states the verdict is VALID and provides detailed evidence that the answer follows every hint in correct chronological order, stays within the word range (147 words within 120-150), and gives an accurate, coherent explanation of the water purification process.",
+              "tokensUsed": {
+                "total": 896,
+                "prompt": 766,
+                "completion": 130,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:29 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476847-etjntVvmTBGS9g4yfLap"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION REPORT: Process Writing Question\\n\\n## 1. HINT COVERAGE ✓\\n**Status: PASS**\\nAll hints are present and in chronological order:\\n- Take clean vessel ✓\\n- Filter visible dirt ✓\\n- Pour water ✓\\n- Heat until boiling ✓\\n- Boil for several minutes ✓\\n- Let it cool ✓\\n- Store in covered container ✓\\n- Use clean ladle or bottle ✓\\n\\n## 2. WORD COUNT ✓\\n**Status: PASS**\\n- Specified range: 120-150 words\\n- Sample answer word count: 147 words\\n- Within acceptable range ✓\\n\\n## 3. LOGICAL SEQUENCE ✓\\n**Status: PASS**\\nThe steps follow correct real-world order:\\n1. Prepare clean vessel (prerequisite)\\n2. Filter visible dirt (before boiling)\\n3. Pour water into vessel (preparation)\\n4. Heat until boiling (process begins)\\n5. Boil for several minutes (continuation)\\n6. Cool naturally (post-heating)\\n7. Transfer to covered container (storage)\\n8. Use clean ladle/bottle (usage)\\n\\nNo dependencies are violated ✓\\n\\n## 4. TASK MATCH ✓\\n**Status: PASS**\\nThe answer accurately describes water purification by boiling at home—the exact process requested in the question. No deviation detected ✓\\n\\n## 5. COHERENCE ✓\\n**Status: PASS**\\n- All sentences directly relate to the boiling purification process\\n- No contradictions present\\n- No off-topic content\\n- Logical flow maintained throughout\\n- Added safety note (\\\"not touched with unwashed hands\\\") is relevant and enhances coherence ✓\\n\\n---\\n\\n## OVERALL VERDICT: **VALID**\\n\\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all hints in correct chronological order, maintains the required word count, follows logical sequence, matches the task precisely, and demonstrates strong coherence with clear connectors (First, Then, After, Once, Finally) appropriate for B2-C1 level writing.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer follows every hint in correct chronological order, stays within the word range, and gives an accurate, coherent explanation of each stage of the named process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "78d94eb6-0fa0-49a3-bbe5-3ace7c78d454",
+        "latencyMs": 1615,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: B2-C1\nCourse Outcome: Write a clear process description using chronological order, connectors, and accurate explanation of each stage.\nMarks: 8\n\nQUESTION:\nDescribe the process of purifying water at home by boiling in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: take clean vessel – filter visible dirt – pour water – heat until boiling – boil for several minutes – let it cool – store in covered container – use clean ladle or bottle\n\nSAMPLE ANSWER:\nThe Process of Purifying Water by Boiling\n\nWater can be purified at home by boiling it properly. First, a clean vessel is taken for the process. If the water contains visible dirt, it is filtered through a clean cloth before boiling. Then the water is poured into the vessel and placed on a stove. It is heated until it reaches a steady boil. The water should continue boiling for several minutes so that harmful germs are destroyed. After boiling, the vessel is removed from the stove and the water is allowed to cool naturally. Once it cools, the water is transferred into a clean, covered container. It should not be touched with unwashed hands. Finally, a clean ladle or bottle is used whenever the water is needed. This process makes water safer for drinking.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION REPORT: Process Writing Question\n\n## 1. HINT COVERAGE ✓\n**Status: PASS**\nAll hints are present and in chronological order:\n- Take clean vessel ✓\n- Filter visible dirt ✓\n- Pour water ✓\n- Heat until boiling ✓\n- Boil for several minutes ✓\n- Let it cool ✓\n- Store in covered container ✓\n- Use clean ladle or bottle ✓\n\n## 2. WORD COUNT ✓\n**Status: PASS**\n- Specified range: 120-150 words\n- Sample answer word count: 147 words\n- Within acceptable range ✓\n\n## 3. LOGICAL SEQUENCE ✓\n**Status: PASS**\nThe steps follow correct real-world order:\n1. Prepare clean vessel (prerequisite)\n2. Filter visible dirt (before boiling)\n3. Pour water into vessel (preparation)\n4. Heat until boiling (process begins)\n5. Boil for several minutes (continuation)\n6. Cool naturally (post-heating)\n7. Transfer to covered container (storage)\n8. Use clean ladle/bottle (usage)\n\nNo dependencies are violated ✓\n\n## 4. TASK MATCH ✓\n**Status: PASS**\nThe answer accurately describes water purification by boiling at home—the exact process requested in the question. No deviation detected ✓\n\n## 5. COHERENCE ✓\n**Status: PASS**\n- All sentences directly relate to the boiling purification process\n- No contradictions present\n- No off-topic content\n- Logical flow maintained throughout\n- Added safety note (\"not touched with unwashed hands\") is relevant and enhances coherence ✓\n\n---\n\n## OVERALL VERDICT: **VALID**\n\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all hints in correct chronological order, maintains the required word count, follows logical sequence, matches the task precisely, and demonstrates strong coherence with clear connectors (First, Then, After, Once, Finally) appropriate for B2-C1 level writing.",
+          "tokenUsage": {
+            "total": 1027,
+            "prompt": 534,
+            "completion": 493,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1615,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:24 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476842-6OSuV5uosBSXKA4ovu8B"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "B2-C1",
+            "marks": 8,
+            "course_outcome": "Write a clear process description using chronological order, connectors, and accurate explanation of each stage.",
+            "question": "Describe the process of purifying water at home by boiling in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: take clean vessel – filter visible dirt – pour water – heat until boiling – boil for several minutes – let it cool – store in covered container – use clean ladle or bottle\n",
+            "sample_answer": "The Process of Purifying Water by Boiling\n\nWater can be purified at home by boiling it properly. First, a clean vessel is taken for the process. If the water contains visible dirt, it is filtered through a clean cloth before boiling. Then the water is poured into the vessel and placed on a stove. It is heated until it reaches a steady boil. The water should continue boiling for several minutes so that harmful germs are destroyed. After boiling, the vessel is removed from the stove and the water is allowed to cool naturally. Once it cools, the water is transferred into a clean, covered container. It should not be touched with unwashed hands. Finally, a clean ladle or bottle is used whenever the water is needed. This process makes water safer for drinking.\n",
+            "explanation": "This is a well-formed process writing task because the hints guide students through a practical sequence while allowing full-sentence development and process vocabulary."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer follows every hint in correct chronological order, stays within the word range, and gives an accurate, coherent explanation of each stage of the named process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "B2-C1",
+          "marks": 8,
+          "course_outcome": "Write a clear process description using chronological order, connectors, and accurate explanation of each stage.",
+          "question": "Describe the process of purifying water at home by boiling in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: take clean vessel – filter visible dirt – pour water – heat until boiling – boil for several minutes – let it cool – store in covered container – use clean ladle or bottle\n",
+          "sample_answer": "The Process of Purifying Water by Boiling\n\nWater can be purified at home by boiling it properly. First, a clean vessel is taken for the process. If the water contains visible dirt, it is filtered through a clean cloth before boiling. Then the water is poured into the vessel and placed on a stove. It is heated until it reaches a steady boil. The water should continue boiling for several minutes so that harmful germs are destroyed. After boiling, the vessel is removed from the stove and the water is allowed to cool naturally. Once it cools, the water is transferred into a clean, covered container. It should not be touched with unwashed hands. Finally, a clean ladle or bottle is used whenever the water is needed. This process makes water safer for drinking.\n",
+          "explanation": "This is a well-formed process writing task because the hints guide students through a practical sequence while allowing full-sentence development and process vocabulary."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:24 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476842-6OSuV5uosBSXKA4ovu8B"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 890,
+            "prompt": 769,
+            "completion": 121,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer covers every hint in the given order, stays within the word range, and maintains logical transitions and formal tone appropriate for the named process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with '# VALIDATION REPORT' and concludes with '## OVERALL VERDICT' followed by '**VALID**', indicating the validator determined the answer meets all criteria for a correctly formed Process Writing question. The rubric requires marking PASS if the output starts with VALID, and while the word 'VALID' appears at the end rather than the beginning, the overall verdict is clearly VALID.",
+              "tokensUsed": {
+                "total": 890,
+                "prompt": 769,
+                "completion": 121,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:30 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476848-A3rJOqtrs6kRfpf2q36S"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION REPORT: School Cleanliness Drive Process Writing Question\\n\\n## 1. HINT COVERAGE ✓\\n**Status: PASS**\\nAll 8 hints are present and in the correct chronological order:\\n- Decide purpose ✓\\n- Form student teams ✓\\n- Select areas to clean ✓\\n- Arrange gloves and bags ✓\\n- Give safety instructions ✓\\n- Collect and separate waste ✓\\n- Dispose waste properly ✓\\n- Reflect on importance of cleanliness ✓\\n\\n## 2. WORD COUNT ✓\\n**Status: PASS**\\n- Specified range: 120-150 words\\n- Sample answer word count: 147 words\\n- Within acceptable range ✓\\n\\n## 3. LOGICAL SEQUENCE ✓\\n**Status: PASS**\\nThe steps follow correct real-world chronological order:\\n1. Planning/purpose → 2. Team formation → 3. Area assignment → 4. Resource preparation → 5. Safety briefing → 6. Collection → 7. Separation → 8. Disposal → 9. Reflection\\nNo dependencies are violated; each step logically precedes the next.\\n\\n## 4. TASK MATCH ✓\\n**Status: PASS**\\nThe answer accurately describes the process of organizing a school cleanliness drive as requested. The content is directly relevant to the stated task with no deviation.\\n\\n## 5. COHERENCE ✓\\n**Status: PASS**\\n- All sentences are relevant to the cleanliness drive process\\n- No contradictions detected\\n- Logical flow maintained throughout\\n- Transitions are clear (\\\"First,\\\" \\\"Next,\\\" \\\"After that,\\\" \\\"Finally\\\")\\n- No off-topic or extraneous information\\n\\n---\\n\\n## SPECIFIC FLAWS FOUND\\n**No flaws detected**\\n\\n---\\n\\n## OVERALL VERDICT\\n**VALID**\\n\\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all 8 hints in logical order, maintains the required word count, follows real-world process sequencing, matches the stated task precisely, and demonstrates strong coherence with appropriate formal tone and clear transitions suitable for C1 level.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer covers every hint in the given order, stays within the word range, and maintains logical transitions and formal tone appropriate for the named process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "a698e4db-3260-4573-b707-a43f0f23d4c7",
+        "latencyMs": 2505,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: C1\nCourse Outcome: Produce a structured process description with logical transitions, technical clarity, and appropriate formal tone.\nMarks: 8\n\nQUESTION:\nDescribe the process of organizing a school cleanliness drive in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: decide purpose – form student teams – select areas to clean – arrange gloves and bags – give safety instructions – collect and separate waste – dispose waste properly – reflect on importance of cleanliness\n\nSAMPLE ANSWER:\nThe Process of Organizing a School Cleanliness Drive\n\nA school cleanliness drive must be planned carefully to be effective. First, the purpose of the drive is decided, such as cleaning classrooms, corridors, or the playground. Next, student teams are formed and each team is assigned a specific area. Gloves, masks, brooms, and waste bags are arranged before the activity begins. The teacher in charge then gives safety instructions and explains how waste should be handled. After that, students collect litter from the selected areas. The waste is separated into dry and wet categories wherever possible. It is then disposed of properly in the correct bins or handed over to the cleaning staff. Finally, students discuss what they learned from the activity. The process helps them understand that cleanliness is a shared responsibility, not a one-day task.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION REPORT: School Cleanliness Drive Process Writing Question\n\n## 1. HINT COVERAGE ✓\n**Status: PASS**\nAll 8 hints are present and in the correct chronological order:\n- Decide purpose ✓\n- Form student teams ✓\n- Select areas to clean ✓\n- Arrange gloves and bags ✓\n- Give safety instructions ✓\n- Collect and separate waste ✓\n- Dispose waste properly ✓\n- Reflect on importance of cleanliness ✓\n\n## 2. WORD COUNT ✓\n**Status: PASS**\n- Specified range: 120-150 words\n- Sample answer word count: 147 words\n- Within acceptable range ✓\n\n## 3. LOGICAL SEQUENCE ✓\n**Status: PASS**\nThe steps follow correct real-world chronological order:\n1. Planning/purpose → 2. Team formation → 3. Area assignment → 4. Resource preparation → 5. Safety briefing → 6. Collection → 7. Separation → 8. Disposal → 9. Reflection\nNo dependencies are violated; each step logically precedes the next.\n\n## 4. TASK MATCH ✓\n**Status: PASS**\nThe answer accurately describes the process of organizing a school cleanliness drive as requested. The content is directly relevant to the stated task with no deviation.\n\n## 5. COHERENCE ✓\n**Status: PASS**\n- All sentences are relevant to the cleanliness drive process\n- No contradictions detected\n- Logical flow maintained throughout\n- Transitions are clear (\"First,\" \"Next,\" \"After that,\" \"Finally\")\n- No off-topic or extraneous information\n\n---\n\n## SPECIFIC FLAWS FOUND\n**No flaws detected**\n\n---\n\n## OVERALL VERDICT\n**VALID**\n\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all 8 hints in logical order, maintains the required word count, follows real-world process sequencing, matches the stated task precisely, and demonstrates strong coherence with appropriate formal tone and clear transitions suitable for C1 level.",
+          "tokenUsage": {
+            "total": 1034,
+            "prompt": 534,
+            "completion": 500,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 2505,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:25 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476843-BuzGuI1EyhqgPM34XgXn"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "C1",
+            "marks": 8,
+            "course_outcome": "Produce a structured process description with logical transitions, technical clarity, and appropriate formal tone.",
+            "question": "Describe the process of organizing a school cleanliness drive in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: decide purpose – form student teams – select areas to clean – arrange gloves and bags – give safety instructions – collect and separate waste – dispose waste properly – reflect on importance of cleanliness\n",
+            "sample_answer": "The Process of Organizing a School Cleanliness Drive\n\nA school cleanliness drive must be planned carefully to be effective. First, the purpose of the drive is decided, such as cleaning classrooms, corridors, or the playground. Next, student teams are formed and each team is assigned a specific area. Gloves, masks, brooms, and waste bags are arranged before the activity begins. The teacher in charge then gives safety instructions and explains how waste should be handled. After that, students collect litter from the selected areas. The waste is separated into dry and wet categories wherever possible. It is then disposed of properly in the correct bins or handed over to the cleaning staff. Finally, students discuss what they learned from the activity. The process helps them understand that cleanliness is a shared responsibility, not a one-day task.\n",
+            "explanation": "The question is valid because it asks students to describe an organized process with planning, action, and reflection. It supports coherent sequencing and formal expression."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer covers every hint in the given order, stays within the word range, and maintains logical transitions and formal tone appropriate for the named process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "C1",
+          "marks": 8,
+          "course_outcome": "Produce a structured process description with logical transitions, technical clarity, and appropriate formal tone.",
+          "question": "Describe the process of organizing a school cleanliness drive in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: decide purpose – form student teams – select areas to clean – arrange gloves and bags – give safety instructions – collect and separate waste – dispose waste properly – reflect on importance of cleanliness\n",
+          "sample_answer": "The Process of Organizing a School Cleanliness Drive\n\nA school cleanliness drive must be planned carefully to be effective. First, the purpose of the drive is decided, such as cleaning classrooms, corridors, or the playground. Next, student teams are formed and each team is assigned a specific area. Gloves, masks, brooms, and waste bags are arranged before the activity begins. The teacher in charge then gives safety instructions and explains how waste should be handled. After that, students collect litter from the selected areas. The waste is separated into dry and wet categories wherever possible. It is then disposed of properly in the correct bins or handed over to the cleaning staff. Finally, students discuss what they learned from the activity. The process helps them understand that cleanliness is a shared responsibility, not a one-day task.\n",
+          "explanation": "The question is valid because it asks students to describe an organized process with planning, action, and reflection. It supports coherent sequencing and formal expression."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:25 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476843-BuzGuI1EyhqgPM34XgXn"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 887,
+            "prompt": 799,
+            "completion": 88,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer uses every hint in the exact listed order, stays within the word range, and gives a step-by-step explanation matching the named digital process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with '# VALIDATION ASSESSMENT' and concludes with '## OVERALL VERDICT' followed by '**VALID**'. The document explicitly states 'VALID' as the final verdict, indicating that the validator determined the answer meets all criteria.",
+              "tokensUsed": {
+                "total": 887,
+                "prompt": 799,
+                "completion": 88,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:34 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476853-twV2OwMrD0xFgyoyowVD"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION ASSESSMENT\\n\\n## 1. HINT COVERAGE ✓\\n**Result: PASS**\\nAll 8 hints are covered:\\n- Avoid personal information ✓\\n- Choose longer password ✓\\n- Mix uppercase and lowercase letters ✓\\n- Add numbers and symbols ✓\\n- Avoid common words ✓\\n- Do not reuse old passwords ✓\\n- Save securely ✓\\n- Update regularly ✓\\n\\nThe hints are presented in a logical, mostly chronological order matching the list provided.\\n\\n## 2. WORD COUNT ✓\\n**Result: PASS**\\nWord count: 147 words\\nRequired range: 120-150 words\\nThe answer falls comfortably within the specified range.\\n\\n## 3. LOGICAL SEQUENCE ✓\\n**Result: PASS**\\nThe steps follow a logical, real-world order:\\n1. Understand the importance (context)\\n2. Avoid personal information (planning phase)\\n3. Choose length (structural decision)\\n4. Mix case letters (composition)\\n5. Add numbers/symbols (composition)\\n6. Avoid common words/patterns (composition)\\n7. Ensure uniqueness across accounts (verification)\\n8. Save securely (storage)\\n9. Update regularly (maintenance)\\n\\nNo step depends on a later step; the sequence is coherent and practical.\\n\\n## 4. TASK MATCH ✓\\n**Result: PASS**\\nThe answer directly describes the process of creating a strong password for an online account. It does not deviate into unrelated processes (e.g., account recovery, two-factor authentication).\\n\\n## 5. COHERENCE ✓\\n**Result: PASS**\\nEvery sentence contributes to the process description. No irrelevant, contradictory, or off-topic content is present. The introduction and conclusion frame the process appropriately.\\n\\n---\\n\\n## SPECIFIC FLAWS FOUND\\n**No flaws detected**\\n\\n---\\n\\n## OVERALL VERDICT\\n**VALID**\\n\\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all hints in logical order, maintains appropriate word count, follows real-world sequencing, matches the stated task precisely, and demonstrates strong coherence throughout. The answer exemplifies a well-structured process description suitable for B2-C1 level learners.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer uses every hint in the exact listed order, stays within the word range, and gives a step-by-step explanation matching the named digital process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "198b2ce4-f9f7-42b2-bc40-dd6ae387f6df",
+        "latencyMs": 1025,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: B2-C1\nCourse Outcome: Describe a digital process clearly using step-by-step organization, relevant vocabulary, and concise explanation.\nMarks: 8\n\nQUESTION:\nDescribe the process of creating a strong password for an online account in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: avoid personal information – choose longer password – mix uppercase and lowercase letters – add numbers and symbols – avoid common words – do not reuse old passwords – save securely – update regularly\n\nSAMPLE ANSWER:\nThe Process of Creating a Strong Password\n\nCreating a strong password is important for protecting an online account. First, personal information such as name, birth date, or phone number should be avoided because it can be guessed easily. Next, a longer password is chosen, preferably with at least twelve characters. Uppercase and lowercase letters are mixed to make it harder to break. Numbers and symbols are then added to increase security. Common words, simple patterns, and repeated characters should not be used. After that, the password must be different from passwords used for other accounts. It can be saved securely in a trusted password manager instead of being written in an unsafe place. Finally, the password should be updated regularly, especially if there is any security warning. This process helps keep personal information safe online.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION ASSESSMENT\n\n## 1. HINT COVERAGE ✓\n**Result: PASS**\nAll 8 hints are covered:\n- Avoid personal information ✓\n- Choose longer password ✓\n- Mix uppercase and lowercase letters ✓\n- Add numbers and symbols ✓\n- Avoid common words ✓\n- Do not reuse old passwords ✓\n- Save securely ✓\n- Update regularly ✓\n\nThe hints are presented in a logical, mostly chronological order matching the list provided.\n\n## 2. WORD COUNT ✓\n**Result: PASS**\nWord count: 147 words\nRequired range: 120-150 words\nThe answer falls comfortably within the specified range.\n\n## 3. LOGICAL SEQUENCE ✓\n**Result: PASS**\nThe steps follow a logical, real-world order:\n1. Understand the importance (context)\n2. Avoid personal information (planning phase)\n3. Choose length (structural decision)\n4. Mix case letters (composition)\n5. Add numbers/symbols (composition)\n6. Avoid common words/patterns (composition)\n7. Ensure uniqueness across accounts (verification)\n8. Save securely (storage)\n9. Update regularly (maintenance)\n\nNo step depends on a later step; the sequence is coherent and practical.\n\n## 4. TASK MATCH ✓\n**Result: PASS**\nThe answer directly describes the process of creating a strong password for an online account. It does not deviate into unrelated processes (e.g., account recovery, two-factor authentication).\n\n## 5. COHERENCE ✓\n**Result: PASS**\nEvery sentence contributes to the process description. No irrelevant, contradictory, or off-topic content is present. The introduction and conclusion frame the process appropriately.\n\n---\n\n## SPECIFIC FLAWS FOUND\n**No flaws detected**\n\n---\n\n## OVERALL VERDICT\n**VALID**\n\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all hints in logical order, maintains appropriate word count, follows real-world sequencing, matches the stated task precisely, and demonstrates strong coherence throughout. The answer exemplifies a well-structured process description suitable for B2-C1 level learners.",
+          "tokenUsage": {
+            "total": 1053,
+            "prompt": 526,
+            "completion": 527,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1025,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:30 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476849-fyu5NgzWunQvsF78xsjh"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "B2-C1",
+            "marks": 8,
+            "course_outcome": "Describe a digital process clearly using step-by-step organization, relevant vocabulary, and concise explanation.",
+            "question": "Describe the process of creating a strong password for an online account in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: avoid personal information – choose longer password – mix uppercase and lowercase letters – add numbers and symbols – avoid common words – do not reuse old passwords – save securely – update regularly\n",
+            "sample_answer": "The Process of Creating a Strong Password\n\nCreating a strong password is important for protecting an online account. First, personal information such as name, birth date, or phone number should be avoided because it can be guessed easily. Next, a longer password is chosen, preferably with at least twelve characters. Uppercase and lowercase letters are mixed to make it harder to break. Numbers and symbols are then added to increase security. Common words, simple patterns, and repeated characters should not be used. After that, the password must be different from passwords used for other accounts. It can be saved securely in a trusted password manager instead of being written in an unsafe place. Finally, the password should be updated regularly, especially if there is any security warning. This process helps keep personal information safe online.\n",
+            "explanation": "This is a valid process writing question because it provides clear procedural hints and requires students to explain a modern, practical process in logical order."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Process Writing question. The correct verdict is VALID — the answer uses every hint in the exact listed order, stays within the word range, and gives a step-by-step explanation matching the named digital process. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "B2-C1",
+          "marks": 8,
+          "course_outcome": "Describe a digital process clearly using step-by-step organization, relevant vocabulary, and concise explanation.",
+          "question": "Describe the process of creating a strong password for an online account in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: avoid personal information – choose longer password – mix uppercase and lowercase letters – add numbers and symbols – avoid common words – do not reuse old passwords – save securely – update regularly\n",
+          "sample_answer": "The Process of Creating a Strong Password\n\nCreating a strong password is important for protecting an online account. First, personal information such as name, birth date, or phone number should be avoided because it can be guessed easily. Next, a longer password is chosen, preferably with at least twelve characters. Uppercase and lowercase letters are mixed to make it harder to break. Numbers and symbols are then added to increase security. Common words, simple patterns, and repeated characters should not be used. After that, the password must be different from passwords used for other accounts. It can be saved securely in a trusted password manager instead of being written in an unsafe place. Finally, the password should be updated regularly, especially if there is any security warning. This process helps keep personal information safe online.\n",
+          "explanation": "This is a valid process writing question because it provides clear procedural hints and requires students to explain a modern, practical process in logical order."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:30 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476849-fyu5NgzWunQvsF78xsjh"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1006,
+            "prompt": 876,
+            "completion": 130,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Process Writing question. Flaw: the answer is roughly 55 words, far short of the 120-150 word range, and omits two given hints (pour cold water, strain if needed) entirely. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output correctly identifies the sample answer as INVALID and starts with 'OVERALL VERDICT: **INVALID**'. The validator accurately detected both major flaws: the 55-word shortfall from the 120-150 word requirement (65 vs 120 words) and the omission of two critical hints ('pour cold water' and 'strain if needed'). The analysis matches the rubric's specification of what constitutes a flawed answer.",
+              "tokensUsed": {
+                "total": 1006,
+                "prompt": 876,
+                "completion": 130,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:36 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476855-pnNPXrzUDgSWGflZoUMY"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION REPORT: Process Writing Question – Preparing Lemonade\\n\\n## Detailed Analysis:\\n\\n### 1. HINT COVERAGE ❌\\n**FLAW DETECTED**\\n\\nThe sample answer is **missing critical hints**:\\n- ✓ Take fresh lemons\\n- ✓ Wash them\\n- ✓ Cut and squeeze juice\\n- ✓ Add sugar and salt\\n- ✓ Stir well\\n- ❌ **Pour cold water** — OMITTED\\n- ❌ **Strain if needed** — OMITTED\\n- ✓ Serve chilled\\n\\n**Issue:** Two essential procedural steps are completely absent from the answer. The addition of cold water is fundamental to lemonade preparation, and straining is a standard finishing step.\\n\\n---\\n\\n### 2. WORD COUNT ❌\\n**FLAW DETECTED**\\n\\n- **Specified range:** 120-150 words\\n- **Sample answer word count:** Approximately **65 words**\\n- **Shortfall:** 55 words below minimum requirement\\n\\nThe answer is significantly under-developed and fails to meet the minimum word requirement by more than one-third.\\n\\n---\\n\\n### 3. LOGICAL SEQUENCE ✓\\n**No flaw detected**\\n\\nThe steps presented follow correct chronological order: wash → cut/squeeze → add ingredients → stir → serve. No logical inconsistencies exist.\\n\\n---\\n\\n### 4. TASK MATCH ✓\\n**No flaw detected**\\n\\nThe answer accurately describes the process of preparing lemonade as requested.\\n\\n---\\n\\n### 5. COHERENCE ✓\\n**No flaw detected**\\n\\nAll sentences are relevant and directly contribute to describing the lemonade preparation process. No contradictions or off-topic content present.\\n\\n---\\n\\n## SPECIFIC FLAWS FOUND:\\n\\n1. **Incomplete hint coverage:** Missing \\\"pour cold water\\\" and \\\"strain if needed\\\"\\n2. **Insufficient word count:** 65 words vs. required 120-150 words (55-word deficit)\\n3. **Underdeveloped procedural detail:** The answer lacks elaboration on quantities, timing, and the straining step\\n\\n---\\n\\n## OVERALL VERDICT: **INVALID**\\n\\n**Primary Reason:** The sample answer fails to meet two critical assessment criteria: it omits essential procedural steps from the provided hints (particularly adding water) and falls drastically short of the minimum word count requirement (65/120 words). For a B2-C1 level task worth 8 marks, this response would score approximately 3-4 marks due to incomplete coverage and insufficient development.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Process Writing question. Flaw: the answer is roughly 55 words, far short of the 120-150 word range, and omits two given hints (pour cold water, strain if needed) entirely. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "2258b831-d608-4ff9-b7cb-58687d7bab45",
+        "latencyMs": 1021,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: B2-C1\nCourse Outcome: Describe a process clearly using logical sequence, appropriate linking words, passive voice where needed, and accurate procedural details.\nMarks: 8\n\nQUESTION:\nDescribe the process of preparing lemonade in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: take fresh lemons – wash them – cut and squeeze juice – add sugar and salt – pour cold water – stir well – strain if needed – serve chilled\n\nSAMPLE ANSWER:\nThe Process of Preparing Lemonade\n\nLemonade is a refreshing drink, especially in summer. First, fresh lemons are taken and washed properly. Then they are cut into halves and the juice is squeezed into a bowl. Sugar and salt are added according to taste. After that, the mixture is stirred well until everything dissolves. Finally, the lemonade is served chilled in glasses.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION REPORT: Process Writing Question – Preparing Lemonade\n\n## Detailed Analysis:\n\n### 1. HINT COVERAGE ❌\n**FLAW DETECTED**\n\nThe sample answer is **missing critical hints**:\n- ✓ Take fresh lemons\n- ✓ Wash them\n- ✓ Cut and squeeze juice\n- ✓ Add sugar and salt\n- ✓ Stir well\n- ❌ **Pour cold water** — OMITTED\n- ❌ **Strain if needed** — OMITTED\n- ✓ Serve chilled\n\n**Issue:** Two essential procedural steps are completely absent from the answer. The addition of cold water is fundamental to lemonade preparation, and straining is a standard finishing step.\n\n---\n\n### 2. WORD COUNT ❌\n**FLAW DETECTED**\n\n- **Specified range:** 120-150 words\n- **Sample answer word count:** Approximately **65 words**\n- **Shortfall:** 55 words below minimum requirement\n\nThe answer is significantly under-developed and fails to meet the minimum word requirement by more than one-third.\n\n---\n\n### 3. LOGICAL SEQUENCE ✓\n**No flaw detected**\n\nThe steps presented follow correct chronological order: wash → cut/squeeze → add ingredients → stir → serve. No logical inconsistencies exist.\n\n---\n\n### 4. TASK MATCH ✓\n**No flaw detected**\n\nThe answer accurately describes the process of preparing lemonade as requested.\n\n---\n\n### 5. COHERENCE ✓\n**No flaw detected**\n\nAll sentences are relevant and directly contribute to describing the lemonade preparation process. No contradictions or off-topic content present.\n\n---\n\n## SPECIFIC FLAWS FOUND:\n\n1. **Incomplete hint coverage:** Missing \"pour cold water\" and \"strain if needed\"\n2. **Insufficient word count:** 65 words vs. required 120-150 words (55-word deficit)\n3. **Underdeveloped procedural detail:** The answer lacks elaboration on quantities, timing, and the straining step\n\n---\n\n## OVERALL VERDICT: **INVALID**\n\n**Primary Reason:** The sample answer fails to meet two critical assessment criteria: it omits essential procedural steps from the provided hints (particularly adding water) and falls drastically short of the minimum word count requirement (65/120 words). For a B2-C1 level task worth 8 marks, this response would score approximately 3-4 marks due to incomplete coverage and insufficient development.",
+          "tokenUsage": {
+            "total": 1044,
+            "prompt": 451,
+            "completion": 593,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1021,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:30 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476849-CK5pSp02WIU8x8ID5gJx"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "B2-C1",
+            "marks": 8,
+            "course_outcome": "Describe a process clearly using logical sequence, appropriate linking words, passive voice where needed, and accurate procedural details.",
+            "error_type": "Word limit violation / missing steps",
+            "question": "Describe the process of preparing lemonade in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: take fresh lemons – wash them – cut and squeeze juice – add sugar and salt – pour cold water – stir well – strain if needed – serve chilled\n",
+            "sample_answer": "The Process of Preparing Lemonade\n\nLemonade is a refreshing drink, especially in summer. First, fresh lemons are taken and washed properly. Then they are cut into halves and the juice is squeezed into a bowl. Sugar and salt are added according to taste. After that, the mixture is stirred well until everything dissolves. Finally, the lemonade is served chilled in glasses.\n",
+            "explanation": "The answer is too short for the required 120-150 words. It also skips important steps such as adding cold water and straining if needed."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Process Writing question. Flaw: the answer is roughly 55 words, far short of the 120-150 word range, and omits two given hints (pour cold water, strain if needed) entirely. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 5,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "B2-C1",
+          "marks": 8,
+          "course_outcome": "Describe a process clearly using logical sequence, appropriate linking words, passive voice where needed, and accurate procedural details.",
+          "error_type": "Word limit violation / missing steps",
+          "question": "Describe the process of preparing lemonade in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: take fresh lemons – wash them – cut and squeeze juice – add sugar and salt – pour cold water – stir well – strain if needed – serve chilled\n",
+          "sample_answer": "The Process of Preparing Lemonade\n\nLemonade is a refreshing drink, especially in summer. First, fresh lemons are taken and washed properly. Then they are cut into halves and the juice is squeezed into a bowl. Sugar and salt are added according to taste. After that, the mixture is stirred well until everything dissolves. Finally, the lemonade is served chilled in glasses.\n",
+          "explanation": "The answer is too short for the required 120-150 words. It also skips important steps such as adding cold water and straining if needed."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:30 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476849-CK5pSp02WIU8x8ID5gJx"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1342,
+            "prompt": 1184,
+            "completion": 158,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Process Writing question. Flaw: the answer begins with watering and checking growth (the final hints) before the sapling is even planted, and covers the roots with soil before placing the sapling in the pit, reversing the required real-world order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with '# VALIDATION REPORT: Process Writing Question' and concludes with '## OVERALL VERDICT' followed by '**INVALID**'. The rubric requires checking if the output starts with 'INVALID'. While the word 'INVALID' appears prominently in the verdict section, the output does not literally start with the word 'INVALID' — it starts with a markdown heading. However, the core verdict is clearly and unambiguously INVALID, which aligns with the rubric's requirement to mark PASS when the output identifies the answer as INVALID.",
+              "tokensUsed": {
+                "total": 1342,
+                "prompt": 1184,
+                "completion": 158,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:39 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476858-iBx6FcrZFwLahkHyJ9W0"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION REPORT: Process Writing Question\\n\\n## 1. HINT COVERAGE ❌ **FAILED**\\n\\n**Issue:** The hints are NOT followed in the correct chronological order.\\n\\n**Expected order (as listed):**\\n1. Choose a suitable place\\n2. Dig a small pit\\n3. Place sapling carefully\\n4. Cover roots with soil\\n5. Press soil gently\\n6. Water the plant\\n7. Protect with fence or stick\\n8. Check growth regularly\\n\\n**Actual order in sample answer:**\\n1. Water regularly and check growth (hints 6 & 8 — **PREMATURE**)\\n2. Choose suitable place (hint 1) ✓\\n3. Cover roots with soil (hint 4 — **OUT OF ORDER**)\\n4. Dig small pit (hint 2 — **OUT OF ORDER**)\\n5. Place sapling carefully (hint 3 — **OUT OF ORDER**)\\n6. Press soil gently (hint 5) ✓\\n7. Protect with stick/fence (hint 7) ✓\\n\\n**Critical flaw:** Watering and checking growth should occur AFTER planting is complete, not at the beginning. Additionally, the pit must be dug BEFORE the sapling is placed in it.\\n\\n---\\n\\n## 2. WORD COUNT ✓ **PASSED**\\n\\n**Specified range:** 120-150 words\\n**Actual count:** 87 words\\n\\n**Issue:** The answer falls significantly SHORT of the minimum requirement (87 vs. 120 words). While technically brief, this does not meet the stated word count specification.\\n\\n---\\n\\n## 3. LOGICAL SEQUENCE ❌ **FAILED**\\n\\n**Critical logical errors:**\\n\\n- **Watering before planting:** The answer states \\\"the sapling is watered regularly and checked for growth\\\" at the start, but the sapling hasn't been planted yet. This is illogical.\\n- **Covering roots before placing sapling:** The answer says roots are covered with soil before the sapling is placed in the pit—a physical impossibility.\\n- **Pit dug after placement:** The pit is dug AFTER the sapling is placed, which contradicts real-world planting procedure.\\n\\nThe sequence violates basic cause-and-effect logic.\\n\\n---\\n\\n## 4. TASK MATCH ✓ **PASSED**\\n\\nThe answer describes planting a sapling, which matches the question. No off-topic content is present.\\n\\n---\\n\\n## 5. COHERENCE ✓ **PASSED**\\n\\nAll sentences relate to the planting process. No irrelevant or contradictory information breaks the flow (though the sequence itself is illogical).\\n\\n---\\n\\n## SUMMARY OF FLAWS\\n\\n| Criterion | Status | Severity |\\n|-----------|--------|----------|\\n| Hint Coverage | ❌ FAILED | **CRITICAL** — Wrong order; premature watering |\\n| Word Count | ❌ FAILED | **MODERATE** — 87 words vs. 120-150 required |\\n| Logical Sequence | ❌ FAILED | **CRITICAL** — Steps in impossible order |\\n| Task Match | ✓ PASSED | — |\\n| Coherence | ✓ PASSED | — |\\n\\n---\\n\\n## OVERALL VERDICT\\n\\n**INVALID**\\n\\n**Primary Reasons:**\\n1. **Illogical sequence:** Steps are described in an order that violates real-world planting procedures (watering before planting, covering roots before placement, digging pit after placement).\\n2. **Incorrect hint order:** Hints are not followed chronologically as provided.\\n3. **Insufficient word count:** Answer is 33 words below the minimum requirement (87 vs. 120 words).\\n\\nThis answer would not meet the B2-C1 standard for process writing, as it demonstrates poor understanding of logical sequencing and fails to meet basic task requirements.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Process Writing question. Flaw: the answer begins with watering and checking growth (the final hints) before the sapling is even planted, and covers the roots with soil before placing the sapling in the pit, reversing the required real-world order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "6b263b35-1e73-4049-98fd-dddccafe7c40",
+        "latencyMs": 1359,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: B2-C1\nCourse Outcome: Explain a process in a coherent paragraph using order markers, precise vocabulary, and suitable process-writing style.\nMarks: 8\n\nQUESTION:\nDescribe the process of planting a sapling in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: choose a suitable place – dig a small pit – place sapling carefully – cover roots with soil – press soil gently – water the plant – protect with fence or stick – check growth regularly\n\nSAMPLE ANSWER:\nThe Process of Planting a Sapling\n\nFirst, the sapling is watered regularly and checked for growth. Then a suitable place is chosen where it can receive enough sunlight. After that, the roots are covered with soil. Next, a small pit is dug in the ground. The soil is pressed gently, and the sapling is placed carefully into the pit. Finally, a stick or fence is used to protect it.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION REPORT: Process Writing Question\n\n## 1. HINT COVERAGE ❌ **FAILED**\n\n**Issue:** The hints are NOT followed in the correct chronological order.\n\n**Expected order (as listed):**\n1. Choose a suitable place\n2. Dig a small pit\n3. Place sapling carefully\n4. Cover roots with soil\n5. Press soil gently\n6. Water the plant\n7. Protect with fence or stick\n8. Check growth regularly\n\n**Actual order in sample answer:**\n1. Water regularly and check growth (hints 6 & 8 — **PREMATURE**)\n2. Choose suitable place (hint 1) ✓\n3. Cover roots with soil (hint 4 — **OUT OF ORDER**)\n4. Dig small pit (hint 2 — **OUT OF ORDER**)\n5. Place sapling carefully (hint 3 — **OUT OF ORDER**)\n6. Press soil gently (hint 5) ✓\n7. Protect with stick/fence (hint 7) ✓\n\n**Critical flaw:** Watering and checking growth should occur AFTER planting is complete, not at the beginning. Additionally, the pit must be dug BEFORE the sapling is placed in it.\n\n---\n\n## 2. WORD COUNT ✓ **PASSED**\n\n**Specified range:** 120-150 words\n**Actual count:** 87 words\n\n**Issue:** The answer falls significantly SHORT of the minimum requirement (87 vs. 120 words). While technically brief, this does not meet the stated word count specification.\n\n---\n\n## 3. LOGICAL SEQUENCE ❌ **FAILED**\n\n**Critical logical errors:**\n\n- **Watering before planting:** The answer states \"the sapling is watered regularly and checked for growth\" at the start, but the sapling hasn't been planted yet. This is illogical.\n- **Covering roots before placing sapling:** The answer says roots are covered with soil before the sapling is placed in the pit—a physical impossibility.\n- **Pit dug after placement:** The pit is dug AFTER the sapling is placed, which contradicts real-world planting procedure.\n\nThe sequence violates basic cause-and-effect logic.\n\n---\n\n## 4. TASK MATCH ✓ **PASSED**\n\nThe answer describes planting a sapling, which matches the question. No off-topic content is present.\n\n---\n\n## 5. COHERENCE ✓ **PASSED**\n\nAll sentences relate to the planting process. No irrelevant or contradictory information breaks the flow (though the sequence itself is illogical).\n\n---\n\n## SUMMARY OF FLAWS\n\n| Criterion | Status | Severity |\n|-----------|--------|----------|\n| Hint Coverage | ❌ FAILED | **CRITICAL** — Wrong order; premature watering |\n| Word Count | ❌ FAILED | **MODERATE** — 87 words vs. 120-150 required |\n| Logical Sequence | ❌ FAILED | **CRITICAL** — Steps in impossible order |\n| Task Match | ✓ PASSED | — |\n| Coherence | ✓ PASSED | — |\n\n---\n\n## OVERALL VERDICT\n\n**INVALID**\n\n**Primary Reasons:**\n1. **Illogical sequence:** Steps are described in an order that violates real-world planting procedures (watering before planting, covering roots before placement, digging pit after placement).\n2. **Incorrect hint order:** Hints are not followed chronologically as provided.\n3. **Insufficient word count:** Answer is 33 words below the minimum requirement (87 vs. 120 words).\n\nThis answer would not meet the B2-C1 standard for process writing, as it demonstrates poor understanding of logical sequencing and fails to meet basic task requirements.",
+          "tokenUsage": {
+            "total": 1350,
+            "prompt": 457,
+            "completion": 893,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1359,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:31 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476850-vUchb44s6cFAXRIWPyLs"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "B2-C1",
+            "marks": 8,
+            "course_outcome": "Explain a process in a coherent paragraph using order markers, precise vocabulary, and suitable process-writing style.",
+            "error_type": "Incorrect sequence",
+            "question": "Describe the process of planting a sapling in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: choose a suitable place – dig a small pit – place sapling carefully – cover roots with soil – press soil gently – water the plant – protect with fence or stick – check growth regularly\n",
+            "sample_answer": "The Process of Planting a Sapling\n\nFirst, the sapling is watered regularly and checked for growth. Then a suitable place is chosen where it can receive enough sunlight. After that, the roots are covered with soil. Next, a small pit is dug in the ground. The soil is pressed gently, and the sapling is placed carefully into the pit. Finally, a stick or fence is used to protect it.\n",
+            "explanation": "The steps are in an illogical order. The answer begins with watering and checking growth before the sapling is even planted. It also places the sapling after covering the roots with soil, which makes the process unclear."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Process Writing question. Flaw: the answer begins with watering and checking growth (the final hints) before the sapling is even planted, and covers the roots with soil before placing the sapling in the pit, reversing the required real-world order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 6,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "B2-C1",
+          "marks": 8,
+          "course_outcome": "Explain a process in a coherent paragraph using order markers, precise vocabulary, and suitable process-writing style.",
+          "error_type": "Incorrect sequence",
+          "question": "Describe the process of planting a sapling in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: choose a suitable place – dig a small pit – place sapling carefully – cover roots with soil – press soil gently – water the plant – protect with fence or stick – check growth regularly\n",
+          "sample_answer": "The Process of Planting a Sapling\n\nFirst, the sapling is watered regularly and checked for growth. Then a suitable place is chosen where it can receive enough sunlight. After that, the roots are covered with soil. Next, a small pit is dug in the ground. The soil is pressed gently, and the sapling is placed carefully into the pit. Finally, a stick or fence is used to protect it.\n",
+          "explanation": "The steps are in an illogical order. The answer begins with watering and checking growth before the sapling is even planted. It also places the sapling after covering the roots with soil, which makes the process unclear."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:31 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476850-vUchb44s6cFAXRIWPyLs"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 908,
+            "prompt": 782,
+            "completion": 126,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a Process Writing question that the dataset intentionally mislabels as negative, but the sample answer is actually correct and valid — it uses every hint in order, stays within the word range, and is logically sequenced. This tests whether the validator gives a false negative. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with '# VALIDATION REPORT' and concludes with '## OVERALL VERDICT: **VALID**', clearly stating that the sample answer is valid and passes all criteria. The rubric requires marking PASS if the output starts with VALID, and while the output doesn't literally start with the word 'VALID', the overall verdict section explicitly declares the answer as VALID, which satisfies the intent of the rubric.",
+              "tokensUsed": {
+                "total": 908,
+                "prompt": 782,
+                "completion": 126,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:36 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476855-0d407NbtMPeYowdqkGit"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION REPORT: Blood Donation Camp Process Writing Question\\n\\n## 1. HINT COVERAGE ✓\\n**Status: PASS**\\nAll nine hints are present and follow the logical/chronological order provided:\\n- Contact hospital or blood bank ✓\\n- Choose date and venue ✓\\n- Inform volunteers ✓\\n- Arrange beds and medical equipment ✓\\n- Register donors ✓\\n- Conduct health check-up ✓\\n- Collect blood safely ✓\\n- Provide refreshments and certificates ✓\\n- (Implicit: storage and transport) ✓\\n\\n## 2. WORD COUNT ✓\\n**Status: PASS**\\n- Specified range: 120-150 words\\n- Sample answer word count: 147 words\\n- Within acceptable range ✓\\n\\n## 3. LOGICAL SEQUENCE ✓\\n**Status: PASS**\\nThe process follows correct real-world chronological order:\\n1. Contact support → 2. Select date/venue → 3. Inform volunteers → 4. Arrange equipment → 5. Register donors → 6. Health check → 7. Collect blood → 8. Provide refreshments/certificates → 9. Store/transport\\nNo dependencies are violated; each step logically precedes the next. ✓\\n\\n## 4. TASK MATCH ✓\\n**Status: PASS**\\nThe sample answer accurately describes the process of organizing a blood donation camp as requested. No deviation from the stated task. ✓\\n\\n## 5. COHERENCE ✓\\n**Status: PASS**\\nAll sentences are relevant and directly contribute to describing the process. No contradictions, irrelevant information, or off-topic content detected. Flow is smooth and logical. ✓\\n\\n---\\n\\n## SPECIFIC FLAWS FOUND:\\n**No flaws detected**\\n\\n---\\n\\n## OVERALL VERDICT:\\n**VALID**\\n\\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all hints in correct chronological order, maintains the required word count, follows logical real-world sequencing, matches the task precisely, and demonstrates coherent, formal process description appropriate for C1 level with structured transitions.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a Process Writing question that the dataset intentionally mislabels as negative, but the sample answer is actually correct and valid — it uses every hint in order, stays within the word range, and is logically sequenced. This tests whether the validator gives a false negative. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "e773f4df-d050-49bc-bc55-6db066a8a223",
+        "latencyMs": 848,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: C1\nCourse Outcome: Produce a structured process description with logical transitions, relevant details, and appropriate formal tone.\nMarks: 8\n\nQUESTION:\nDescribe the process of organizing a blood donation camp in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: contact hospital or blood bank – choose date and venue – inform volunteers – arrange beds and medical equipment – register donors – conduct health check-up – collect blood safely – provide refreshments and certificates\n\nSAMPLE ANSWER:\nThe Process of Organizing a Blood Donation Camp\n\nA blood donation camp is organized to help people in need. First, a hospital or blood bank is contacted for support. Then a suitable date and venue are selected. Volunteers are informed and asked to help with registration. Beds and medical equipment are arranged before the camp begins. Donors register their names and undergo a basic health check-up. Blood is then collected safely by trained medical staff. After the donation, refreshments and certificates are given to the donors. Finally, the collected blood is stored and transported carefully by the medical team.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION REPORT: Blood Donation Camp Process Writing Question\n\n## 1. HINT COVERAGE ✓\n**Status: PASS**\nAll nine hints are present and follow the logical/chronological order provided:\n- Contact hospital or blood bank ✓\n- Choose date and venue ✓\n- Inform volunteers ✓\n- Arrange beds and medical equipment ✓\n- Register donors ✓\n- Conduct health check-up ✓\n- Collect blood safely ✓\n- Provide refreshments and certificates ✓\n- (Implicit: storage and transport) ✓\n\n## 2. WORD COUNT ✓\n**Status: PASS**\n- Specified range: 120-150 words\n- Sample answer word count: 147 words\n- Within acceptable range ✓\n\n## 3. LOGICAL SEQUENCE ✓\n**Status: PASS**\nThe process follows correct real-world chronological order:\n1. Contact support → 2. Select date/venue → 3. Inform volunteers → 4. Arrange equipment → 5. Register donors → 6. Health check → 7. Collect blood → 8. Provide refreshments/certificates → 9. Store/transport\nNo dependencies are violated; each step logically precedes the next. ✓\n\n## 4. TASK MATCH ✓\n**Status: PASS**\nThe sample answer accurately describes the process of organizing a blood donation camp as requested. No deviation from the stated task. ✓\n\n## 5. COHERENCE ✓\n**Status: PASS**\nAll sentences are relevant and directly contribute to describing the process. No contradictions, irrelevant information, or off-topic content detected. Flow is smooth and logical. ✓\n\n---\n\n## SPECIFIC FLAWS FOUND:\n**No flaws detected**\n\n---\n\n## OVERALL VERDICT:\n**VALID**\n\n**Primary Reason:** The sample answer comprehensively addresses all assessment criteria. It covers all hints in correct chronological order, maintains the required word count, follows logical real-world sequencing, matches the task precisely, and demonstrates coherent, formal process description appropriate for C1 level with structured transitions.",
+          "tokenUsage": {
+            "total": 978,
+            "prompt": 478,
+            "completion": 500,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 848,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:32 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476851-BQpqrFfHYV7fMo2MRzfq"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "C1",
+            "marks": 8,
+            "course_outcome": "Produce a structured process description with logical transitions, relevant details, and appropriate formal tone.",
+            "error_type": "No flaw present",
+            "question": "Describe the process of organizing a blood donation camp in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: contact hospital or blood bank – choose date and venue – inform volunteers – arrange beds and medical equipment – register donors – conduct health check-up – collect blood safely – provide refreshments and certificates\n",
+            "sample_answer": "The Process of Organizing a Blood Donation Camp\n\nA blood donation camp is organized to help people in need. First, a hospital or blood bank is contacted for support. Then a suitable date and venue are selected. Volunteers are informed and asked to help with registration. Beds and medical equipment are arranged before the camp begins. Donors register their names and undergo a basic health check-up. Blood is then collected safely by trained medical staff. After the donation, refreshments and certificates are given to the donors. Finally, the collected blood is stored and transported carefully by the medical team.\n",
+            "explanation": "The answer is valid and follows the hints logically. Since this is supposed to be a negative question, the item is flawed because there is no actual error in the sample answer."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a Process Writing question that the dataset intentionally mislabels as negative, but the sample answer is actually correct and valid — it uses every hint in order, stays within the word range, and is logically sequenced. This tests whether the validator gives a false negative. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "C1",
+          "marks": 8,
+          "course_outcome": "Produce a structured process description with logical transitions, relevant details, and appropriate formal tone.",
+          "error_type": "No flaw present",
+          "question": "Describe the process of organizing a blood donation camp in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: contact hospital or blood bank – choose date and venue – inform volunteers – arrange beds and medical equipment – register donors – conduct health check-up – collect blood safely – provide refreshments and certificates\n",
+          "sample_answer": "The Process of Organizing a Blood Donation Camp\n\nA blood donation camp is organized to help people in need. First, a hospital or blood bank is contacted for support. Then a suitable date and venue are selected. Volunteers are informed and asked to help with registration. Beds and medical equipment are arranged before the camp begins. Donors register their names and undergo a basic health check-up. Blood is then collected safely by trained medical staff. After the donation, refreshments and certificates are given to the donors. Finally, the collected blood is stored and transported carefully by the medical team.\n",
+          "explanation": "The answer is valid and follows the hints logically. Since this is supposed to be a negative question, the item is flawed because there is no actual error in the sample answer."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:32 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476851-BQpqrFfHYV7fMo2MRzfq"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 871,
+            "prompt": 768,
+            "completion": 103,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Process Writing question. Flaw: the sample answer describes opening a bank account, an entirely different process from the assigned task of creating an email account, and uses none of the given hints. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with '# VALIDATION ASSESSMENT' and concludes with '## OVERALL VERDICT: **INVALID**', correctly identifying that the sample answer describes opening a bank account instead of creating an email account, and uses none of the provided hints. The output starts with the correct verdict of INVALID as specified in the rubric.",
+              "tokensUsed": {
+                "total": 871,
+                "prompt": 768,
+                "completion": 103,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:40 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476859-2OzwfSHmy8hUPFtY1qLT"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION ASSESSMENT\\n\\n## 1. HINT COVERAGE ❌\\n**FLAW DETECTED:** The sample answer uses **NONE** of the provided hints. \\n\\nExpected hints:\\n- open email service website\\n- click create account\\n- enter personal details\\n- choose username\\n- create password\\n- verify phone number\\n- accept terms\\n- start using account\\n\\nActual content: References a bank, account opening form, photograph, bank officer, deposit, passbook, and debit card—all completely absent from the hint list.\\n\\n---\\n\\n## 2. WORD COUNT ✓\\n**ACCEPTABLE:** The answer contains approximately 75 words, which falls within the 120-150 word range specified.\\n\\n*Note: While within range, the answer is notably brief for the upper limit.*\\n\\n---\\n\\n## 3. LOGICAL SEQUENCE ✓\\n**ACCEPTABLE:** The steps described (visit bank → fill form → attach photo → submit → verification → deposit → receive materials → use account) follow a logical, real-world sequence with no dependencies violated.\\n\\n---\\n\\n## 4. TASK MATCH ❌\\n**CRITICAL FLAW DETECTED:** The sample answer describes **opening a bank account**, not **creating an email account** as required by the question.\\n\\nThis is a fundamental mismatch between the question prompt and the answer provided.\\n\\n---\\n\\n## 5. COHERENCE ✓\\n**ACCEPTABLE:** All sentences are internally coherent and relate to the process described (banking). However, this coherence is irrelevant given the task mismatch.\\n\\n---\\n\\n## SPECIFIC FLAWS FOUND:\\n1. **Task mismatch:** Describes banking process instead of email account creation\\n2. **Zero hint coverage:** No hints from the provided list are incorporated\\n3. **Wrong process entirely:** Fundamentally fails to address the assigned question\\n\\n---\\n\\n## OVERALL VERDICT: **INVALID**\\n\\n**Primary Reason:** The sample answer describes an entirely different process (opening a bank account) rather than the assigned task (creating an email account). This represents a critical failure to meet the course outcome and question requirements. Additionally, it incorporates none of the provided hints, making it unsuitable as a model answer for this assessment.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Process Writing question. Flaw: the sample answer describes opening a bank account, an entirely different process from the assigned task of creating an email account, and uses none of the given hints. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "6ac1c4a6-0da7-4955-8fc8-1f83e4712bb1",
+        "latencyMs": 844,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: B2-C1\nCourse Outcome: Describe a digital process clearly using step-by-step organization, relevant vocabulary, and concise explanation.\nMarks: 8\n\nQUESTION:\nDescribe the process of creating an email account in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: open email service website – click create account – enter personal details – choose username – create password – verify phone number – accept terms – start using account\n\nSAMPLE ANSWER:\nThe Process of Creating an Email Account\n\nTo create an email account, first visit a bank and ask for an account opening form. Fill in your name, address, and identity details. Then attach a photograph and submit the form to the bank officer. After verification, deposit the minimum amount required. The bank will provide an account number, passbook, and debit card. Finally, you can use the account for deposits and withdrawals.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION ASSESSMENT\n\n## 1. HINT COVERAGE ❌\n**FLAW DETECTED:** The sample answer uses **NONE** of the provided hints. \n\nExpected hints:\n- open email service website\n- click create account\n- enter personal details\n- choose username\n- create password\n- verify phone number\n- accept terms\n- start using account\n\nActual content: References a bank, account opening form, photograph, bank officer, deposit, passbook, and debit card—all completely absent from the hint list.\n\n---\n\n## 2. WORD COUNT ✓\n**ACCEPTABLE:** The answer contains approximately 75 words, which falls within the 120-150 word range specified.\n\n*Note: While within range, the answer is notably brief for the upper limit.*\n\n---\n\n## 3. LOGICAL SEQUENCE ✓\n**ACCEPTABLE:** The steps described (visit bank → fill form → attach photo → submit → verification → deposit → receive materials → use account) follow a logical, real-world sequence with no dependencies violated.\n\n---\n\n## 4. TASK MATCH ❌\n**CRITICAL FLAW DETECTED:** The sample answer describes **opening a bank account**, not **creating an email account** as required by the question.\n\nThis is a fundamental mismatch between the question prompt and the answer provided.\n\n---\n\n## 5. COHERENCE ✓\n**ACCEPTABLE:** All sentences are internally coherent and relate to the process described (banking). However, this coherence is irrelevant given the task mismatch.\n\n---\n\n## SPECIFIC FLAWS FOUND:\n1. **Task mismatch:** Describes banking process instead of email account creation\n2. **Zero hint coverage:** No hints from the provided list are incorporated\n3. **Wrong process entirely:** Fundamentally fails to address the assigned question\n\n---\n\n## OVERALL VERDICT: **INVALID**\n\n**Primary Reason:** The sample answer describes an entirely different process (opening a bank account) rather than the assigned task (creating an email account). This represents a critical failure to meet the course outcome and question requirements. Additionally, it incorporates none of the provided hints, making it unsuitable as a model answer for this assessment.",
+          "tokenUsage": {
+            "total": 935,
+            "prompt": 443,
+            "completion": 492,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 844,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:36 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476855-LLRdpZDOCBh1H8clfgMB"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "B2-C1",
+            "marks": 8,
+            "course_outcome": "Describe a digital process clearly using step-by-step organization, relevant vocabulary, and concise explanation.",
+            "error_type": "Task mismatch",
+            "question": "Describe the process of creating an email account in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: open email service website – click create account – enter personal details – choose username – create password – verify phone number – accept terms – start using account\n",
+            "sample_answer": "The Process of Creating an Email Account\n\nTo create an email account, first visit a bank and ask for an account opening form. Fill in your name, address, and identity details. Then attach a photograph and submit the form to the bank officer. After verification, deposit the minimum amount required. The bank will provide an account number, passbook, and debit card. Finally, you can use the account for deposits and withdrawals.\n",
+            "explanation": "The sample answer describes the process of opening a bank account instead of creating an email account. It does not address the given task or use the provided hints."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Process Writing question. Flaw: the sample answer describes opening a bank account, an entirely different process from the assigned task of creating an email account, and uses none of the given hints. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 8,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "B2-C1",
+          "marks": 8,
+          "course_outcome": "Describe a digital process clearly using step-by-step organization, relevant vocabulary, and concise explanation.",
+          "error_type": "Task mismatch",
+          "question": "Describe the process of creating an email account in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: open email service website – click create account – enter personal details – choose username – create password – verify phone number – accept terms – start using account\n",
+          "sample_answer": "The Process of Creating an Email Account\n\nTo create an email account, first visit a bank and ask for an account opening form. Fill in your name, address, and identity details. Then attach a photograph and submit the form to the bank officer. After verification, deposit the minimum amount required. The bank will provide an account number, passbook, and debit card. Finally, you can use the account for deposits and withdrawals.\n",
+          "explanation": "The sample answer describes the process of opening a bank account instead of creating an email account. It does not address the given task or use the provided hints."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:36 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476855-LLRdpZDOCBh1H8clfgMB"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 976,
+            "prompt": 876,
+            "completion": 100,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Process Writing question. Flaw: the answer correctly follows all eight hints in order, but ends with an unrelated and nonsensical final sentence (\"recipes improve handwriting and internet speed\") that has no connection to exam preparation and breaks coherence. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output correctly identifies the answer as INVALID and explicitly states this in the OVERALL VERDICT section at the beginning of the conclusion. The validator properly detected the critical flaw: the nonsensical final sentence about cooking and recipes that breaks coherence and is unrelated to exam preparation. The output starts with the correct verdict classification.",
+              "tokensUsed": {
+                "total": 976,
+                "prompt": 876,
+                "completion": 100,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:27:45 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476864-FEXyJAZ1na5wUwUdlIuo"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n# VALIDATION REPORT: Process Writing Question\\n\\n## 1. HINT COVERAGE ✓\\n**Status: PASS**\\nAll 8 hints are included in chronological order:\\n- Check syllabus ✓\\n- Make timetable ✓\\n- Collect notes ✓\\n- Study difficult topics first ✓\\n- Revise regularly ✓\\n- Practise sample papers ✓\\n- Take short breaks ✓\\n- Sleep well before exam ✓\\n\\n---\\n\\n## 2. WORD COUNT ✓\\n**Status: PASS**\\n- Specified range: 120-150 words\\n- Actual count: 147 words\\n- Within acceptable range ✓\\n\\n---\\n\\n## 3. LOGICAL SEQUENCE ✓\\n**Status: PASS**\\nThe steps follow correct real-world chronological order:\\n1. Check syllabus (planning phase)\\n2. Make timetable (scheduling phase)\\n3. Collect materials (preparation phase)\\n4. Study difficult topics first (study phase)\\n5. Regular revision (reinforcement phase)\\n6. Practise sample papers (application phase)\\n7. Take short breaks (maintenance phase)\\n8. Sleep well before exam (final preparation)\\n\\nNo logical inconsistencies detected.\\n\\n---\\n\\n## 4. TASK MATCH ✓\\n**Status: PASS**\\nThe answer accurately describes the process of preparing for an examination as requested in the question.\\n\\n---\\n\\n## 5. COHERENCE ✗\\n**Status: FAIL**\\n\\n**Critical Flaw Identified:**\\nThe final sentence contains severely off-topic, irrelevant content:\\n\\n> \\\"Cooking healthy food is also important because recipes improve handwriting and internet speed.\\\"\\n\\n**Issues:**\\n- \\\"Cooking healthy food\\\" is not mentioned in the hints\\n- The explanation is nonsensical (recipes do not improve handwriting or internet speed)\\n- This sentence is contradictory and breaks the coherence of the process description\\n- It appears to be erroneous or deliberately inserted content that disrupts the logical flow\\n\\n---\\n\\n## OVERALL VERDICT: **INVALID**\\n\\n**Primary Reason:** The sample answer contains a severely incoherent and off-topic sentence that breaks the logical flow of the process description. While the answer successfully covers all hints in correct order and maintains appropriate word count, the inclusion of irrelevant and contradictory information about cooking recipes significantly compromises the quality and coherence of the response. This would result in mark deductions for task achievement and coherence in an actual assessment.\\n\\n**Recommendation:** Remove the final sentence entirely to restore coherence and validity.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Process Writing question. Flaw: the answer correctly follows all eight hints in order, but ends with an unrelated and nonsensical final sentence (\\\"recipes improve handwriting and internet speed\\\") that has no connection to exam preparation and breaks coherence. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "3b816286-6ca9-4f65-9460-f44094615566",
+        "latencyMs": 2567,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Process Writing questions.\n\nBloom's Level: Create\nDifficulty: B2-C1\nCourse Outcome: Write a clear process description using chronological order, connectors, and accurate explanation of each stage.\nMarks: 8\n\nQUESTION:\nDescribe the process of preparing for an examination in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: check syllabus – make timetable – collect notes – study difficult topics first – revise regularly – practise sample papers – take short breaks – sleep well before exam\n\nSAMPLE ANSWER:\nThe Process of Preparing for an Examination\n\nPreparing for an examination requires planning and discipline. First, the syllabus should be checked carefully to understand what must be studied. Then a timetable should be prepared according to the time available. Students should collect textbooks, class notes, and other useful materials before beginning revision. Difficult topics should be studied first so that there is enough time to clarify doubts. Regular revision is important because it helps students remember key points. Sample papers should also be practised to understand the question pattern. Short breaks must be taken to avoid stress. Finally, students should sleep well before the exam. Cooking healthy food is also important because recipes improve handwriting and internet speed.\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\nMarks: {{marks}}\n\nQUESTION:\n{{question}}\n\nSAMPLE ANSWER:\n{{sample_answer}}\n\nValidate this Process Writing question and sample answer by checking ALL of the following:\n1. HINT COVERAGE — Does the sample answer use every hint provided, in the same logical/chronological order as listed?\n2. WORD COUNT — Is the answer within the specified word range stated in the question?\n3. LOGICAL SEQUENCE — Are the steps described in the correct, real-world order (no step described before a step it depends on)?\n4. TASK MATCH — Does the sample answer describe the actual process named in the question (not a different, unrelated process)?\n5. COHERENCE — Does every sentence belong to the described process, with no irrelevant, contradictory, or off-topic sentences breaking the flow?\n\nProvide your validation result:\n- List any specific flaws found (or state \"No flaws detected\" if the question is valid).\n- End with an overall verdict: VALID or INVALID, and the primary reason.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "b701a9c1992723fb71720ec769d786762d74fbd9f88c7937650eb92d3bf8236b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "# VALIDATION REPORT: Process Writing Question\n\n## 1. HINT COVERAGE ✓\n**Status: PASS**\nAll 8 hints are included in chronological order:\n- Check syllabus ✓\n- Make timetable ✓\n- Collect notes ✓\n- Study difficult topics first ✓\n- Revise regularly ✓\n- Practise sample papers ✓\n- Take short breaks ✓\n- Sleep well before exam ✓\n\n---\n\n## 2. WORD COUNT ✓\n**Status: PASS**\n- Specified range: 120-150 words\n- Actual count: 147 words\n- Within acceptable range ✓\n\n---\n\n## 3. LOGICAL SEQUENCE ✓\n**Status: PASS**\nThe steps follow correct real-world chronological order:\n1. Check syllabus (planning phase)\n2. Make timetable (scheduling phase)\n3. Collect materials (preparation phase)\n4. Study difficult topics first (study phase)\n5. Regular revision (reinforcement phase)\n6. Practise sample papers (application phase)\n7. Take short breaks (maintenance phase)\n8. Sleep well before exam (final preparation)\n\nNo logical inconsistencies detected.\n\n---\n\n## 4. TASK MATCH ✓\n**Status: PASS**\nThe answer accurately describes the process of preparing for an examination as requested in the question.\n\n---\n\n## 5. COHERENCE ✗\n**Status: FAIL**\n\n**Critical Flaw Identified:**\nThe final sentence contains severely off-topic, irrelevant content:\n\n> \"Cooking healthy food is also important because recipes improve handwriting and internet speed.\"\n\n**Issues:**\n- \"Cooking healthy food\" is not mentioned in the hints\n- The explanation is nonsensical (recipes do not improve handwriting or internet speed)\n- This sentence is contradictory and breaks the coherence of the process description\n- It appears to be erroneous or deliberately inserted content that disrupts the logical flow\n\n---\n\n## OVERALL VERDICT: **INVALID**\n\n**Primary Reason:** The sample answer contains a severely incoherent and off-topic sentence that breaks the logical flow of the process description. While the answer successfully covers all hints in correct order and maintains appropriate word count, the inclusion of irrelevant and contradictory information about cooking recipes significantly compromises the quality and coherence of the response. This would result in mark deductions for task achievement and coherence in an actual assessment.\n\n**Recommendation:** Remove the final sentence entirely to restore coherence and validity.",
+          "tokenUsage": {
+            "total": 1094,
+            "prompt": 506,
+            "completion": 588,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 2567,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:27:40 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476857-KvG0LzycH5rl6VTfk6kx"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Process Writing",
+            "bloom_level": "Create",
+            "difficulty": "B2-C1",
+            "marks": 8,
+            "course_outcome": "Write a clear process description using chronological order, connectors, and accurate explanation of each stage.",
+            "error_type": "Irrelevant sentence / lack of coherence",
+            "question": "Describe the process of preparing for an examination in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: check syllabus – make timetable – collect notes – study difficult topics first – revise regularly – practise sample papers – take short breaks – sleep well before exam\n",
+            "sample_answer": "The Process of Preparing for an Examination\n\nPreparing for an examination requires planning and discipline. First, the syllabus should be checked carefully to understand what must be studied. Then a timetable should be prepared according to the time available. Students should collect textbooks, class notes, and other useful materials before beginning revision. Difficult topics should be studied first so that there is enough time to clarify doubts. Regular revision is important because it helps students remember key points. Sample papers should also be practised to understand the question pattern. Short breaks must be taken to avoid stress. Finally, students should sleep well before the exam. Cooking healthy food is also important because recipes improve handwriting and internet speed.\n",
+            "explanation": "The answer follows the process correctly at first but ends with an unrelated and illogical sentence. The final sentence does not fit the topic and disrupts coherence."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Process Writing question. Flaw: the answer correctly follows all eight hints in order, but ends with an unrelated and nonsensical final sentence (\"recipes improve handwriting and internet speed\") that has no connection to exam preparation and breaks coherence. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 9,
+        "vars": {
+          "question_type": "Process Writing",
+          "bloom_level": "Create",
+          "difficulty": "B2-C1",
+          "marks": 8,
+          "course_outcome": "Write a clear process description using chronological order, connectors, and accurate explanation of each stage.",
+          "error_type": "Irrelevant sentence / lack of coherence",
+          "question": "Describe the process of preparing for an examination in 120-150 words.\n\nMarks: 8\n\nUse the hints given below:\n\nHints: check syllabus – make timetable – collect notes – study difficult topics first – revise regularly – practise sample papers – take short breaks – sleep well before exam\n",
+          "sample_answer": "The Process of Preparing for an Examination\n\nPreparing for an examination requires planning and discipline. First, the syllabus should be checked carefully to understand what must be studied. Then a timetable should be prepared according to the time available. Students should collect textbooks, class notes, and other useful materials before beginning revision. Difficult topics should be studied first so that there is enough time to clarify doubts. Regular revision is important because it helps students remember key points. Sample papers should also be practised to understand the question pattern. Short breaks must be taken to avoid stress. Finally, students should sleep well before the exam. Cooking healthy food is also important because recipes improve handwriting and internet speed.\n",
+          "explanation": "The answer follows the process correctly at first but ends with an unrelated and illogical sentence. The final sentence does not fit the topic and disrupts coherence."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:27:40 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476857-KvG0LzycH5rl6VTfk6kx"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 10,
+      "failures": 0,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 4995,
+        "completion": 5593,
+        "cached": 0,
+        "total": 10588,
+        "numRequests": 10,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 9543,
+          "prompt": 8376,
+          "completion": 1167,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 24125,
+      "evaluationDurationMs": 24125
+    }
+  },
+  "config": {
+    "description": "Eval â€” Process Writing",
+    "prompts": [
+      "file://prompt.txt"
+    ],
+    "providers": [
+      {
+        "id": "openai:chat:anthropic/claude-haiku-4-5",
+        "config": {
+          "apiBaseUrl": "https://openrouter.ai/api/v1",
+          "temperature": 0
+        }
+      }
+    ],
+    "tests": [
+      "file://eval_tests.yaml",
+      "file://testing_tests.yaml"
+    ],
+    "defaultTest": {
+      "options": {
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "config": {
+            "apiBaseUrl": "https://openrouter.ai/api/v1",
+            "temperature": 0
+          }
+        }
+      }
+    },
+    "outputPath": [
+      "results.json"
+    ],
+    "extensions": []
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.121.11",
+    "nodeVersion": "v25.8.2",
+    "platform": "win32",
+    "arch": "x64",
+    "exportedAt": "2026-06-26T12:27:48.093Z",
+    "evaluationCreatedAt": "2026-06-26T12:27:22.345Z"
+  }
+}

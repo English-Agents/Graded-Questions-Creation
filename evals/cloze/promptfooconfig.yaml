@@ -1,9 +1,9 @@
 description: "Eval — Cloze"
 
 providers:
-  - id: openai:anthropic/claude-haiku-4-5
+  - id: openai:chat:llama-3.1-8b-instant
     config:
-      apiBaseUrl: https://openrouter.ai/api/v1
+      apiBaseUrl: https://api.groq.com/openai/v1
       temperature: 0
 
 prompts:
@@ -12,9 +12,9 @@ prompts:
 defaultTest:
   options:
     provider:
-      id: openai:anthropic/claude-haiku-4-5
+      id: openai:chat:llama-3.1-8b-instant
       config:
-        apiBaseUrl: https://openrouter.ai/api/v1
+        apiBaseUrl: https://api.groq.com/openai/v1
         temperature: 0
 
 tests:

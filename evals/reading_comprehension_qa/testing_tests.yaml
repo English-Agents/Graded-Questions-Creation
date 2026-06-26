@@ -1,0 +1,516 @@
+# NEGATIVE QUESTIONS — Flawed Reading Comprehension Q&A items (should be marked INVALID)
+# 5 passages x 4 sub-questions each = 20 total
+
+# ── Flawed Passage: No-Waste Lunch Week ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    error_type: "False Premise"
+    passage: |
+      Tara's school started a "No-Waste Lunch Week" to encourage students to reduce food waste. At first, many students treated it like a temporary rule rather than a meaningful activity. They still threw away half-eaten sandwiches, fruit peels, and unopened snack packets. Tara noticed that most students were not wasting food intentionally; they were simply bringing more than they could eat.
+
+      Instead of scolding her classmates, Tara created a lunch chart. She asked students to write down what they brought, what they finished, and what they usually wasted. After three days, the class discovered a pattern: many students packed too many snacks, while others disliked certain foods but carried them every day.
+
+      Tara suggested a "share basket" where students could place unopened food items for anyone who wanted them. She also encouraged classmates to speak to their parents about packing smaller portions. By Friday, the dustbin near the classroom was less full than usual. The teacher praised the class, not because they had achieved perfection, but because they had learned to notice their habits and make thoughtful changes.
+    question: |
+      Why did Tara scold and punish her classmates during No-Waste Lunch Week?
+    answer_key: "Tara scolded and punished them because they wasted food intentionally."
+    explanation: |
+      The passage says Tara did not scold her classmates. It also says students were not wasting food intentionally.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal). Flaw:
+        the passage explicitly states Tara did not scold her classmates and that the waste was unintentional — the question's premise contradicts the text. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    error_type: "Opposite Meaning"
+    passage: |
+      Tara's school started a "No-Waste Lunch Week" to encourage students to reduce food waste. At first, many students treated it like a temporary rule rather than a meaningful activity. They still threw away half-eaten sandwiches, fruit peels, and unopened snack packets. Tara noticed that most students were not wasting food intentionally; they were simply bringing more than they could eat.
+
+      Instead of scolding her classmates, Tara created a lunch chart. She asked students to write down what they brought, what they finished, and what they usually wasted. After three days, the class discovered a pattern: many students packed too many snacks, while others disliked certain foods but carried them every day.
+
+      Tara suggested a "share basket" where students could place unopened food items for anyone who wanted them. She also encouraged classmates to speak to their parents about packing smaller portions. By Friday, the dustbin near the classroom was less full than usual. The teacher praised the class, not because they had achieved perfection, but because they had learned to notice their habits and make thoughtful changes.
+    question: |
+      How did Tara use the share basket to throw away unopened food packets?
+    answer_key: "She asked students to put unopened food packets in the basket so they could be thrown away later."
+    explanation: |
+      The share basket was meant for unopened food items that anyone could take, not for throwing food away.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal + Application). Flaw:
+        the passage describes the share basket as a way to redistribute unopened food to other students, the opposite of throwing it away. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    error_type: "Exaggerated Outcome"
+    passage: |
+      Tara's school started a "No-Waste Lunch Week" to encourage students to reduce food waste. At first, many students treated it like a temporary rule rather than a meaningful activity. They still threw away half-eaten sandwiches, fruit peels, and unopened snack packets. Tara noticed that most students were not wasting food intentionally; they were simply bringing more than they could eat.
+
+      Instead of scolding her classmates, Tara created a lunch chart. She asked students to write down what they brought, what they finished, and what they usually wasted. After three days, the class discovered a pattern: many students packed too many snacks, while others disliked certain foods but carried them every day.
+
+      Tara suggested a "share basket" where students could place unopened food items for anyone who wanted them. She also encouraged classmates to speak to their parents about packing smaller portions. By Friday, the dustbin near the classroom was less full than usual. The teacher praised the class, not because they had achieved perfection, but because they had learned to notice their habits and make thoughtful changes.
+    question: |
+      How did the No-Waste Lunch Week completely end food waste in the whole school?
+    answer_key: "It completely ended food waste in the entire school by Friday."
+    explanation: |
+      The passage only says the classroom dustbin was less full than usual. It does not say food waste ended completely or across the whole school.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage only supports a modest classroom-level improvement, not the school-wide elimination of food waste claimed in the answer. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    error_type: "Invalid Evaluation"
+    passage: |
+      Tara's school started a "No-Waste Lunch Week" to encourage students to reduce food waste. At first, many students treated it like a temporary rule rather than a meaningful activity. They still threw away half-eaten sandwiches, fruit peels, and unopened snack packets. Tara noticed that most students were not wasting food intentionally; they were simply bringing more than they could eat.
+
+      Instead of scolding her classmates, Tara created a lunch chart. She asked students to write down what they brought, what they finished, and what they usually wasted. After three days, the class discovered a pattern: many students packed too many snacks, while others disliked certain foods but carried them every day.
+
+      Tara suggested a "share basket" where students could place unopened food items for anyone who wanted them. She also encouraged classmates to speak to their parents about packing smaller portions. By Friday, the dustbin near the classroom was less full than usual. The teacher praised the class, not because they had achieved perfection, but because they had learned to notice their habits and make thoughtful changes.
+    question: |
+      Should the teacher have refused to praise the class because they did not achieve perfection?
+    answer_key: "Yes, the teacher should not have praised them because only perfect results matter."
+    explanation: |
+      The passage states that the teacher praised the class because they learned to notice habits and make thoughtful changes, not because they achieved perfection.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage explicitly frames the praise as being for thoughtful change, not perfection — the answer's judgment contradicts the passage's own framing. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage: The Clock Tower ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    error_type: "Fabricated Detail"
+    passage: |
+      The old clock tower in Imran's town had stopped working years ago. People passed it daily without looking up. Some said repairing it would be useless because everyone now checked the time on mobile phones. However, Imran's grandfather told him that the clock tower was once the centre of the town. People met there before festivals, announcements were made nearby, and travellers used it as a landmark.
+
+      Imran decided to learn more about the tower. He interviewed elderly residents and collected old photographs from families in the neighbourhood. With help from his history teacher, he prepared a small exhibition at school titled "The Clock That Remembered Us." Students were surprised to see how many memories were connected to a structure they had ignored.
+
+      The exhibition attracted local attention. A few shopkeepers offered to contribute money for repairs, and the town council agreed to inspect the tower. Imran realised that preserving history was not only about protecting old buildings. It was also about helping people remember the stories that gave those buildings meaning.
+    question: |
+      Why did Imran sell the old clock tower to the shopkeepers?
+    answer_key: "Imran sold the tower because shopkeepers wanted to use the space for new shops."
+    explanation: |
+      The passage does not say that Imran sold the tower. It says shopkeepers offered to contribute money for repairs.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal). Flaw:
+        the passage never mentions Imran selling the tower — it states shopkeepers offered money for repairs, an invented detail not supported by the text. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    error_type: "Unsupported Solution"
+    passage: |
+      The old clock tower in Imran's town had stopped working years ago. People passed it daily without looking up. Some said repairing it would be useless because everyone now checked the time on mobile phones. However, Imran's grandfather told him that the clock tower was once the centre of the town. People met there before festivals, announcements were made nearby, and travellers used it as a landmark.
+
+      Imran decided to learn more about the tower. He interviewed elderly residents and collected old photographs from families in the neighbourhood. With help from his history teacher, he prepared a small exhibition at school titled "The Clock That Remembered Us." Students were surprised to see how many memories were connected to a structure they had ignored.
+
+      The exhibition attracted local attention. A few shopkeepers offered to contribute money for repairs, and the town council agreed to inspect the tower. Imran realised that preserving history was not only about protecting old buildings. It was also about helping people remember the stories that gave those buildings meaning.
+    question: |
+      How did Imran repair the clock tower by himself after the exhibition?
+    answer_key: "Imran repaired the entire clock tower alone using tools from his history teacher."
+    explanation: |
+      The passage does not state that Imran repaired the tower himself. It says the town council agreed to inspect the tower.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal + Application). Flaw:
+        the passage states the town council agreed to inspect the tower — there is no mention of Imran personally repairing it. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    error_type: "Opposite Meaning"
+    passage: |
+      The old clock tower in Imran's town had stopped working years ago. People passed it daily without looking up. Some said repairing it would be useless because everyone now checked the time on mobile phones. However, Imran's grandfather told him that the clock tower was once the centre of the town. People met there before festivals, announcements were made nearby, and travellers used it as a landmark.
+
+      Imran decided to learn more about the tower. He interviewed elderly residents and collected old photographs from families in the neighbourhood. With help from his history teacher, he prepared a small exhibition at school titled "The Clock That Remembered Us." Students were surprised to see how many memories were connected to a structure they had ignored.
+
+      The exhibition attracted local attention. A few shopkeepers offered to contribute money for repairs, and the town council agreed to inspect the tower. Imran realised that preserving history was not only about protecting old buildings. It was also about helping people remember the stories that gave those buildings meaning.
+    question: |
+      How did Imran's exhibition prove that old buildings are useless in modern towns?
+    answer_key: "It proved that old buildings have no value because people now use mobile phones."
+    explanation: |
+      The passage shows the opposite. Imran's exhibition helped people understand the clock tower's historical and emotional value.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage shows the exhibition revealed the tower's value and meaning, the opposite of proving old buildings are useless. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    error_type: "Invalid Evaluation"
+    passage: |
+      The old clock tower in Imran's town had stopped working years ago. People passed it daily without looking up. Some said repairing it would be useless because everyone now checked the time on mobile phones. However, Imran's grandfather told him that the clock tower was once the centre of the town. People met there before festivals, announcements were made nearby, and travellers used it as a landmark.
+
+      Imran decided to learn more about the tower. He interviewed elderly residents and collected old photographs from families in the neighbourhood. With help from his history teacher, he prepared a small exhibition at school titled "The Clock That Remembered Us." Students were surprised to see how many memories were connected to a structure they had ignored.
+
+      The exhibition attracted local attention. A few shopkeepers offered to contribute money for repairs, and the town council agreed to inspect the tower. Imran realised that preserving history was not only about protecting old buildings. It was also about helping people remember the stories that gave those buildings meaning.
+    question: |
+      Should Imran have ignored the elderly residents because their memories were not useful?
+    answer_key: "Yes, Imran should have ignored them because old memories cannot help preserve history."
+    explanation: |
+      The passage shows that elderly residents' memories helped Imran understand and share the importance of the clock tower.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage shows elderly residents' memories were central to Imran's project, directly contradicting the claim that they were not useful. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage: The Quiet Reading Corner ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    error_type: "Fabricated Detail"
+    passage: |
+      Kavya's class decided to start a "Quiet Reading Corner" in an unused part of the corridor. The space had an old noticeboard, two broken chairs, and a dusty shelf. Most students walked past it without noticing it. Kavya, however, thought it could become a peaceful place for students who wanted to read during short breaks.
+
+      She asked her classmates to bring old magazines, storybooks, and newspapers from home. Some students brought cushions, while others helped clean the shelf and decorate the noticeboard with paper flowers. Their English teacher allowed them to display short book recommendations written by students.
+
+      At first, only a few children used the corner. Gradually, more students began stopping there before assembly and during lunch. Some read silently, while others discussed stories softly. The corridor, once ignored, became a pleasant space where students shared books and ideas.
+
+      By the end of the month, the principal appreciated the effort and asked other classes to create similar reading spaces. Kavya felt happy because the project showed that even a small unused area could become meaningful when students worked together with care and imagination.
+    question: |
+      Why did Kavya close the school library permanently?
+    answer_key: "Kavya closed the library because students preferred reading in the corridor."
+    explanation: |
+      The passage does not mention Kavya closing the library. It only says she helped create a reading corner in an unused corridor space.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal). Flaw:
+        the passage never mentions the library being closed — this is an invented detail with no support in the text. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    error_type: "Misinterpretation"
+    passage: |
+      Kavya's class decided to start a "Quiet Reading Corner" in an unused part of the corridor. The space had an old noticeboard, two broken chairs, and a dusty shelf. Most students walked past it without noticing it. Kavya, however, thought it could become a peaceful place for students who wanted to read during short breaks.
+
+      She asked her classmates to bring old magazines, storybooks, and newspapers from home. Some students brought cushions, while others helped clean the shelf and decorate the noticeboard with paper flowers. Their English teacher allowed them to display short book recommendations written by students.
+
+      At first, only a few children used the corner. Gradually, more students began stopping there before assembly and during lunch. Some read silently, while others discussed stories softly. The corridor, once ignored, became a pleasant space where students shared books and ideas.
+
+      By the end of the month, the principal appreciated the effort and asked other classes to create similar reading spaces. Kavya felt happy because the project showed that even a small unused area could become meaningful when students worked together with care and imagination.
+    question: |
+      How did Kavya use the reading corner to stop students from attending assembly?
+    answer_key: "She asked students to stay in the reading corner instead of going to assembly."
+    explanation: |
+      The passage says students stopped at the corner before assembly, not that they skipped assembly. The solution misrepresents the event.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal + Application). Flaw:
+        the passage says students stopped at the corner before assembly, not that the corner was used to make them skip assembly — the answer misreads the timing. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    error_type: "Exaggerated Outcome"
+    passage: |
+      Kavya's class decided to start a "Quiet Reading Corner" in an unused part of the corridor. The space had an old noticeboard, two broken chairs, and a dusty shelf. Most students walked past it without noticing it. Kavya, however, thought it could become a peaceful place for students who wanted to read during short breaks.
+
+      She asked her classmates to bring old magazines, storybooks, and newspapers from home. Some students brought cushions, while others helped clean the shelf and decorate the noticeboard with paper flowers. Their English teacher allowed them to display short book recommendations written by students.
+
+      At first, only a few children used the corner. Gradually, more students began stopping there before assembly and during lunch. Some read silently, while others discussed stories softly. The corridor, once ignored, became a pleasant space where students shared books and ideas.
+
+      By the end of the month, the principal appreciated the effort and asked other classes to create similar reading spaces. Kavya felt happy because the project showed that even a small unused area could become meaningful when students worked together with care and imagination.
+    question: |
+      How did the Quiet Reading Corner make every student in the school become a perfect reader?
+    answer_key: "The corner made all students perfect readers by the end of the month."
+    explanation: |
+      The passage says more students began using the corner, but it does not claim that every student became a perfect reader.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage only supports gradual increased use of the corner, not the universal claim that every student became a perfect reader. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    error_type: "Biased / Leading Question"
+    passage: |
+      Kavya's class decided to start a "Quiet Reading Corner" in an unused part of the corridor. The space had an old noticeboard, two broken chairs, and a dusty shelf. Most students walked past it without noticing it. Kavya, however, thought it could become a peaceful place for students who wanted to read during short breaks.
+
+      She asked her classmates to bring old magazines, storybooks, and newspapers from home. Some students brought cushions, while others helped clean the shelf and decorate the noticeboard with paper flowers. Their English teacher allowed them to display short book recommendations written by students.
+
+      At first, only a few children used the corner. Gradually, more students began stopping there before assembly and during lunch. Some read silently, while others discussed stories softly. The corridor, once ignored, became a pleasant space where students shared books and ideas.
+
+      By the end of the month, the principal appreciated the effort and asked other classes to create similar reading spaces. Kavya felt happy because the project showed that even a small unused area could become meaningful when students worked together with care and imagination.
+    question: |
+      Was Kavya wrong to create the reading corner because unused spaces should always remain empty?
+    answer_key: "Yes, Kavya was wrong because unused spaces should not be changed."
+    explanation: |
+      The question is biased and unsupported. The passage presents the transformation of the unused space as positive and meaningful.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the question presupposes an unsupported rule that unused spaces should remain empty, and the passage instead frames the transformation positively. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage: Saving Electricity at School ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    error_type: "False Premise"
+    passage: |
+      Dev noticed that many students in his school forgot to switch off fans and lights after leaving classrooms. The electricity bill had increased, and teachers often reminded students to save power. Still, the problem continued because everyone assumed someone else would turn the switches off.
+
+      Dev decided to begin with his own classroom. He made a small checklist and placed it near the door. Before leaving for the playground, library, or assembly, one student had to check whether the lights and fans were switched off. Dev also created colourful labels near the switches that said, "Use only when needed."
+
+      During the first few days, students forgot the checklist several times. Dev did not complain. Instead, he suggested assigning weekly energy monitors. Slowly, the habit improved. Students began reminding one another before leaving the room. Some even started checking taps and classroom windows.
+
+      After two weeks, the science teacher praised the class for taking responsibility. Other classrooms copied the checklist idea. Dev understood that saving electricity did not require a big invention. It required attention, teamwork, and the willingness to change small daily habits.
+    question: |
+      Why did Dev increase the school's electricity bill?
+    answer_key: "Dev increased the bill by switching on all the fans and lights every day."
+    explanation: |
+      The passage says the electricity bill had increased because students forgot to switch off fans and lights. It does not say Dev caused the increase.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal). Flaw:
+        the passage attributes the rising bill to students forgetting to switch off devices in general, not to any action by Dev — the question's premise is false. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    error_type: "Unsupported Solution"
+    passage: |
+      Dev noticed that many students in his school forgot to switch off fans and lights after leaving classrooms. The electricity bill had increased, and teachers often reminded students to save power. Still, the problem continued because everyone assumed someone else would turn the switches off.
+
+      Dev decided to begin with his own classroom. He made a small checklist and placed it near the door. Before leaving for the playground, library, or assembly, one student had to check whether the lights and fans were switched off. Dev also created colourful labels near the switches that said, "Use only when needed."
+
+      During the first few days, students forgot the checklist several times. Dev did not complain. Instead, he suggested assigning weekly energy monitors. Slowly, the habit improved. Students began reminding one another before leaving the room. Some even started checking taps and classroom windows.
+
+      After two weeks, the science teacher praised the class for taking responsibility. Other classrooms copied the checklist idea. Dev understood that saving electricity did not require a big invention. It required attention, teamwork, and the willingness to change small daily habits.
+    question: |
+      How did Dev save electricity by removing all fans from the classrooms?
+    answer_key: "Dev removed the fans so that students could not use electricity."
+    explanation: |
+      The passage does not say Dev removed any fans. He used checklists, labels, and energy monitors to encourage careful use.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal + Application). Flaw:
+        the passage describes Dev's solution as checklists, labels, and energy monitors — there is no mention of removing fans. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    error_type: "Contradictory Answer"
+    passage: |
+      Dev noticed that many students in his school forgot to switch off fans and lights after leaving classrooms. The electricity bill had increased, and teachers often reminded students to save power. Still, the problem continued because everyone assumed someone else would turn the switches off.
+
+      Dev decided to begin with his own classroom. He made a small checklist and placed it near the door. Before leaving for the playground, library, or assembly, one student had to check whether the lights and fans were switched off. Dev also created colourful labels near the switches that said, "Use only when needed."
+
+      During the first few days, students forgot the checklist several times. Dev did not complain. Instead, he suggested assigning weekly energy monitors. Slowly, the habit improved. Students began reminding one another before leaving the room. Some even started checking taps and classroom windows.
+
+      After two weeks, the science teacher praised the class for taking responsibility. Other classrooms copied the checklist idea. Dev understood that saving electricity did not require a big invention. It required attention, teamwork, and the willingness to change small daily habits.
+    question: |
+      How did Dev's checklist immediately solve the electricity problem on the first day?
+    answer_key: "The checklist solved the problem completely as soon as it was placed near the door."
+    explanation: |
+      The passage says students forgot the checklist several times during the first few days, and the habit improved slowly.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage explicitly states the habit improved slowly and students forgot the checklist multiple times, directly contradicting the claim of immediate success. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    error_type: "Invalid Evaluation"
+    passage: |
+      Dev noticed that many students in his school forgot to switch off fans and lights after leaving classrooms. The electricity bill had increased, and teachers often reminded students to save power. Still, the problem continued because everyone assumed someone else would turn the switches off.
+
+      Dev decided to begin with his own classroom. He made a small checklist and placed it near the door. Before leaving for the playground, library, or assembly, one student had to check whether the lights and fans were switched off. Dev also created colourful labels near the switches that said, "Use only when needed."
+
+      During the first few days, students forgot the checklist several times. Dev did not complain. Instead, he suggested assigning weekly energy monitors. Slowly, the habit improved. Students began reminding one another before leaving the room. Some even started checking taps and classroom windows.
+
+      After two weeks, the science teacher praised the class for taking responsibility. Other classrooms copied the checklist idea. Dev understood that saving electricity did not require a big invention. It required attention, teamwork, and the willingness to change small daily habits.
+    question: |
+      Should Dev have complained about his classmates instead of helping them build better habits?
+    answer_key: "Yes, complaining would have been better because students only learn when they are blamed."
+    explanation: |
+      The passage shows that Dev's patient and practical approach helped students develop responsibility. The solution is unsupported and unfair.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage credits Dev's patient, non-confrontational approach for the improvement, directly contradicting the claim that blame would have worked better. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage: Cleaning the Public Park ──────────────────────────────────
+
+- vars:
+    question_type: Literal
+    bloom_level: "L2 – Understand"
+    difficulty: "Easy"
+    course_outcome: "CO1: Demonstrate comprehension of explicitly stated information in a reading passage."
+    error_type: "Fabricated Detail"
+    passage: |
+      Sara lived near a small public park that had lost its charm. The grass had dry patches, the swings creaked, and visitors often left plastic wrappers near the benches. Many families stopped coming in the evenings because the park looked neglected.
+
+      One Saturday, Sara and her friends decided to clean the park. They wore gloves, collected litter, and placed separate bags for plastic and paper waste. Sara also requested the nearby shopkeeper to keep a dustbin outside his shop so that visitors would not throw wrappers on the ground.
+
+      Their effort attracted attention. A few morning walkers joined them the next weekend. One of them knew a carpenter who repaired the broken swing at a low cost. Another resident brought paint for the benches. Children painted small signs that said, "Keep Our Park Clean."
+
+      Within a month, the park began to look welcoming again. Families returned in the evenings, children played safely, and visitors became more careful with their waste. Sara realised that public spaces remain beautiful only when the people who use them also take responsibility for them.
+    question: |
+      Why did Sara ask visitors to stop coming to the park?
+    answer_key: "Sara asked visitors to stop coming because she wanted the park for herself."
+    explanation: |
+      The passage does not say Sara asked visitors to stop coming. She helped clean the park so families could return.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal). Flaw:
+        the passage states Sara's actions were aimed at bringing families back to the park, not at keeping visitors away — this detail is invented. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Literal + Application
+    bloom_level: "L3 – Apply"
+    difficulty: "Moderate"
+    course_outcome: "CO2: Apply understanding of events to explain character actions and outcomes."
+    error_type: "Unsupported Solution"
+    passage: |
+      Sara lived near a small public park that had lost its charm. The grass had dry patches, the swings creaked, and visitors often left plastic wrappers near the benches. Many families stopped coming in the evenings because the park looked neglected.
+
+      One Saturday, Sara and her friends decided to clean the park. They wore gloves, collected litter, and placed separate bags for plastic and paper waste. Sara also requested the nearby shopkeeper to keep a dustbin outside his shop so that visitors would not throw wrappers on the ground.
+
+      Their effort attracted attention. A few morning walkers joined them the next weekend. One of them knew a carpenter who repaired the broken swing at a low cost. Another resident brought paint for the benches. Children painted small signs that said, "Keep Our Park Clean."
+
+      Within a month, the park began to look welcoming again. Families returned in the evenings, children played safely, and visitors became more careful with their waste. Sara realised that public spaces remain beautiful only when the people who use them also take responsibility for them.
+    question: |
+      How did Sara repair the broken swing by herself?
+    answer_key: "Sara repaired the swing alone using tools from her house."
+    explanation: |
+      The passage says a morning walker knew a carpenter who repaired the swing at a low cost. Sara did not repair it herself.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Literal + Application). Flaw:
+        the passage credits a carpenter contacted through a morning walker with the repair, not Sara acting alone. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L4 – Analyze"
+    difficulty: "Moderate to Difficult"
+    course_outcome: "CO3: Analyze cause-and-effect relationships and character influence in a text."
+    error_type: "Opposite Meaning"
+    passage: |
+      Sara lived near a small public park that had lost its charm. The grass had dry patches, the swings creaked, and visitors often left plastic wrappers near the benches. Many families stopped coming in the evenings because the park looked neglected.
+
+      One Saturday, Sara and her friends decided to clean the park. They wore gloves, collected litter, and placed separate bags for plastic and paper waste. Sara also requested the nearby shopkeeper to keep a dustbin outside his shop so that visitors would not throw wrappers on the ground.
+
+      Their effort attracted attention. A few morning walkers joined them the next weekend. One of them knew a carpenter who repaired the broken swing at a low cost. Another resident brought paint for the benches. Children painted small signs that said, "Keep Our Park Clean."
+
+      Within a month, the park began to look welcoming again. Families returned in the evenings, children played safely, and visitors became more careful with their waste. Sara realised that public spaces remain beautiful only when the people who use them also take responsibility for them.
+    question: |
+      How did Sara's cleaning activity make the park unsafe for children?
+    answer_key: "Her cleaning activity made the park dangerous, so children stopped playing there."
+    explanation: |
+      The passage shows the opposite: after the park improved, children played safely and families returned.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage explicitly states children played safely and families returned after the cleanup, the opposite of the claim that it became unsafe. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Inferential
+    bloom_level: "L5 – Evaluate"
+    difficulty: "Difficult"
+    course_outcome: "CO4: Evaluate ideas, themes, and character decisions using evidence from the text."
+    error_type: "Invalid Evaluation"
+    passage: |
+      Sara lived near a small public park that had lost its charm. The grass had dry patches, the swings creaked, and visitors often left plastic wrappers near the benches. Many families stopped coming in the evenings because the park looked neglected.
+
+      One Saturday, Sara and her friends decided to clean the park. They wore gloves, collected litter, and placed separate bags for plastic and paper waste. Sara also requested the nearby shopkeeper to keep a dustbin outside his shop so that visitors would not throw wrappers on the ground.
+
+      Their effort attracted attention. A few morning walkers joined them the next weekend. One of them knew a carpenter who repaired the broken swing at a low cost. Another resident brought paint for the benches. Children painted small signs that said, "Keep Our Park Clean."
+
+      Within a month, the park began to look welcoming again. Families returned in the evenings, children played safely, and visitors became more careful with their waste. Sara realised that public spaces remain beautiful only when the people who use them also take responsibility for them.
+    question: |
+      Was Sara wrong to involve other people because public spaces should be cared for by only one person?
+    answer_key: "Yes, Sara was wrong because parks should be maintained by one person only."
+    explanation: |
+      The passage's message is that public spaces remain beautiful when everyone who uses them takes responsibility.
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension Q&A item (Inferential). Flaw:
+        the passage's explicit closing message is that shared responsibility keeps public spaces beautiful, directly contradicting the claim that one person should maintain them alone. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

@@ -1,7 +1,7 @@
-description: "Eval — Jumbled Words"
+﻿description: "Eval â€” Jumbled Words"
 
 providers:
-  - id: openai:anthropic/claude-haiku-4-5
+  - id: openai:chat:anthropic/claude-haiku-4-5
     config:
       apiBaseUrl: https://openrouter.ai/api/v1
       temperature: 0
@@ -12,7 +12,7 @@ prompts:
 defaultTest:
   options:
     provider:
-      id: openai:anthropic/claude-haiku-4-5
+      id: openai:chat:anthropic/claude-haiku-4-5
       config:
         apiBaseUrl: https://openrouter.ai/api/v1
         temperature: 0

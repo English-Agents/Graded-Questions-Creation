@@ -1,18 +1,166 @@
-# eval_tests.yaml
-# Quality evaluation tests — drop your cases here.
-# Each test checks whether a generated question meets the expected standard.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     question: the generated question text
-#     answer_key: the expected answer
-#     difficulty: easy | medium | hard
-#     marks: 2
-#   assert:
-#     - type: llm-rubric
-#       value: >
-#         The question is grammatically correct, matches the difficulty level,
-#         and the blank is clearly indicated with ___.
+# POSITIVE QUESTIONS — Correctly formed Email Writing questions
 
-# ADD YOUR EVAL TEST CASES BELOW:
+- vars:
+    question_type: Email Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Compose a formal email with a clear purpose, appropriate tone, logical organization, and relevant details."
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      You recently purchased a laptop from an online store, but it was delivered with a damaged screen. Write an email to the customer support team requesting a replacement. Include details of the order, the problem, and the action you expect.
+    sample_answer: |
+      Subject: Request for Replacement of Damaged Laptop
+
+      Dear Customer Support Team,
+
+      I am writing to request a replacement for a laptop I purchased from your online store. My order number is ORD45821, and the product was delivered on 6 June 2026. Unfortunately, when I opened the package, I found that the laptop screen was cracked on the left side.
+
+      I have attached photographs of the damaged screen and the invoice for your reference. Since the product arrived in this condition, I kindly request you to arrange a replacement at the earliest. Please also let me know the process for returning the damaged item.
+
+      I hope this issue will be resolved promptly.
+
+      Yours sincerely,
+      Rahul Sharma
+    explanation: "The question is valid because it gives a clear formal context, purpose, audience, and required details."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Email Writing question.
+        The correct verdict is VALID — the email has a clear formal subject line, salutation, all required order/issue details, a polite professional tone, a specific request, and a proper closing, all within the 120-150 word range.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Email Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Write a semi-formal email using appropriate structure, polite language, and persuasive explanation."
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      Your school is organizing a career guidance session. Write an email to a successful former student inviting them to be the guest speaker. Mention the purpose of the event, date, audience, and why their presence would be valuable.
+    sample_answer: |
+      Subject: Invitation to Speak at Career Guidance Session
+
+      Dear Ms. Mehta,
+
+      I hope you are doing well. I am writing on behalf of Sunrise Public School to invite you as the guest speaker for our career guidance session on 20 June 2026. The session will be attended by students of Classes 10 and 11, who are beginning to explore different career options.
+
+      As a former student of our school and a successful software engineer, your journey would be highly inspiring for them. We believe your experiences, challenges, and practical advice will help students make more informed choices about their future.
+
+      We would be honoured if you could join us from 10:00 a.m. to 11:30 a.m. on the school campus.
+
+      Yours sincerely,
+      Ananya Rao
+    explanation: "The task has a clear audience and communicative purpose. It allows students to show polite invitation language and formal organization."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Email Writing question.
+        The correct verdict is VALID — the email clearly states purpose, date, audience, and a persuasive reason for the invitation, in polite semi-formal language with proper structure and word count.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Email Writing
+    bloom_level: Apply
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Draft a professional email explaining a problem, requesting assistance, and maintaining a respectful tone."
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      You are unable to attend an important online training session because of a medical appointment. Write an email to the training coordinator requesting access to the recording and any materials shared during the session.
+    sample_answer: |
+      Subject: Request for Training Session Recording and Materials
+
+      Dear Training Coordinator,
+
+      I am writing to inform you that I will not be able to attend the online training session scheduled for 12 June 2026 due to a medical appointment that cannot be postponed.
+
+      I understand that the session is important, and I do not want to miss the learning outcomes. Therefore, I kindly request you to share the session recording, presentation slides, and any additional materials after the training is completed. I will go through them carefully and complete any follow-up task assigned.
+
+      I apologize for the inconvenience and appreciate your support.
+
+      Yours faithfully,
+      Neha Verma
+    explanation: "The email writing situation is realistic and requires explanation, request, apology, and professional tone."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Email Writing question.
+        The correct verdict is VALID — the email explains the reason for absence, makes a specific request, apologizes for the inconvenience, and maintains a respectful professional tone throughout.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Email Writing
+    bloom_level: Create
+    difficulty: "C1"
+    marks: 8
+    course_outcome: "Produce a formal complaint email with relevant evidence, clear sequencing, and a reasonable request for action."
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      Your residential area has been facing frequent power cuts for the past two weeks. Write an email to the local electricity board complaining about the issue and requesting urgent action. Mention how it has affected residents.
+    sample_answer: |
+      Subject: Complaint Regarding Frequent Power Cuts in Green Park Area
+
+      Dear Sir/Madam,
+
+      I am writing to bring to your attention the frequent power cuts in Green Park over the past two weeks. The electricity supply is interrupted almost every evening for two to three hours without prior notice.
+
+      This has caused serious inconvenience to residents. Students are unable to study properly, elderly people are facing discomfort, and many people working from home are unable to complete their tasks. The issue has also raised safety concerns, especially in the streets after dark.
+
+      I request you to investigate the cause of these power cuts and take urgent steps to restore a reliable supply. Kindly also inform residents if any maintenance work is planned.
+
+      Yours faithfully,
+      A resident of Green Park
+    explanation: "This is a valid formal complaint task because it requires context, impact, and a clear request for action."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Email Writing question.
+        The correct verdict is VALID — the email gives the specific problem, its duration, the impact on residents, and a clear request for urgent action, all in proper formal complaint structure and within word limit.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Email Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Write an effective email of appreciation using suitable tone, specific details, and coherent paragraphing."
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      You attended a workshop on public speaking conducted by your college. Write an email to the trainer thanking them for the session. Mention what you learned and how it helped you.
+    sample_answer: |
+      Subject: Thank You for the Public Speaking Workshop
+
+      Dear Mr. Iyer,
+
+      I am writing to thank you for conducting the public speaking workshop at our college on 5 June 2026. The session was informative, practical, and highly motivating.
+
+      I especially found your tips on voice modulation, eye contact, and structuring a speech very useful. The short practice activities helped me understand my strengths and areas for improvement. Before the workshop, I often felt nervous while speaking in front of others, but your guidance has given me more confidence.
+
+      I appreciate the time and effort you put into making the session interactive and encouraging. I look forward to applying these techniques in future presentations.
+
+      Yours sincerely,
+      Priya Nair
+    explanation: "The question is valid because it asks for a purposeful email with gratitude, reflection, and specific learning outcomes."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Email Writing question.
+        The correct verdict is VALID — the email expresses clear gratitude, names specific things learned, reflects on personal benefit, and maintains an appreciative tone throughout, matching the task purpose exactly.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.

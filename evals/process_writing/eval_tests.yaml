@@ -1,18 +1,131 @@
-# eval_tests.yaml
-# Quality evaluation tests — drop your cases here.
-# Each test checks whether a generated question meets the expected standard.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     question: the generated question text
-#     answer_key: the expected answer
-#     difficulty: easy | medium | hard
-#     marks: 2
-#   assert:
-#     - type: llm-rubric
-#       value: >
-#         The question is grammatically correct, matches the difficulty level,
-#         and the blank is clearly indicated with ___.
+# POSITIVE QUESTIONS — Correctly formed Process Writing questions
 
-# ADD YOUR EVAL TEST CASES BELOW:
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Describe a process clearly using logical sequence, appropriate linking words, passive voice where needed, and accurate procedural details."
+    question: |
+      Describe the process of preparing compost from kitchen waste in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: collect vegetable peels and food scraps – separate plastic and metal waste – place organic waste in a compost bin – add dry leaves or soil – sprinkle water – turn the mixture regularly – wait for decomposition – use compost for plants
+    sample_answer: |
+      The Process of Preparing Compost
+
+      Compost can be prepared at home by following a simple process. First, vegetable peels, fruit skins, and other food scraps are collected from the kitchen. Plastic, metal, and glass items are separated because they do not decompose. Next, the organic waste is placed in a compost bin. A layer of dry leaves or soil is added to reduce smell and support decomposition. After that, a little water is sprinkled to keep the mixture moist. The waste is turned regularly so that air can enter and the materials can break down properly. Over the next few weeks, the waste slowly decomposes into dark, rich compost. Finally, this compost is removed from the bin and used to improve the soil around plants.
+    explanation: "This is a valid process writing question because it provides a clear topic, logical hints, word limit, and expected structure. The answer follows the process step by step using sequence connectors."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Process Writing question.
+        The correct verdict is VALID — the answer uses every hint in the exact order given, stays within the word range, follows correct real-world sequencing, and matches the named process with no off-topic content.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Explain a process in a coherent paragraph using order markers, precise vocabulary, and suitable process-writing style."
+    question: |
+      Describe the process of applying for a library membership in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: visit library office – collect application form – fill in personal details – attach identity proof and photograph – pay membership fee – submit form – receive membership card – borrow books
+    sample_answer: |
+      The Process of Applying for Library Membership
+
+      Applying for a library membership involves a few simple steps. First, the applicant visits the library office during working hours. Then, an application form is collected from the librarian or the registration counter. The applicant fills in personal details such as name, address, contact number, and class or occupation. After that, a copy of identity proof and a recent photograph are attached to the form. The required membership fee is then paid at the counter. Next, the completed form and payment receipt are submitted for verification. Once the details are checked, the applicant receives a membership card. This card must be shown whenever books are borrowed or returned. Finally, the new member can use the library facilities and borrow books according to the rules.
+    explanation: "This question is valid because the process is realistic, clearly sequenced, and suitable for B2-C1 learners. The sample answer uses formal process language and complete procedural details."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Process Writing question.
+        The correct verdict is VALID — the answer follows every hint in the exact listed order, remains within the word range, and describes a realistic, logically sequenced procedure matching the named task.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Write a clear process description using chronological order, connectors, and accurate explanation of each stage."
+    question: |
+      Describe the process of purifying water at home by boiling in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: take clean vessel – filter visible dirt – pour water – heat until boiling – boil for several minutes – let it cool – store in covered container – use clean ladle or bottle
+    sample_answer: |
+      The Process of Purifying Water by Boiling
+
+      Water can be purified at home by boiling it properly. First, a clean vessel is taken for the process. If the water contains visible dirt, it is filtered through a clean cloth before boiling. Then the water is poured into the vessel and placed on a stove. It is heated until it reaches a steady boil. The water should continue boiling for several minutes so that harmful germs are destroyed. After boiling, the vessel is removed from the stove and the water is allowed to cool naturally. Once it cools, the water is transferred into a clean, covered container. It should not be touched with unwashed hands. Finally, a clean ladle or bottle is used whenever the water is needed. This process makes water safer for drinking.
+    explanation: "This is a well-formed process writing task because the hints guide students through a practical sequence while allowing full-sentence development and process vocabulary."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Process Writing question.
+        The correct verdict is VALID — the answer follows every hint in correct chronological order, stays within the word range, and gives an accurate, coherent explanation of each stage of the named process.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "C1"
+    marks: 8
+    course_outcome: "Produce a structured process description with logical transitions, technical clarity, and appropriate formal tone."
+    question: |
+      Describe the process of organizing a school cleanliness drive in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: decide purpose – form student teams – select areas to clean – arrange gloves and bags – give safety instructions – collect and separate waste – dispose waste properly – reflect on importance of cleanliness
+    sample_answer: |
+      The Process of Organizing a School Cleanliness Drive
+
+      A school cleanliness drive must be planned carefully to be effective. First, the purpose of the drive is decided, such as cleaning classrooms, corridors, or the playground. Next, student teams are formed and each team is assigned a specific area. Gloves, masks, brooms, and waste bags are arranged before the activity begins. The teacher in charge then gives safety instructions and explains how waste should be handled. After that, students collect litter from the selected areas. The waste is separated into dry and wet categories wherever possible. It is then disposed of properly in the correct bins or handed over to the cleaning staff. Finally, students discuss what they learned from the activity. The process helps them understand that cleanliness is a shared responsibility, not a one-day task.
+    explanation: "The question is valid because it asks students to describe an organized process with planning, action, and reflection. It supports coherent sequencing and formal expression."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Process Writing question.
+        The correct verdict is VALID — the answer covers every hint in the given order, stays within the word range, and maintains logical transitions and formal tone appropriate for the named process.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.
+
+- vars:
+    question_type: Process Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Describe a digital process clearly using step-by-step organization, relevant vocabulary, and concise explanation."
+    question: |
+      Describe the process of creating a strong password for an online account in 120-150 words.
+
+      Marks: 8
+
+      Use the hints given below:
+
+      Hints: avoid personal information – choose longer password – mix uppercase and lowercase letters – add numbers and symbols – avoid common words – do not reuse old passwords – save securely – update regularly
+    sample_answer: |
+      The Process of Creating a Strong Password
+
+      Creating a strong password is important for protecting an online account. First, personal information such as name, birth date, or phone number should be avoided because it can be guessed easily. Next, a longer password is chosen, preferably with at least twelve characters. Uppercase and lowercase letters are mixed to make it harder to break. Numbers and symbols are then added to increase security. Common words, simple patterns, and repeated characters should not be used. After that, the password must be different from passwords used for other accounts. It can be saved securely in a trusted password manager instead of being written in an unsafe place. Finally, the password should be updated regularly, especially if there is any security warning. This process helps keep personal information safe online.
+    explanation: "This is a valid process writing question because it provides clear procedural hints and requires students to explain a modern, practical process in logical order."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a correctly formed Process Writing question.
+        The correct verdict is VALID — the answer uses every hint in the exact listed order, stays within the word range, and gives a step-by-step explanation matching the named digital process.
+        Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.

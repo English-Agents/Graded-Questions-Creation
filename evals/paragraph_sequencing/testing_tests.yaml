@@ -1,0 +1,132 @@
+# NEGATIVE QUESTIONS — Flawed Paragraph Sequencing questions (should be marked INVALID)
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Understand
+    difficulty: "B2"
+    course_outcome: "Sequence a process-based paragraph using time and cause-effect clues."
+    error_type: "Incorrect solution order"
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. As cities expanded, the distance between homes and workplaces increased.
+      B. Public transport systems were developed to solve this problem.
+      C. Urban growth has always changed the way people move.
+      D. Later, underground railways and buses made daily travel faster for large populations.
+      E. In earlier times, many people lived close enough to walk to work.
+      F. Today, cities are experimenting with electric buses and shared bicycles.
+      G. These changes show that transport continues to adapt to the needs of urban life.
+      H. However, modern solutions must also reduce pollution and traffic congestion.
+    solution: "C-A-E-B-D-F-H-G"
+    explanation: "The given solution incorrectly places \"As cities expanded\" before \"In earlier times,\" which disrupts the chronological flow from past to later urban expansion. The correct logical opening should move from the general idea to earlier times before expansion."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw:
+        the proposed order places sentence A (cities expanded) before sentence E (in earlier times), reversing the chronological flow — E must precede A for the timeline to make sense. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Analyze
+    difficulty: "B2-C1"
+    course_outcome: "Identify logical flow in a cause-effect paragraph."
+    error_type: "Multiple valid solutions"
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. Consequently, employees may feel disconnected from both their colleagues and the organization's goals.
+      B. Remote work has given many employees greater control over their schedules.
+      C. Regular virtual meetings can help, but they must not become excessive or mechanical.
+      D. This flexibility can improve productivity, especially for those who need quiet time to concentrate.
+      E. However, working away from the office can reduce informal communication.
+      F. A balanced approach is therefore necessary.
+      G. Managers need to create opportunities for meaningful interaction without removing the benefits of flexibility.
+      H. The challenge is not remote work itself, but how it is managed.
+    solution: "B-D-E-A-F-G-C-H"
+    explanation: "Although the solution is valid, the question is intentionally flawed because sentence C and sentence G both function as solution-oriented recommendations, making the ending slightly debatable. Different reasonable arrangements such as placing C after A may also work."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw:
+        sentences C and G both function as solution-oriented recommendations near the end, creating more than one defensible placement and meaning there is no single unambiguous correct order. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Analyze
+    difficulty: "C1"
+    course_outcome: "Arrange sentences to form a coherent paragraph using problem-solution structure."
+    error_type: "Extra sentence / contradictory sentence"
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. One reason is that scientific information is often communicated in highly technical language.
+      B. This gap between knowledge and public understanding can delay action on serious issues.
+      C. Climate change is widely studied, yet public responses to it vary greatly.
+      D. When people cannot connect data to their daily lives, the issue may seem distant or abstract.
+      E. Scientists and educators must therefore translate complex findings into clear and relatable messages.
+      F. For example, explaining heat waves in relation to health and food prices can make the problem more immediate.
+      G. Better communication does not simplify the science unfairly; rather, it makes the science usable.
+      H. In this way, public awareness can become a foundation for informed decisions.
+      I. This shows that every citizen already understands climate science completely.
+    solution: "C-A-D-B-E-F-G-H"
+    explanation: "The question contains nine sentences even though the instruction requires eight. Sentence I is also logically inconsistent with the paragraph because it contradicts the idea that public understanding varies."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw:
+        the question lists 9 sentences (A-I) instead of 8, and sentence I directly contradicts the paragraph's premise that public understanding of climate science varies greatly. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Apply
+    difficulty: "B2-C1"
+    course_outcome: "Arrange sentences into a coherent comparison-based paragraph."
+    error_type: "Incomplete solution"
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. In traditional classrooms, students often receive immediate clarification from teachers.
+      B. Both methods of learning offer valuable opportunities, but they support learners in different ways.
+      C. Online courses, on the other hand, allow learners to manage their time more independently.
+      D. This independence can be useful for motivated students who already have strong study habits.
+      E. However, it may be challenging for those who need regular reminders and external structure.
+      F. Classroom learning can also encourage social interaction through group tasks and discussion.
+      G. Therefore, the choice between the two should depend on the learner's needs, not on assumptions about which method is superior.
+      H. A thoughtful combination of both may often provide the strongest learning experience.
+    solution: "B-A-F-C-D-E-G"
+    explanation: "The flawed solution omits sentence H, so it does not arrange all eight sentences. The paragraph also ends less completely because the final balanced conclusion is missing."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw:
+        the proposed solution only lists 7 sentences (B-A-F-C-D-E-G) and omits sentence H entirely, failing to arrange all 8 given sentences. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Paragraph Sequencing
+    bloom_level: Analyze
+    difficulty: "C1"
+    course_outcome: "Arrange sentences to build an argument with examples and conclusion."
+    error_type: "Ambiguous placement"
+    question: |
+      Arrange the following sentences to form a coherent paragraph.
+
+      A. This makes it easier for false or exaggerated claims to influence public opinion.
+      B. The ability to question information has become an essential skill.
+      C. For example, a graph may look convincing even if the data behind it is incomplete.
+      D. People are exposed to more information than ever before through social media, websites, and messaging apps.
+      E. Critical thinking helps individuals check sources, compare evidence, and recognize emotional manipulation.
+      F. Without this skill, readers may confuse popularity with accuracy.
+      G. Schools should therefore teach students not only to find information but also to evaluate it.
+      H. Such training prepares learners to participate more responsibly in public discussion.
+    solution: "D-F-A-B-E-C-G-H"
+    explanation: "The item is flawed because sentence C can logically appear either immediately after A as an example of false claims or after E as an example of evaluating evidence. This creates ambiguity in the expected sequence."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw:
+        sentence C (the graph example) is equally plausible immediately after A or after E, since it could illustrate either false claims or evaluating evidence, creating genuine ambiguity in the correct order. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

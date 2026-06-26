@@ -1,6 +1,7 @@
-# NEGATIVE QUESTIONS — Flawed Reading Comprehension questions (should be marked INVALID)
+# NEGATIVE QUESTIONS — Flawed Reading Comprehension MCQ/True-False questions (should be marked INVALID)
+# 5 passages x 8 sub-questions each = 40 total
 
-# ── Flawed Passage 1: The Growth of Remote Work ──────────────────────────────
+# ── Flawed Passage: The Growth of Remote Work ──────────────────────────────────
 
 - vars:
     question_type: MCQ
@@ -11,28 +12,13 @@
     passage: |
       The Growth of Remote Work
 
-      Remote work has become increasingly common in many industries over the past decade.
-      Advances in communication technology, cloud computing, and collaboration software
-      have made it possible for employees to perform their duties from locations outside
-      traditional offices. While remote work was already growing steadily, global events
-      in recent years accelerated its adoption across organizations of all sizes.
+      Remote work has become increasingly common in many industries over the past decade. Advances in communication technology, cloud computing, and collaboration software have made it possible for employees to perform their duties from locations outside traditional offices. While remote work was already growing steadily, global events in recent years accelerated its adoption across organizations of all sizes.
 
-      One advantage of remote work is flexibility. Employees can often choose where they
-      work and may spend less time commuting. This can improve work-life balance and reduce
-      transportation costs. Employers may also benefit by accessing a wider talent pool
-      because they are no longer limited to hiring people who live near a physical office.
+      One advantage of remote work is flexibility. Employees can often choose where they work and may spend less time commuting. This can improve work-life balance and reduce transportation costs. Employers may also benefit by accessing a wider talent pool because they are no longer limited to hiring people who live near a physical office.
 
-      However, remote work presents challenges. Communication can sometimes become more
-      difficult when team members are located in different time zones. Employees may
-      experience feelings of isolation if they have limited social interaction with
-      colleagues. In addition, maintaining cybersecurity and protecting sensitive company
-      data require continuous attention.
+      However, remote work presents challenges. Communication can sometimes become more difficult when team members are located in different time zones. Employees may experience feelings of isolation if they have limited social interaction with colleagues. In addition, maintaining cybersecurity and protecting sensitive company data require continuous attention.
 
-      Many organizations have adopted hybrid work models that combine remote and in-office
-      work. Supporters argue that hybrid arrangements provide flexibility while preserving
-      opportunities for collaboration and team building. Researchers continue to study the
-      long-term effects of remote work on productivity, employee satisfaction, and
-      organisational culture.
+      Many organizations have adopted hybrid work models that combine remote and in-office work. Supporters argue that hybrid arrangements provide flexibility while preserving opportunities for collaboration and team building. Researchers continue to study the long-term effects of remote work on productivity, employee satisfaction, and organizational culture.
     question: |
       Which of the following technologies helped enable remote work?
 
@@ -41,15 +27,12 @@
       c) Communication technology
       d) All of the above
     answer_key: "a) Cloud computing"
-    explanation: "Options a, b, and c are all correct — all three technologies are mentioned in the passage."
+    explanation: "Options a, b, and c are all correct."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the passage
-        mentions all three technologies (communication technology, cloud computing, AND
-        collaboration software), making options a, b, and c all correct — so option d
-        is actually the right answer, not a. The question has multiple correct options.
-        The correct verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage mentions all three technologies (communication technology, cloud computing, AND collaboration software), making option d the actual correct answer, not a alone. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
@@ -61,28 +44,13 @@
     passage: |
       The Growth of Remote Work
 
-      Remote work has become increasingly common in many industries over the past decade.
-      Advances in communication technology, cloud computing, and collaboration software
-      have made it possible for employees to perform their duties from locations outside
-      traditional offices. While remote work was already growing steadily, global events
-      in recent years accelerated its adoption across organizations of all sizes.
+      Remote work has become increasingly common in many industries over the past decade. Advances in communication technology, cloud computing, and collaboration software have made it possible for employees to perform their duties from locations outside traditional offices. While remote work was already growing steadily, global events in recent years accelerated its adoption across organizations of all sizes.
 
-      One advantage of remote work is flexibility. Employees can often choose where they
-      work and may spend less time commuting. This can improve work-life balance and reduce
-      transportation costs. Employers may also benefit by accessing a wider talent pool
-      because they are no longer limited to hiring people who live near a physical office.
+      One advantage of remote work is flexibility. Employees can often choose where they work and may spend less time commuting. This can improve work-life balance and reduce transportation costs. Employers may also benefit by accessing a wider talent pool because they are no longer limited to hiring people who live near a physical office.
 
-      However, remote work presents challenges. Communication can sometimes become more
-      difficult when team members are located in different time zones. Employees may
-      experience feelings of isolation if they have limited social interaction with
-      colleagues. In addition, maintaining cybersecurity and protecting sensitive company
-      data require continuous attention.
+      However, remote work presents challenges. Communication can sometimes become more difficult when team members are located in different time zones. Employees may experience feelings of isolation if they have limited social interaction with colleagues. In addition, maintaining cybersecurity and protecting sensitive company data require continuous attention.
 
-      Many organizations have adopted hybrid work models that combine remote and in-office
-      work. Supporters argue that hybrid arrangements provide flexibility while preserving
-      opportunities for collaboration and team building. Researchers continue to study the
-      long-term effects of remote work on productivity, employee satisfaction, and
-      organisational culture.
+      Many organizations have adopted hybrid work models that combine remote and in-office work. Supporters argue that hybrid arrangements provide flexibility while preserving opportunities for collaboration and team building. Researchers continue to study the long-term effects of remote work on productivity, employee satisfaction, and organizational culture.
     question: |
       What percentage of employees worldwide currently work remotely full-time?
 
@@ -91,14 +59,76 @@
       c) 60%
       d) 75%
     answer_key: "b) 40%"
-    explanation: "The passage provides no percentage data about remote work adoption rates."
+    explanation: "The passage provides no percentage data."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the passage
-        contains no percentage figures about remote work adoption — this statistic is
-        fabricated and not present in the passage, making the question unanswerable from
-        the text. The correct verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage contains no percentage figures about remote work adoption — this statistic is fabricated. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Growth of Remote Work
+
+      Remote work has become increasingly common in many industries over the past decade. Advances in communication technology, cloud computing, and collaboration software have made it possible for employees to perform their duties from locations outside traditional offices. While remote work was already growing steadily, global events in recent years accelerated its adoption across organizations of all sizes.
+
+      One advantage of remote work is flexibility. Employees can often choose where they work and may spend less time commuting. This can improve work-life balance and reduce transportation costs. Employers may also benefit by accessing a wider talent pool because they are no longer limited to hiring people who live near a physical office.
+
+      However, remote work presents challenges. Communication can sometimes become more difficult when team members are located in different time zones. Employees may experience feelings of isolation if they have limited social interaction with colleagues. In addition, maintaining cybersecurity and protecting sensitive company data require continuous attention.
+
+      Many organizations have adopted hybrid work models that combine remote and in-office work. Supporters argue that hybrid arrangements provide flexibility while preserving opportunities for collaboration and team building. Researchers continue to study the long-term effects of remote work on productivity, employee satisfaction, and organizational culture.
+    question: |
+      One challenge of remote work mentioned in the passage is:
+
+      a) Communication across time zones
+      b) Employee isolation
+      c) Cybersecurity concerns
+      d) All of the above
+    answer_key: "b) Employee isolation"
+    explanation: "Option d is the actual correct answer."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage lists all three challenges (time zones, isolation, cybersecurity), so option d is correct, not b alone. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Multiple Correct Answers
+    passage: |
+      The Growth of Remote Work
+
+      Remote work has become increasingly common in many industries over the past decade. Advances in communication technology, cloud computing, and collaboration software have made it possible for employees to perform their duties from locations outside traditional offices. While remote work was already growing steadily, global events in recent years accelerated its adoption across organizations of all sizes.
+
+      One advantage of remote work is flexibility. Employees can often choose where they work and may spend less time commuting. This can improve work-life balance and reduce transportation costs. Employers may also benefit by accessing a wider talent pool because they are no longer limited to hiring people who live near a physical office.
+
+      However, remote work presents challenges. Communication can sometimes become more difficult when team members are located in different time zones. Employees may experience feelings of isolation if they have limited social interaction with colleagues. In addition, maintaining cybersecurity and protecting sensitive company data require continuous attention.
+
+      Many organizations have adopted hybrid work models that combine remote and in-office work. Supporters argue that hybrid arrangements provide flexibility while preserving opportunities for collaboration and team building. Researchers continue to study the long-term effects of remote work on productivity, employee satisfaction, and organizational culture.
+    question: |
+      Why do some employers support remote work?
+
+      a) Access to a wider talent pool
+      b) Reduced location restrictions
+      c) Ability to recruit from different regions
+      d) All of the above
+    answer_key: "a) Access to a wider talent pool"
+    explanation: "Options a, b, and c express essentially the same correct idea."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        options a, b, and c all restate the same passage fact, making d the only fully correct option. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
@@ -106,46 +136,175 @@
     bloom_level: Understand
     difficulty: Easy
     course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Growth of Remote Work
+
+      Remote work has become increasingly common in many industries over the past decade. Advances in communication technology, cloud computing, and collaboration software have made it possible for employees to perform their duties from locations outside traditional offices. While remote work was already growing steadily, global events in recent years accelerated its adoption across organizations of all sizes.
+
+      One advantage of remote work is flexibility. Employees can often choose where they work and may spend less time commuting. This can improve work-life balance and reduce transportation costs. Employers may also benefit by accessing a wider talent pool because they are no longer limited to hiring people who live near a physical office.
+
+      However, remote work presents challenges. Communication can sometimes become more difficult when team members are located in different time zones. Employees may experience feelings of isolation if they have limited social interaction with colleagues. In addition, maintaining cybersecurity and protecting sensitive company data require continuous attention.
+
+      Many organizations have adopted hybrid work models that combine remote and in-office work. Supporters argue that hybrid arrangements provide flexibility while preserving opportunities for collaboration and team building. Researchers continue to study the long-term effects of remote work on productivity, employee satisfaction, and organizational culture.
+    question: |
+      The passage states that remote work completely eliminates all cybersecurity risks.
+    answer_key: "TRUE"
+    explanation: "The passage states the opposite."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage says cybersecurity requires continuous attention, the opposite of eliminating all risk — verdict should be FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Growth of Remote Work
+
+      Remote work has become increasingly common in many industries over the past decade. Advances in communication technology, cloud computing, and collaboration software have made it possible for employees to perform their duties from locations outside traditional offices. While remote work was already growing steadily, global events in recent years accelerated its adoption across organizations of all sizes.
+
+      One advantage of remote work is flexibility. Employees can often choose where they work and may spend less time commuting. This can improve work-life balance and reduce transportation costs. Employers may also benefit by accessing a wider talent pool because they are no longer limited to hiring people who live near a physical office.
+
+      However, remote work presents challenges. Communication can sometimes become more difficult when team members are located in different time zones. Employees may experience feelings of isolation if they have limited social interaction with colleagues. In addition, maintaining cybersecurity and protecting sensitive company data require continuous attention.
+
+      Many organizations have adopted hybrid work models that combine remote and in-office work. Supporters argue that hybrid arrangements provide flexibility while preserving opportunities for collaboration and team building. Researchers continue to study the long-term effects of remote work on productivity, employee satisfaction, and organizational culture.
+    question: |
+      Hybrid work models combine remote and in-office work.
+    answer_key: "FALSE"
+    explanation: "The passage explicitly defines hybrid work this way."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly defines hybrid work as combining remote and in-office work, so the statement is TRUE not FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
     error_type: Invalid True/False Statement
     passage: |
       The Growth of Remote Work
 
-      Remote work has become increasingly common in many industries over the past decade.
-      Advances in communication technology, cloud computing, and collaboration software
-      have made it possible for employees to perform their duties from locations outside
-      traditional offices. While remote work was already growing steadily, global events
-      in recent years accelerated its adoption across organizations of all sizes.
+      Remote work has become increasingly common in many industries over the past decade. Advances in communication technology, cloud computing, and collaboration software have made it possible for employees to perform their duties from locations outside traditional offices. While remote work was already growing steadily, global events in recent years accelerated its adoption across organizations of all sizes.
 
-      One advantage of remote work is flexibility. Employees can often choose where they
-      work and may spend less time commuting. This can improve work-life balance and reduce
-      transportation costs. Employers may also benefit by accessing a wider talent pool
-      because they are no longer limited to hiring people who live near a physical office.
+      One advantage of remote work is flexibility. Employees can often choose where they work and may spend less time commuting. This can improve work-life balance and reduce transportation costs. Employers may also benefit by accessing a wider talent pool because they are no longer limited to hiring people who live near a physical office.
 
-      However, remote work presents challenges. Communication can sometimes become more
-      difficult when team members are located in different time zones. Employees may
-      experience feelings of isolation if they have limited social interaction with
-      colleagues. In addition, maintaining cybersecurity and protecting sensitive company
-      data require continuous attention.
+      However, remote work presents challenges. Communication can sometimes become more difficult when team members are located in different time zones. Employees may experience feelings of isolation if they have limited social interaction with colleagues. In addition, maintaining cybersecurity and protecting sensitive company data require continuous attention.
 
-      Many organizations have adopted hybrid work models that combine remote and in-office
-      work. Supporters argue that hybrid arrangements provide flexibility while preserving
-      opportunities for collaboration and team building. Researchers continue to study the
-      long-term effects of remote work on productivity, employee satisfaction, and
-      organisational culture.
-    question: "Remote work reduces commuting time for some employees."
+      Many organizations have adopted hybrid work models that combine remote and in-office work. Supporters argue that hybrid arrangements provide flexibility while preserving opportunities for collaboration and team building. Researchers continue to study the long-term effects of remote work on productivity, employee satisfaction, and organizational culture.
+    question: |
+      Remote work reduces commuting time for some employees.
     answer_key: "Cannot be determined"
-    explanation: "True/False questions cannot have 'Cannot be determined' as a valid answer."
+    explanation: "True/False questions cannot have \"Cannot be determined\" as an answer."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension True/False question.
-        Flaw: the answer key is "Cannot be determined" — this is not a valid answer for
-        a True/False question, which must be answered TRUE or FALSE. In fact the passage
-        clearly supports TRUE (employees may spend less time commuting). The correct
-        verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        a True/False item must be answered TRUE or FALSE; "Cannot be determined" is not a valid verdict for this question type. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
-# ── Flawed Passage 2: Citizen Science Projects ───────────────────────────────
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Outside Passage Scope
+    passage: |
+      The Growth of Remote Work
+
+      Remote work has become increasingly common in many industries over the past decade. Advances in communication technology, cloud computing, and collaboration software have made it possible for employees to perform their duties from locations outside traditional offices. While remote work was already growing steadily, global events in recent years accelerated its adoption across organizations of all sizes.
+
+      One advantage of remote work is flexibility. Employees can often choose where they work and may spend less time commuting. This can improve work-life balance and reduce transportation costs. Employers may also benefit by accessing a wider talent pool because they are no longer limited to hiring people who live near a physical office.
+
+      However, remote work presents challenges. Communication can sometimes become more difficult when team members are located in different time zones. Employees may experience feelings of isolation if they have limited social interaction with colleagues. In addition, maintaining cybersecurity and protecting sensitive company data require continuous attention.
+
+      Many organizations have adopted hybrid work models that combine remote and in-office work. Supporters argue that hybrid arrangements provide flexibility while preserving opportunities for collaboration and team building. Researchers continue to study the long-term effects of remote work on productivity, employee satisfaction, and organizational culture.
+    question: |
+      Remote work is better than office work because it is always more productive.
+
+      a) True
+      b) False
+      c) Sometimes
+      d) Cannot be determined
+    answer_key: "a) True"
+    explanation: "The question introduces an unsupported claim and becomes opinion-based."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage never claims remote work is always more productive — this is an unsupported absolute claim outside the passage's scope. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage: Citizen Science Projects ──────────────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      Citizen Science Projects
+
+      Citizen science refers to scientific research that involves participation from members of the public. Rather than being conducted solely by professional scientists, many projects invite volunteers to collect data, make observations, or analyze information. These initiatives help researchers gather large amounts of data while increasing public engagement with science.
+
+      Citizen science projects cover a wide range of fields. In environmental studies, volunteers may monitor bird populations, track weather patterns, or record changes in local ecosystems. In astronomy, participants help identify celestial objects by examining images collected from telescopes. Some health-related projects also encourage individuals to contribute information that supports medical research.
+
+      Technology has played a major role in expanding citizen science. Mobile applications and online platforms allow participants to submit observations quickly and accurately. As a result, researchers can access information from many geographic regions that would otherwise be difficult to study.
+    question: |
+      Citizen science is research conducted by:
+
+      a) Professional scientists only
+      b) Members of the public only
+      c) Both scientists and public volunteers
+      d) Government officials only
+    answer_key: "a) Professional scientists only"
+    explanation: "The passage states that public volunteers participate."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage describes citizen science as research involving public volunteers alongside professional researchers, so option c is correct, not a. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      Citizen Science Projects
+
+      Citizen science refers to scientific research that involves participation from members of the public. Rather than being conducted solely by professional scientists, many projects invite volunteers to collect data, make observations, or analyze information. These initiatives help researchers gather large amounts of data while increasing public engagement with science.
+
+      Citizen science projects cover a wide range of fields. In environmental studies, volunteers may monitor bird populations, track weather patterns, or record changes in local ecosystems. In astronomy, participants help identify celestial objects by examining images collected from telescopes. Some health-related projects also encourage individuals to contribute information that supports medical research.
+
+      Technology has played a major role in expanding citizen science. Mobile applications and online platforms allow participants to submit observations quickly and accurately. As a result, researchers can access information from many geographic regions that would otherwise be difficult to study.
+    question: |
+      Which of the following fields is mentioned in the passage?
+
+      a) Environmental studies
+      b) Astronomy
+      c) Health research
+      d) All of the above
+    answer_key: "b) Astronomy"
+    explanation: "All three fields are mentioned."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage names all three fields (environmental studies, astronomy, health), so option d is correct, not b alone. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
     question_type: MCQ
@@ -156,22 +315,11 @@
     passage: |
       Citizen Science Projects
 
-      Citizen science refers to scientific research that involves participation from members
-      of the public. Rather than being conducted solely by professional scientists, many
-      projects invite volunteers to collect data, make observations, or analyze information.
-      These initiatives help researchers gather large amounts of data while increasing
-      public engagement with science.
+      Citizen science refers to scientific research that involves participation from members of the public. Rather than being conducted solely by professional scientists, many projects invite volunteers to collect data, make observations, or analyze information. These initiatives help researchers gather large amounts of data while increasing public engagement with science.
 
-      Citizen science projects cover a wide range of fields. In environmental studies,
-      volunteers may monitor bird populations, track weather patterns, or record changes
-      in local ecosystems. In astronomy, participants help identify celestial objects by
-      examining images collected from telescopes. Some health-related projects also
-      encourage individuals to contribute information that supports medical research.
+      Citizen science projects cover a wide range of fields. In environmental studies, volunteers may monitor bird populations, track weather patterns, or record changes in local ecosystems. In astronomy, participants help identify celestial objects by examining images collected from telescopes. Some health-related projects also encourage individuals to contribute information that supports medical research.
 
-      Technology has played a major role in expanding citizen science. Mobile applications
-      and online platforms allow participants to submit observations quickly and accurately.
-      As a result, researchers can access information from many geographic regions that
-      would otherwise be difficult to study.
+      Technology has played a major role in expanding citizen science. Mobile applications and online platforms allow participants to submit observations quickly and accurately. As a result, researchers can access information from many geographic regions that would otherwise be difficult to study.
     question: |
       What color are the mobile applications commonly used in citizen science projects?
 
@@ -180,14 +328,42 @@
       c) Black
       d) White
     answer_key: "a) Blue"
-    explanation: "The passage contains no information about the color of mobile applications."
+    explanation: "The passage contains no information about colors."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the passage
-        makes no mention of the color of any mobile applications — this detail is entirely
-        absent from the text, making the question impossible to answer from the passage.
-        The correct verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage never mentions the color of any application — this detail is fabricated and unanswerable from the text. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Ambiguous Options
+    passage: |
+      Citizen Science Projects
+
+      Citizen science refers to scientific research that involves participation from members of the public. Rather than being conducted solely by professional scientists, many projects invite volunteers to collect data, make observations, or analyze information. These initiatives help researchers gather large amounts of data while increasing public engagement with science.
+
+      Citizen science projects cover a wide range of fields. In environmental studies, volunteers may monitor bird populations, track weather patterns, or record changes in local ecosystems. In astronomy, participants help identify celestial objects by examining images collected from telescopes. Some health-related projects also encourage individuals to contribute information that supports medical research.
+
+      Technology has played a major role in expanding citizen science. Mobile applications and online platforms allow participants to submit observations quickly and accurately. As a result, researchers can access information from many geographic regions that would otherwise be difficult to study.
+    question: |
+      Volunteers may affect data quality because they:
+
+      a) Have varying levels of expertise
+      b) Receive different training
+      c) Possess different levels of experience
+      d) All of the above
+    answer_key: "a) Have varying levels of expertise"
+    explanation: "Options overlap and create ambiguity."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        options a, b, and c all express the same underlying idea, so the item does not have one clearly distinct correct option. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
@@ -199,32 +375,70 @@
     passage: |
       Citizen Science Projects
 
-      Citizen science refers to scientific research that involves participation from members
-      of the public. Rather than being conducted solely by professional scientists, many
-      projects invite volunteers to collect data, make observations, or analyze information.
-      These initiatives help researchers gather large amounts of data while increasing
-      public engagement with science.
+      Citizen science refers to scientific research that involves participation from members of the public. Rather than being conducted solely by professional scientists, many projects invite volunteers to collect data, make observations, or analyze information. These initiatives help researchers gather large amounts of data while increasing public engagement with science.
 
-      Citizen science projects cover a wide range of fields. In environmental studies,
-      volunteers may monitor bird populations, track weather patterns, or record changes
-      in local ecosystems. In astronomy, participants help identify celestial objects by
-      examining images collected from telescopes. Some health-related projects also
-      encourage individuals to contribute information that supports medical research.
+      Citizen science projects cover a wide range of fields. In environmental studies, volunteers may monitor bird populations, track weather patterns, or record changes in local ecosystems. In astronomy, participants help identify celestial objects by examining images collected from telescopes. Some health-related projects also encourage individuals to contribute information that supports medical research.
 
-      Technology has played a major role in expanding citizen science. Mobile applications
-      and online platforms allow participants to submit observations quickly and accurately.
-      As a result, researchers can access information from many geographic regions that
-      would otherwise be difficult to study.
-    question: "Technology has helped expand citizen science projects."
+      Technology has played a major role in expanding citizen science. Mobile applications and online platforms allow participants to submit observations quickly and accurately. As a result, researchers can access information from many geographic regions that would otherwise be difficult to study.
+    question: |
+      Technology has helped expand citizen science projects.
     answer_key: "FALSE"
-    explanation: "The passage explicitly states that technology has played a major role in expanding citizen science."
+    explanation: "The passage explicitly states the opposite."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension True/False question.
-        Flaw: the statement is clearly TRUE according to the passage (technology has played
-        a major role in expanding citizen science), but the answer key incorrectly states
-        FALSE. The correct verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly states technology has played a major role in expanding citizen science, so the verdict should be TRUE not FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      Citizen Science Projects
+
+      Citizen science refers to scientific research that involves participation from members of the public. Rather than being conducted solely by professional scientists, many projects invite volunteers to collect data, make observations, or analyze information. These initiatives help researchers gather large amounts of data while increasing public engagement with science.
+
+      Citizen science projects cover a wide range of fields. In environmental studies, volunteers may monitor bird populations, track weather patterns, or record changes in local ecosystems. In astronomy, participants help identify celestial objects by examining images collected from telescopes. Some health-related projects also encourage individuals to contribute information that supports medical research.
+
+      Technology has played a major role in expanding citizen science. Mobile applications and online platforms allow participants to submit observations quickly and accurately. As a result, researchers can access information from many geographic regions that would otherwise be difficult to study.
+    question: |
+      Researchers sometimes use verification processes to improve reliability.
+    answer_key: "FALSE"
+    explanation: "Verification processes are mentioned as a solution."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        this detail about verification processes is not supported by the given passage text, so the answer key cannot be confidently justified as FALSE either way — the item is unanswerable from the passage as written. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      Citizen Science Projects
+
+      Citizen science refers to scientific research that involves participation from members of the public. Rather than being conducted solely by professional scientists, many projects invite volunteers to collect data, make observations, or analyze information. These initiatives help researchers gather large amounts of data while increasing public engagement with science.
+
+      Citizen science projects cover a wide range of fields. In environmental studies, volunteers may monitor bird populations, track weather patterns, or record changes in local ecosystems. In astronomy, participants help identify celestial objects by examining images collected from telescopes. Some health-related projects also encourage individuals to contribute information that supports medical research.
+
+      Technology has played a major role in expanding citizen science. Mobile applications and online platforms allow participants to submit observations quickly and accurately. As a result, researchers can access information from many geographic regions that would otherwise be difficult to study.
+    question: |
+      Citizen science guarantees perfectly accurate data in every project.
+    answer_key: "TRUE"
+    explanation: "The passage discusses limitations and quality concerns."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage never claims citizen science guarantees perfect accuracy — no such absolute claim is supported by the text, so TRUE is unsupported. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
@@ -236,22 +450,11 @@
     passage: |
       Citizen Science Projects
 
-      Citizen science refers to scientific research that involves participation from members
-      of the public. Rather than being conducted solely by professional scientists, many
-      projects invite volunteers to collect data, make observations, or analyze information.
-      These initiatives help researchers gather large amounts of data while increasing
-      public engagement with science.
+      Citizen science refers to scientific research that involves participation from members of the public. Rather than being conducted solely by professional scientists, many projects invite volunteers to collect data, make observations, or analyze information. These initiatives help researchers gather large amounts of data while increasing public engagement with science.
 
-      Citizen science projects cover a wide range of fields. In environmental studies,
-      volunteers may monitor bird populations, track weather patterns, or record changes
-      in local ecosystems. In astronomy, participants help identify celestial objects by
-      examining images collected from telescopes. Some health-related projects also
-      encourage individuals to contribute information that supports medical research.
+      Citizen science projects cover a wide range of fields. In environmental studies, volunteers may monitor bird populations, track weather patterns, or record changes in local ecosystems. In astronomy, participants help identify celestial objects by examining images collected from telescopes. Some health-related projects also encourage individuals to contribute information that supports medical research.
 
-      Technology has played a major role in expanding citizen science. Mobile applications
-      and online platforms allow participants to submit observations quickly and accurately.
-      As a result, researchers can access information from many geographic regions that
-      would otherwise be difficult to study.
+      Technology has played a major role in expanding citizen science. Mobile applications and online platforms allow participants to submit observations quickly and accurately. As a result, researchers can access information from many geographic regions that would otherwise be difficult to study.
     question: |
       Citizen science is the best form of scientific research.
 
@@ -260,17 +463,242 @@
       c) Disagree
       d) Strongly Disagree
     answer_key: "a) Agree"
-    explanation: "This is an opinion question, not a reading comprehension question based on passage content."
+    explanation: "This is an opinion question, not a reading comprehension question."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the question
-        asks for a personal opinion ("best form of scientific research") not addressed in
-        the passage — this is a subjective Likert-style question, not a comprehension
-        question. The correct verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the question asks for a personal opinion not addressed in the passage — this is a subjective Likert-style item, not a comprehension question. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
-# ── Flawed Passage 4: The Importance of Coral Reefs ──────────────────────────
+# ── Flawed Passage: The Future of Vertical Farming ──────────────────────────────────
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Future of Vertical Farming
+
+      Vertical farming is an agricultural method in which crops are grown in stacked layers, often inside controlled indoor environments. This approach is becoming increasingly popular in urban areas where farmland is limited. By using artificial lighting, climate-control systems, and hydroponic or aeroponic technologies, vertical farms can produce crops throughout the year regardless of weather conditions.
+
+      Supporters argue that vertical farming can reduce the distance food travels from farms to consumers, potentially lowering transportation emissions. It also requires less land than traditional farming methods and can use water more efficiently. However, operating indoor farms often requires significant amounts of electricity, particularly for lighting and temperature regulation.
+
+      Researchers continue to explore ways to improve efficiency and reduce costs. As technology advances, vertical farming may become an important supplement to conventional agriculture, especially in densely populated cities.
+    question: |
+      Where are crops grown in vertical farming?
+
+      a) Underground tunnels
+      b) Stacked layers
+      c) Desert regions only
+      d) Ocean floors
+    answer_key: "c) Desert regions only"
+    explanation: "The passage clearly states that crops are grown in stacked layers."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage explicitly states crops are grown in stacked layers, so option b is correct, not c. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Multiple Correct Answers
+    passage: |
+      The Future of Vertical Farming
+
+      Vertical farming is an agricultural method in which crops are grown in stacked layers, often inside controlled indoor environments. This approach is becoming increasingly popular in urban areas where farmland is limited. By using artificial lighting, climate-control systems, and hydroponic or aeroponic technologies, vertical farms can produce crops throughout the year regardless of weather conditions.
+
+      Supporters argue that vertical farming can reduce the distance food travels from farms to consumers, potentially lowering transportation emissions. It also requires less land than traditional farming methods and can use water more efficiently. However, operating indoor farms often requires significant amounts of electricity, particularly for lighting and temperature regulation.
+
+      Researchers continue to explore ways to improve efficiency and reduce costs. As technology advances, vertical farming may become an important supplement to conventional agriculture, especially in densely populated cities.
+    question: |
+      Which technology is mentioned in the passage?
+
+      a) Hydroponics
+      b) Aeroponics
+      c) Climate-control systems
+      d) All of the above
+    answer_key: "a) Hydroponics"
+    explanation: "All three technologies are mentioned."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage names all three technologies, so option d is correct, not a alone. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Information Not Present in Passage
+    passage: |
+      The Future of Vertical Farming
+
+      Vertical farming is an agricultural method in which crops are grown in stacked layers, often inside controlled indoor environments. This approach is becoming increasingly popular in urban areas where farmland is limited. By using artificial lighting, climate-control systems, and hydroponic or aeroponic technologies, vertical farms can produce crops throughout the year regardless of weather conditions.
+
+      Supporters argue that vertical farming can reduce the distance food travels from farms to consumers, potentially lowering transportation emissions. It also requires less land than traditional farming methods and can use water more efficiently. However, operating indoor farms often requires significant amounts of electricity, particularly for lighting and temperature regulation.
+
+      Researchers continue to explore ways to improve efficiency and reduce costs. As technology advances, vertical farming may become an important supplement to conventional agriculture, especially in densely populated cities.
+    question: |
+      What was the average selling price of vegetables produced by vertical farms in 2025?
+
+      a) $2/kg
+      b) $5/kg
+      c) $8/kg
+      d) $10/kg
+    answer_key: "b) $5/kg"
+    explanation: "The passage provides no pricing information."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage contains no pricing data — this figure is fabricated and unanswerable from the text. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Multiple Correct Answers
+    passage: |
+      The Future of Vertical Farming
+
+      Vertical farming is an agricultural method in which crops are grown in stacked layers, often inside controlled indoor environments. This approach is becoming increasingly popular in urban areas where farmland is limited. By using artificial lighting, climate-control systems, and hydroponic or aeroponic technologies, vertical farms can produce crops throughout the year regardless of weather conditions.
+
+      Supporters argue that vertical farming can reduce the distance food travels from farms to consumers, potentially lowering transportation emissions. It also requires less land than traditional farming methods and can use water more efficiently. However, operating indoor farms often requires significant amounts of electricity, particularly for lighting and temperature regulation.
+
+      Researchers continue to explore ways to improve efficiency and reduce costs. As technology advances, vertical farming may become an important supplement to conventional agriculture, especially in densely populated cities.
+    question: |
+      Vertical farming reduces transportation emissions because:
+
+      a) Food is grown closer to consumers
+      b) Vehicles travel shorter distances
+      c) Urban farms are located near customers
+      d) All of the above
+    answer_key: "a) Food is grown closer to consumers"
+    explanation: "Options a, b, and c all express the same idea."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        options a, b, and c are restatements of the same fact, making d the only fully correct option. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Future of Vertical Farming
+
+      Vertical farming is an agricultural method in which crops are grown in stacked layers, often inside controlled indoor environments. This approach is becoming increasingly popular in urban areas where farmland is limited. By using artificial lighting, climate-control systems, and hydroponic or aeroponic technologies, vertical farms can produce crops throughout the year regardless of weather conditions.
+
+      Supporters argue that vertical farming can reduce the distance food travels from farms to consumers, potentially lowering transportation emissions. It also requires less land than traditional farming methods and can use water more efficiently. However, operating indoor farms often requires significant amounts of electricity, particularly for lighting and temperature regulation.
+
+      Researchers continue to explore ways to improve efficiency and reduce costs. As technology advances, vertical farming may become an important supplement to conventional agriculture, especially in densely populated cities.
+    question: |
+      Vertical farming requires more land than traditional farming methods.
+    answer_key: "TRUE"
+    explanation: "The passage states the opposite."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly states vertical farming requires less land than traditional methods, so the verdict should be FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Future of Vertical Farming
+
+      Vertical farming is an agricultural method in which crops are grown in stacked layers, often inside controlled indoor environments. This approach is becoming increasingly popular in urban areas where farmland is limited. By using artificial lighting, climate-control systems, and hydroponic or aeroponic technologies, vertical farms can produce crops throughout the year regardless of weather conditions.
+
+      Supporters argue that vertical farming can reduce the distance food travels from farms to consumers, potentially lowering transportation emissions. It also requires less land than traditional farming methods and can use water more efficiently. However, operating indoor farms often requires significant amounts of electricity, particularly for lighting and temperature regulation.
+
+      Researchers continue to explore ways to improve efficiency and reduce costs. As technology advances, vertical farming may become an important supplement to conventional agriculture, especially in densely populated cities.
+    question: |
+      Indoor farms may require significant amounts of electricity.
+    answer_key: "FALSE"
+    explanation: "The passage explicitly states that they do require substantial electricity."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly states indoor farms require significant electricity, so the verdict should be TRUE not FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Outside Passage Scope
+    passage: |
+      The Future of Vertical Farming
+
+      Vertical farming is an agricultural method in which crops are grown in stacked layers, often inside controlled indoor environments. This approach is becoming increasingly popular in urban areas where farmland is limited. By using artificial lighting, climate-control systems, and hydroponic or aeroponic technologies, vertical farms can produce crops throughout the year regardless of weather conditions.
+
+      Supporters argue that vertical farming can reduce the distance food travels from farms to consumers, potentially lowering transportation emissions. It also requires less land than traditional farming methods and can use water more efficiently. However, operating indoor farms often requires significant amounts of electricity, particularly for lighting and temperature regulation.
+
+      Researchers continue to explore ways to improve efficiency and reduce costs. As technology advances, vertical farming may become an important supplement to conventional agriculture, especially in densely populated cities.
+    question: |
+      Every city in the world currently relies primarily on vertical farming for food production.
+    answer_key: "TRUE"
+    explanation: "The passage does not make this claim."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage never claims universal reliance on vertical farming — this is an unsupported absolute claim outside the passage's scope. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Subjective / Opinion-Based Question
+    passage: |
+      The Future of Vertical Farming
+
+      Vertical farming is an agricultural method in which crops are grown in stacked layers, often inside controlled indoor environments. This approach is becoming increasingly popular in urban areas where farmland is limited. By using artificial lighting, climate-control systems, and hydroponic or aeroponic technologies, vertical farms can produce crops throughout the year regardless of weather conditions.
+
+      Supporters argue that vertical farming can reduce the distance food travels from farms to consumers, potentially lowering transportation emissions. It also requires less land than traditional farming methods and can use water more efficiently. However, operating indoor farms often requires significant amounts of electricity, particularly for lighting and temperature regulation.
+
+      Researchers continue to explore ways to improve efficiency and reduce costs. As technology advances, vertical farming may become an important supplement to conventional agriculture, especially in densely populated cities.
+    question: |
+      Vertical farming is definitely the best agricultural method available today.
+
+      a) Yes
+      b) No
+      c) Maybe
+      d) Depends
+    answer_key: "a) Yes"
+    explanation: "The question asks for an opinion not supported by the passage."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the question asks students to confirm an absolute opinion the passage never makes — vertical farming is framed only as a 'supplement', not the best method. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage: The Importance of Coral Reefs ──────────────────────────────────
 
 - vars:
     question_type: MCQ
@@ -281,20 +709,11 @@
     passage: |
       The Importance of Coral Reefs
 
-      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and
-      subtropical oceans, they provide habitat for thousands of marine species. Reefs also
-      support fishing industries, protect coastlines from erosion, and contribute
-      significantly to tourism in many countries.
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and subtropical oceans, they provide habitat for thousands of marine species. Reefs also support fishing industries, protect coastlines from erosion, and contribute significantly to tourism in many countries.
 
-      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures
-      can lead to coral bleaching, a process in which corals lose the algae that provide
-      them with nutrients and color. Pollution, overfishing, and destructive coastal
-      development can also damage reef ecosystems.
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures can lead to coral bleaching, a process in which corals lose the algae that provide them with nutrients and color. Pollution, overfishing, and destructive coastal development can also damage reef ecosystems.
 
-      Scientists, governments, and environmental organisations are working to protect coral
-      reefs through conservation programs, marine protected areas, and public education
-      initiatives. Long-term reef survival depends on both local conservation efforts and
-      broader actions to address climate change.
+      Scientists, governments, and environmental organizations are working to protect coral reefs through conservation programs, marine protected areas, and public education initiatives. Long-term reef survival depends on both local conservation efforts and broader actions to address climate change.
     question: |
       Coral reefs are found primarily in:
 
@@ -303,14 +722,102 @@
       c) Desert regions
       d) Arctic ice fields
     answer_key: "b) Mountain ranges"
-    explanation: "The passage clearly states that coral reefs are found in tropical and subtropical oceans, not mountain ranges."
+    explanation: "The passage clearly states tropical and subtropical oceans."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the answer
-        key states b) Mountain ranges, but the passage explicitly says coral reefs are
-        found in tropical and subtropical oceans — option a is the correct answer.
-        The correct verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage explicitly states coral reefs are found in tropical and subtropical oceans, so option a is correct, not b. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Multiple Correct Answers
+    passage: |
+      The Importance of Coral Reefs
+
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and subtropical oceans, they provide habitat for thousands of marine species. Reefs also support fishing industries, protect coastlines from erosion, and contribute significantly to tourism in many countries.
+
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures can lead to coral bleaching, a process in which corals lose the algae that provide them with nutrients and color. Pollution, overfishing, and destructive coastal development can also damage reef ecosystems.
+
+      Scientists, governments, and environmental organizations are working to protect coral reefs through conservation programs, marine protected areas, and public education initiatives. Long-term reef survival depends on both local conservation efforts and broader actions to address climate change.
+    question: |
+      Which benefit of coral reefs is mentioned?
+
+      a) Supporting fisheries
+      b) Protecting coastlines
+      c) Contributing to tourism
+      d) All of the above
+    answer_key: "a) Supporting fisheries"
+    explanation: "All three benefits are explicitly mentioned."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage lists all three benefits, so option d is correct, not a alone. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Information Not Present in Passage
+    passage: |
+      The Importance of Coral Reefs
+
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and subtropical oceans, they provide habitat for thousands of marine species. Reefs also support fishing industries, protect coastlines from erosion, and contribute significantly to tourism in many countries.
+
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures can lead to coral bleaching, a process in which corals lose the algae that provide them with nutrients and color. Pollution, overfishing, and destructive coastal development can also damage reef ecosystems.
+
+      Scientists, governments, and environmental organizations are working to protect coral reefs through conservation programs, marine protected areas, and public education initiatives. Long-term reef survival depends on both local conservation efforts and broader actions to address climate change.
+    question: |
+      What is the average age of the oldest coral reef in the world?
+
+      a) 500 years
+      b) 1,000 years
+      c) 5,000 years
+      d) 10,000 years
+    answer_key: "d) 10,000 years"
+    explanation: "The passage provides no information about reef ages."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage contains no data on reef ages — this figure is fabricated and unanswerable from the text. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Importance of Coral Reefs
+
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and subtropical oceans, they provide habitat for thousands of marine species. Reefs also support fishing industries, protect coastlines from erosion, and contribute significantly to tourism in many countries.
+
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures can lead to coral bleaching, a process in which corals lose the algae that provide them with nutrients and color. Pollution, overfishing, and destructive coastal development can also damage reef ecosystems.
+
+      Scientists, governments, and environmental organizations are working to protect coral reefs through conservation programs, marine protected areas, and public education initiatives. Long-term reef survival depends on both local conservation efforts and broader actions to address climate change.
+    question: |
+      Coral bleaching occurs when corals lose:
+
+      a) Nutrients
+      b) Color
+      c) Algae
+      d) All of the above
+    answer_key: "b) Color"
+    explanation: "The passage explains that bleaching occurs when corals lose algae; color loss is a consequence."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage states bleaching is caused by loss of algae, with color loss being a resulting effect, so option c is the more accurate root cause. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
@@ -322,33 +829,103 @@
     passage: |
       The Importance of Coral Reefs
 
-      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and
-      subtropical oceans, they provide habitat for thousands of marine species. Reefs also
-      support fishing industries, protect coastlines from erosion, and contribute
-      significantly to tourism in many countries.
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and subtropical oceans, they provide habitat for thousands of marine species. Reefs also support fishing industries, protect coastlines from erosion, and contribute significantly to tourism in many countries.
 
-      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures
-      can lead to coral bleaching, a process in which corals lose the algae that provide
-      them with nutrients and color. Pollution, overfishing, and destructive coastal
-      development can also damage reef ecosystems.
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures can lead to coral bleaching, a process in which corals lose the algae that provide them with nutrients and color. Pollution, overfishing, and destructive coastal development can also damage reef ecosystems.
 
-      Scientists, governments, and environmental organisations are working to protect coral
-      reefs through conservation programs, marine protected areas, and public education
-      initiatives. Long-term reef survival depends on both local conservation efforts and
-      broader actions to address climate change.
-    question: "Pollution can damage coral reef ecosystems."
+      Scientists, governments, and environmental organizations are working to protect coral reefs through conservation programs, marine protected areas, and public education initiatives. Long-term reef survival depends on both local conservation efforts and broader actions to address climate change.
+    question: |
+      Pollution can damage coral reef ecosystems.
     answer_key: "FALSE"
-    explanation: "The passage explicitly identifies pollution as one of the threats to coral reefs."
+    explanation: "The passage explicitly identifies pollution as a threat."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension True/False question.
-        Flaw: the statement is clearly TRUE (the passage lists pollution as a direct threat
-        to reef ecosystems), but the answer key incorrectly states FALSE. The correct
-        verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly lists pollution as a threat to reefs, so the verdict should be TRUE not FALSE. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
-# ── Flawed Passage 5: The Expansion of Space Tourism ─────────────────────────
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Importance of Coral Reefs
+
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and subtropical oceans, they provide habitat for thousands of marine species. Reefs also support fishing industries, protect coastlines from erosion, and contribute significantly to tourism in many countries.
+
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures can lead to coral bleaching, a process in which corals lose the algae that provide them with nutrients and color. Pollution, overfishing, and destructive coastal development can also damage reef ecosystems.
+
+      Scientists, governments, and environmental organizations are working to protect coral reefs through conservation programs, marine protected areas, and public education initiatives. Long-term reef survival depends on both local conservation efforts and broader actions to address climate change.
+    question: |
+      Marine protected areas are one strategy used to conserve coral reefs.
+    answer_key: "FALSE"
+    explanation: "The passage lists marine protected areas as a conservation measure."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly names marine protected areas as a conservation strategy, so the verdict should be TRUE not FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Importance of Coral Reefs
+
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and subtropical oceans, they provide habitat for thousands of marine species. Reefs also support fishing industries, protect coastlines from erosion, and contribute significantly to tourism in many countries.
+
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures can lead to coral bleaching, a process in which corals lose the algae that provide them with nutrients and color. Pollution, overfishing, and destructive coastal development can also damage reef ecosystems.
+
+      Scientists, governments, and environmental organizations are working to protect coral reefs through conservation programs, marine protected areas, and public education initiatives. Long-term reef survival depends on both local conservation efforts and broader actions to address climate change.
+    question: |
+      Coral reefs exist only in one country.
+    answer_key: "TRUE"
+    explanation: "The passage indicates reefs contribute to tourism in many countries."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage states reefs contribute to tourism in many countries, contradicting the claim that they exist in only one country. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Contradictory Stem / Incorrect Answer Key
+    passage: |
+      The Importance of Coral Reefs
+
+      Coral reefs are among the most diverse ecosystems on Earth. Found in tropical and subtropical oceans, they provide habitat for thousands of marine species. Reefs also support fishing industries, protect coastlines from erosion, and contribute significantly to tourism in many countries.
+
+      Despite their importance, coral reefs face numerous threats. Rising ocean temperatures can lead to coral bleaching, a process in which corals lose the algae that provide them with nutrients and color. Pollution, overfishing, and destructive coastal development can also damage reef ecosystems.
+
+      Scientists, governments, and environmental organizations are working to protect coral reefs through conservation programs, marine protected areas, and public education initiatives. Long-term reef survival depends on both local conservation efforts and broader actions to address climate change.
+    question: |
+      Climate change is the only factor affecting coral reefs.
+
+      a) True
+      b) False
+      c) Sometimes
+      d) Cannot be determined
+    answer_key: "a) True"
+    explanation: "The passage identifies several threats besides climate change."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage names pollution, overfishing, and coastal development as additional threats, so climate change is not the only factor. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+# ── Flawed Passage: The Expansion of Space Tourism ──────────────────────────────────
 
 - vars:
     question_type: MCQ
@@ -359,29 +936,13 @@
     passage: |
       The Expansion of Space Tourism
 
-      Space tourism is an emerging industry that aims to provide private individuals with
-      opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology
-      and increased investment from private companies have contributed to the growth of
-      this sector. Several organisations have already conducted commercial flights that
-      allow passengers to experience brief periods of weightlessness and view Earth from
-      space.
+      Space tourism is an emerging industry that aims to provide private individuals with opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology and increased investment from private companies have contributed to the growth of this sector. Several organizations have already conducted commercial flights that allow passengers to experience brief periods of weightlessness and view Earth from space.
 
-      Supporters of space tourism argue that it encourages innovation and inspires public
-      interest in science and technology. The industry has also contributed to the
-      development of reusable rocket systems designed to reduce launch costs. However,
-      space tourism remains expensive, limiting participation to a relatively small number
-      of customers.
+      Supporters of space tourism argue that it encourages innovation and inspires public interest in science and technology. The industry has also contributed to the development of reusable rocket systems designed to reduce launch costs. However, space tourism remains expensive, limiting participation to a relatively small number of customers.
 
-      Environmental concerns have also been raised. Rocket launches require significant
-      amounts of fuel and may contribute to atmospheric pollution. Researchers are studying
-      ways to make future space travel more sustainable while maintaining safety standards.
-      In addition, governments and international agencies continue to develop regulations
-      to address legal and operational challenges associated with commercial spaceflight.
+      Environmental concerns have also been raised. Rocket launches require significant amounts of fuel and may contribute to atmospheric pollution. Researchers are studying ways to make future space travel more sustainable while maintaining safety standards. In addition, governments and international agencies continue to develop regulations to address legal and operational challenges associated with commercial spaceflight.
 
-      Although the industry is still in its early stages, experts believe that technological
-      improvements may gradually increase accessibility. Whether space tourism becomes a
-      common form of travel or remains a niche activity will depend on factors such as
-      cost, safety, environmental impact, and public demand.
+      Although the industry is still in its early stages, experts believe that technological improvements may gradually increase accessibility. Whether space tourism becomes a common form of travel or remains a niche activity will depend on factors such as cost, safety, environmental impact, and public demand.
     question: |
       What is the main purpose of space tourism?
 
@@ -390,14 +951,189 @@
       c) To replace commercial airlines completely
       d) To study marine ecosystems
     answer_key: "c) To replace commercial airlines completely"
-    explanation: "The passage states the purpose is to provide private individuals opportunities to travel beyond Earth's atmosphere — option b is correct, not c."
+    explanation: "The passage states that space tourism provides private individuals opportunities to travel beyond Earth's atmosphere."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the answer
-        key states c) To replace commercial airlines, but the passage defines space
-        tourism's purpose as providing private individuals opportunities to travel beyond
-        Earth's atmosphere — option b is the correct answer. The correct verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage defines space tourism's purpose as providing private individuals travel opportunities, not replacing airlines, so option b is correct. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Multiple Correct Answers
+    passage: |
+      The Expansion of Space Tourism
+
+      Space tourism is an emerging industry that aims to provide private individuals with opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology and increased investment from private companies have contributed to the growth of this sector. Several organizations have already conducted commercial flights that allow passengers to experience brief periods of weightlessness and view Earth from space.
+
+      Supporters of space tourism argue that it encourages innovation and inspires public interest in science and technology. The industry has also contributed to the development of reusable rocket systems designed to reduce launch costs. However, space tourism remains expensive, limiting participation to a relatively small number of customers.
+
+      Environmental concerns have also been raised. Rocket launches require significant amounts of fuel and may contribute to atmospheric pollution. Researchers are studying ways to make future space travel more sustainable while maintaining safety standards. In addition, governments and international agencies continue to develop regulations to address legal and operational challenges associated with commercial spaceflight.
+
+      Although the industry is still in its early stages, experts believe that technological improvements may gradually increase accessibility. Whether space tourism becomes a common form of travel or remains a niche activity will depend on factors such as cost, safety, environmental impact, and public demand.
+    question: |
+      Which factor has contributed to the growth of space tourism?
+
+      a) Advances in aerospace technology
+      b) Private investment
+      c) Government regulations
+      d) All of the above
+    answer_key: "a) Advances in aerospace technology"
+    explanation: "Both advances in aerospace technology and private investment are mentioned, making more than one option correct."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage names both aerospace technology advances and private investment as growth factors, so a single-option answer is incomplete. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Information Not Present in Passage
+    passage: |
+      The Expansion of Space Tourism
+
+      Space tourism is an emerging industry that aims to provide private individuals with opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology and increased investment from private companies have contributed to the growth of this sector. Several organizations have already conducted commercial flights that allow passengers to experience brief periods of weightlessness and view Earth from space.
+
+      Supporters of space tourism argue that it encourages innovation and inspires public interest in science and technology. The industry has also contributed to the development of reusable rocket systems designed to reduce launch costs. However, space tourism remains expensive, limiting participation to a relatively small number of customers.
+
+      Environmental concerns have also been raised. Rocket launches require significant amounts of fuel and may contribute to atmospheric pollution. Researchers are studying ways to make future space travel more sustainable while maintaining safety standards. In addition, governments and international agencies continue to develop regulations to address legal and operational challenges associated with commercial spaceflight.
+
+      Although the industry is still in its early stages, experts believe that technological improvements may gradually increase accessibility. Whether space tourism becomes a common form of travel or remains a niche activity will depend on factors such as cost, safety, environmental impact, and public demand.
+    question: |
+      How many people participated in commercial space tourism flights worldwide in 2025?
+
+      a) 500
+      b) 1,000
+      c) 5,000
+      d) 10,000
+    answer_key: "b) 1,000"
+    explanation: "The passage provides no numerical data about participant counts."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage contains no participant counts — this figure is fabricated and unanswerable from the text. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: MCQ
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Multiple Correct Answers
+    passage: |
+      The Expansion of Space Tourism
+
+      Space tourism is an emerging industry that aims to provide private individuals with opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology and increased investment from private companies have contributed to the growth of this sector. Several organizations have already conducted commercial flights that allow passengers to experience brief periods of weightlessness and view Earth from space.
+
+      Supporters of space tourism argue that it encourages innovation and inspires public interest in science and technology. The industry has also contributed to the development of reusable rocket systems designed to reduce launch costs. However, space tourism remains expensive, limiting participation to a relatively small number of customers.
+
+      Environmental concerns have also been raised. Rocket launches require significant amounts of fuel and may contribute to atmospheric pollution. Researchers are studying ways to make future space travel more sustainable while maintaining safety standards. In addition, governments and international agencies continue to develop regulations to address legal and operational challenges associated with commercial spaceflight.
+
+      Although the industry is still in its early stages, experts believe that technological improvements may gradually increase accessibility. Whether space tourism becomes a common form of travel or remains a niche activity will depend on factors such as cost, safety, environmental impact, and public demand.
+    question: |
+      Why do supporters favor space tourism?
+
+      a) It encourages innovation
+      b) It inspires interest in science and technology
+      c) It promotes technological development
+      d) All of the above
+    answer_key: "a) It encourages innovation"
+    explanation: "Options a, b, and c are all supported by the passage."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        options a, b, and c are all directly supported by the passage, making d the only fully correct option. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Expansion of Space Tourism
+
+      Space tourism is an emerging industry that aims to provide private individuals with opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology and increased investment from private companies have contributed to the growth of this sector. Several organizations have already conducted commercial flights that allow passengers to experience brief periods of weightlessness and view Earth from space.
+
+      Supporters of space tourism argue that it encourages innovation and inspires public interest in science and technology. The industry has also contributed to the development of reusable rocket systems designed to reduce launch costs. However, space tourism remains expensive, limiting participation to a relatively small number of customers.
+
+      Environmental concerns have also been raised. Rocket launches require significant amounts of fuel and may contribute to atmospheric pollution. Researchers are studying ways to make future space travel more sustainable while maintaining safety standards. In addition, governments and international agencies continue to develop regulations to address legal and operational challenges associated with commercial spaceflight.
+
+      Although the industry is still in its early stages, experts believe that technological improvements may gradually increase accessibility. Whether space tourism becomes a common form of travel or remains a niche activity will depend on factors such as cost, safety, environmental impact, and public demand.
+    question: |
+      Space tourism is currently affordable for most people around the world.
+    answer_key: "TRUE"
+    explanation: "The passage states that space tourism remains expensive and accessible to relatively few customers."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly states space tourism remains expensive and limited to few customers, so the verdict should be FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Easy
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Expansion of Space Tourism
+
+      Space tourism is an emerging industry that aims to provide private individuals with opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology and increased investment from private companies have contributed to the growth of this sector. Several organizations have already conducted commercial flights that allow passengers to experience brief periods of weightlessness and view Earth from space.
+
+      Supporters of space tourism argue that it encourages innovation and inspires public interest in science and technology. The industry has also contributed to the development of reusable rocket systems designed to reduce launch costs. However, space tourism remains expensive, limiting participation to a relatively small number of customers.
+
+      Environmental concerns have also been raised. Rocket launches require significant amounts of fuel and may contribute to atmospheric pollution. Researchers are studying ways to make future space travel more sustainable while maintaining safety standards. In addition, governments and international agencies continue to develop regulations to address legal and operational challenges associated with commercial spaceflight.
+
+      Although the industry is still in its early stages, experts believe that technological improvements may gradually increase accessibility. Whether space tourism becomes a common form of travel or remains a niche activity will depend on factors such as cost, safety, environmental impact, and public demand.
+    question: |
+      Environmental concerns related to rocket launches are discussed in the passage.
+    answer_key: "FALSE"
+    explanation: "The passage explicitly mentions environmental concerns and atmospheric pollution."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly discusses environmental concerns and atmospheric pollution, so the verdict should be TRUE not FALSE. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: True/False
+    bloom_level: Understand
+    difficulty: Moderate
+    course_outcome: CO1
+    error_type: Incorrect Answer Key
+    passage: |
+      The Expansion of Space Tourism
+
+      Space tourism is an emerging industry that aims to provide private individuals with opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology and increased investment from private companies have contributed to the growth of this sector. Several organizations have already conducted commercial flights that allow passengers to experience brief periods of weightlessness and view Earth from space.
+
+      Supporters of space tourism argue that it encourages innovation and inspires public interest in science and technology. The industry has also contributed to the development of reusable rocket systems designed to reduce launch costs. However, space tourism remains expensive, limiting participation to a relatively small number of customers.
+
+      Environmental concerns have also been raised. Rocket launches require significant amounts of fuel and may contribute to atmospheric pollution. Researchers are studying ways to make future space travel more sustainable while maintaining safety standards. In addition, governments and international agencies continue to develop regulations to address legal and operational challenges associated with commercial spaceflight.
+
+      Although the industry is still in its early stages, experts believe that technological improvements may gradually increase accessibility. Whether space tourism becomes a common form of travel or remains a niche activity will depend on factors such as cost, safety, environmental impact, and public demand.
+    question: |
+      Governments and international agencies are developing regulations related to commercial spaceflight.
+    answer_key: "FALSE"
+    explanation: "The passage directly states that such regulations are being developed."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Reading Comprehension True/False. Flaw:
+        the passage explicitly states governments and agencies are developing such regulations, so the verdict should be TRUE not FALSE. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
 
 - vars:
@@ -409,29 +1145,13 @@
     passage: |
       The Expansion of Space Tourism
 
-      Space tourism is an emerging industry that aims to provide private individuals with
-      opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology
-      and increased investment from private companies have contributed to the growth of
-      this sector. Several organisations have already conducted commercial flights that
-      allow passengers to experience brief periods of weightlessness and view Earth from
-      space.
+      Space tourism is an emerging industry that aims to provide private individuals with opportunities to travel beyond Earth's atmosphere. Advances in aerospace technology and increased investment from private companies have contributed to the growth of this sector. Several organizations have already conducted commercial flights that allow passengers to experience brief periods of weightlessness and view Earth from space.
 
-      Supporters of space tourism argue that it encourages innovation and inspires public
-      interest in science and technology. The industry has also contributed to the
-      development of reusable rocket systems designed to reduce launch costs. However,
-      space tourism remains expensive, limiting participation to a relatively small number
-      of customers.
+      Supporters of space tourism argue that it encourages innovation and inspires public interest in science and technology. The industry has also contributed to the development of reusable rocket systems designed to reduce launch costs. However, space tourism remains expensive, limiting participation to a relatively small number of customers.
 
-      Environmental concerns have also been raised. Rocket launches require significant
-      amounts of fuel and may contribute to atmospheric pollution. Researchers are studying
-      ways to make future space travel more sustainable while maintaining safety standards.
-      In addition, governments and international agencies continue to develop regulations
-      to address legal and operational challenges associated with commercial spaceflight.
+      Environmental concerns have also been raised. Rocket launches require significant amounts of fuel and may contribute to atmospheric pollution. Researchers are studying ways to make future space travel more sustainable while maintaining safety standards. In addition, governments and international agencies continue to develop regulations to address legal and operational challenges associated with commercial spaceflight.
 
-      Although the industry is still in its early stages, experts believe that technological
-      improvements may gradually increase accessibility. Whether space tourism becomes a
-      common form of travel or remains a niche activity will depend on factors such as
-      cost, safety, environmental impact, and public demand.
+      Although the industry is still in its early stages, experts believe that technological improvements may gradually increase accessibility. Whether space tourism becomes a common form of travel or remains a niche activity will depend on factors such as cost, safety, environmental impact, and public demand.
     question: |
       Space tourism will definitely become the most popular form of travel in the future.
 
@@ -440,13 +1160,10 @@
       c) Maybe
       d) Cannot be determined
     answer_key: "a) Yes"
-    explanation: "The passage does not make this prediction — it says the outcome will depend on multiple factors. The question introduces an unsupported speculation."
+    explanation: "The passage does not make this prediction. The question introduces an unsupported assumption and requires speculation."
   assert:
     - type: llm-rubric
       value: >
-        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw: the question
-        asks students to confirm a speculative claim ("definitely become the most popular
-        form") that the passage explicitly does not support — the passage says outcomes
-        depend on cost, safety, and demand. The answer key is also wrong (a = Yes, but
-        the passage is non-committal). The correct verdict is INVALID.
+        The validator is evaluating a FLAWED Reading Comprehension MCQ. Flaw:
+        the passage explicitly says the outcome depends on cost, safety, environmental impact, and demand — it never predicts space tourism will definitely become most popular. The correct verdict is INVALID.
         Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

@@ -1,21 +1,160 @@
-# testing_tests.yaml
-# Pipeline / integration tests — drop your cases here.
-# Each test checks that the generation pipeline produces the right output format.
-#
-# Format:
-# - description: what this test checks
-#   vars:
-#     topic_id: 1
-#     skill: "Grammar & Vocabulary"
-#     marks: 2
-#     question_type: "Fill in the blanks"
-#     difficulty: medium
-#     count: 5
-#   assert:
-#     - type: is-json
-#     - type: javascript
-#       value: output.length === 5
-#     - type: javascript
-#       value: output.every(q => q.text && q.answer_key)
+# NEGATIVE QUESTIONS — Flawed Email Writing questions (should be marked INVALID)
 
-# ADD YOUR TESTING TEST CASES BELOW:
+- vars:
+    question_type: Email Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Compose a formal email with clear purpose, appropriate tone, logical organization, and relevant details."
+    error_type: "Inappropriate tone / informal structure"
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      You ordered a pair of headphones online, but you received the wrong model. Write an email to the customer support team requesting a replacement. Mention your order details, the issue, and the action you expect.
+    sample_answer: |
+      Subject: Wrong Product
+
+      Hey,
+
+      You people sent me the wrong headphones. I ordered a wireless model, but I got some basic wired one instead. This is really careless. Fix it fast and send the right one. My order number is ORD7812. I do not have time to keep calling your support team again and again.
+
+      Also, tell your delivery people to be more careful next time. I expect this to be replaced immediately.
+
+      Rahul
+    explanation: "The response has the correct general purpose but uses an impolite and overly aggressive tone for a formal customer-support email. It also lacks a proper salutation and formal closing."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Email Writing question. Flaw:
+        the email uses rude, aggressive language ("Hey", "You people", "This is really careless") with no formal salutation or sign-off, which is inappropriate for a formal customer-support email. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Email Writing
+    bloom_level: Apply
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Draft a professional email explaining a problem, requesting assistance, and maintaining a respectful tone."
+    error_type: "Word limit violation / underdeveloped response"
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      You are unable to attend an online assessment because of an internet outage in your area. Write an email to your course coordinator requesting permission to take the assessment at another time.
+    sample_answer: |
+      Subject: Request to Reschedule Online Assessment
+
+      Dear Sir,
+
+      I could not attend the online assessment because my internet was not working. Please allow me to take it later. I will be thankful if you help me.
+
+      Yours faithfully,
+      Aman
+    explanation: "The answer is far below the required 120-150 words. It does not give enough details about the issue, assessment, timing, or a clear rescheduling request expected for an 8-mark task."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Email Writing question. Flaw:
+        the email is roughly 35 words, far short of the required 120-150 word range, and omits key details such as the assessment name, date, and specific rescheduling request. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Email Writing
+    bloom_level: Create
+    difficulty: "C1"
+    marks: 8
+    course_outcome: "Produce a formal complaint email with relevant evidence, clear sequencing, and a reasonable request for action."
+    error_type: "Irrelevant details / lack of focus"
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      Your neighbourhood has been facing irregular garbage collection for three weeks. Write an email to the municipal officer complaining about the issue and requesting immediate action. Mention how it has affected residents.
+    sample_answer: |
+      Subject: Complaint About Garbage Collection
+
+      Dear Sir/Madam,
+
+      I am writing to complain about the irregular garbage collection in our neighbourhood for the past three weeks. Waste has been lying near the main road, causing a bad smell and attracting insects. Residents are worried about health problems, especially for children and elderly people.
+
+      Last month, our streetlights were also not working, and many vehicles were parked carelessly near the market. The park needs repainting, and the community hall should be renovated soon. Please look into all these matters urgently.
+
+      Yours faithfully,
+      A resident
+    explanation: "The email starts with the correct complaint but shifts to unrelated civic issues such as streetlights, parking, park repainting, and hall renovation. This weakens focus and does not properly develop the given task."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Email Writing question. Flaw:
+        the email correctly opens with the garbage collection complaint but then drifts into unrelated topics (streetlights, parking, park repainting, hall renovation) never mentioned in the task, losing focus on the assigned issue. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Email Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Write a semi-formal email using appropriate structure, polite language, and persuasive explanation."
+    error_type: "Slight word limit violation"
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      Your college is organizing a book donation drive. Write an email to a local publisher requesting them to donate books for underprivileged students. Mention the purpose, date, and expected benefit.
+    sample_answer: |
+      Subject: Request for Book Donation
+
+      Dear Sir/Madam,
+
+      Our college is organizing a book donation drive on 18 June 2026 for underprivileged students in nearby communities. We request your support in donating suitable books that can help students improve their reading habits and academic confidence.
+
+      The collected books will be distributed through our college social service club. Your contribution will encourage many young learners and give them access to resources they may not otherwise receive.
+
+      I hope you will consider this request positively.
+
+      Yours faithfully,
+      Student Coordinator
+    explanation: "The response is generally valid, but it is intentionally flawed because it is below the required 120-word minimum. It also provides limited details about the type or number of books requested."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Email Writing question. Flaw:
+        the email is approximately 95-100 words, below the required 120-word minimum, and lacks specifics about the type or quantity of books requested. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.
+
+- vars:
+    question_type: Email Writing
+    bloom_level: Create
+    difficulty: "B2-C1"
+    marks: 8
+    course_outcome: "Write an effective email of appreciation using suitable tone, specific details, and coherent paragraphing."
+    error_type: "Task mismatch / wrong email purpose"
+    question: |
+      Write an email in 120-150 words.
+
+      Marks: 8
+
+      You attended a workshop on time management conducted by your school. Write an email to the trainer thanking them for the session. Mention what you learned and how it helped you.
+    sample_answer: |
+      Subject: Complaint Regarding Time Management Workshop
+
+      Dear Trainer,
+
+      I am writing to complain about the time management workshop conducted at our school. Although the session was supposed to help us plan better, I found it confusing and too fast. You did not explain the activities clearly, and many students could not understand the examples.
+
+      I request you to conduct the session again in a simpler manner. Please also share notes so that students can revise the points later.
+
+      Yours sincerely,
+      Kavya
+    explanation: "The task asks for a thank-you email, but the sample answer is written as a complaint. The purpose, tone, and subject do not match the given situation."
+  assert:
+    - type: llm-rubric
+      value: >
+        The validator is evaluating a FLAWED Email Writing question. Flaw:
+        the task explicitly asks for a thank-you email, but the sample answer is written entirely as a complaint, which is a fundamental purpose mismatch with the assigned task. The correct verdict is INVALID.
+        Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.

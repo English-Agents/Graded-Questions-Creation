@@ -1,0 +1,1969 @@
+{
+  "evalId": "eval-uJk-2026-06-26T12:22:23",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-06-26T12:22:23.704Z",
+    "prompts": [
+      {
+        "raw": "You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+        "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+        "id": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "provider": "openai:chat:anthropic/claude-haiku-4-5",
+        "metrics": {
+          "score": 7,
+          "testPassCount": 7,
+          "testFailCount": 3,
+          "testErrorCount": 0,
+          "assertPassCount": 7,
+          "assertFailCount": 3,
+          "totalLatencyMs": 12178,
+          "tokenUsage": {
+            "prompt": 6038,
+            "completion": 3614,
+            "cached": 0,
+            "total": 9652,
+            "numRequests": 10,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 7434,
+              "prompt": 6435,
+              "completion": 999,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "error": "The output starts with 'INVALID', but according to the rubric, the correct verdict should be 'VALID' because the paragraph order follows a clear logical chain (past view, contrast, benefits, result, limitation, and recommendation) with correct discourse-marker links using all 8 sentences exactly once. The output incorrectly identifies flaws in what is actually a correctly sequenced paragraph.",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "The output starts with 'INVALID', but according to the rubric, the correct verdict should be 'VALID' because the paragraph order follows a clear logical chain (past view, contrast, benefits, result, limitation, and recommendation) with correct discourse-marker links using all 8 sentences exactly once. The output incorrectly identifies flaws in what is actually a correctly sequenced paragraph.",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 842,
+            "prompt": 726,
+            "completion": 116,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order follows a clear logical chain — past view, contrast, benefits, result, limitation, and recommendation — using all 8 sentences exactly once with correct discourse-marker links. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": false,
+              "score": 0,
+              "reason": "The output starts with 'INVALID', but according to the rubric, the correct verdict should be 'VALID' because the paragraph order follows a clear logical chain (past view, contrast, benefits, result, limitation, and recommendation) with correct discourse-marker links using all 8 sentences exactly once. The output incorrectly identifies flaws in what is actually a correctly sequenced paragraph.",
+              "tokensUsed": {
+                "total": 842,
+                "prompt": 726,
+                "completion": 116,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:30 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476549-rY7TFbdUfucDCgXEJvzT"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nINVALID\\n\\n**Flaws detected:**\\n\\n1. **Logical sequencing error at F-D-A**: The proposed order places F (about recorded lectures) and D (about discussion boards) consecutively, but these represent two separate benefits of online learning without clear connective logic. More critically, sentence A (\\\"This shift has also changed how teachers assess progress...\\\") uses the demonstrative \\\"This shift,\\\" which should refer to a clearly established shift in practice. In the proposed order, the shift being referenced is ambiguous—it could refer to the continuation of online learning (C), but the intervening sentences about specific benefits (F, D) weaken this connection.\\n\\n2. **Premature conclusion (E placement)**: Sentence E (\\\"As a result, blended learning has become a practical model...\\\") uses the causal marker \\\"As a result,\\\" which should follow from the evidence that online learning has continued and proven successful. However, in the proposed order B-C-F-D-A-E, sentence E arrives before sentence G introduces the critical caveat (\\\"Yet, the success of this model depends on careful planning...\\\"). This creates a logical flaw: the paragraph concludes that blended learning is now a practical model (E), then immediately contradicts this by saying success depends on careful planning (G), which should come *before* the affirmative conclusion in E.\\n\\n3. **Incorrect causal chain**: The correct logical flow should be: (1) online learning was temporary but continued (B-C), (2) it has benefits (F, D, A), (3) BUT success requires careful planning (G), (4) THEREFORE schools must train teachers (H), and only then (5) can we say it has become a practical model (E). The proposed order reverses steps 4 and 5, breaking the cause-effect relationship.\\n\\n**Primary reason for verdict:** The proposed order violates logical sequencing by placing the affirmative conclusion (E) before the conditional requirement (G-H) that justifies it, creating a contradiction in the causal chain.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order follows a clear logical chain — past view, contrast, benefits, result, limitation, and recommendation — using all 8 sentences exactly once with correct discourse-marker links. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "0651b3ad-aeea-4d1f-8d98-6d42470f9945",
+        "latencyMs": 1393,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Analyze\nDifficulty: B2-C1\nCourse Outcome: Arrange sentences logically to create a coherent paragraph using sequencing clues, cause-effect links, and referencing devices.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. This shift has also changed how teachers assess progress, as participation can now be tracked through digital platforms.\nB. Online learning was once treated as a temporary solution during disruptions.\nC. However, many institutions have continued using it even after classrooms reopened.\nD. Students who were hesitant to speak in class often contribute more confidently through discussion boards.\nE. As a result, blended learning has become a practical model rather than an emergency arrangement.\nF. The flexibility of recorded lectures allows learners to revisit difficult concepts at their own pace.\nG. Yet, the success of this model depends on careful planning rather than simply placing materials online.\nH. Therefore, schools must train teachers to design interactive and purposeful online activities.\n\nPROPOSED SOLUTION ORDER: B-C-F-D-A-E-G-H\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "INVALID\n\n**Flaws detected:**\n\n1. **Logical sequencing error at F-D-A**: The proposed order places F (about recorded lectures) and D (about discussion boards) consecutively, but these represent two separate benefits of online learning without clear connective logic. More critically, sentence A (\"This shift has also changed how teachers assess progress...\") uses the demonstrative \"This shift,\" which should refer to a clearly established shift in practice. In the proposed order, the shift being referenced is ambiguous—it could refer to the continuation of online learning (C), but the intervening sentences about specific benefits (F, D) weaken this connection.\n\n2. **Premature conclusion (E placement)**: Sentence E (\"As a result, blended learning has become a practical model...\") uses the causal marker \"As a result,\" which should follow from the evidence that online learning has continued and proven successful. However, in the proposed order B-C-F-D-A-E, sentence E arrives before sentence G introduces the critical caveat (\"Yet, the success of this model depends on careful planning...\"). This creates a logical flaw: the paragraph concludes that blended learning is now a practical model (E), then immediately contradicts this by saying success depends on careful planning (G), which should come *before* the affirmative conclusion in E.\n\n3. **Incorrect causal chain**: The correct logical flow should be: (1) online learning was temporary but continued (B-C), (2) it has benefits (F, D, A), (3) BUT success requires careful planning (G), (4) THEREFORE schools must train teachers (H), and only then (5) can we say it has become a practical model (E). The proposed order reverses steps 4 and 5, breaking the cause-effect relationship.\n\n**Primary reason for verdict:** The proposed order violates logical sequencing by placing the affirmative conclusion (E) before the conditional requirement (G-H) that justifies it, creating a contradiction in the causal chain.",
+          "tokenUsage": {
+            "total": 1079,
+            "prompt": 633,
+            "completion": 446,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1393,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:25 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476544-MPssnkpgJdbVr8qqCsZ2"
+              }
+            }
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Analyze",
+            "difficulty": "B2-C1",
+            "course_outcome": "Arrange sentences logically to create a coherent paragraph using sequencing clues, cause-effect links, and referencing devices.",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. This shift has also changed how teachers assess progress, as participation can now be tracked through digital platforms.\nB. Online learning was once treated as a temporary solution during disruptions.\nC. However, many institutions have continued using it even after classrooms reopened.\nD. Students who were hesitant to speak in class often contribute more confidently through discussion boards.\nE. As a result, blended learning has become a practical model rather than an emergency arrangement.\nF. The flexibility of recorded lectures allows learners to revisit difficult concepts at their own pace.\nG. Yet, the success of this model depends on careful planning rather than simply placing materials online.\nH. Therefore, schools must train teachers to design interactive and purposeful online activities.\n",
+            "solution": "B-C-F-D-A-E-G-H",
+            "explanation": "The paragraph begins with the earlier view of online learning and then contrasts it with current practice. It explains benefits, shows the result, introduces a limitation, and ends with a recommendation."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order follows a clear logical chain — past view, contrast, benefits, result, limitation, and recommendation — using all 8 sentences exactly once with correct discourse-marker links. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Analyze",
+          "difficulty": "B2-C1",
+          "course_outcome": "Arrange sentences logically to create a coherent paragraph using sequencing clues, cause-effect links, and referencing devices.",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. This shift has also changed how teachers assess progress, as participation can now be tracked through digital platforms.\nB. Online learning was once treated as a temporary solution during disruptions.\nC. However, many institutions have continued using it even after classrooms reopened.\nD. Students who were hesitant to speak in class often contribute more confidently through discussion boards.\nE. As a result, blended learning has become a practical model rather than an emergency arrangement.\nF. The flexibility of recorded lectures allows learners to revisit difficult concepts at their own pace.\nG. Yet, the success of this model depends on careful planning rather than simply placing materials online.\nH. Therefore, schools must train teachers to design interactive and purposeful online activities.\n",
+          "solution": "B-C-F-D-A-E-G-H",
+          "explanation": "The paragraph begins with the earlier view of online learning and then contrasts it with current practice. It explains benefits, shows the result, introduces a limitation, and ends with a recommendation."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:25 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476544-MPssnkpgJdbVr8qqCsZ2"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 739,
+            "prompt": 636,
+            "completion": 103,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly moves from stable past to problem, false assumption, true cause, resolution, and lesson, using all 8 sentences exactly once with consistent cause-effect logic. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with 'VALID' as required by the rubric. The validator has determined that the paragraph sequencing question is correctly formed with the sequence B-E-G-A-D-C-F-H following proper chronological and logical progression, using all 8 sentences exactly once with consistent cause-effect logic.",
+              "tokensUsed": {
+                "total": 739,
+                "prompt": 636,
+                "completion": 103,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:29 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476548-lnIMK8yf3w7L9zgenLOK"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nVALID\\n\\nNo flaws detected.\\n\\n**Explanation of validation:**\\n\\n1. **CORRECT ORDER** — The proposed sequence B-E-G-A-D-C-F-H follows a clear chronological and logical progression:\\n   - B establishes the baseline (steady sales for five years)\\n   - E introduces the triggering event (delayed deliveries reported)\\n   - G shows the consequence (negative reviews spread)\\n   - A presents the team's initial misdiagnosis (assumed poor advertising)\\n   - D provides the corrective discovery (customers saw ads but didn't purchase)\\n   - C draws the logical conclusion (issue is trust, not visibility)\\n   - F shows the resolution (improved delivery → sales recovery)\\n   - H provides the lesson learned (operational reliability influences marketing)\\n\\n   Temporal markers are respected: \\\"at first\\\" (A) correctly precedes the discovery (D), and \\\"once\\\" (F) appropriately follows the diagnosis phase.\\n\\n2. **COMPLETENESS** — All eight sentences (A through H) are included exactly once with no omissions or repetitions.\\n\\n3. **SENTENCE COUNT MATCH** — Eight sentences provided; eight sentences used in solution. ✓\\n\\n4. **UNIQUENESS** — The ordering is strongly determined by discourse markers and causal logic. No genuinely ambiguous choice points exist where multiple orderings would be equally valid.\\n\\n5. **INTERNAL CONSISTENCY** — All sentences cohere around a single narrative: a company's sales decline caused by operational failure (not marketing), the discovery of this root cause, and subsequent recovery. No contradictions or irrelevancies present.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly moves from stable past to problem, false assumption, true cause, resolution, and lesson, using all 8 sentences exactly once with consistent cause-effect logic. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "cec7866d-dd0e-423b-8ba2-adf84775759d",
+        "latencyMs": 1644,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Analyze\nDifficulty: B2-C1\nCourse Outcome: Identify chronological and logical progression in a paragraph.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. At first, the team assumed that the drop was caused by poor advertising.\nB. The company had enjoyed steady sales for nearly five years.\nC. Therefore, the real issue was not visibility but customer trust.\nD. A closer review, however, showed that customers were reading the advertisements but not completing purchases.\nE. The problem began when several delayed deliveries were reported online.\nF. Once the company improved its delivery process, sales slowly began to recover.\nG. Negative reviews spread quickly, making new buyers uncertain about the service.\nH. This taught the company that operational reliability can influence marketing success.\n\nPROPOSED SOLUTION ORDER: B-E-G-A-D-C-F-H\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "VALID\n\nNo flaws detected.\n\n**Explanation of validation:**\n\n1. **CORRECT ORDER** — The proposed sequence B-E-G-A-D-C-F-H follows a clear chronological and logical progression:\n   - B establishes the baseline (steady sales for five years)\n   - E introduces the triggering event (delayed deliveries reported)\n   - G shows the consequence (negative reviews spread)\n   - A presents the team's initial misdiagnosis (assumed poor advertising)\n   - D provides the corrective discovery (customers saw ads but didn't purchase)\n   - C draws the logical conclusion (issue is trust, not visibility)\n   - F shows the resolution (improved delivery → sales recovery)\n   - H provides the lesson learned (operational reliability influences marketing)\n\n   Temporal markers are respected: \"at first\" (A) correctly precedes the discovery (D), and \"once\" (F) appropriately follows the diagnosis phase.\n\n2. **COMPLETENESS** — All eight sentences (A through H) are included exactly once with no omissions or repetitions.\n\n3. **SENTENCE COUNT MATCH** — Eight sentences provided; eight sentences used in solution. ✓\n\n4. **UNIQUENESS** — The ordering is strongly determined by discourse markers and causal logic. No genuinely ambiguous choice points exist where multiple orderings would be equally valid.\n\n5. **INTERNAL CONSISTENCY** — All sentences cohere around a single narrative: a company's sales decline caused by operational failure (not marketing), the discovery of this root cause, and subsequent recovery. No contradictions or irrelevancies present.",
+          "tokenUsage": {
+            "total": 946,
+            "prompt": 589,
+            "completion": 357,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1644,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:25 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476544-8bAyPgocnZY0o1IjdJzH"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Analyze",
+            "difficulty": "B2-C1",
+            "course_outcome": "Identify chronological and logical progression in a paragraph.",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. At first, the team assumed that the drop was caused by poor advertising.\nB. The company had enjoyed steady sales for nearly five years.\nC. Therefore, the real issue was not visibility but customer trust.\nD. A closer review, however, showed that customers were reading the advertisements but not completing purchases.\nE. The problem began when several delayed deliveries were reported online.\nF. Once the company improved its delivery process, sales slowly began to recover.\nG. Negative reviews spread quickly, making new buyers uncertain about the service.\nH. This taught the company that operational reliability can influence marketing success.\n",
+            "solution": "B-E-G-A-D-C-F-H",
+            "explanation": "The sequence starts with the company's stable past, introduces the problem, explains the mistaken assumption, reveals the actual cause, and ends with the lesson learned."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly moves from stable past to problem, false assumption, true cause, resolution, and lesson, using all 8 sentences exactly once with consistent cause-effect logic. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Analyze",
+          "difficulty": "B2-C1",
+          "course_outcome": "Identify chronological and logical progression in a paragraph.",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. At first, the team assumed that the drop was caused by poor advertising.\nB. The company had enjoyed steady sales for nearly five years.\nC. Therefore, the real issue was not visibility but customer trust.\nD. A closer review, however, showed that customers were reading the advertisements but not completing purchases.\nE. The problem began when several delayed deliveries were reported online.\nF. Once the company improved its delivery process, sales slowly began to recover.\nG. Negative reviews spread quickly, making new buyers uncertain about the service.\nH. This taught the company that operational reliability can influence marketing success.\n",
+          "solution": "B-E-G-A-D-C-F-H",
+          "explanation": "The sequence starts with the company's stable past, introduces the problem, explains the mistaken assumption, reveals the actual cause, and ends with the lesson learned."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:25 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476544-8bAyPgocnZY0o1IjdJzH"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 726,
+            "prompt": 645,
+            "completion": 81,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly sequences general habit, usefulness, limitation, contrast, example, consequence, benefit, and conclusion, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with 'VALID' as required by the rubric. The validator correctly identified that the paragraph sequencing follows a logical progression with appropriate discourse markers, includes all 8 sentences exactly once, and maintains internal consistency.",
+              "tokensUsed": {
+                "total": 726,
+                "prompt": 645,
+                "completion": 81,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:29 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476548-BQALtzPkVWqhPidLvf3F"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nVALID\\n\\nNo flaws detected.\\n\\n**Explanation of validation:**\\n\\n1. **CORRECT ORDER** — The proposed sequence B-D-E-A-C-F-H-G follows a coherent logical progression:\\n   - B introduces the current reading habit (quick consumption)\\n   - D acknowledges its utility\\n   - E introduces a contrasting problem (\\\"However\\\")\\n   - A provides deeper contrast (\\\"In contrast\\\")\\n   - C exemplifies the contrast (\\\"For instance\\\")\\n   - F shows the consequence (\\\"As a result\\\")\\n   - H provides a solution benefit\\n   - G concludes with necessity (\\\"therefore\\\")\\n   \\n   The discourse markers (However, In contrast, For instance, As a result, therefore) are used appropriately and guide the reader through problem → limitation → alternative → exemplification → consequence → solution → conclusion.\\n\\n2. **COMPLETENESS** — All eight sentences (A through H) are included exactly once with no omissions or repetitions.\\n\\n3. **SENTENCE COUNT MATCH** — Eight sentences provided; eight sentences used in the solution.\\n\\n4. **UNIQUENESS** — The ordering is clearly signaled by explicit discourse markers. The \\\"However\\\" in E must follow the positive statement in D. The \\\"In contrast\\\" in A must follow the problem established in E. The \\\"For instance\\\" in C exemplifies the contrast in A. The \\\"As a result\\\" in F logically follows the consequence chain. The \\\"therefore\\\" in G signals the conclusion. There is no genuine ambiguity about sequencing.\\n\\n5. **INTERNAL CONSISTENCY** — All sentences are logically consistent and relevant to the central topic of reading habits and comprehension depth. No contradictions exist.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly sequences general habit, usefulness, limitation, contrast, example, consequence, benefit, and conclusion, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "ae2b441f-011f-4bfc-b930-36619e21f231",
+        "latencyMs": 1431,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Analyze\nDifficulty: C1\nCourse Outcome: Organize ideas using contrast, exemplification, and conclusion markers.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. In contrast, deep reading requires attention to tone, structure, and implied meaning.\nB. Many readers today consume information quickly through headlines and short summaries.\nC. For instance, a news headline may suggest urgency, while the full article may present a more balanced view.\nD. This habit is useful when people need basic updates in a short time.\nE. However, it can also encourage superficial understanding.\nF. As a result, readers may react strongly before fully understanding the issue.\nG. Developing deeper reading habits is therefore essential in an age of constant information.\nH. It enables people to evaluate arguments instead of merely absorbing impressions.\n\nPROPOSED SOLUTION ORDER: B-D-E-A-C-F-H-G\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "VALID\n\nNo flaws detected.\n\n**Explanation of validation:**\n\n1. **CORRECT ORDER** — The proposed sequence B-D-E-A-C-F-H-G follows a coherent logical progression:\n   - B introduces the current reading habit (quick consumption)\n   - D acknowledges its utility\n   - E introduces a contrasting problem (\"However\")\n   - A provides deeper contrast (\"In contrast\")\n   - C exemplifies the contrast (\"For instance\")\n   - F shows the consequence (\"As a result\")\n   - H provides a solution benefit\n   - G concludes with necessity (\"therefore\")\n   \n   The discourse markers (However, In contrast, For instance, As a result, therefore) are used appropriately and guide the reader through problem → limitation → alternative → exemplification → consequence → solution → conclusion.\n\n2. **COMPLETENESS** — All eight sentences (A through H) are included exactly once with no omissions or repetitions.\n\n3. **SENTENCE COUNT MATCH** — Eight sentences provided; eight sentences used in the solution.\n\n4. **UNIQUENESS** — The ordering is clearly signaled by explicit discourse markers. The \"However\" in E must follow the positive statement in D. The \"In contrast\" in A must follow the problem established in E. The \"For instance\" in C exemplifies the contrast in A. The \"As a result\" in F logically follows the consequence chain. The \"therefore\" in G signals the conclusion. There is no genuine ambiguity about sequencing.\n\n5. **INTERNAL CONSISTENCY** — All sentences are logically consistent and relevant to the central topic of reading habits and comprehension depth. No contradictions exist.",
+          "tokenUsage": {
+            "total": 968,
+            "prompt": 598,
+            "completion": 370,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1431,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:25 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476544-jcCIDhYba7l7CIe41msM"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Analyze",
+            "difficulty": "C1",
+            "course_outcome": "Organize ideas using contrast, exemplification, and conclusion markers.",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. In contrast, deep reading requires attention to tone, structure, and implied meaning.\nB. Many readers today consume information quickly through headlines and short summaries.\nC. For instance, a news headline may suggest urgency, while the full article may present a more balanced view.\nD. This habit is useful when people need basic updates in a short time.\nE. However, it can also encourage superficial understanding.\nF. As a result, readers may react strongly before fully understanding the issue.\nG. Developing deeper reading habits is therefore essential in an age of constant information.\nH. It enables people to evaluate arguments instead of merely absorbing impressions.\n",
+            "solution": "B-D-E-A-C-F-H-G",
+            "explanation": "The paragraph begins with a general habit, acknowledges its usefulness, introduces its limitation, contrasts it with deep reading, gives an example, and concludes with its importance."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly sequences general habit, usefulness, limitation, contrast, example, consequence, benefit, and conclusion, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Analyze",
+          "difficulty": "C1",
+          "course_outcome": "Organize ideas using contrast, exemplification, and conclusion markers.",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. In contrast, deep reading requires attention to tone, structure, and implied meaning.\nB. Many readers today consume information quickly through headlines and short summaries.\nC. For instance, a news headline may suggest urgency, while the full article may present a more balanced view.\nD. This habit is useful when people need basic updates in a short time.\nE. However, it can also encourage superficial understanding.\nF. As a result, readers may react strongly before fully understanding the issue.\nG. Developing deeper reading habits is therefore essential in an age of constant information.\nH. It enables people to evaluate arguments instead of merely absorbing impressions.\n",
+          "solution": "B-D-E-A-C-F-H-G",
+          "explanation": "The paragraph begins with a general habit, acknowledges its usefulness, introduces its limitation, contrasts it with deep reading, gives an example, and concludes with its importance."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:25 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476544-jcCIDhYba7l7CIe41msM"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 772,
+            "prompt": 673,
+            "completion": 99,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly progresses from AI capability, to concern, correction of the concern, human role, partnership framing, and balanced conclusion, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with 'VALID' as required by the rubric. The validator correctly identified that the paragraph sequencing question is well-formed with a logical progression through all 8 sentences exactly once, using discourse markers to create coherent flow from AI capability → concern → correction → human role → partnership → conclusion.",
+              "tokensUsed": {
+                "total": 772,
+                "prompt": 673,
+                "completion": 99,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:30 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476549-cMTfkkvbPRHZXFnHtVtp"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nVALID\\n\\nNo flaws detected.\\n\\n**Explanation of validation:**\\n\\n1. **CORRECT ORDER**: The proposed sequence B-E-A-C-D-F-G-H creates a logically coherent progression:\\n   - B introduces the capability (AI producing creative content)\\n   - E presents the concern this raises (artists worry about replacement)\\n   - A-C form a refutation pair (negation + restatement of what's actually happening)\\n   - D explains what humans still control (decision-making about meaning/ethics)\\n   - F-G introduce the collaborative solution (technology as partner)\\n   - H concludes with the forward-looking synthesis (future depends on collaboration)\\n   \\n   The discourse markers support this flow: \\\"This does not mean\\\" (A) directly counters the worry in E; \\\"Instead\\\" (C) provides the reframing; \\\"In such cases\\\" (G) refers back to the collaboration described in F; \\\"Therefore\\\" (H) draws the logical conclusion.\\n\\n2. **COMPLETENESS**: All eight sentences (A through H) are included exactly once.\\n\\n3. **SENTENCE COUNT MATCH**: Eight sentences in the question; eight sentences in the solution. ✓\\n\\n4. **UNIQUENESS**: While minor variations might be imagined (e.g., moving D slightly), the discourse markers create a clear logical path. The \\\"This does not mean...Instead\\\" pairing (A-C) is tightly bound and must follow E. The \\\"In such cases...Therefore\\\" sequence (G-H) is similarly constrained. No genuinely ambiguous choice points exist.\\n\\n5. **INTERNAL CONSISTENCY**: All sentences cohere around the theme of AI's impact on human creativity and the emerging collaborative model. No contradictions or irrelevancies detected.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly progresses from AI capability, to concern, correction of the concern, human role, partnership framing, and balanced conclusion, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "bf3a7e1a-fc50-444a-9290-e4f7505c9e17",
+        "latencyMs": 1463,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Apply\nDifficulty: B2-C1\nCourse Outcome: Use discourse markers and reference clues to arrange sentences meaningfully.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. This does not mean that creativity is disappearing.\nB. Artificial intelligence is now able to produce images, music, and written text within seconds.\nC. Instead, it suggests that human creativity is being redefined.\nD. People still need to decide what is meaningful, ethical, and appropriate for a particular audience.\nE. Because of this, some artists worry that machines may replace human imagination.\nF. The best results often come when humans guide the tool with clear intention.\nG. In such cases, technology becomes a partner rather than a substitute.\nH. Therefore, the future of creativity may depend on collaboration between human judgment and machine capability.\n\nPROPOSED SOLUTION ORDER: B-E-A-C-D-F-G-H\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "VALID\n\nNo flaws detected.\n\n**Explanation of validation:**\n\n1. **CORRECT ORDER**: The proposed sequence B-E-A-C-D-F-G-H creates a logically coherent progression:\n   - B introduces the capability (AI producing creative content)\n   - E presents the concern this raises (artists worry about replacement)\n   - A-C form a refutation pair (negation + restatement of what's actually happening)\n   - D explains what humans still control (decision-making about meaning/ethics)\n   - F-G introduce the collaborative solution (technology as partner)\n   - H concludes with the forward-looking synthesis (future depends on collaboration)\n   \n   The discourse markers support this flow: \"This does not mean\" (A) directly counters the worry in E; \"Instead\" (C) provides the reframing; \"In such cases\" (G) refers back to the collaboration described in F; \"Therefore\" (H) draws the logical conclusion.\n\n2. **COMPLETENESS**: All eight sentences (A through H) are included exactly once.\n\n3. **SENTENCE COUNT MATCH**: Eight sentences in the question; eight sentences in the solution. ✓\n\n4. **UNIQUENESS**: While minor variations might be imagined (e.g., moving D slightly), the discourse markers create a clear logical path. The \"This does not mean...Instead\" pairing (A-C) is tightly bound and must follow E. The \"In such cases...Therefore\" sequence (G-H) is similarly constrained. No genuinely ambiguous choice points exist.\n\n5. **INTERNAL CONSISTENCY**: All sentences cohere around the theme of AI's impact on human creativity and the emerging collaborative model. No contradictions or irrelevancies detected.",
+          "tokenUsage": {
+            "total": 991,
+            "prompt": 598,
+            "completion": 393,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1463,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:25 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476544-hgbKC5PS3t5TagwSWlvl"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Apply",
+            "difficulty": "B2-C1",
+            "course_outcome": "Use discourse markers and reference clues to arrange sentences meaningfully.",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. This does not mean that creativity is disappearing.\nB. Artificial intelligence is now able to produce images, music, and written text within seconds.\nC. Instead, it suggests that human creativity is being redefined.\nD. People still need to decide what is meaningful, ethical, and appropriate for a particular audience.\nE. Because of this, some artists worry that machines may replace human imagination.\nF. The best results often come when humans guide the tool with clear intention.\nG. In such cases, technology becomes a partner rather than a substitute.\nH. Therefore, the future of creativity may depend on collaboration between human judgment and machine capability.\n",
+            "solution": "B-E-A-C-D-F-G-H",
+            "explanation": "The paragraph introduces AI's creative ability, presents concern, corrects the concern, explains the continuing role of humans, and concludes with a balanced view."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly progresses from AI capability, to concern, correction of the concern, human role, partnership framing, and balanced conclusion, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Apply",
+          "difficulty": "B2-C1",
+          "course_outcome": "Use discourse markers and reference clues to arrange sentences meaningfully.",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. This does not mean that creativity is disappearing.\nB. Artificial intelligence is now able to produce images, music, and written text within seconds.\nC. Instead, it suggests that human creativity is being redefined.\nD. People still need to decide what is meaningful, ethical, and appropriate for a particular audience.\nE. Because of this, some artists worry that machines may replace human imagination.\nF. The best results often come when humans guide the tool with clear intention.\nG. In such cases, technology becomes a partner rather than a substitute.\nH. Therefore, the future of creativity may depend on collaboration between human judgment and machine capability.\n",
+          "solution": "B-E-A-C-D-F-G-H",
+          "explanation": "The paragraph introduces AI's creative ability, presents concern, corrects the concern, explains the continuing role of humans, and concludes with a balanced view."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:25 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476544-hgbKC5PS3t5TagwSWlvl"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 718,
+            "prompt": 618,
+            "completion": 100,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly sequences topic introduction, distinguishing feedback types, consequence, recommendation, reframing, and final practical advice, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with 'VALID' as required by the rubric. The validator has determined that the paragraph sequencing is correct, using all 8 sentences exactly once in a logically coherent order that progresses through topic introduction, distinguishing feedback types, consequences, recommendations, reframing, and practical advice.",
+              "tokensUsed": {
+                "total": 718,
+                "prompt": 618,
+                "completion": 100,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:35 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476554-2Gzy1ob3qNEmvNXjfZww"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nVALID\\n\\nNo flaws detected.\\n\\n**Explanation of validation:**\\n\\n1. **CORRECT ORDER** — The proposed sequence B-D-F-A-E-C-G-H creates a logically coherent argumentative paragraph:\\n   - B introduces the central claim (feedback's importance)\\n   - D signals a qualification (\\\"Yet not all forms...\\\")\\n   - F provides a positive example of effective feedback\\n   - A-E form a causal chain showing the negative consequence of poorly-used feedback\\n   - C pivots to the solution (\\\"This is why...\\\")\\n   - G-H reinforce and extend the prescriptive conclusion\\n   \\n   The discourse markers (\\\"Yet,\\\" \\\"This is why,\\\" \\\"In this way,\\\" \\\"Therefore\\\") and pronoun references (\\\"they,\\\" \\\"this\\\") all align naturally with this sequence. No temporal or causal reversals occur.\\n\\n2. **COMPLETENESS** — All eight sentences (A through H) appear exactly once in the proposed order.\\n\\n3. **SENTENCE COUNT MATCH** — Eight sentences are given; eight are used in the solution.\\n\\n4. **UNIQUENESS** — While minor variations in phrasing might be imagined, the discourse structure is sufficiently constrained by explicit markers and logical dependencies that no genuinely ambiguous alternative ordering exists. The progression from problem identification → qualification → positive example → negative consequence → solution → reinforcement is clearly signaled.\\n\\n5. **INTERNAL CONSISTENCY** — All sentences address feedback's role in learning and are mutually supportive. No contradictions or irrelevancies are present.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly sequences topic introduction, distinguishing feedback types, consequence, recommendation, reframing, and final practical advice, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "a48bc926-ede1-4775-90c5-2facda243dc5",
+        "latencyMs": 1058,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Analyze\nDifficulty: C1\nCourse Outcome: Arrange abstract ideas into a coherent argumentative paragraph.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. If they are used only to reward correct answers, they may discourage risk-taking.\nB. Feedback plays a central role in the learning process.\nC. This is why effective feedback should focus on strategies, effort, and improvement.\nD. Yet not all forms of feedback produce the same result.\nE. Students may then begin to avoid difficult tasks because mistakes feel like failure.\nF. When feedback is specific, it helps learners understand what to change and how to improve.\nG. In this way, feedback becomes a guide for growth rather than a judgment of ability.\nH. Therefore, teachers must be careful about both the content and tone of their comments.\n\nPROPOSED SOLUTION ORDER: B-D-F-A-E-C-G-H\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "VALID\n\nNo flaws detected.\n\n**Explanation of validation:**\n\n1. **CORRECT ORDER** — The proposed sequence B-D-F-A-E-C-G-H creates a logically coherent argumentative paragraph:\n   - B introduces the central claim (feedback's importance)\n   - D signals a qualification (\"Yet not all forms...\")\n   - F provides a positive example of effective feedback\n   - A-E form a causal chain showing the negative consequence of poorly-used feedback\n   - C pivots to the solution (\"This is why...\")\n   - G-H reinforce and extend the prescriptive conclusion\n   \n   The discourse markers (\"Yet,\" \"This is why,\" \"In this way,\" \"Therefore\") and pronoun references (\"they,\" \"this\") all align naturally with this sequence. No temporal or causal reversals occur.\n\n2. **COMPLETENESS** — All eight sentences (A through H) appear exactly once in the proposed order.\n\n3. **SENTENCE COUNT MATCH** — Eight sentences are given; eight are used in the solution.\n\n4. **UNIQUENESS** — While minor variations in phrasing might be imagined, the discourse structure is sufficiently constrained by explicit markers and logical dependencies that no genuinely ambiguous alternative ordering exists. The progression from problem identification → qualification → positive example → negative consequence → solution → reinforcement is clearly signaled.\n\n5. **INTERNAL CONSISTENCY** — All sentences address feedback's role in learning and are mutually supportive. No contradictions or irrelevancies are present.",
+          "tokenUsage": {
+            "total": 940,
+            "prompt": 599,
+            "completion": 341,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1058,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:31 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476549-Ql22XQ6ZZciJgkk0Msy2"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Analyze",
+            "difficulty": "C1",
+            "course_outcome": "Arrange abstract ideas into a coherent argumentative paragraph.",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. If they are used only to reward correct answers, they may discourage risk-taking.\nB. Feedback plays a central role in the learning process.\nC. This is why effective feedback should focus on strategies, effort, and improvement.\nD. Yet not all forms of feedback produce the same result.\nE. Students may then begin to avoid difficult tasks because mistakes feel like failure.\nF. When feedback is specific, it helps learners understand what to change and how to improve.\nG. In this way, feedback becomes a guide for growth rather than a judgment of ability.\nH. Therefore, teachers must be careful about both the content and tone of their comments.\n",
+            "solution": "B-D-F-A-E-C-G-H",
+            "explanation": "The paragraph starts with the topic, distinguishes effective and ineffective feedback, explains consequences, and ends with a practical recommendation."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a correctly formed Paragraph Sequencing question. The correct verdict is VALID — the order correctly sequences topic introduction, distinguishing feedback types, consequence, recommendation, reframing, and final practical advice, using all 8 sentences exactly once. Mark PASS if the output starts with VALID. Mark FAIL if it starts with INVALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Analyze",
+          "difficulty": "C1",
+          "course_outcome": "Arrange abstract ideas into a coherent argumentative paragraph.",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. If they are used only to reward correct answers, they may discourage risk-taking.\nB. Feedback plays a central role in the learning process.\nC. This is why effective feedback should focus on strategies, effort, and improvement.\nD. Yet not all forms of feedback produce the same result.\nE. Students may then begin to avoid difficult tasks because mistakes feel like failure.\nF. When feedback is specific, it helps learners understand what to change and how to improve.\nG. In this way, feedback becomes a guide for growth rather than a judgment of ability.\nH. Therefore, teachers must be careful about both the content and tone of their comments.\n",
+          "solution": "B-D-F-A-E-C-G-H",
+          "explanation": "The paragraph starts with the topic, distinguishes effective and ineffective feedback, explains consequences, and ends with a practical recommendation."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:31 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476549-Ql22XQ6ZZciJgkk0Msy2"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "The output starts with 'VALID' when the rubric specifies that the correct verdict should be 'INVALID'. The rubric identifies a critical flaw: sentence A (cities expanded) is placed before sentence E (in earlier times), which reverses the chronological flow. Sentence E should logically precede sentence A. The output fails to recognize this temporal inconsistency.",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "The output starts with 'VALID' when the rubric specifies that the correct verdict should be 'INVALID'. The rubric identifies a critical flaw: sentence A (cities expanded) is placed before sentence E (in earlier times), which reverses the chronological flow. Sentence E should logically precede sentence A. The output fails to recognize this temporal inconsistency.",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 756,
+            "prompt": 642,
+            "completion": 114,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the proposed order places sentence A (cities expanded) before sentence E (in earlier times), reversing the chronological flow — E must precede A for the timeline to make sense. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": false,
+              "score": 0,
+              "reason": "The output starts with 'VALID' when the rubric specifies that the correct verdict should be 'INVALID'. The rubric identifies a critical flaw: sentence A (cities expanded) is placed before sentence E (in earlier times), which reverses the chronological flow. Sentence E should logically precede sentence A. The output fails to recognize this temporal inconsistency.",
+              "tokensUsed": {
+                "total": 756,
+                "prompt": 642,
+                "completion": 114,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:35 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476554-j9E2V7h1mg5TOMGvfn7m"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nVALID\\n\\nNo flaws detected.\\n\\n**Explanation of validation:**\\n\\n1. **CORRECT ORDER** — The proposed sequence C-A-E-B-D-F-H-G follows a clear chronological and logical progression:\\n   - C introduces the topic (urban growth changes transport)\\n   - A explains the problem (distance increased as cities expanded)\\n   - E provides historical context (\\\"earlier times\\\" — people walked)\\n   - B introduces the solution (public transport developed)\\n   - D advances chronologically (\\\"Later\\\") with modern solutions (underground railways, buses)\\n   - F continues to present day (\\\"Today\\\") with contemporary innovations\\n   - H introduces a new constraint (modern solutions must reduce pollution)\\n   - G concludes with a synthesis statement about ongoing adaptation\\n   \\n   The temporal markers are properly sequenced: \\\"earlier times\\\" (E) → past development (B, D) → \\\"Later\\\" (D) → \\\"Today\\\" (F) → present challenges (H) → conclusion (G).\\n\\n2. **COMPLETENESS** — All eight sentences (A through H) are included exactly once with no omissions or repeats.\\n\\n3. **SENTENCE COUNT MATCH** — Eight sentences provided; eight sentences used in the solution.\\n\\n4. **UNIQUENESS** — While H and G could theoretically be swapped, the current order is superior because H introduces a new constraint/challenge that logically precedes G's concluding synthesis. The sequence is not ambiguous.\\n\\n5. **INTERNAL CONSISTENCY** — All sentences cohere around the topic of urban transport evolution and adaptation. No contradictions or irrelevant content detected.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the proposed order places sentence A (cities expanded) before sentence E (in earlier times), reversing the chronological flow — E must precede A for the timeline to make sense. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "aea15d6f-3b6d-4158-8ee9-ad6050005f7f",
+        "latencyMs": 1170,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Understand\nDifficulty: B2\nCourse Outcome: Sequence a process-based paragraph using time and cause-effect clues.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. As cities expanded, the distance between homes and workplaces increased.\nB. Public transport systems were developed to solve this problem.\nC. Urban growth has always changed the way people move.\nD. Later, underground railways and buses made daily travel faster for large populations.\nE. In earlier times, many people lived close enough to walk to work.\nF. Today, cities are experimenting with electric buses and shared bicycles.\nG. These changes show that transport continues to adapt to the needs of urban life.\nH. However, modern solutions must also reduce pollution and traffic congestion.\n\nPROPOSED SOLUTION ORDER: C-A-E-B-D-F-H-G\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "VALID\n\nNo flaws detected.\n\n**Explanation of validation:**\n\n1. **CORRECT ORDER** — The proposed sequence C-A-E-B-D-F-H-G follows a clear chronological and logical progression:\n   - C introduces the topic (urban growth changes transport)\n   - A explains the problem (distance increased as cities expanded)\n   - E provides historical context (\"earlier times\" — people walked)\n   - B introduces the solution (public transport developed)\n   - D advances chronologically (\"Later\") with modern solutions (underground railways, buses)\n   - F continues to present day (\"Today\") with contemporary innovations\n   - H introduces a new constraint (modern solutions must reduce pollution)\n   - G concludes with a synthesis statement about ongoing adaptation\n   \n   The temporal markers are properly sequenced: \"earlier times\" (E) → past development (B, D) → \"Later\" (D) → \"Today\" (F) → present challenges (H) → conclusion (G).\n\n2. **COMPLETENESS** — All eight sentences (A through H) are included exactly once with no omissions or repeats.\n\n3. **SENTENCE COUNT MATCH** — Eight sentences provided; eight sentences used in the solution.\n\n4. **UNIQUENESS** — While H and G could theoretically be swapped, the current order is superior because H introduces a new constraint/challenge that logically precedes G's concluding synthesis. The sequence is not ambiguous.\n\n5. **INTERNAL CONSISTENCY** — All sentences cohere around the topic of urban transport evolution and adaptation. No contradictions or irrelevant content detected.",
+          "tokenUsage": {
+            "total": 944,
+            "prompt": 587,
+            "completion": 357,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1170,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:31 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476550-9rmS8mlpucZH3XQgRW9m"
+              }
+            }
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Understand",
+            "difficulty": "B2",
+            "course_outcome": "Sequence a process-based paragraph using time and cause-effect clues.",
+            "error_type": "Incorrect solution order",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. As cities expanded, the distance between homes and workplaces increased.\nB. Public transport systems were developed to solve this problem.\nC. Urban growth has always changed the way people move.\nD. Later, underground railways and buses made daily travel faster for large populations.\nE. In earlier times, many people lived close enough to walk to work.\nF. Today, cities are experimenting with electric buses and shared bicycles.\nG. These changes show that transport continues to adapt to the needs of urban life.\nH. However, modern solutions must also reduce pollution and traffic congestion.\n",
+            "solution": "C-A-E-B-D-F-H-G",
+            "explanation": "The given solution incorrectly places \"As cities expanded\" before \"In earlier times,\" which disrupts the chronological flow from past to later urban expansion. The correct logical opening should move from the general idea to earlier times before expansion."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the proposed order places sentence A (cities expanded) before sentence E (in earlier times), reversing the chronological flow — E must precede A for the timeline to make sense. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 5,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Understand",
+          "difficulty": "B2",
+          "course_outcome": "Sequence a process-based paragraph using time and cause-effect clues.",
+          "error_type": "Incorrect solution order",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. As cities expanded, the distance between homes and workplaces increased.\nB. Public transport systems were developed to solve this problem.\nC. Urban growth has always changed the way people move.\nD. Later, underground railways and buses made daily travel faster for large populations.\nE. In earlier times, many people lived close enough to walk to work.\nF. Today, cities are experimenting with electric buses and shared bicycles.\nG. These changes show that transport continues to adapt to the needs of urban life.\nH. However, modern solutions must also reduce pollution and traffic congestion.\n",
+          "solution": "C-A-E-B-D-F-H-G",
+          "explanation": "The given solution incorrectly places \"As cities expanded\" before \"In earlier times,\" which disrupts the chronological flow from past to later urban expansion. The correct logical opening should move from the general idea to earlier times before expansion."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:31 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476550-9rmS8mlpucZH3XQgRW9m"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 771,
+            "prompt": 662,
+            "completion": 109,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: sentences C and G both function as solution-oriented recommendations near the end, creating more than one defensible placement and meaning there is no single unambiguous correct order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with 'INVALID', which matches the rubric's requirement to mark PASS when the output starts with INVALID. The rubric specifies that the correct verdict for this flawed paragraph sequencing question is INVALID because sentences C and G both function as solution-oriented recommendations, creating multiple defensible placements and no single unambiguous correct order.",
+              "tokensUsed": {
+                "total": 771,
+                "prompt": 662,
+                "completion": 109,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:37 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476556-Jqob311HAjHUiJSlSt8L"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nINVALID\\n\\n**Flaws detected:**\\n\\n1. **Incorrect logical sequencing at the end (H placement):** Sentence H (\\\"The challenge is not remote work itself, but how it is managed.\\\") functions as a thesis statement or framing device that should introduce the discussion, not conclude it. Placing it at the end creates a backwards logical flow—the paragraph spends sentences B-G developing specific problems and solutions, then H suddenly reframes the entire issue as being about management approach. This violates cause-effect coherence.\\n\\n2. **Weak transition into C:** Sentence C (\\\"Regular virtual meetings can help, but they must not become excessive or mechanical.\\\") is introduced after F-G have already proposed a \\\"balanced approach\\\" and managerial responsibility. While C relates to the solution space, it arrives abruptly without clear connection to G's statement about \\\"meaningful interaction.\\\" The transition feels disconnected.\\n\\n3. **Better alternative ordering exists:** The paragraph would flow more logically as: **H-B-D-E-A-F-C-G** (or similar variants). H should open by framing the issue, then B-D-E-A develop the problem systematically, F-C-G propose solutions. This creates clear cause-effect progression: problem identification → consequences → solutions.\\n\\n**Primary reason for verdict:**\\n\\nThe proposed order violates the fundamental cause-effect structure required by the course outcome. While sentences B-D-E-A-F-G form a locally coherent chain, placing H at the end breaks the logical hierarchy—a framing statement should not conclude a developed argument. The paragraph lacks the clear causal progression from problem through consequence to resolution that defines coherent cause-effect writing at B2-C1 level.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: sentences C and G both function as solution-oriented recommendations near the end, creating more than one defensible placement and meaning there is no single unambiguous correct order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "ae7ce322-c17f-4c77-959c-5148a5e0d2b2",
+        "latencyMs": 1185,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Analyze\nDifficulty: B2-C1\nCourse Outcome: Identify logical flow in a cause-effect paragraph.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. Consequently, employees may feel disconnected from both their colleagues and the organization's goals.\nB. Remote work has given many employees greater control over their schedules.\nC. Regular virtual meetings can help, but they must not become excessive or mechanical.\nD. This flexibility can improve productivity, especially for those who need quiet time to concentrate.\nE. However, working away from the office can reduce informal communication.\nF. A balanced approach is therefore necessary.\nG. Managers need to create opportunities for meaningful interaction without removing the benefits of flexibility.\nH. The challenge is not remote work itself, but how it is managed.\n\nPROPOSED SOLUTION ORDER: B-D-E-A-F-G-C-H\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "INVALID\n\n**Flaws detected:**\n\n1. **Incorrect logical sequencing at the end (H placement):** Sentence H (\"The challenge is not remote work itself, but how it is managed.\") functions as a thesis statement or framing device that should introduce the discussion, not conclude it. Placing it at the end creates a backwards logical flow—the paragraph spends sentences B-G developing specific problems and solutions, then H suddenly reframes the entire issue as being about management approach. This violates cause-effect coherence.\n\n2. **Weak transition into C:** Sentence C (\"Regular virtual meetings can help, but they must not become excessive or mechanical.\") is introduced after F-G have already proposed a \"balanced approach\" and managerial responsibility. While C relates to the solution space, it arrives abruptly without clear connection to G's statement about \"meaningful interaction.\" The transition feels disconnected.\n\n3. **Better alternative ordering exists:** The paragraph would flow more logically as: **H-B-D-E-A-F-C-G** (or similar variants). H should open by framing the issue, then B-D-E-A develop the problem systematically, F-C-G propose solutions. This creates clear cause-effect progression: problem identification → consequences → solutions.\n\n**Primary reason for verdict:**\n\nThe proposed order violates the fundamental cause-effect structure required by the course outcome. While sentences B-D-E-A-F-G form a locally coherent chain, placing H at the end breaks the logical hierarchy—a framing statement should not conclude a developed argument. The paragraph lacks the clear causal progression from problem through consequence to resolution that defines coherent cause-effect writing at B2-C1 level.",
+          "tokenUsage": {
+            "total": 972,
+            "prompt": 592,
+            "completion": 380,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 1185,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:31 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476550-5TgdFhU2WxKZvYnD6dTG"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Analyze",
+            "difficulty": "B2-C1",
+            "course_outcome": "Identify logical flow in a cause-effect paragraph.",
+            "error_type": "Multiple valid solutions",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. Consequently, employees may feel disconnected from both their colleagues and the organization's goals.\nB. Remote work has given many employees greater control over their schedules.\nC. Regular virtual meetings can help, but they must not become excessive or mechanical.\nD. This flexibility can improve productivity, especially for those who need quiet time to concentrate.\nE. However, working away from the office can reduce informal communication.\nF. A balanced approach is therefore necessary.\nG. Managers need to create opportunities for meaningful interaction without removing the benefits of flexibility.\nH. The challenge is not remote work itself, but how it is managed.\n",
+            "solution": "B-D-E-A-F-G-C-H",
+            "explanation": "Although the solution is valid, the question is intentionally flawed because sentence C and sentence G both function as solution-oriented recommendations, making the ending slightly debatable. Different reasonable arrangements such as placing C after A may also work."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: sentences C and G both function as solution-oriented recommendations near the end, creating more than one defensible placement and meaning there is no single unambiguous correct order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 6,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Analyze",
+          "difficulty": "B2-C1",
+          "course_outcome": "Identify logical flow in a cause-effect paragraph.",
+          "error_type": "Multiple valid solutions",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. Consequently, employees may feel disconnected from both their colleagues and the organization's goals.\nB. Remote work has given many employees greater control over their schedules.\nC. Regular virtual meetings can help, but they must not become excessive or mechanical.\nD. This flexibility can improve productivity, especially for those who need quiet time to concentrate.\nE. However, working away from the office can reduce informal communication.\nF. A balanced approach is therefore necessary.\nG. Managers need to create opportunities for meaningful interaction without removing the benefits of flexibility.\nH. The challenge is not remote work itself, but how it is managed.\n",
+          "solution": "B-D-E-A-F-G-C-H",
+          "explanation": "Although the solution is valid, the question is intentionally flawed because sentence C and sentence G both function as solution-oriented recommendations, making the ending slightly debatable. Different reasonable arrangements such as placing C after A may also work."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:31 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476550-5TgdFhU2WxKZvYnD6dTG"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 703,
+            "prompt": 605,
+            "completion": 98,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the question lists 9 sentences (A-I) instead of 8, and sentence I directly contradicts the paragraph's premise that public understanding of climate science varies greatly. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with 'INVALID' as required by the rubric. The output correctly identifies that the paragraph sequencing question is flawed due to sentence I contradicting the paragraph's premise about varying public understanding of climate science. The analysis aligns with the rubric's specification that the correct verdict is INVALID.",
+              "tokensUsed": {
+                "total": 703,
+                "prompt": 605,
+                "completion": 98,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:36 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476555-rzEJdBrw0romBMEaAVEG"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nINVALID\\n\\n**Flaws detected:**\\n\\n1. **INTERNAL CONSISTENCY — Sentence I is irrelevant and contradicts the paragraph's argument.** Sentence I states \\\"This shows that every citizen already understands climate science completely.\\\" This sentence directly contradicts the entire premise of the paragraph, which argues that there IS a gap between scientific knowledge and public understanding (stated in B), and that communication barriers exist (stated in A and D). Sentence I is logically inconsistent with sentences B, A, and D, and appears to be a distractor or error in the question design. It should not be included in any valid solution.\\n\\n2. **COMPLETENESS — The proposed solution omits sentence I.** While omitting I is actually the correct editorial choice given its contradictory nature, the question asks to \\\"arrange the following sentences\\\" (implying all should be used). The presence of sentence I in the original list creates an impossible task: either include a contradictory sentence, or violate the instruction to arrange all given sentences.\\n\\n**Primary reason for verdict:**\\n\\nThe question is fundamentally flawed because it contains a sentence (I) that is logically incompatible with the problem-solution structure and the coherent argument established by the other sentences. A valid paragraph sequencing question should not include sentences that contradict the paragraph's central claim or create logical inconsistency. The proposed solution correctly excludes I, but this reveals a defect in the question itself rather than validating the sequencing task.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the question lists 9 sentences (A-I) instead of 8, and sentence I directly contradicts the paragraph's premise that public understanding of climate science varies greatly. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "a2065fb9-d75c-49b9-b40c-e676d89c5353",
+        "latencyMs": 924,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Analyze\nDifficulty: C1\nCourse Outcome: Arrange sentences to form a coherent paragraph using problem-solution structure.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. One reason is that scientific information is often communicated in highly technical language.\nB. This gap between knowledge and public understanding can delay action on serious issues.\nC. Climate change is widely studied, yet public responses to it vary greatly.\nD. When people cannot connect data to their daily lives, the issue may seem distant or abstract.\nE. Scientists and educators must therefore translate complex findings into clear and relatable messages.\nF. For example, explaining heat waves in relation to health and food prices can make the problem more immediate.\nG. Better communication does not simplify the science unfairly; rather, it makes the science usable.\nH. In this way, public awareness can become a foundation for informed decisions.\nI. This shows that every citizen already understands climate science completely.\n\nPROPOSED SOLUTION ORDER: C-A-D-B-E-F-G-H\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "INVALID\n\n**Flaws detected:**\n\n1. **INTERNAL CONSISTENCY — Sentence I is irrelevant and contradicts the paragraph's argument.** Sentence I states \"This shows that every citizen already understands climate science completely.\" This sentence directly contradicts the entire premise of the paragraph, which argues that there IS a gap between scientific knowledge and public understanding (stated in B), and that communication barriers exist (stated in A and D). Sentence I is logically inconsistent with sentences B, A, and D, and appears to be a distractor or error in the question design. It should not be included in any valid solution.\n\n2. **COMPLETENESS — The proposed solution omits sentence I.** While omitting I is actually the correct editorial choice given its contradictory nature, the question asks to \"arrange the following sentences\" (implying all should be used). The presence of sentence I in the original list creates an impossible task: either include a contradictory sentence, or violate the instruction to arrange all given sentences.\n\n**Primary reason for verdict:**\n\nThe question is fundamentally flawed because it contains a sentence (I) that is logically incompatible with the problem-solution structure and the coherent argument established by the other sentences. A valid paragraph sequencing question should not include sentences that contradict the paragraph's central claim or create logical inconsistency. The proposed solution correctly excludes I, but this reveals a defect in the question itself rather than validating the sequencing task.",
+          "tokenUsage": {
+            "total": 949,
+            "prompt": 628,
+            "completion": 321,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 924,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:32 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476551-xZRe9gK6voC6OfQyOgzc"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Analyze",
+            "difficulty": "C1",
+            "course_outcome": "Arrange sentences to form a coherent paragraph using problem-solution structure.",
+            "error_type": "Extra sentence / contradictory sentence",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. One reason is that scientific information is often communicated in highly technical language.\nB. This gap between knowledge and public understanding can delay action on serious issues.\nC. Climate change is widely studied, yet public responses to it vary greatly.\nD. When people cannot connect data to their daily lives, the issue may seem distant or abstract.\nE. Scientists and educators must therefore translate complex findings into clear and relatable messages.\nF. For example, explaining heat waves in relation to health and food prices can make the problem more immediate.\nG. Better communication does not simplify the science unfairly; rather, it makes the science usable.\nH. In this way, public awareness can become a foundation for informed decisions.\nI. This shows that every citizen already understands climate science completely.\n",
+            "solution": "C-A-D-B-E-F-G-H",
+            "explanation": "The question contains nine sentences even though the instruction requires eight. Sentence I is also logically inconsistent with the paragraph because it contradicts the idea that public understanding varies."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the question lists 9 sentences (A-I) instead of 8, and sentence I directly contradicts the paragraph's premise that public understanding of climate science varies greatly. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Analyze",
+          "difficulty": "C1",
+          "course_outcome": "Arrange sentences to form a coherent paragraph using problem-solution structure.",
+          "error_type": "Extra sentence / contradictory sentence",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. One reason is that scientific information is often communicated in highly technical language.\nB. This gap between knowledge and public understanding can delay action on serious issues.\nC. Climate change is widely studied, yet public responses to it vary greatly.\nD. When people cannot connect data to their daily lives, the issue may seem distant or abstract.\nE. Scientists and educators must therefore translate complex findings into clear and relatable messages.\nF. For example, explaining heat waves in relation to health and food prices can make the problem more immediate.\nG. Better communication does not simplify the science unfairly; rather, it makes the science usable.\nH. In this way, public awareness can become a foundation for informed decisions.\nI. This shows that every citizen already understands climate science completely.\n",
+          "solution": "C-A-D-B-E-F-G-H",
+          "explanation": "The question contains nine sentences even though the instruction requires eight. Sentence I is also logically inconsistent with the paragraph because it contradicts the idea that public understanding varies."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:32 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476551-xZRe9gK6voC6OfQyOgzc"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 639,
+            "prompt": 556,
+            "completion": 83,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the proposed solution only lists 7 sentences (B-A-F-C-D-E-G) and omits sentence H entirely, failing to arrange all 8 given sentences. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output begins with 'INVALID' and correctly identifies that the proposed solution omits sentence H, failing to arrange all 8 given sentences. This matches the rubric's requirement to mark PASS when the output starts with INVALID.",
+              "tokensUsed": {
+                "total": 639,
+                "prompt": 556,
+                "completion": 83,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:41 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476559-cv8Hkz7Qocczu4s1EGwD"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nINVALID\\n\\n**Specific flaws found:**\\n\\n1. **INCOMPLETE SOLUTION** — The proposed order B-A-F-C-D-E-G contains only 7 sentences, but the question provides 8 sentences (A through H). Sentence H is omitted from the solution.\\n\\n2. **LOGICAL SEQUENCING FLAW** — Even setting aside the missing sentence, the proposed order has a structural problem. Sentence G (\\\"Therefore, the choice between the two should depend on the learner's needs, not on assumptions about which method is superior\\\") uses the discourse marker \\\"Therefore,\\\" which signals a conclusion drawn from preceding evidence. However, G is placed before H (\\\"A thoughtful combination of both may often provide the strongest learning experience\\\"), which presents an additional, synthesizing idea that should logically precede or accompany the final conclusion. The placement of G before H disrupts the logical flow from evidence → synthesis → final recommendation.\\n\\n**Primary reason for verdict:**\\n\\nThe solution fails the **COMPLETENESS** requirement by omitting sentence H entirely. Additionally, the sequencing of the final sentences violates logical coherence, as the concluding statement (G) appears before the synthesizing statement (H) that should inform it.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the proposed solution only lists 7 sentences (B-A-F-C-D-E-G) and omits sentence H entirely, failing to arrange all 8 given sentences. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "c84cf0fe-c044-41bf-b173-ef6b0313a66a",
+        "latencyMs": 915,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Apply\nDifficulty: B2-C1\nCourse Outcome: Arrange sentences into a coherent comparison-based paragraph.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. In traditional classrooms, students often receive immediate clarification from teachers.\nB. Both methods of learning offer valuable opportunities, but they support learners in different ways.\nC. Online courses, on the other hand, allow learners to manage their time more independently.\nD. This independence can be useful for motivated students who already have strong study habits.\nE. However, it may be challenging for those who need regular reminders and external structure.\nF. Classroom learning can also encourage social interaction through group tasks and discussion.\nG. Therefore, the choice between the two should depend on the learner's needs, not on assumptions about which method is superior.\nH. A thoughtful combination of both may often provide the strongest learning experience.\n\nPROPOSED SOLUTION ORDER: B-A-F-C-D-E-G\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "INVALID\n\n**Specific flaws found:**\n\n1. **INCOMPLETE SOLUTION** — The proposed order B-A-F-C-D-E-G contains only 7 sentences, but the question provides 8 sentences (A through H). Sentence H is omitted from the solution.\n\n2. **LOGICAL SEQUENCING FLAW** — Even setting aside the missing sentence, the proposed order has a structural problem. Sentence G (\"Therefore, the choice between the two should depend on the learner's needs, not on assumptions about which method is superior\") uses the discourse marker \"Therefore,\" which signals a conclusion drawn from preceding evidence. However, G is placed before H (\"A thoughtful combination of both may often provide the strongest learning experience\"), which presents an additional, synthesizing idea that should logically precede or accompany the final conclusion. The placement of G before H disrupts the logical flow from evidence → synthesis → final recommendation.\n\n**Primary reason for verdict:**\n\nThe solution fails the **COMPLETENESS** requirement by omitting sentence H entirely. Additionally, the sequencing of the final sentences violates logical coherence, as the concluding statement (G) appears before the synthesizing statement (H) that should inform it.",
+          "tokenUsage": {
+            "total": 880,
+            "prompt": 613,
+            "completion": 267,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 915,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:36 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476556-B4WFd1ijg9fFxHyQUYN8"
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Apply",
+            "difficulty": "B2-C1",
+            "course_outcome": "Arrange sentences into a coherent comparison-based paragraph.",
+            "error_type": "Incomplete solution",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. In traditional classrooms, students often receive immediate clarification from teachers.\nB. Both methods of learning offer valuable opportunities, but they support learners in different ways.\nC. Online courses, on the other hand, allow learners to manage their time more independently.\nD. This independence can be useful for motivated students who already have strong study habits.\nE. However, it may be challenging for those who need regular reminders and external structure.\nF. Classroom learning can also encourage social interaction through group tasks and discussion.\nG. Therefore, the choice between the two should depend on the learner's needs, not on assumptions about which method is superior.\nH. A thoughtful combination of both may often provide the strongest learning experience.\n",
+            "solution": "B-A-F-C-D-E-G",
+            "explanation": "The flawed solution omits sentence H, so it does not arrange all eight sentences. The paragraph also ends less completely because the final balanced conclusion is missing."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: the proposed solution only lists 7 sentences (B-A-F-C-D-E-G) and omits sentence H entirely, failing to arrange all 8 given sentences. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 8,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Apply",
+          "difficulty": "B2-C1",
+          "course_outcome": "Arrange sentences into a coherent comparison-based paragraph.",
+          "error_type": "Incomplete solution",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. In traditional classrooms, students often receive immediate clarification from teachers.\nB. Both methods of learning offer valuable opportunities, but they support learners in different ways.\nC. Online courses, on the other hand, allow learners to manage their time more independently.\nD. This independence can be useful for motivated students who already have strong study habits.\nE. However, it may be challenging for those who need regular reminders and external structure.\nF. Classroom learning can also encourage social interaction through group tasks and discussion.\nG. Therefore, the choice between the two should depend on the learner's needs, not on assumptions about which method is superior.\nH. A thoughtful combination of both may often provide the strongest learning experience.\n",
+          "solution": "B-A-F-C-D-E-G",
+          "explanation": "The flawed solution omits sentence H, so it does not arrange all eight sentences. The paragraph also ends less completely because the final balanced conclusion is missing."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:36 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476556-B4WFd1ijg9fFxHyQUYN8"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "The output starts with 'VALID' but the rubric specifies that the correct verdict should be 'INVALID' due to genuine ambiguity in sentence ordering (sentence C can plausibly follow either A or E). The output fails to recognize this flaw in the paragraph sequencing question.",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "The output starts with 'VALID' but the rubric specifies that the correct verdict should be 'INVALID' due to genuine ambiguity in sentence ordering (sentence C can plausibly follow either A or E). The output fails to recognize this flaw in the paragraph sequencing question.",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 768,
+            "prompt": 672,
+            "completion": 96,
+            "cached": 0,
+            "numRequests": 1
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: sentence C (the graph example) is equally plausible immediately after A or after E, since it could illustrate either false claims or evaluating evidence, creating genuine ambiguity in the correct order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+              },
+              "pass": false,
+              "score": 0,
+              "reason": "The output starts with 'VALID' but the rubric specifies that the correct verdict should be 'INVALID' due to genuine ambiguity in sentence ordering (sentence C can plausibly follow either A or E). The output fails to recognize this flaw in the paragraph sequencing question.",
+              "tokensUsed": {
+                "total": 768,
+                "prompt": 672,
+                "completion": 96,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-encoding": "gzip",
+                    "content-type": "application/json",
+                    "date": "Fri, 26 Jun 2026 12:22:41 GMT",
+                    "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                    "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                    "server": "cloudflare",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-generation-id": "gen-1782476560-d7K925NU1q6tWIlqvu77"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nVALID\\n\\nNo flaws detected.\\n\\n**Explanation of validation:**\\n\\n1. **CORRECT ORDER** — The sequence follows a clear logical progression:\\n   - D introduces the problem (information overload via digital platforms)\\n   - F identifies a consequence (confusion of popularity with accuracy)\\n   - A explains why this happens (false claims influence opinion more easily)\\n   - C provides a concrete example (misleading graphs)\\n   - B states the solution needed (critical thinking as essential skill)\\n   - E explains what critical thinking involves (checking sources, comparing evidence, recognizing manipulation)\\n   - G prescribes action (schools should teach evaluation skills)\\n   - H concludes with the benefit (responsible public participation)\\n   \\n   The flow moves from problem → consequence → explanation → example → solution → elaboration → implementation → outcome. All transitions are smooth and logically motivated.\\n\\n2. **COMPLETENESS** — All eight sentences (A through H) are included exactly once with no omissions or repetitions.\\n\\n3. **SENTENCE COUNT MATCH** — Eight sentences provided; eight sentences used in solution. ✓\\n\\n4. **UNIQUENESS** — The ordering is well-determined by discourse markers and logical dependencies. Sentence D must open (establishes context). F logically follows D (consequence of exposure). A explains F. C exemplifies A. B introduces the solution after the problem is established. E elaborates on B. G follows naturally from E (pedagogical implication). H concludes with outcomes. No substantially different valid ordering exists.\\n\\n5. **INTERNAL CONSISTENCY** — All sentences cohere around the central argument: digital information overload creates vulnerability to misinformation, therefore critical thinking skills must be taught. No contradictions or irrelevancies detected.\\n</Output>\\n<Rubric>\\nThe validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: sentence C (the graph example) is equally plausible immediately after A or after E, since it could illustrate either false claims or evaluating evidence, creating genuine ambiguity in the correct order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\\n\\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "87d7f790-9b86-491e-a970-55c96298ef27",
+        "latencyMs": 995,
+        "namedScores": {},
+        "prompt": {
+          "raw": "You are an expert English language assessment validator specialising in Paragraph Sequencing questions.\n\nBloom's Level: Analyze\nDifficulty: C1\nCourse Outcome: Arrange sentences to build an argument with examples and conclusion.\n\nQUESTION (unordered sentences):\nArrange the following sentences to form a coherent paragraph.\n\nA. This makes it easier for false or exaggerated claims to influence public opinion.\nB. The ability to question information has become an essential skill.\nC. For example, a graph may look convincing even if the data behind it is incomplete.\nD. People are exposed to more information than ever before through social media, websites, and messaging apps.\nE. Critical thinking helps individuals check sources, compare evidence, and recognize emotional manipulation.\nF. Without this skill, readers may confuse popularity with accuracy.\nG. Schools should therefore teach students not only to find information but also to evaluate it.\nH. Such training prepares learners to participate more responsibly in public discussion.\n\nPROPOSED SOLUTION ORDER: D-F-A-B-E-C-G-H\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "label": "prompt.txt: You are an expert English language assessment validator specialising in {{question_type}} questions.\n\nBloom's Level: {{bloom_level}}\nDifficulty: {{difficulty}}\nCourse Outcome: {{course_outcome}}\n\nQUESTION (unordered sentences):\n{{question}}\n\nPROPOSED SOLUTION ORDER: {{solution}}\n\nValidate this Paragraph Sequencing question by checking ALL of the following:\n1. CORRECT ORDER — Does the proposed order arrange the sentences into a single logically coherent paragraph? Pay special attention to explicit temporal/chronological markers (e.g. \"earlier times\", \"later\", \"today\", \"at first\") — if the proposed order places a \"later\" event before the \"earlier\" event it refers back to, this is a clear flaw, even if each individual sentence pair seems locally connected.\n2. COMPLETENESS — Does the solution include every given lettered sentence exactly once, with no omissions and no repeats?\n3. SENTENCE COUNT MATCH — Does the number of sentences listed in the question match the number used in the solution (no extra or missing sentences)?\n4. UNIQUENESS — Is there a genuinely ambiguous choice between two or more substantially different orderings, where the text's discourse markers and references do not clearly favor one over the other? Do NOT flag a question as invalid merely because you can imagine a marginally smoother alternative phrasing or transition — only flag it if there is real, unresolvable ambiguity about which sentence should come next at some point in the sequence.\n5. INTERNAL CONSISTENCY — Are all sentences logically consistent with each other (no sentence contradicts or is irrelevant to the paragraph's topic)?\n\nRespond in exactly this format:\nLine 1: the single word VALID or INVALID (nothing else on this line).\nThen on following lines: list any specific flaws found (or state \"No flaws detected\" if valid), and explain the primary reason for your verdict.",
+          "config": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          }
+        },
+        "promptId": "72e1e5b762bd45934b7e61f31409242cb3b028129345e8d221469c9ef5e2cc12",
+        "promptIdx": 0,
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "label": ""
+        },
+        "response": {
+          "output": "VALID\n\nNo flaws detected.\n\n**Explanation of validation:**\n\n1. **CORRECT ORDER** — The sequence follows a clear logical progression:\n   - D introduces the problem (information overload via digital platforms)\n   - F identifies a consequence (confusion of popularity with accuracy)\n   - A explains why this happens (false claims influence opinion more easily)\n   - C provides a concrete example (misleading graphs)\n   - B states the solution needed (critical thinking as essential skill)\n   - E explains what critical thinking involves (checking sources, comparing evidence, recognizing manipulation)\n   - G prescribes action (schools should teach evaluation skills)\n   - H concludes with the benefit (responsible public participation)\n   \n   The flow moves from problem → consequence → explanation → example → solution → elaboration → implementation → outcome. All transitions are smooth and logically motivated.\n\n2. **COMPLETENESS** — All eight sentences (A through H) are included exactly once with no omissions or repetitions.\n\n3. **SENTENCE COUNT MATCH** — Eight sentences provided; eight sentences used in solution. ✓\n\n4. **UNIQUENESS** — The ordering is well-determined by discourse markers and logical dependencies. Sentence D must open (establishes context). F logically follows D (consequence of exposure). A explains F. C exemplifies A. B introduces the solution after the problem is established. E elaborates on B. G follows naturally from E (pedagogical implication). H concludes with outcomes. No substantially different valid ordering exists.\n\n5. **INTERNAL CONSISTENCY** — All sentences cohere around the central argument: digital information overload creates vulnerability to misinformation, therefore critical thinking skills must be taught. No contradictions or irrelevancies detected.",
+          "tokenUsage": {
+            "total": 983,
+            "prompt": 601,
+            "completion": 382,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0
+            }
+          },
+          "cached": false,
+          "latencyMs": 995,
+          "finishReason": "stop",
+          "guardrails": {
+            "flagged": false
+          },
+          "metadata": {
+            "http": {
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                "access-control-allow-origin": "*",
+                "access-control-expose-headers": "X-Generation-Id,cf-ray",
+                "cf-ray": "[REDACTED]",
+                "connection": "keep-alive",
+                "content-encoding": "gzip",
+                "content-type": "application/json",
+                "date": "Fri, 26 Jun 2026 12:22:37 GMT",
+                "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+                "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+                "server": "cloudflare",
+                "transfer-encoding": "chunked",
+                "x-content-type-options": "nosniff",
+                "x-generation-id": "gen-1782476556-3kU0HT2G8m4T3RaalPuw"
+              }
+            }
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "vars": {
+            "question_type": "Paragraph Sequencing",
+            "bloom_level": "Analyze",
+            "difficulty": "C1",
+            "course_outcome": "Arrange sentences to build an argument with examples and conclusion.",
+            "error_type": "Ambiguous placement",
+            "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. This makes it easier for false or exaggerated claims to influence public opinion.\nB. The ability to question information has become an essential skill.\nC. For example, a graph may look convincing even if the data behind it is incomplete.\nD. People are exposed to more information than ever before through social media, websites, and messaging apps.\nE. Critical thinking helps individuals check sources, compare evidence, and recognize emotional manipulation.\nF. Without this skill, readers may confuse popularity with accuracy.\nG. Schools should therefore teach students not only to find information but also to evaluate it.\nH. Such training prepares learners to participate more responsibly in public discussion.\n",
+            "solution": "D-F-A-B-E-C-G-H",
+            "explanation": "The item is flawed because sentence C can logically appear either immediately after A as an example of false claims or after E as an example of evaluating evidence. This creates ambiguity in the expected sequence."
+          },
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "The validator is evaluating a FLAWED Paragraph Sequencing question. Flaw: sentence C (the graph example) is equally plausible immediately after A or after E, since it could illustrate either false claims or evaluating evidence, creating genuine ambiguity in the correct order. The correct verdict is INVALID. Mark PASS if the output starts with INVALID. Mark FAIL if it starts with VALID.\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "id": "openai:chat:anthropic/claude-haiku-4-5",
+              "config": {
+                "apiBaseUrl": "https://openrouter.ai/api/v1",
+                "temperature": 0
+              }
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 9,
+        "vars": {
+          "question_type": "Paragraph Sequencing",
+          "bloom_level": "Analyze",
+          "difficulty": "C1",
+          "course_outcome": "Arrange sentences to build an argument with examples and conclusion.",
+          "error_type": "Ambiguous placement",
+          "question": "Arrange the following sentences to form a coherent paragraph.\n\nA. This makes it easier for false or exaggerated claims to influence public opinion.\nB. The ability to question information has become an essential skill.\nC. For example, a graph may look convincing even if the data behind it is incomplete.\nD. People are exposed to more information than ever before through social media, websites, and messaging apps.\nE. Critical thinking helps individuals check sources, compare evidence, and recognize emotional manipulation.\nF. Without this skill, readers may confuse popularity with accuracy.\nG. Schools should therefore teach students not only to find information but also to evaluate it.\nH. Such training prepares learners to participate more responsibly in public discussion.\n",
+          "solution": "D-F-A-B-E-C-G-H",
+          "explanation": "The item is flawed because sentence C can logically appear either immediately after A as an example of false claims or after E as an example of evaluating evidence. This creates ambiguity in the expected sequence."
+        },
+        "metadata": {
+          "http": {
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "access-control-expose-headers": "X-Generation-Id,cf-ray",
+              "cf-ray": "[REDACTED]",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-type": "application/json",
+              "date": "Fri, 26 Jun 2026 12:22:37 GMT",
+              "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+              "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+              "server": "cloudflare",
+              "transfer-encoding": "chunked",
+              "x-content-type-options": "nosniff",
+              "x-generation-id": "gen-1782476556-3kU0HT2G8m4T3RaalPuw"
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      }
+    ],
+    "stats": {
+      "successes": 7,
+      "failures": 3,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 6038,
+        "completion": 3614,
+        "cached": 0,
+        "total": 9652,
+        "numRequests": 10,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 7434,
+          "prompt": 6435,
+          "completion": 999,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 18552,
+      "evaluationDurationMs": 18552
+    }
+  },
+  "config": {
+    "description": "Eval — Paragraph Sequencing",
+    "prompts": [
+      "file://prompt.txt"
+    ],
+    "providers": [
+      {
+        "id": "openai:chat:anthropic/claude-haiku-4-5",
+        "config": {
+          "apiBaseUrl": "https://openrouter.ai/api/v1",
+          "temperature": 0
+        }
+      }
+    ],
+    "tests": [
+      "file://eval_tests.yaml",
+      "file://testing_tests.yaml"
+    ],
+    "defaultTest": {
+      "options": {
+        "provider": {
+          "id": "openai:chat:anthropic/claude-haiku-4-5",
+          "config": {
+            "apiBaseUrl": "https://openrouter.ai/api/v1",
+            "temperature": 0
+          }
+        }
+      }
+    },
+    "outputPath": [
+      "results.json"
+    ],
+    "extensions": []
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.121.11",
+    "nodeVersion": "v25.8.2",
+    "platform": "win32",
+    "arch": "x64",
+    "exportedAt": "2026-06-26T12:22:43.603Z",
+    "evaluationCreatedAt": "2026-06-26T12:22:23.704Z"
+  }
+}
